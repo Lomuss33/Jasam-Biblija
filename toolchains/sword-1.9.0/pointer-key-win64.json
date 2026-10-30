@@ -1,0 +1,61 @@
+{
+  "change": "Use uintptr_t for pointer-sentinel comparisons; avoid 64-bit Windows pointer truncation.",
+  "changes": [
+    {
+      "after_sha256": "96698767010ee5d01a3b7f30ed98053be0d3788997ae0468ed0029c26134bf99",
+      "before_sha256": "634eb54ccc31c7c0772d9d59e4567421a106d4459aa45f0578d3876915f6ef1c",
+      "file": "src/modules/filters/utf8nfkd.cpp"
+    },
+    {
+      "after_sha256": "ceef9dda3e165eeda10fd2731ed12f2bc1385ad3354970b73b1e1d5d28574520",
+      "before_sha256": "e6c2cab5a1fa34da0996a57371a5265bafd99c2d99a91b421a6173d0d8369fb3",
+      "file": "src/modules/filters/latin1utf16.cpp"
+    },
+    {
+      "after_sha256": "7dc92161d4a938f2dda04afc88e053a46bab7d3053d37b1c77a370b52bc882e2",
+      "before_sha256": "a638502d4a90c05485435ee41f9ea8a5c0e57679887f519710dcba611b56e512",
+      "file": "src/modules/filters/scsuutf8.cpp"
+    },
+    {
+      "after_sha256": "3fe80e2ec071ac71bbea21c89ba234f2c6e6faf8f0cea6b0bcf60b109e4c5c44",
+      "before_sha256": "0f99252c939acae5db1e8920303311616ffbabd2efe5a926be093e0958c87a8f",
+      "file": "src/modules/filters/utf8latin1.cpp"
+    },
+    {
+      "after_sha256": "af9a9c8222ef194c8c813da8d5f9a3d4f99e8454af0b9ec91430c495a483b70b",
+      "before_sha256": "742898a14a40f36f4a8a4d93f5c2d1562279f6abb91da17041fc823be84edd84",
+      "file": "src/modules/filters/utf8nfc.cpp"
+    },
+    {
+      "after_sha256": "3eaf907703f05a355c6bd48467dcd200e3f6a7531addb1f3ea9338730ccb0c6e",
+      "before_sha256": "ad8072c7e9114dc8cb44fe112424db88ee606835467d24eaa2ef3938ec21f3cc",
+      "file": "src/modules/filters/utf8arshaping.cpp"
+    },
+    {
+      "after_sha256": "e9ca4db9d392372c8f890153b8125c27579ec816fd45e841adbd8bbce68abb3b",
+      "before_sha256": "af8deb3b6bf3b09bce017a1ac9381d470c005d79c1d448d556ff7ef7eeb26a06",
+      "file": "src/modules/filters/utf8bidireorder.cpp"
+    },
+    {
+      "after_sha256": "f9caeb95d787442675f770f9bc44154115cd8de1274654544a8767910ebe6f73",
+      "before_sha256": "374ffa4fa0ea10f9dd33394243ebc00b74775bd1d7a6d56152cce0d986c42c30",
+      "file": "src/modules/filters/latin1utf8.cpp"
+    },
+    {
+      "after_sha256": "2c8106579579fc5f7ef371c01343146e83e81d8ac2b75e68ba4b491a7d7fbc42",
+      "before_sha256": "cccc40d74c63f35955e4832a956f0b8332b2f78e8bafb843704d0a7a356e6c41",
+      "file": "src/modules/filters/utf8scsu.cpp"
+    },
+    {
+      "after_sha256": "721d96e25a9cbd0ed371f794f940058aa95e1bee7d9b00e340be26f4c7b51570",
+      "before_sha256": "a558c7962343c477e0e8dfdb500beea966f00017cfbe047aad8fda689317da4f",
+      "file": "src/modules/filters/cipherfil.cpp"
+    },
+    {
+      "after_sha256": "174dc25a0d4992037ac28655f46f73579d7cccd8a64977a3d719417e9c426906",
+      "before_sha256": "1968894e441ed373886b1f2e7dcdd0291c392f1e0c76155d7ae118c91d784e7a",
+      "file": "src/modules/filters/utf8html.cpp"
+    }
+  ],
+  "license": "GPL-2.0-only (upstream derivative patch)"
+}

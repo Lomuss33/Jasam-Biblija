@@ -1,0 +1,51 @@
+{
+  "access_date": "2026-10-30",
+  "author": "Codex-assisted primary archive inspection; no human legal or scholarly sign-off",
+  "historical_scripture_artifacts_downloaded": 0,
+  "limitations": [
+    "Br is an unexpanded upload credit, not an identified transcriber.",
+    "Tomas is credited on the separate Ekavian notice only.",
+    "Automated updated-version wording does not establish an earlier artifact or textual revision.",
+    "The unnamed 2014 texts are not a proven ancestor of the 2017 module."
+  ],
+  "messages_sent": 0,
+  "method": "Three individually inspected public mailing-list posts; independently written metadata summaries; no scripture or bulk archive acquisition.",
+  "observations": [
+    {
+      "evidence_id": "cw-upload-ijek-2017",
+      "snapshot": {
+        "content_scope": "metadata_only",
+        "private_cache_path": "sources/evidence/private/cw-upload-ijek-2017.html",
+        "sha256": "f2af1e420b1933906afb0925bb36eba92b53b90e253cd1de900396d6ff9c1d05",
+        "size_bytes": 2641
+      },
+      "summary": "2017-06-18 automated SrKDIjekav upload notice; body credits Br and calls the upload an updated version. No exact edition, full credited identity, role or source file supplied.",
+      "url": "https://crosswire.org/pipermail/sword-devel/2017-June/044747.html"
+    },
+    {
+      "evidence_id": "cw-upload-ekav-2017",
+      "snapshot": {
+        "content_scope": "metadata_only",
+        "private_cache_path": "sources/evidence/private/cw-upload-ekav-2017.html",
+        "sha256": "59bc2737e413d766317219c440c66c1239d75184f7c37482bda4474540029b30",
+        "size_bytes": 2669
+      },
+      "summary": "Separate 2017-06-18 SrKDEkavski notice credits Tomas. It is not a credit or lineage witness for SrKDIjekav.",
+      "url": "https://crosswire.org/pipermail/sword-devel/2017-June/044746.html"
+    },
+    {
+      "evidence_id": "cw-two-serbian-2014",
+      "snapshot": {
+        "content_scope": "metadata_only",
+        "private_cache_path": "sources/evidence/private/cw-two-serbian-2014.html",
+        "sha256": "8937a64e19c2c26b953d6521022084f8f4cd9c866e1d940b40c92de8912018d2",
+        "size_bytes": 3126
+      },
+      "summary": "2014-12-27 development post discusses two Serbian texts intended for beta, without module identifiers, base editions or transcribers. No direct link to either 2017 artifact is established.",
+      "url": "https://crosswire.org/pipermail/sword-devel/2014-December/041834.html"
+    }
+  ],
+  "result": "Digital lineage and exact edition remain unresolved; source not cleared.",
+  "schema_version": "1.0",
+  "source_status_changed": false
+}

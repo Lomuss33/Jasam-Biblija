@@ -1,0 +1,7 @@
+{
+  "after_sha256": "90432351c685d7cd8ddc48cbb4e0b1f8d0a03c95b26890bc5e9fea1a1536d41a",
+  "before_sha256": "60ff43f6a1a6dd63fd3ecc30ab9c75e2b4928bc8d242df55d0d3b836fd31b906",
+  "change": "Omit legacy FTP fallback implementation from this local offline diagnostic build. Network installer targets are not built or supported.",
+  "file": "cmake/muxsources.cmake",
+  "license": "GPL-2.0-only (upstream derivative patch)"
+}

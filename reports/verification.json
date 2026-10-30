@@ -1,0 +1,147 @@
+{
+  "checks": [
+    {
+      "command": "python -m ruff check src tests",
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    {
+      "command": "python -m ruff format --check src tests",
+      "exit_code": 0,
+      "output": "23 files already formatted"
+    },
+    {
+      "command": "python -m jeb validate --stage schemas",
+      "exit_code": 0,
+      "output": {
+        "valid_schemas": 14
+      }
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "duration_seconds": 16.661,
+      "exit_code": 0,
+      "passed": true,
+      "tests": 85
+    },
+    {
+      "command": "python -m jeb sources audit",
+      "exit_code": 0,
+      "output": {
+        "admitted_count": 0,
+        "corpus_kind": "historical",
+        "jurisdictions": [
+          "DE",
+          "US",
+          "BA",
+          "HR",
+          "RS",
+          "ME"
+        ],
+        "schema_version": "1.0",
+        "sources": [
+          {
+            "admitted": false,
+            "reason": "needs_review",
+            "source_id": "crosswire-srkdijekav",
+            "status": "needs_review"
+          },
+          {
+            "admitted": false,
+            "reason": "needs_review",
+            "source_id": "ebible-srp1865",
+            "status": "needs_review"
+          },
+          {
+            "admitted": false,
+            "reason": "excluded",
+            "source_id": "ebible-hrv-saric",
+            "status": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "command": "python -m jeb demo",
+      "exit_code": 0,
+      "output": {
+        "exports": [
+          {
+            "maturity": "preview",
+            "output": "exports/reader.json",
+            "sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+            "source_segments": 4,
+            "synthetic": true
+          },
+          {
+            "maturity": "preview",
+            "output": "exports/reader.md",
+            "sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+            "source_segments": 4,
+            "synthetic": true
+          }
+        ],
+        "owner_approvals": 0,
+        "proposal_id": "fixture-modernize-v1-40b78ddaba32f24c",
+        "real_biblical_segments": 0,
+        "search_matches": 1,
+        "synthetic_only": true,
+        "synthetic_segments": 4,
+        "workspace": "dist/demo"
+      }
+    }
+  ],
+  "date_utc": "2026-10-30T16:38:41.121142+00:00",
+  "dependencies": {
+    "PyYAML": "6.0.3",
+    "attrs": "26.1.0",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1",
+    "ruff": "0.14.3",
+    "setuptools": "80.9.0",
+    "wheel": "0.45.1"
+  },
+  "implementation_inputs_sha256": "a8a00e6e9478b02959df67439b9a614f4c216e7c71a8a643a3b64427b9dd9d29",
+  "limitations": [
+    "Local checks performed on Windows only. Windows/Linux GitHub Actions workflow has not run remotely.",
+    "No real source cleared or ingested; no professional or owner editorial approval.",
+    "No live historical source fetch/adapter tested. Mock acquisition tests and synthetic parser fixtures only."
+  ],
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3",
+  "source_audit": {
+    "admitted_count": 0,
+    "corpus_kind": "historical",
+    "jurisdictions": [
+      "DE",
+      "US",
+      "BA",
+      "HR",
+      "RS",
+      "ME"
+    ],
+    "schema_version": "1.0",
+    "sources": [
+      {
+        "admitted": false,
+        "reason": "needs_review",
+        "source_id": "crosswire-srkdijekav",
+        "status": "needs_review"
+      },
+      {
+        "admitted": false,
+        "reason": "needs_review",
+        "source_id": "ebible-srp1865",
+        "status": "needs_review"
+      },
+      {
+        "admitted": false,
+        "reason": "excluded",
+        "source_id": "ebible-hrv-saric",
+        "status": "excluded"
+      }
+    ]
+  }
+}

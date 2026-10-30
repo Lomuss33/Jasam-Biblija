@@ -1,0 +1,64 @@
+{
+  "checks": [
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import jeb; print(jeb.__file__)"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Lib\\site-packages\\jeb\\__init__.py"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "validate",
+        "--stage",
+        "schemas"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"valid_schemas\": 15\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "inspect",
+        "--source",
+        "crosswire-srkdijekav"
+      ],
+      "exit_code": 0,
+      "output": {
+        "admitted": false,
+        "blocking_checks": 16,
+        "metadata_sha256": "67d1b3237912e57bb8c8300237dfdd39720f91b5e61faaa7ab568c315335fa1e"
+      }
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "demo"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"exports\": [\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.json\",\n      \"sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    },\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.md\",\n      \"sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    }\n  ],\n  \"owner_approvals\": 0,\n  \"proposal_id\": \"fixture-modernize-v1-40b78ddaba32f24c\",\n  \"real_biblical_segments\": 0,\n  \"search_matches\": 1,\n  \"synthetic_only\": true,\n  \"synthetic_segments\": 4,\n  \"workspace\": \"dist/demo\"\n}"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "output": "No broken requirements found."
+    }
+  ],
+  "date": "2026-10-30",
+  "kind": "Isolated installed-wheel smoke checks using existing clean hash-locked environment",
+  "wheel_sha256": "3e86ee791343625fedbbb6f8d1e1ea365e911c8d56d4266eb7ae79b067c214d8"
+}

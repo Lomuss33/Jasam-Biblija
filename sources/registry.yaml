@@ -1,0 +1,277 @@
+schema_version: '1.0'
+sources:
+- source_id: crosswire-srkdijekav
+  title: Serbian Bible Daničić-Karadžić Ijekavski
+  kind: historical
+  status: needs_review
+  contributors:
+  - name: Vuk Stefanović Karadžić
+    role: Historical New Testament translator
+    death_year: 1864
+    reference_url: https://www.enciklopedija.hr/clanak/karadzic-vuk-stefanovic
+  - name: Đuro Daničić
+    role: Historical Old Testament translator
+    death_year: 1882
+    reference_url: https://www.sanu.ac.rs/en/member/danicic-djura/
+  edition:
+    year: null
+    publication_place: null
+    revisions:
+    - Module metadata version 1.0; only first-release history dated 2017-06-18. No print-edition or revision linkage
+      established.
+    transcriber: null
+    provider: CrossWire
+  landing_url: https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=SrKDIjekav
+  download_urls:
+  - https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/SrKDIjekav.zip
+  rights_statement_url: https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=SrKDIjekav
+  access_date: '2026-10-30'
+  rights_by_jurisdiction:
+    DE:
+      status: unresolved
+      basis: Preliminary law/provider inspection only; exact digital edition and all related rights remain unverified.
+      evidence_urls:
+      - https://www.gesetze-im-internet.de/urhg/BJNR012730965.html
+    US:
+      status: unresolved
+      basis: Preliminary law/provider inspection only; exact digital edition and all related rights remain unverified.
+      evidence_urls:
+      - https://www.copyright.gov/title17/92chap3.html
+    BA:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://www.ipr.gov.ba/en/intellectual-property/copyright-and-related-rights/faq-on-copyright-and-related-rights
+    HR:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html
+    RS:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://www.zis.gov.rs/en/rights/copyright-and-related-rights/
+    ME:
+      status: not_assessed
+      basis: Official legislation landing page located, but the current linked Word law was not inspected. Research
+        fetch returned unsupported application/msword; current consolidation and exact-artifact rights unresolved.
+      evidence_urls:
+      - https://www.gov.me/en/article/copyright-and-related-rights-3
+  included_material:
+  - Biblical text expected; actual entries not inspected.
+  - OSIS headings declared by OSISHeadings filter; content and rights not audited.
+  - NoParagraphs feature declared; original layout fidelity unverified.
+  - Notes, introductions, apparatus, maps and database/digitization components not inventoried.
+  language: Serbian
+  script: Unverified for actual corpus; Lang=sr in provider metadata does not establish script.
+  regional_characteristics: Ijekavski is the provider label; actual module passages have not been inspected.
+  canon_coverage: Provider offers wider Bible; only GEN, MAT, MRK, LUK, JHN could enter this project
+  versification: Calvin
+  artifact:
+    format: sword
+    provider_revision: 1.0 (2017-06-18)
+    sha256: null
+    size_bytes: null
+    expected_identity: Unverified exact digital representation of credited historical translation; edition must
+      be established before admission
+  evidence_summary: 'Separate provider configuration inspected: zText compressed module, OSIS markup, Calvin versification,
+    OSISHeadings and NoParagraphs. TextSource absent; exact print edition, transcriber and alteration history remain
+    unresolved. Metadata hash is not a corpus ZIP hash. Provider news corroborates module release date, not historical
+    edition fidelity.'
+  assessment:
+    author: Codex-assisted preliminary research; no human legal sign-off
+    review_date: '2026-10-30'
+    limitations:
+    - Provider label alone is insufficient.
+    - Edition/revision, database, transcription and apparatus rights unresolved.
+    - No global clearance and no automatic unlock.
+    - HR, BA and RS have only preliminary official general-term guidance; no exact-artifact clearance.
+    - ME legislation link located; law text and current consolidation not assessed.
+    - Only 910-byte configuration metadata retrieved and hashed; no biblical-text artifact downloaded.
+    - Config has no TextSource or exact print-edition linkage. CopyrightContact is a provider-declared contact,
+      not proven transcriber or rights owner.
+    - Calvin is provider-declared versification only; mappings and actual content fidelity unverified.
+  credits: 'Historical translation: Vuk Stefanović Karadžić (New Testament), Đuro Daničić (Old Testament); exact
+    digital edition credits pending.'
+  license_notice: Provider public-domain designation recorded as evidence, not adopted as a project clearance.
+- source_id: ebible-srp1865
+  title: Sveto Pismo ili Biblija (Serbian DK Bible, Latin)
+  kind: historical
+  status: needs_review
+  contributors:
+  - name: Vuk Stefanović Karadžić
+    role: Historical New Testament translator
+    death_year: 1864
+    reference_url: https://www.enciklopedija.hr/clanak/karadzic-vuk-stefanovic
+  - name: Đuro Daničić
+    role: Historical Old Testament translator
+    death_year: 1882
+    reference_url: https://www.sanu.ac.rs/en/member/danicic-djura/
+  edition:
+    year: null
+    publication_place: null
+    revisions: []
+    transcriber: null
+    provider: eBible.org
+  landing_url: https://ebible.org/find/show.php?id=srp1865
+  download_urls:
+  - https://ebible.org/Scriptures/srp1865_usfm.zip
+  rights_statement_url: https://ebible.org/srp1865/copyright.htm
+  access_date: '2026-10-30'
+  rights_by_jurisdiction:
+    DE:
+      status: unresolved
+      basis: Preliminary law/provider inspection only; exact digital edition and all related rights remain unverified.
+      evidence_urls:
+      - https://www.gesetze-im-internet.de/urhg/BJNR012730965.html
+    US:
+      status: unresolved
+      basis: Preliminary law/provider inspection only; exact digital edition and all related rights remain unverified.
+      evidence_urls:
+      - https://www.copyright.gov/title17/92chap3.html
+    BA:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://www.ipr.gov.ba/en/intellectual-property/copyright-and-related-rights/faq-on-copyright-and-related-rights
+    HR:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html
+    RS:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://www.zis.gov.rs/en/rights/copyright-and-related-rights/
+    ME:
+      status: not_assessed
+      basis: Official legislation landing page located, but the current linked Word law was not inspected. Research
+        fetch returned unsupported application/msword; current consolidation and exact-artifact rights unresolved.
+      evidence_urls:
+      - https://www.gov.me/en/article/copyright-and-related-rights-3
+  included_material:
+  - Provider presents biblical text; exact headings, notes and apparatus not audited
+  language: Serbian
+  script: Latin in displayed eBible sample; exact artifact uninspected
+  regional_characteristics: Displayed Genesis 1 sample is Ekavian, including beše and svetlost; a full artifact
+    assessment is pending.
+  canon_coverage: Provider offers wider Bible; only GEN, MAT, MRK, LUK, JHN could enter this project
+  versification: null
+  artifact:
+    format: usfm
+    provider_revision: 2026-01-03 (provider metadata; not an artifact hash)
+    sha256: null
+    size_bytes: null
+    expected_identity: Unverified exact digital representation of credited historical translation; edition must
+      be established before admission
+  evidence_summary: Provider records NT publication Vienna 1847, OT addition 1867 and complete Bible 1868; this
+    differs in dating emphasis from CrossWire. The tag srp1865 does not establish exact edition or Ijekavian character.
+    USFM link was discovered in the provider catalogue, not guessed.
+  assessment:
+    author: Codex-assisted preliminary research; no human legal sign-off
+    review_date: '2026-10-30'
+    limitations:
+    - No source artifact downloaded or hashed.
+    - Provider label alone is insufficient.
+    - Edition/revision, database, transcription and apparatus rights unresolved.
+    - No global clearance and no automatic unlock.
+    - HR, BA and RS have only preliminary official general-term guidance; no exact-artifact clearance.
+    - ME legislation link located; law text and current consolidation not assessed.
+  credits: 'Historical translation: Vuk Stefanović Karadžić (New Testament), Đuro Daničić (Old Testament); exact
+    digital edition credits pending.'
+  license_notice: Provider public-domain designation recorded as evidence, not adopted as a project clearance.
+- source_id: ebible-hrv-saric
+  title: Sveta Biblija (Ivan Šarić)
+  kind: historical
+  status: excluded
+  contributors:
+  - name: Ivan Šarić
+    role: Translator; death year from owner-supplied research lead, independent confirmation pending
+    death_year: 1960
+    reference_url: https://hrcak.srce.hr/file/38594
+  edition:
+    year: 1941-1942 (research lead; exact eBible edition unresolved)
+    publication_place: null
+    revisions: []
+    transcriber: null
+    provider: eBible.org
+  landing_url: https://ebible.org/hrv/copyright.htm
+  download_urls: []
+  rights_statement_url: https://ebible.org/hrv/copyright.htm
+  access_date: '2026-10-30'
+  rights_by_jurisdiction:
+    DE:
+      status: excluded
+      basis: Provider label conflicts with ordinary DE life-plus-70 calculation for supplied death year 1960; exclude
+        pending focused review, with no date-based automatic admission.
+      evidence_urls:
+      - https://www.gesetze-im-internet.de/urhg/BJNR012730965.html
+      - https://ebible.org/hrv/copyright.htm
+      - https://hrcak.srce.hr/file/38594
+    US:
+      status: unresolved
+      basis: Preliminary law/provider inspection only; exact digital edition and all related rights remain unverified.
+      evidence_urls:
+      - https://www.copyright.gov/title17/92chap3.html
+    BA:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://www.ipr.gov.ba/en/intellectual-property/copyright-and-related-rights/faq-on-copyright-and-related-rights
+    HR:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html
+    RS:
+      status: unresolved
+      basis: Official general term guidance inspected; exact edition, digital provenance, related rights, moral-rights
+        obligations and intended modernization use remain unresolved. No publication clearance.
+      evidence_urls:
+      - https://www.zis.gov.rs/en/rights/copyright-and-related-rights/
+    ME:
+      status: not_assessed
+      basis: Official legislation landing page located, but the current linked Word law was not inspected. Research
+        fetch returned unsupported application/msword; current consolidation and exact-artifact rights unresolved.
+      evidence_urls:
+      - https://www.gov.me/en/article/copyright-and-related-rights-3
+  included_material:
+  - Provider presents biblical text; exact headings, notes and apparatus not audited
+  language: Croatian
+  script: Unverified for exact artifact
+  regional_characteristics: Not inspected; excluded before ingestion.
+  canon_coverage: Provider offers wider Bible; only GEN, MAT, MRK, LUK, JHN could enter this project
+  versification: null
+  artifact:
+    format: unknown
+    provider_revision: null
+    sha256: null
+    size_bytes: null
+    expected_identity: Unverified exact digital representation of credited historical translation; edition must
+      be established before admission
+  evidence_summary: Provider labels public domain; supplied bibliography places Šarić death in 1960. Under ordinary
+    DE life plus 70 and year-end calculation the original translation would enter public domain on 2031-01-01, subject
+    to applicable details. The supplied scholarly PDF could not be fetched (HTTP 418); death year is not independently
+    verified here. Later revisions remain separate.
+  assessment:
+    author: Codex-assisted preliminary research; no human legal sign-off
+    review_date: '2026-10-30'
+    limitations:
+    - No source artifact downloaded or hashed.
+    - Provider label alone is insufficient.
+    - Edition/revision, database, transcription and apparatus rights unresolved.
+    - No global clearance and no automatic unlock.
+    - HR, BA and RS have only preliminary official general-term guidance; no exact-artifact clearance.
+    - ME legislation link located; law text and current consolidation not assessed.
+  credits: Ivan Šarić; reference metadata only; no wording ingested.
+  license_notice: Provider public-domain designation recorded as evidence, not adopted as a project clearance.

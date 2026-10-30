@@ -1,0 +1,438 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:registry:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "access_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "artifact": {
+            "additionalProperties": false,
+            "properties": {
+              "expected_identity": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "format": {
+                "enum": [
+                  "sword",
+                  "usfm",
+                  "jeb-transcript-v1",
+                  "unknown"
+                ]
+              },
+              "provider_revision": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sha256": {
+                "anyOf": [
+                  {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "size_bytes": {
+                "anyOf": [
+                  {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "format",
+              "provider_revision",
+              "sha256",
+              "size_bytes",
+              "expected_identity"
+            ],
+            "type": "object"
+          },
+          "assessment": {
+            "additionalProperties": false,
+            "properties": {
+              "author": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "limitations": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "review_date": {
+                "anyOf": [
+                  {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "author",
+              "review_date",
+              "limitations"
+            ],
+            "type": "object"
+          },
+          "canon_coverage": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "contributors": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "death_year": {
+                  "anyOf": [
+                    {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "name": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "reference_url": {
+                  "anyOf": [
+                    {
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "role": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "role",
+                "death_year",
+                "reference_url"
+              ],
+              "type": "object"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "credits": {
+            "type": "string"
+          },
+          "download_urls": {
+            "items": {
+              "format": "uri",
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "edition": {
+            "additionalProperties": false,
+            "properties": {
+              "provider": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "publication_place": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "revisions": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array"
+              },
+              "transcriber": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "year": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "year",
+              "publication_place",
+              "revisions",
+              "transcriber",
+              "provider"
+            ],
+            "type": "object"
+          },
+          "evidence_summary": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "included_material": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "kind": {
+            "enum": [
+              "historical",
+              "synthetic",
+              "contextual"
+            ]
+          },
+          "landing_url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "language": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "license_notice": {
+            "type": "string"
+          },
+          "regional_characteristics": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rights_by_jurisdiction": {
+            "additionalProperties": {
+              "additionalProperties": false,
+              "properties": {
+                "basis": {
+                  "type": "string"
+                },
+                "evidence_urls": {
+                  "items": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "maxItems": 100000,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "status": {
+                  "enum": [
+                    "verified",
+                    "unresolved",
+                    "excluded",
+                    "not_assessed"
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "basis",
+                "evidence_urls"
+              ],
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "rights_statement_url": {
+            "anyOf": [
+              {
+                "format": "uri",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "script": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "verified_for_scope",
+              "excluded",
+              "needs_review"
+            ]
+          },
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "versification": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "source_id",
+          "title",
+          "kind",
+          "status",
+          "contributors",
+          "edition",
+          "landing_url",
+          "download_urls",
+          "rights_statement_url",
+          "access_date",
+          "rights_by_jurisdiction",
+          "included_material",
+          "language",
+          "script",
+          "regional_characteristics",
+          "canon_coverage",
+          "versification",
+          "artifact",
+          "evidence_summary",
+          "assessment",
+          "credits",
+          "license_notice"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "sources"
+  ],
+  "type": "object"
+}

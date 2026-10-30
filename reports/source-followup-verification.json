@@ -1,0 +1,140 @@
+{
+  "checks": [
+    {
+      "command": "python -m ruff check src tests",
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    {
+      "command": "python -m ruff format --check src tests",
+      "exit_code": 0,
+      "output": "25 files already formatted"
+    },
+    {
+      "command": "python -m jeb validate --stage schemas",
+      "exit_code": 0,
+      "output": {
+        "valid_schemas": 15
+      }
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 17.761,
+      "tests": 98
+    },
+    {
+      "command": "python -m jeb sources audit",
+      "exit_code": 0,
+      "output": {
+        "admitted_count": 0,
+        "corpus_kind": "historical",
+        "jurisdictions": [
+          "DE",
+          "US",
+          "BA",
+          "HR",
+          "RS",
+          "ME"
+        ],
+        "schema_version": "1.0",
+        "sources": [
+          {
+            "admitted": false,
+            "reason": "needs_review",
+            "source_id": "crosswire-srkdijekav",
+            "status": "needs_review"
+          },
+          {
+            "admitted": false,
+            "reason": "needs_review",
+            "source_id": "ebible-srp1865",
+            "status": "needs_review"
+          },
+          {
+            "admitted": false,
+            "reason": "excluded",
+            "source_id": "ebible-hrv-saric",
+            "status": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "command": "python -m jeb demo",
+      "exit_code": 0,
+      "output": {
+        "exports": [
+          {
+            "maturity": "preview",
+            "output": "exports/reader.json",
+            "sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+            "source_segments": 4,
+            "synthetic": true
+          },
+          {
+            "maturity": "preview",
+            "output": "exports/reader.md",
+            "sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+            "source_segments": 4,
+            "synthetic": true
+          }
+        ],
+        "owner_approvals": 0,
+        "proposal_id": "fixture-modernize-v1-40b78ddaba32f24c",
+        "real_biblical_segments": 0,
+        "search_matches": 1,
+        "synthetic_only": true,
+        "synthetic_segments": 4,
+        "workspace": "dist/demo"
+      }
+    }
+  ],
+  "date_utc": "2026-10-30T16:57:50.886025+00:00",
+  "historical_scripture_artifacts_downloaded": 0,
+  "implementation_and_assessment_sha256": "05b267a8aa70199fdfae731842ade4e8f1a8aa9059c9d30084a32b5821ae3ae4",
+  "limitations": [
+    "No historical scripture acquired, compared or parsed.",
+    "Metadata and general-term research do not clear any source.",
+    "No SWORD binaries executed; no professional legal review.",
+    "Windows local checks only; CI not run remotely; no message sent."
+  ],
+  "owner_text_approvals": 0,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3",
+  "real_biblical_segments": 0,
+  "source_audit": {
+    "admitted_count": 0,
+    "corpus_kind": "historical",
+    "jurisdictions": [
+      "DE",
+      "US",
+      "BA",
+      "HR",
+      "RS",
+      "ME"
+    ],
+    "schema_version": "1.0",
+    "sources": [
+      {
+        "admitted": false,
+        "reason": "needs_review",
+        "source_id": "crosswire-srkdijekav",
+        "status": "needs_review"
+      },
+      {
+        "admitted": false,
+        "reason": "needs_review",
+        "source_id": "ebible-srp1865",
+        "status": "needs_review"
+      },
+      {
+        "admitted": false,
+        "reason": "excluded",
+        "source_id": "ebible-hrv-saric",
+        "status": "excluded"
+      }
+    ]
+  }
+}

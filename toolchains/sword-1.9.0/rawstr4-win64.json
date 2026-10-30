@@ -1,0 +1,7 @@
+{
+  "after_sha256": "bfd9d9b25cc87caa0e2243730bfcac00f5277f75e3c98f7a6b8a1acf55ffa45b",
+  "before_sha256": "de5cc5c348a7a62f59d88610e0ef448ba837c12dd6b08292edeee9d2cbbbd0a8",
+  "change": "Replace two pointer-to-32-bit-long null checks with direct pointer comparisons on Windows x64. No permissive compiler flags.",
+  "file": "src/modules/common/rawstr4.cpp",
+  "license": "GPL-2.0-only (upstream derivative patch)"
+}

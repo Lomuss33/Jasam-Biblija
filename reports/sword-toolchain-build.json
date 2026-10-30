@@ -1,0 +1,105 @@
+{
+  "command": "python -m jeb toolchain build --archive dist/toolchains/sword-1.9.0/sword-1.9.0.tar.gz --output dist/sword-tools-rebuild --compiler C:/Strawberry/c/bin/g++.exe --c-compiler C:/Strawberry/c/bin/gcc.exe",
+  "commands": [
+    {
+      "arguments": [
+        "C:/Strawberry/c/bin\\g++.exe",
+        "--version"
+      ],
+      "label": "compiler-version",
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "C:\\Program Files\\CMake\\bin\\cmake.EXE",
+        "--version"
+      ],
+      "label": "cmake-version",
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "C:\\Program Files\\CMake\\bin\\cmake.EXE",
+        "-S",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\sword-1.9.0",
+        "-B",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\build",
+        "-G",
+        "Ninja",
+        "-DCMAKE_CXX_COMPILER=C:/Strawberry/c/bin\\g++.exe",
+        "-DCMAKE_C_COMPILER=C:/Strawberry/c/bin\\gcc.exe",
+        "-DCMAKE_INSTALL_PREFIX=C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\unused-install",
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_CXX_STANDARD=11",
+        "-DLIBSWORD_LIBRARY_TYPE=Static",
+        "-DSWORD_NO_CURL=Yes",
+        "-DSWORD_NO_ICU=Yes",
+        "-DSWORD_NO_BZIP2=Yes",
+        "-DSWORD_NO_XZ=Yes",
+        "-DSWORD_NO_CLUCENE=Yes",
+        "-DSWORD_USE_INTERNAL_ZLIB=Yes",
+        "-DCMAKE_DISABLE_FIND_PACKAGE_Regex=TRUE",
+        "-DSWORD_BUILD_TESTS=OFF",
+        "-DSWORD_BUILD_EXAMPLES=No",
+        "-DSWORD_BUILD_UTILS=Yes",
+        "-DCMAKE_C_FLAGS=-DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1"
+      ],
+      "label": "configure",
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "C:\\Program Files\\CMake\\bin\\cmake.EXE",
+        "--build",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\build",
+        "--parallel",
+        "4",
+        "--target",
+        "imp2vs",
+        "mod2imp",
+        "mod2osis"
+      ],
+      "label": "build",
+      "returncode": 0
+    },
+    {
+      "arguments": [
+        "C:/Strawberry/c/bin\\g++.exe",
+        "-std=c++11",
+        "-O2",
+        "-IC:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\sword-1.9.0\\include",
+        "-IC:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\build\\include",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\toolchains\\sword-1.9.0\\synthetic_probe.cpp",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\build\\libsword.a",
+        "-lws2_32",
+        "-o",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\sword-tools-rebuild\\build\\utilities\\jeb-synthetic-probe.exe"
+      ],
+      "label": "build-probe",
+      "returncode": 0
+    }
+  ],
+  "compiler_warnings_remain": true,
+  "date": "2026-10-30",
+  "native_binaries_distributed": false,
+  "omitted_android_symlinks": [
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/modules",
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/keys",
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/frontend",
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/biblesync",
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/utilfuns",
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/jni",
+    "sword-1.9.0/bindings/Android/SWORD/app/src/main/cpp/mgr"
+  ],
+  "platform": "Windows 11 x64",
+  "recorded_lock": "toolchains/sword-1.9.0/windows-rebuild.lock.json",
+  "source": {
+    "sha256": "42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a",
+    "size_bytes": 2606652,
+    "url": "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
+  },
+  "synthetic_only": true,
+  "toolchain_lock_sha256": "414938bb041356373d457fe77adeb353f60447af031d3d80c31257683cb8da67",
+  "warning_note": "Upstream integer/pointer and bundled regex warnings retained in native logs; no general engine audit or warning-free build claimed."
+}

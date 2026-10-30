@@ -1,0 +1,101 @@
+{
+  "$id": "urn:jeb:schema:sword-probe-entry:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "engine_osis": {
+      "maxLength": 65536,
+      "type": "string"
+    },
+    "entry_kind": {
+      "enum": [
+        "book_introduction",
+        "chapter_introduction",
+        "verse"
+      ]
+    },
+    "has_entry": {
+      "type": "boolean"
+    },
+    "link_scope": {
+      "const": "requested_keys_only"
+    },
+    "linked_to": {
+      "anyOf": [
+        {
+          "enum": [
+            "Gen.0.0",
+            "Gen.1.0",
+            "Gen.1.1",
+            "Gen.1.2",
+            "Gen.1.3",
+            "Gen.1.4",
+            "Gen.1.5",
+            "Gen.1.6",
+            "Gen.1.7",
+            "Matt.5.1"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "module_id": {
+      "const": "JEBSynthetic"
+    },
+    "osis_id": {
+      "enum": [
+        "Gen.0.0",
+        "Gen.1.0",
+        "Gen.1.1",
+        "Gen.1.2",
+        "Gen.1.3",
+        "Gen.1.4",
+        "Gen.1.5",
+        "Gen.1.6",
+        "Gen.1.7",
+        "Matt.5.1"
+      ]
+    },
+    "raw_length_bytes": {
+      "maximum": 65536,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scheme": {
+      "const": "Calvin"
+    },
+    "source_type": {
+      "const": "OSIS"
+    },
+    "stored_length_bytes": {
+      "maximum": 65536,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "stored_osis": {
+      "maxLength": 65536,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "module_id",
+    "scheme",
+    "source_type",
+    "osis_id",
+    "entry_kind",
+    "has_entry",
+    "linked_to",
+    "link_scope",
+    "raw_length_bytes",
+    "engine_osis",
+    "stored_length_bytes",
+    "stored_osis"
+  ],
+  "type": "object"
+}

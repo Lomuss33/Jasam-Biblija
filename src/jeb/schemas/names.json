@@ -1,0 +1,211 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:names:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "mappings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aliases": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "approval": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "content_sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "date": {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "human_attestation": {
+                    "const": true
+                  },
+                  "reviewer_id": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "reviewer_id",
+                  "date",
+                  "human_attestation",
+                  "content_sha256"
+                ],
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "attested_form_latin": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "competing_forms": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "display_form": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "entity_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "historical_form": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "historical_form_status": {
+            "enum": [
+              "attested",
+              "reconstructed",
+              "unknown"
+            ]
+          },
+          "mapping_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "rationale": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_language": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "approved",
+              "rejected"
+            ]
+          },
+          "transliteration_scheme": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "witness_locator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "witness_source_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mapping_id",
+          "entity_id",
+          "attested_form_latin",
+          "source_language",
+          "witness_source_id",
+          "witness_locator",
+          "historical_form",
+          "historical_form_status",
+          "competing_forms",
+          "display_form",
+          "transliteration_scheme",
+          "aliases",
+          "rationale",
+          "status",
+          "approval"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scheme_status": {
+      "const": "unapproved"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scheme_status",
+    "mappings"
+  ],
+  "type": "object"
+}

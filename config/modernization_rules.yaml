@@ -1,0 +1,10 @@
+schema_version: '1.0'
+automatic_rules:
+  - rule_id: A-NFC-LF-v1
+    change_class: A
+    operation: Unicode NFC and CRLF/CR to LF inside decoded main text
+    basis: Technical normalization authorized by the project prompt; never final passage approval.
+    excludes: Physical source bytes, source notes, headings, lexical substitutions, transliteration.
+approved_B_rules: []
+proposed_B_rules: []
+semantic_changes: proposal_only

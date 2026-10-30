@@ -1,0 +1,256 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:lock:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "absences": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "book_id": {
+                  "enum": [
+                    "GEN",
+                    "MAT",
+                    "MRK",
+                    "LUK",
+                    "JHN"
+                  ]
+                },
+                "chapter_label": {
+                  "anyOf": [
+                    {
+                      "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reason": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "outside_source_canon",
+                    "historically_absent",
+                    "not_downloaded",
+                    "parsing_failure",
+                    "untranslated"
+                  ]
+                },
+                "verse_label": {
+                  "anyOf": [
+                    {
+                      "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "book_id",
+                "chapter_label",
+                "verse_label",
+                "state",
+                "reason"
+              ],
+              "type": "object"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "complete_books": {
+            "items": {
+              "enum": [
+                "GEN",
+                "MAT",
+                "MRK",
+                "LUK",
+                "JHN"
+              ]
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "coverage": {
+            "additionalProperties": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "alternate_labels": {
+                    "items": {
+                      "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                      "type": "string"
+                    },
+                    "maxItems": 100000,
+                    "minItems": 0,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "chapter_label": {
+                    "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                    "type": "string"
+                  },
+                  "verse_label": {
+                    "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                    "type": "string"
+                  },
+                  "verse_labels": {
+                    "items": {
+                      "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                      "type": "string"
+                    },
+                    "maxItems": 100000,
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "chapter_label",
+                  "verse_label",
+                  "verse_labels",
+                  "alternate_labels"
+                ],
+                "type": "object"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "propertyNames": {
+              "enum": [
+                "GEN",
+                "MAT",
+                "MRK",
+                "LUK",
+                "JHN"
+              ]
+            },
+            "type": "object"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "format": "uri",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "format": {
+            "enum": [
+              "sword",
+              "usfm",
+              "jeb-transcript-v1"
+            ]
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "size_bytes": {
+            "maximum": 33554432,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "source_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "source_record_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_record_sha256",
+          "sha256",
+          "size_bytes",
+          "format",
+          "download_url",
+          "coverage",
+          "complete_books",
+          "absences"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "sources"
+  ],
+  "type": "object"
+}

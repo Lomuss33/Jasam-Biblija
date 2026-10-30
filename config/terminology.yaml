@@ -1,0 +1,34 @@
+schema_version: '1.0'
+policy_id: project-jekavica-v1
+status: owner_forms_recorded_inflections_pending
+selected_forms:
+  - {lemma: svjet, status: owner_selected, inflections: [], aliases: [svijet, svet]}
+  - {lemma: vrjeme, status: owner_selected, inflections: [], aliases: [vrijeme, vreme]}
+  - {lemma: covik, status: owner_selected_literal, inflections: [], aliases: [čovjek, čovek, čovik]}
+  - {lemma: razumit, status: owner_selected, inflections: [], aliases: [razumjeti, razumeti]}
+ordinary_diacritics: retained_provisionally
+unresolved:
+  - covik remains literal; approval of čovik or a wider no-diacritics policy is pending.
+  - Derived inflections need passage-level review; no automatic lemma replacement.
+contextual_vocabulary_proposals:
+  - context: Existing coherent hljeb usage in a passage
+    proposal: Retain hljeb throughout that passage unless meaning requires a reviewed change.
+    example: 'Synthetic language sample, not scripture: Podijeli hljeb za stolom.'
+    status: needs_owner_review
+  - context: Existing coherent kruh usage in a passage
+    proposal: Retain kruh throughout that passage unless meaning requires a reviewed change.
+    example: 'Synthetic language sample, not scripture: Podijeli kruh za stolom.'
+    status: needs_owner_review
+  - context: Newly written narrative without an established local term
+    proposal: Choose one term per passage at review; neither has an invented theological role.
+    example: Do not alternate hljeb and kruh randomly in the same scene.
+    status: needs_owner_review
+sensitive_terms:
+  - divine names and titles
+  - Spirit and spirit
+  - church and assembly
+  - baptism
+  - justification
+  - soul and life
+  - hell and underworld
+  - brothers and siblings

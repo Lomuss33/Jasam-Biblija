@@ -1,0 +1,71 @@
+{
+  "build_flags": [
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_CXX_STANDARD=11",
+    "-DLIBSWORD_LIBRARY_TYPE=Static",
+    "-DSWORD_NO_CURL=Yes",
+    "-DSWORD_NO_ICU=Yes",
+    "-DSWORD_NO_BZIP2=Yes",
+    "-DSWORD_NO_XZ=Yes",
+    "-DSWORD_NO_CLUCENE=Yes",
+    "-DSWORD_USE_INTERNAL_ZLIB=Yes",
+    "-DCMAKE_DISABLE_FIND_PACKAGE_Regex=TRUE",
+    "-DSWORD_BUILD_TESTS=OFF",
+    "-DSWORD_BUILD_EXAMPLES=No",
+    "-DSWORD_BUILD_UTILS=Yes",
+    "-DCMAKE_C_FLAGS=-DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1"
+  ],
+  "cmake_version": "cmake version 4.0.2",
+  "compiler": {
+    "command": "C:/Strawberry/c/bin\\g++.exe",
+    "sha256": "a30b01810e44edaa465cc51f1dffae6267cb0092cc653d71b881970866039cca",
+    "version": "g++.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0"
+  },
+  "executables": {
+    "imp2vs": {
+      "filename": "imp2vs.exe",
+      "sha256": "b9abb2da1ed4bd2e2e40a1fc037339a24c9f8fdae18781eaf3e4300773347a20",
+      "size_bytes": 1537738
+    },
+    "jeb-synthetic-probe": {
+      "filename": "jeb-synthetic-probe.exe",
+      "sha256": "4561049634ccf9cfcda350e1bc50b3cb2698a7b05c8937366d3e53eab36ff7dd",
+      "size_bytes": 1545441
+    },
+    "mod2imp": {
+      "filename": "mod2imp.exe",
+      "sha256": "2262e8dd042d5a69fef7859b1aa1b324333c3ee6b9e7eb9a034e5b9428a830c3",
+      "size_bytes": 2115493
+    },
+    "mod2osis": {
+      "filename": "mod2osis.exe",
+      "sha256": "810a654a3b524b533a9b687b95308d01658fac07c37ce826f085ceea601e1300",
+      "size_bytes": 2114463
+    }
+  },
+  "patches": [
+    {
+      "path": "toolchains/sword-1.9.0/rawstr4-win64.patch",
+      "sha256": "505f547283657d654a5776be8c3bb9bb037a58a541d03dcf80a4bf4adeb54ea4"
+    },
+    {
+      "path": "toolchains/sword-1.9.0/pointer-key-win64.patch",
+      "sha256": "e675fac404448ce5f6ca4c3aed7fe317d7d52a88fe062daebf2d4705fc55c6f5"
+    },
+    {
+      "path": "toolchains/sword-1.9.0/offline-no-ftp.patch",
+      "sha256": "5fafb519faa11c8311961f2de141fa382afd8ae765508a2fe97087e08c6cd2af"
+    }
+  ],
+  "platform": "windows",
+  "probe_source_sha256": "5d22ca8ab3114e1ccf3d87321977b6a60c5151fa68e5b558e9ce2c28f2b34aa6",
+  "purpose": "synthetic_diagnostic_only",
+  "schema_version": "1.0",
+  "source": {
+    "sha256": "42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a",
+    "size_bytes": 2606652,
+    "url": "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
+  },
+  "toolchain_id": "sword-1.9.0-jeb-offline-v1"
+}

@@ -1,0 +1,227 @@
+{
+  "$id": "urn:jeb:schema:toolchain-lock:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "build_flags": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "cmake_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "compiler": {
+      "additionalProperties": false,
+      "properties": {
+        "command": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "command",
+        "version",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "executables": {
+      "additionalProperties": false,
+      "properties": {
+        "imp2vs": {
+          "additionalProperties": false,
+          "properties": {
+            "filename": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "size_bytes": {
+              "maximum": 33554432,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "filename",
+            "sha256",
+            "size_bytes"
+          ],
+          "type": "object"
+        },
+        "jeb-synthetic-probe": {
+          "additionalProperties": false,
+          "properties": {
+            "filename": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "size_bytes": {
+              "maximum": 33554432,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "filename",
+            "sha256",
+            "size_bytes"
+          ],
+          "type": "object"
+        },
+        "mod2imp": {
+          "additionalProperties": false,
+          "properties": {
+            "filename": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "size_bytes": {
+              "maximum": 33554432,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "filename",
+            "sha256",
+            "size_bytes"
+          ],
+          "type": "object"
+        },
+        "mod2osis": {
+          "additionalProperties": false,
+          "properties": {
+            "filename": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "size_bytes": {
+              "maximum": 33554432,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "filename",
+            "sha256",
+            "size_bytes"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "imp2vs",
+        "mod2imp",
+        "mod2osis",
+        "jeb-synthetic-probe"
+      ],
+      "type": "object"
+    },
+    "patches": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "platform": {
+      "enum": [
+        "windows",
+        "linux"
+      ]
+    },
+    "probe_source_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "purpose": {
+      "const": "synthetic_diagnostic_only"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "size_bytes": {
+          "const": 2606652
+        },
+        "url": {
+          "const": "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
+        }
+      },
+      "required": [
+        "url",
+        "sha256",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "toolchain_id": {
+      "const": "sword-1.9.0-jeb-offline-v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "toolchain_id",
+    "purpose",
+    "platform",
+    "source",
+    "patches",
+    "probe_source_sha256",
+    "compiler",
+    "cmake_version",
+    "build_flags",
+    "executables"
+  ],
+  "type": "object"
+}

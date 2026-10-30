@@ -1,0 +1,430 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:annotation-response:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_authority": {
+      "const": "none"
+    },
+    "drafts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution": {
+            "additionalProperties": false,
+            "properties": {
+              "credit": {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "const": "ai_assisted_draft"
+              }
+            },
+            "required": [
+              "kind",
+              "credit"
+            ],
+            "type": "object"
+          },
+          "rationale": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "record": {
+            "additionalProperties": false,
+            "properties": {
+              "access_date": {
+                "anyOf": [
+                  {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "approval": {
+                "type": "null"
+              },
+              "bibliographic_details": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "book_id": {
+                "enum": [
+                  "GEN",
+                  "MAT",
+                  "MRK",
+                  "LUK",
+                  "JHN"
+                ]
+              },
+              "claim_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "depends_on": {
+                "additionalProperties": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "entity_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "evidence_category": {
+                "enum": [
+                  "primary_witness",
+                  "secondary_scholarship",
+                  "traditional_belief",
+                  "editorial_inference",
+                  "personal_reflection",
+                  "creative_adaptation"
+                ]
+              },
+              "evidence_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "layer": {
+                "enum": [
+                  "source_witness",
+                  "linguistic",
+                  "literary",
+                  "historical",
+                  "personal_reflection",
+                  "creative_adaptation"
+                ]
+              },
+              "locator": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "record_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "record_type": {
+                "enum": [
+                  "evidence",
+                  "claim",
+                  "annotation"
+                ]
+              },
+              "related_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "review_state": {
+                "const": "draft"
+              },
+              "schema_version": {
+                "const": "1.0"
+              },
+              "segment_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "selected_name_mapping_id": {
+                "type": "null"
+              },
+              "source_id": {
+                "anyOf": [
+                  {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "text": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "uncertainty": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "schema_version",
+              "record_id",
+              "record_type",
+              "book_id",
+              "layer",
+              "text",
+              "segment_ids",
+              "source_id",
+              "bibliographic_details",
+              "url",
+              "locator",
+              "access_date",
+              "evidence_category",
+              "evidence_ids",
+              "claim_ids",
+              "entity_ids",
+              "related_ids",
+              "selected_name_mapping_id",
+              "uncertainty",
+              "review_state",
+              "depends_on",
+              "approval"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "record",
+          "attribution",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "human_attestation": {
+      "const": false
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "drafts_proposed",
+              "no_draft"
+            ]
+          },
+          "rationale": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "record_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+              "type": "string"
+            },
+            "maxItems": 20,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "segment_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "text_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "segment_id",
+          "text_sha256",
+          "action",
+          "record_ids",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "maxLength": 2000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "packet_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    },
+    "packet_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "review_state": {
+      "const": "unreviewed"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    },
+    "task": {
+      "const": "annotate"
+    },
+    "tool": {
+      "additionalProperties": false,
+      "properties": {
+        "model_identifier": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string"
+        },
+        "reported_at": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "model_identifier",
+        "reported_at"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "packet_id",
+    "packet_sha256",
+    "source_id",
+    "tool",
+    "limitations",
+    "review_state",
+    "approval_authority",
+    "human_attestation",
+    "task",
+    "items",
+    "drafts"
+  ],
+  "type": "object"
+}

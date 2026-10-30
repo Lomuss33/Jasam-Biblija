@@ -1,0 +1,40 @@
+{
+  "commands_run_successfully": [
+    "python -m jeb --root dist/demo --synthetic review assist prepare --proposal fixture-modernize-v1-40b78ddaba32f24c --packet-id fixture-review-v1",
+    "python -m jeb --root dist/demo --synthetic review assist validate --input reports/review-assistance-synthetic-response.json",
+    "python -m jeb --root dist/demo --synthetic review assist import --input reports/review-assistance-synthetic-response.json",
+    "python -m jeb --root dist/demo --synthetic review assist report --input reports/review-assistance-synthetic-response.json --output reports/review-assistance.md"
+  ],
+  "date": "2026-10-30",
+  "historical_scripture_artifacts_downloaded": 0,
+  "kind": "Actual Codex review assistance on four original non-scripture fixture segments; no model API or human review",
+  "limitations": [
+    "The critique covers invented technical sentences only.",
+    "The replacement-verb question remains open; no wording was approved or changed.",
+    "Text equality and schema success are not scholarly or semantic verification."
+  ],
+  "original_linguistic_flag_retained": true,
+  "owner_text_approvals": 0,
+  "packet": {
+    "packet_sha256": "bcad69b64a11b7ddd9bc9178a014d89c3db98f6ed54fa711c6632f310bfecf7b",
+    "path": "dist/demo/data/review-assistance/fixture-review-v1/input.json",
+    "size_bytes": 32414
+  },
+  "proposal_unchanged": true,
+  "reader_sha256_after_critique": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+  "reader_unchanged": true,
+  "real_biblical_segments": 0,
+  "report": {
+    "path": "reports/review-assistance-synthetic.md",
+    "sha256": "18fd0f88e688ab1b17671d8147d4230988d40cb5d8f64dc35fc3a39e79ecc177"
+  },
+  "response": {
+    "approval_authority": "none",
+    "concern_items": 1,
+    "items": 4,
+    "path": "reports/review-assistance-synthetic-response.json",
+    "response_sha256": "4a86b521b1abe6d24e47971032e6ebbfd0f8752eba88f77f6a158e19ce2abbc2",
+    "review_state": "unreviewed"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,20 @@
+--- a/src/modules/common/rawstr4.cpp
++++ b/src/modules/common/rawstr4.cpp
+@@ -113,7 +113,7 @@
+ {
+ 	int size;
+ 	char ch;
+-	if ((unsigned long)datfd > 0) {
++	if (datfd != 0) {
+ 		datfd->seek(ioffset, SEEK_SET);
+ 		for (size = 0; datfd->read(&ch, 1) == 1; size++) {
+ 			if ((ch == '\\') || (ch == 10) || (ch == 13))
+@@ -147,7 +147,7 @@
+ {
+ 	SW_u32 offset;
+ 	
+-	if ((unsigned long)idxfd > 0) {
++	if (idxfd != 0) {
+ 		idxfd->seek(ioffset, SEEK_SET);
+ 
+ 		idxfd->read(&offset, 4);

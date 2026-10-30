@@ -1,0 +1,391 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:book:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "annotations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "annotation_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "content": {
+            "items": {
+              "$ref": "#/$defs/node"
+            },
+            "maxItems": 100000,
+            "minItems": 1,
+            "type": "array"
+          },
+          "kind": {
+            "enum": [
+              "heading",
+              "footnote",
+              "cross_reference",
+              "introduction"
+            ]
+          },
+          "origin": {
+            "const": "source"
+          },
+          "part_index": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "rights_source_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "segment_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "source_span": {
+            "additionalProperties": false,
+            "properties": {
+              "byte_end": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "byte_start": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "file": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "line": {
+                "minimum": 2,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "file",
+              "line",
+              "byte_start",
+              "byte_end"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "annotation_id",
+          "segment_id",
+          "kind",
+          "origin",
+          "rights_source_id",
+          "part_index",
+          "source_span",
+          "content"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "blocks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "block_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "paragraph",
+              "poetry"
+            ]
+          },
+          "level": {
+            "maximum": 4,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "segment_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "block_id",
+          "kind",
+          "level",
+          "segment_ids"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "book_id": {
+      "enum": [
+        "GEN",
+        "MAT",
+        "MRK",
+        "LUK",
+        "JHN"
+      ]
+    },
+    "corpus_kind": {
+      "enum": [
+        "historical",
+        "synthetic"
+      ]
+    },
+    "expected_coverage_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "segments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "book_id": {
+            "enum": [
+              "GEN",
+              "MAT",
+              "MRK",
+              "LUK",
+              "JHN"
+            ]
+          },
+          "editorial_status": {
+            "const": "source_only"
+          },
+          "normalization_changes": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "after": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "before": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "change_class": {
+                  "const": "A"
+                },
+                "rule_id": {
+                  "const": "A-NFC-LF-v1"
+                }
+              },
+              "required": [
+                "rule_id",
+                "change_class",
+                "before",
+                "after"
+              ],
+              "type": "object"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "normalized_text": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "original_record": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "segment_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "source_reference": {
+            "additionalProperties": false,
+            "properties": {
+              "alternate_labels": {
+                "items": {
+                  "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "chapter_label": {
+                "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                "type": "string"
+              },
+              "scheme": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "verse_label": {
+                "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                "type": "string"
+              },
+              "verse_labels": {
+                "items": {
+                  "pattern": "^[0-9]+[a-z]?(?:-[0-9]+[a-z]?)?$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "scheme",
+              "chapter_label",
+              "verse_label",
+              "verse_labels",
+              "alternate_labels"
+            ],
+            "type": "object"
+          },
+          "source_span": {
+            "additionalProperties": false,
+            "properties": {
+              "byte_end": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "byte_start": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "file": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "line": {
+                "minimum": 2,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "file",
+              "line",
+              "byte_start",
+              "byte_end"
+            ],
+            "type": "object"
+          },
+          "source_text": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "segment_id",
+          "book_id",
+          "source_reference",
+          "source_span",
+          "original_record",
+          "source_text",
+          "normalized_text",
+          "normalization_changes",
+          "editorial_status"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "versification_scheme": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "corpus_kind",
+    "book_id",
+    "source_id",
+    "source_sha256",
+    "versification_scheme",
+    "expected_coverage_sha256",
+    "segments",
+    "blocks",
+    "annotations"
+  ],
+  "type": "object"
+}

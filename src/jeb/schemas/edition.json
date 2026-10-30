@@ -1,0 +1,106 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:edition:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "corpus_kind": {
+      "enum": [
+        "historical",
+        "synthetic"
+      ]
+    },
+    "edition_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+      "type": "string"
+    },
+    "jurisdictions": {
+      "items": {
+        "pattern": "^[A-Z]{2}$",
+        "type": "string"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "language_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_preface_approved": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "edition_id",
+    "version",
+    "title",
+    "corpus_kind",
+    "jurisdictions",
+    "language_policy",
+    "release_preface_approved"
+  ],
+  "type": "object"
+}

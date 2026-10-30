@@ -1,0 +1,17 @@
+$$$Gen.0.0
+<div type="introduction"><p>Synthetic book introduction, not scripture.</p></div>
+$$$Gen.1.0
+<title type="chapter">Synthetic chapter introduction, not a verse.</title>
+$$$Gen.1.1
+<title type="section">Probni naslov</title><p>Sintetički covik ne mijenja 2 znaka.<note type="study">Probna <hi type="italic">ugniježđena <hi type="bold">bilješka</hi></hi>.</note></p>
+$$$Gen.1.2
+<lg><l level="1">Probni svjet i vrjeme.</l><l level="2">Želimo razumit zapis: č, ć, đ, š, ž.</l></lg>
+$$$Gen.1.3-4
+<p>Jedan izmišljeni zapis pokriva dvije probne oznake.</p>
+$$$Gen.1.5
+<p>Drugi sintetički zapis:
+novi red s <reference osisRef="Matt.5.1">probnom vezom</reference>.</p>
+$$$Gen.1.7
+<p>Jedan izmišljeni zapis pokriva dvije probne oznake.</p>
+$$$Matt.5.1
+<p>Synthetic final entry, not scripture.</p>

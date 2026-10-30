@@ -1,0 +1,5 @@
+schema_version: '1.0'
+profile_id: five-book
+books: [GEN, MAT, MRK, LUK, JHN]
+decision_date: '2026-10-30'
+decision_text: 'The owner approved only Genesis/Postanak (GEN), Matthew (MAT), Mark (MRK), Luke (LUK), and John (JHN). This approves inclusion, not editorial wording, commentary, source rights, or publication. Further books need a separate explicit owner decision with date and decision text.'

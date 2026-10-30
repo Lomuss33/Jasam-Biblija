@@ -1,0 +1,22 @@
+{
+  "access_date": "2026-10-30",
+  "adjustments": "Line endings LF; MIT copyright template fields filled. No substantive license text rewritten.",
+  "files": [
+    {
+      "file": "LICENSES/CC0-1.0.txt",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "file": "LICENSES/MIT.txt",
+      "sha256": "80c52a1dec4c49ca6ecaf8389baa4776355f148be6da8fe677d1e7f7aaf690da"
+    },
+    {
+      "adjustments": "None; complete upstream LICENSE bytes copied unchanged, including CrossWire copyright introduction.",
+      "archive_member": "sword-1.9.0/LICENSE",
+      "file": "LICENSES/SWORD-GPL-2.0.txt",
+      "sha256": "c096cba60fe0ed5dc72df920e7b095cc6c5ab964ff6167de53df212e76643802",
+      "source_archive_sha256": "42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a",
+      "source_url": "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
+    }
+  ]
+}

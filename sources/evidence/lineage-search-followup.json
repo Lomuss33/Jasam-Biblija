@@ -1,0 +1,35 @@
+{
+  "access_date": "2026-10-30",
+  "author": "Codex-assisted bounded public discovery; no human legal review",
+  "historical_scripture_artifacts_downloaded": 0,
+  "leads_and_limits": [
+    {
+      "result": "Research open failed as inaccessible; no source-tree contents inspected.",
+      "url": "https://crosswire.org/svn/"
+    },
+    {
+      "result": "Research open failed as inaccessible; no package identity or rights conclusion adopted.",
+      "url": "https://packages.gentoo.org/packages/app-dicts/sword-SrKDIjekav"
+    },
+    {
+      "result": "Research open failed as inaccessible; no third-party checksum substituted for an acquired artifact identity.",
+      "url": "https://gitweb.gentoo.org/repo/gentoo.git/tree/app-dicts/sword-SrKDIjekav/Manifest"
+    },
+    {
+      "result": "Research open failed as inaccessible; no biblical payload downloaded.",
+      "url": "https://gitweb.gentoo.org/repo/gentoo.git/tree/app-dicts/sword-SrKDIjekav/sword-SrKDIjekav-1.0.ebuild"
+    }
+  ],
+  "messages_sent": 0,
+  "next_independent_work": "Manual review-assistance packets for the existing isolated synthetic proposal; source lineage remains unresolved.",
+  "outcome": "No new inspectable primary record establishing print ancestry, original digital file or transcriber role was found in this bounded pass. This is not an exhaustive-search claim.",
+  "queries": [
+    "SrKDIjekav TextSource",
+    "SrKDIjekav MOD",
+    "site:crosswire.org Serbian source file",
+    "SrKDIjekav Br excluding previously inspected downstream displays"
+  ],
+  "schema_version": "1.0",
+  "source_dossier_changed": false,
+  "source_registry_changed": false
+}

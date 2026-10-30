@@ -1,0 +1,347 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:proposal:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "propose",
+              "no_change",
+              "needs_review"
+            ]
+          },
+          "change_class": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "diff": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "flags": {
+            "items": {
+              "enum": [
+                "linguistic",
+                "meaning_sensitive",
+                "number_changed",
+                "negation_changed",
+                "name_changed",
+                "protected_form_changed"
+              ]
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "name_mapping_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+              "type": "string"
+            },
+            "maxItems": 100000,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "proposed_text": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rationale": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "segment_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "source_text_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "text_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "segment_id",
+          "action",
+          "proposed_text",
+          "change_class",
+          "rationale",
+          "flags",
+          "evidence_ids",
+          "name_mapping_ids",
+          "text_sha256",
+          "source_text_sha256",
+          "diff"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "packet_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "policy_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "proposal_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "response": {
+      "additionalProperties": false,
+      "properties": {
+        "batch_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "enum": [
+                  "propose",
+                  "no_change",
+                  "needs_review"
+                ]
+              },
+              "change_class": {
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "evidence_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "flags": {
+                "items": {
+                  "enum": [
+                    "linguistic",
+                    "meaning_sensitive",
+                    "number_changed",
+                    "negation_changed",
+                    "name_changed",
+                    "protected_form_changed"
+                  ]
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "name_mapping_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "maxItems": 100000,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "proposed_text": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "rationale": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "segment_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "segment_id",
+              "action",
+              "proposed_text",
+              "change_class",
+              "rationale",
+              "flags",
+              "evidence_ids",
+              "name_mapping_ids"
+            ],
+            "type": "object"
+          },
+          "maxItems": 100000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "packet_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "tool": {
+          "additionalProperties": false,
+          "properties": {
+            "model_identifier": {
+              "anyOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "name": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "reported_at": {
+              "format": "date",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "model_identifier",
+            "reported_at"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "batch_id",
+        "packet_sha256",
+        "tool",
+        "items"
+      ],
+      "type": "object"
+    },
+    "response_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "review_state": {
+      "const": "proposed"
+    },
+    "schema_version": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "response_sha256",
+    "response",
+    "packet_sha256",
+    "policy_sha256",
+    "items",
+    "review_state"
+  ],
+  "type": "object"
+}

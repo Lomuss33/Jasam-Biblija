@@ -1,0 +1,74 @@
+{
+  "after_manual_indexing": [
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "sources",
+        "research",
+        "validate",
+        "--input",
+        "data/source-research/cw-submission-history-01/returned.json"
+      ],
+      "exit_code": 2,
+      "expected_rejection": true,
+      "stderr": "jeb: Stale or substituted research source/dossier, scope, policy, prompt or output schema"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "sources",
+        "research",
+        "prepare",
+        "--source",
+        "crosswire-srkdijekav",
+        "--packet-id",
+        "cw-lineage-followup-01"
+      ],
+      "exit_code": 0,
+      "output": {
+        "corpus_permission": false,
+        "output": "data/source-research/cw-lineage-followup-01/input.json",
+        "packet_sha256": "f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28",
+        "questions": 5
+      }
+    }
+  ],
+  "all_five_dossier_checks": "unresolved",
+  "date": "2026-10-30",
+  "historical_scripture_artifacts_downloaded": 0,
+  "imported_response": {
+    "leads": 3,
+    "path": "data/source-research/cw-submission-history-01/responses/6dbc911f3d156493be491b357b5c2aa8d425201aa14260d73e9ac5c59aa41ceb.json",
+    "questions": 5,
+    "response_sha256": "6dbc911f3d156493be491b357b5c2aa8d425201aa14260d73e9ac5c59aa41ceb",
+    "review_state": "unreviewed"
+  },
+  "initial_commands_run_successfully": [
+    "python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-submission-history-01",
+    "python -m jeb sources research validate --input data/source-research/cw-submission-history-01/returned.json",
+    "python -m jeb sources research import --input data/source-research/cw-submission-history-01/returned.json",
+    "python -m jeb sources research report --input data/source-research/cw-submission-history-01/returned.json --output reports/crosswire-submission-review.md"
+  ],
+  "initial_packet": {
+    "path": "data/source-research/cw-submission-history-01/input.json",
+    "sha256": "f90572c5ae1f469854dc413b3bfd4b999380cc640dd348cea974eb266dbe8fbe",
+    "size_bytes": 31855
+  },
+  "kind": "Actual metadata-only packet preparation, validated staging and explicit manual dossier indexing; no automatic source clearance",
+  "manual_dossier_update": "Only independently inspected archive metadata was indexed separately by Codex; no automated import mutation, verified check or human review occurred.",
+  "owner_text_approvals": 0,
+  "production_lock_empty": true,
+  "ready_followup_packet": {
+    "corpus_permission": false,
+    "output": "data/source-research/cw-lineage-followup-01/input.json",
+    "packet_sha256": "f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28",
+    "questions": 5
+  },
+  "real_biblical_segments": 0,
+  "review_report": "reports/crosswire-submission-review.md",
+  "schema_version": "1.0",
+  "source_registry_unchanged": true,
+  "warning": "The historical response/review report records an earlier dossier snapshot. Validation now correctly rejects it as stale. Use the fresh follow-up packet for further work."
+}

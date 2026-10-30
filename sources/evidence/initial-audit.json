@@ -1,0 +1,98 @@
+{
+  "access_date": "2026-10-30",
+  "author": "Codex-assisted preliminary inspection; no human legal review",
+  "checks": [
+    {
+      "locator": "Module identity/version, About, Distribution License, download link",
+      "observed": "Provider names historical translators and public-domain distribution; Ijekavski label and version 1.0 dated 2017-06-18. Exact artifact not inspected.",
+      "result": "needs_review",
+      "url": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=SrKDIjekav"
+    },
+    {
+      "locator": "Discovered through module download verification page",
+      "observed": "Research fetch reported unsupported application/zip. No historical payload downloaded or hashed; legal/edition gate remains unresolved.",
+      "result": "not_ingested",
+      "url": "https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/SrKDIjekav.zip"
+    },
+    {
+      "locator": "Catalogue format links and revision metadata",
+      "observed": "Actual USFM URL discovered; provider revision 2026-01-03. Tag alone is not edition or dialect verification.",
+      "result": "needs_review",
+      "url": "https://ebible.org/find/show.php?id=srp1865"
+    },
+    {
+      "locator": "Catalogue USFM hyperlink",
+      "observed": "Research fetch reported unsupported application/zip. No raw payload ingested.",
+      "result": "not_ingested",
+      "url": "https://ebible.org/Scriptures/srp1865_usfm.zip"
+    },
+    {
+      "locator": "Genesis 1 displayed sample",
+      "observed": "Limited sample uses Latin script and Ekavian forms; full artifact not assessed. No passage wording copied into corpus.",
+      "result": "metadata_observation_only",
+      "url": "https://ebible.org/srp1865/GEN01.htm"
+    },
+    {
+      "locator": "Translator/edition/rights metadata",
+      "observed": "Provider public-domain designation and historical dating; exact digital edition and related rights unresolved.",
+      "result": "needs_review",
+      "url": "https://ebible.org/srp1865/copyright.htm"
+    },
+    {
+      "locator": "Translation identification and rights label",
+      "observed": "Public-domain label conflicts with ordinary DE calculation for owner-supplied 1960 death year; source excluded.",
+      "result": "excluded",
+      "url": "https://ebible.org/hrv/copyright.htm"
+    },
+    {
+      "locator": "Supplied scholarly bibliography lead",
+      "observed": "HTTP 418 from research fetch. No death-date fact independently verified from this PDF in this session.",
+      "result": "unavailable",
+      "url": "https://hrcak.srce.hr/file/38594"
+    },
+    {
+      "locator": "Related scholarly lead found through search",
+      "observed": "HTTP 418 from research fetch. Not used as verified article content.",
+      "result": "unavailable",
+      "url": "https://hrcak.srce.hr/file/38593"
+    },
+    {
+      "locator": "Sections 23, 64, 69, 70, 71 and related context",
+      "observed": "Full official act accessible after individual section 64/70 URL fetches timed out. Preliminary inspection, not legal sign-off or completed edition assessment.",
+      "result": "preliminary_only",
+      "url": "https://www.gesetze-im-internet.de/urhg/BJNR012730965.html"
+    },
+    {
+      "locator": "Duration chapter",
+      "observed": "Official duration provisions inspected; foreign-edition facts and exact artifact unresolved.",
+      "result": "preliminary_only",
+      "url": "https://www.copyright.gov/title17/92chap3.html"
+    },
+    {
+      "locator": "Death year in biographical header",
+      "observed": "Death year 1864. Calendar-date differences and other historical/political claims not adopted.",
+      "result": "lifespan_reference",
+      "url": "https://www.enciklopedija.hr/clanak/karadzic-vuk-stefanovic"
+    },
+    {
+      "locator": "Biographical header",
+      "observed": "Death in Zagreb, 17 November 1882. Does not establish rights in modern digital files.",
+      "result": "lifespan_reference",
+      "url": "https://www.sanu.ac.rs/en/member/danicic-djura/"
+    }
+  ],
+  "countries_not_assessed": [
+    "BA",
+    "HR",
+    "RS",
+    "ME"
+  ],
+  "countries_preliminarily_inspected": [
+    "DE",
+    "US"
+  ],
+  "historical_artifacts_downloaded": 0,
+  "method": "Provider metadata and official legal web inspection; independently written summaries only",
+  "production_locks": 0,
+  "schema_version": "1.0"
+}

@@ -1,0 +1,288 @@
+{
+  "admission_blockers": [
+    {
+      "code": "source_not_verified",
+      "detail": "Source status is needs_review."
+    },
+    {
+      "code": "missing_edition_year",
+      "detail": "Exact source edition year is not established."
+    },
+    {
+      "code": "missing_edition_publication_place",
+      "detail": "Exact source edition publication_place is not established."
+    },
+    {
+      "code": "missing_edition_transcriber",
+      "detail": "Exact source edition transcriber is not established."
+    },
+    {
+      "code": "unresolved_exact_edition",
+      "detail": "No provider link from this module to a specific historical print edition. An 1868 catalogue lead is not a demonstrated ancestor."
+    },
+    {
+      "code": "unresolved_digital_provenance",
+      "detail": "TextSource absent; digital transcriber, source file, correction history and later alterations unknown."
+    },
+    {
+      "code": "unresolved_component_rights",
+      "detail": "Actual biblical text, headings, notes, introductions, apparatus, maps and database/digitization components not inventoried or cleared across configured countries."
+    },
+    {
+      "code": "unresolved_versification_fidelity",
+      "detail": "Calvin declared in config, but exact GEN/MAT/MRK/LUK/JHN mappings and linked/empty/bridge entries not inspected. NoParagraphs cannot prove historical paragraph fidelity."
+    },
+    {
+      "code": "unresolved_adapter",
+      "detail": "Pinned SWORD 1.9.0 built and tested only with original synthetic data. Stock mod2imp emitted linked text without link identity; mod2osis omitted introductions and labelled Calvin as KJV. A bounded stored-byte/link probe works for the fixed fixture, but no historical module or production adapter fidelity has been evaluated."
+    },
+    {
+      "code": "unresolved_rights_DE",
+      "detail": "Exact-artifact rights remain unverified for DE."
+    },
+    {
+      "code": "unresolved_rights_US",
+      "detail": "Exact-artifact rights remain unverified for US."
+    },
+    {
+      "code": "unresolved_rights_BA",
+      "detail": "Exact-artifact rights remain unverified for BA."
+    },
+    {
+      "code": "unresolved_rights_HR",
+      "detail": "Exact-artifact rights remain unverified for HR."
+    },
+    {
+      "code": "unresolved_rights_RS",
+      "detail": "Exact-artifact rights remain unverified for RS."
+    },
+    {
+      "code": "unresolved_rights_ME",
+      "detail": "Exact-artifact rights remain unverified for ME."
+    },
+    {
+      "code": "missing_lock",
+      "detail": "No reviewed corpus artifact/coverage lock exists."
+    }
+  ],
+  "admission_error": "Source crosswire-srkdijekav: needs_review; ingestion blocked",
+  "admitted": false,
+  "assessment": {
+    "assessor": "Codex-assisted source research; no human legal or scholarly sign-off",
+    "checked_at": "2026-10-30",
+    "checks": {
+      "adapter": {
+        "evidence_ids": [
+          "cw-export-limit",
+          "cw-config-doc",
+          "jeb-synthetic-sword-evaluation"
+        ],
+        "status": "unresolved",
+        "summary": "Pinned SWORD 1.9.0 built and tested only with original synthetic data. Stock mod2imp emitted linked text without link identity; mod2osis omitted introductions and labelled Calvin as KJV. A bounded stored-byte/link probe works for the fixed fixture, but no historical module or production adapter fidelity has been evaluated."
+      },
+      "component_rights": {
+        "evidence_ids": [
+          "cw-config",
+          "hr-law",
+          "ba-guidance",
+          "rs-guidance",
+          "me-law-link"
+        ],
+        "status": "unresolved",
+        "summary": "Actual biblical text, headings, notes, introductions, apparatus, maps and database/digitization components not inventoried or cleared across configured countries."
+      },
+      "digital_provenance": {
+        "evidence_ids": [
+          "cw-config",
+          "cw-release-news"
+        ],
+        "status": "unresolved",
+        "summary": "TextSource absent; digital transcriber, source file, correction history and later alterations unknown."
+      },
+      "exact_edition": {
+        "evidence_ids": [
+          "cw-config",
+          "ia-1868-catalogue",
+          "ol-1868-catalogue"
+        ],
+        "status": "unresolved",
+        "summary": "No provider link from this module to a specific historical print edition. An 1868 catalogue lead is not a demonstrated ancestor."
+      },
+      "versification_fidelity": {
+        "evidence_ids": [
+          "cw-config",
+          "cw-config-doc"
+        ],
+        "status": "unresolved",
+        "summary": "Calvin declared in config, but exact GEN/MAT/MRK/LUK/JHN mappings and linked/empty/bridge entries not inspected. NoParagraphs cannot prove historical paragraph fidelity."
+      }
+    },
+    "evidence": [
+      {
+        "access_date": "2026-10-30",
+        "category": "toolchain_documentation",
+        "evidence_id": "jeb-synthetic-sword-evaluation",
+        "locator": "docs/sources/SWORD_TOOLCHAIN_EVALUATION.md; reports/sword-toolchain-evaluation.json; two local native builds of the hashed official software",
+        "snapshot": null,
+        "summary": "Original synthetic OSIS/zText/Calvin experiment preserves ten requested slot states, stored markup and explicit requested-key links. It exposes stock-export losses and engine/importer transformations. Zero historical passages were acquired or tested; no candidate clearance or production adapter approval follows.",
+        "url": "urn:jeb:evidence:synthetic-sword-1.9.0-evaluation"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "provider_metadata",
+        "evidence_id": "cw-config",
+        "locator": "Configuration section SrKDIjekav; SourceType, Versification, GlobalOptionFilter, Feature, CopyrightContact; no TextSource key",
+        "snapshot": {
+          "content_scope": "metadata_only",
+          "private_cache_path": "sources/evidence/private/crosswire-srkdijekav.conf",
+          "sha256": "67d1b3237912e57bb8c8300237dfdd39720f91b5e61faaa7ab568c315335fa1e",
+          "size_bytes": 910
+        },
+        "summary": "Primary provider metadata declares OSIS/zText, Calvin, headings and NoParagraphs. No base print-edition identifier or TextSource present. CopyrightContact is not proof of authorship or transcriber identity.",
+        "url": "https://www.crosswire.org/ftpmirror/pub/sword/raw/mods.d/srkdijekav.conf"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "provider_history",
+        "evidence_id": "cw-release-news",
+        "locator": "Serbian translation entry posted 2017-06-18, by refdoc",
+        "snapshot": null,
+        "summary": "Provider announces Ekavian and Ijekavian module availability on this date. The notice does not identify the exact historical print edition or digital transcription source.",
+        "url": "https://crosswire.org/sword/newsarchive.jsp"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "toolchain_documentation",
+        "evidence_id": "cw-export-limit",
+        "locator": "Debugging modules; mod2imp link-entry and round-trip warning",
+        "snapshot": null,
+        "summary": "Provider documentation says mod2imp skips linked entries and warns that the round trip is not guaranteed lossless. It also documents mod2osis for checking plain-text modules; this candidate declares zText/OSIS, so no fidelity guarantee is inferred.",
+        "url": "https://wiki.crosswire.org/DevTools:Modules"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "toolchain_documentation",
+        "evidence_id": "cw-config-doc",
+        "locator": "SourceType; Versification; Feature NoParagraphs; GlobalOptionFilter; TextSource",
+        "snapshot": null,
+        "summary": "Configuration documentation distinguishes data driver, embedded markup and source/versification metadata. NoParagraphs is descriptive; it does not restore historical layout or prove headings absent.",
+        "url": "https://wiki.crosswire.org/DevTools:conf_Files"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "legal_reference",
+        "evidence_id": "hr-law",
+        "locator": "Articles 119, 126, 127",
+        "snapshot": null,
+        "summary": "Official current law linked by DZIV: general life-plus-70 rule, year calculation, and continuing attribution/integrity/honor obligations after expiry. No exact-edition/digital-file assessment completed.",
+        "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "legal_reference",
+        "evidence_id": "ba-guidance",
+        "locator": "Koliko traje autorsko pravo?; legislation list",
+        "snapshot": null,
+        "summary": "Official institute guidance states general lifetime plus 70-year protection. It does not clear the candidate digital edition or related rights.",
+        "url": "https://www.ipr.gov.ba/en/intellectual-property/copyright-and-related-rights/faq-on-copyright-and-related-rights"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "legal_reference",
+        "evidence_id": "rs-guidance",
+        "locator": "Copyright; moral rights; Laws and regulations",
+        "snapshot": null,
+        "summary": "Official office guidance states general lifetime plus 70-year protection and explains moral rights. Exact-edition, revisions and ongoing obligations not resolved.",
+        "url": "https://www.zis.gov.rs/en/rights/copyright-and-related-rights/"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "legal_reference",
+        "evidence_id": "me-law-link",
+        "locator": "Law on Copyright and Related Rights, version 1.0 posted 2024-11-15; linked Word document",
+        "snapshot": null,
+        "summary": "Legislation landing page inspected. Its Word download was unsupported in web research; no current consolidated-law or term conclusion adopted.",
+        "url": "https://www.gov.me/en/article/copyright-and-related-rights-3"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "bibliographic_catalogue",
+        "evidence_id": "ia-1868-catalogue",
+        "locator": "Item metadata identifier, date, publisher, sponsor, rights/license and language fields",
+        "snapshot": {
+          "content_scope": "metadata_only",
+          "private_cache_path": "sources/evidence/private/ia-1868-item-metadata.json",
+          "sha256": "8c531f4f1b57667fd9bd8416aab4bcb4fac38f8fce0cf50a7f0a494b3a3aeb4c",
+          "size_bytes": 174222
+        },
+        "summary": "Catalogue describes an 1868 item sponsored by University of Toronto. Metadata has degraded names, language code chu, and null rights/license fields. It is a potential comparison witness, not an established module ancestor or cleared replacement.",
+        "url": "https://archive.org/metadata/svetopismostaro00daniuoft"
+      },
+      {
+        "access_date": "2026-10-30",
+        "category": "bibliographic_catalogue",
+        "evidence_id": "ol-1868-catalogue",
+        "locator": "Edition identifiers, publication year/place, contributors",
+        "snapshot": null,
+        "summary": "Catalogue links the same Internet Archive item and describes an 1868 Pest edition. This is not independent evidence that CrossWire transcribed that edition.",
+        "url": "https://openlibrary.org/books/OL23344280M/Sveto_pismo_Staroga_i_Novoga_zavjeta."
+      }
+    ],
+    "module_metadata": {
+      "declared_fields": {
+        "BlockType": "BOOK",
+        "CompressType": "ZIP",
+        "CopyrightContact": "ecce@ecce.cz",
+        "DataPath": "./modules/texts/ztext/srkdijekav/",
+        "DistributionLicense": "Public Domain",
+        "Encoding": "UTF-8",
+        "Feature": "NoParagraphs",
+        "GlobalOptionFilter": "OSISHeadings",
+        "History_1.0": "(2017-06-18) First Release",
+        "InstallSize": "1852613",
+        "Lang": "sr",
+        "MinimumVersion": "1.8.0",
+        "ModDrv": "zText",
+        "SourceType": "OSIS",
+        "SwordVersionDate": "2017-06-18",
+        "Versification": "Calvin",
+        "Version": "1.0"
+      },
+      "module_id": "SrKDIjekav",
+      "sha256": "67d1b3237912e57bb8c8300237dfdd39720f91b5e61faaa7ab568c315335fa1e",
+      "size_bytes": 910,
+      "url": "https://www.crosswire.org/ftpmirror/pub/sword/raw/mods.d/srkdijekav.conf"
+    },
+    "schema_version": "1.0",
+    "source_id": "crosswire-srkdijekav",
+    "source_record_sha256": "1810c571601d95700267fd6cc570aad6a1283fc5f8fb2f1db16848556a9f849a",
+    "unresolved_questions": [
+      "Which exact print edition and page/verse witnesses underlie the digital module?",
+      "Who transcribed or revised its source file, from what edition, and what corrections were made?",
+      "Can the original OSIS file and transformation history be inspected under compatible permissions?",
+      "What is the scope of the provider public-domain assertion, including headings, apparatus and database/digitization rights?",
+      "Are there linked entries or altered/absent references under Calvin versification in the five approved books?",
+      "What pinned export/reconstruction chain preserves raw entry markup, linked entries, headings, notes, layout information and mappings?"
+    ]
+  },
+  "notice": "Metadata snapshot hashes identify evidence only; they are not corpus hashes or clearance.",
+  "schema_version": "1.0",
+  "scope": [
+    "DE",
+    "US",
+    "BA",
+    "HR",
+    "RS",
+    "ME"
+  ],
+  "source_artifact": {
+    "expected_identity": "Unverified exact digital representation of credited historical translation; edition must be established before admission",
+    "format": "sword",
+    "provider_revision": "1.0 (2017-06-18)",
+    "sha256": null,
+    "size_bytes": null
+  },
+  "source_id": "crosswire-srkdijekav",
+  "source_record_sha256": "1810c571601d95700267fd6cc570aad6a1283fc5f8fb2f1db16848556a9f849a",
+  "status": "needs_review"
+}

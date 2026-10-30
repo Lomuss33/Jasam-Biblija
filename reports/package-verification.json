@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import jeb; print(jeb.__file__)"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Lib\\site-packages\\jeb\\__init__.py"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "validate",
+        "--stage",
+        "schemas"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"valid_schemas\": 14\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "demo"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"exports\": [\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.json\",\n      \"sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    },\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.md\",\n      \"sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    }\n  ],\n  \"owner_approvals\": 0,\n  \"proposal_id\": \"fixture-modernize-v1-40b78ddaba32f24c\",\n  \"real_biblical_segments\": 0,\n  \"search_matches\": 1,\n  \"synthetic_only\": true,\n  \"synthetic_segments\": 4,\n  \"workspace\": \"dist/demo\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "search",
+        "--source",
+        "synthetic-v1",
+        "--query",
+        "covik"
+      ],
+      "exit_code": 0,
+      "output": "[\n  {\n    \"book_id\": \"GEN\",\n    \"segment_id\": \"synthetic-v1:GEN.1.1\",\n    \"text\": \"Sintetički uzorak: covik ne mijenja 2 broja.\\nČita probni zapis.\"\n  }\n]"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "output": "No broken requirements found."
+    }
+  ],
+  "clean_hash_locked_install": true,
+  "date": "2026-10-30",
+  "installation_kind": "Wheel, no editable installation; Python -I isolates source path",
+  "wheel": "dist/wheels/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl",
+  "wheel_sha256": "89b6b04812c41f3ddb48a9636a1788bf0ca52776c7a3315f3b5947211c10c104"
+}

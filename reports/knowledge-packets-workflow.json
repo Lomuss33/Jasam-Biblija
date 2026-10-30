@@ -1,0 +1,60 @@
+{
+  "canonical_knowledge_records": 0,
+  "commands_run_successfully": [
+    "python -m jeb --root dist/demo --synthetic knowledge prepare --source synthetic-v1 --selection fixture --task research --packet-id fixture-passage-research-v1",
+    "python -m jeb --root dist/demo --synthetic knowledge prepare --source synthetic-v1 --selection fixture --task annotate --packet-id fixture-annotations-v1",
+    "python -m jeb --root dist/demo --synthetic knowledge validate --input reports/passage-research-synthetic-response.json",
+    "python -m jeb --root dist/demo --synthetic knowledge import --input reports/passage-research-synthetic-response.json",
+    "python -m jeb --root dist/demo --synthetic knowledge report --input reports/passage-research-synthetic-response.json --output reports/passage-research.md",
+    "python -m jeb --root dist/demo --synthetic knowledge validate --input reports/annotation-synthetic-response.json",
+    "python -m jeb --root dist/demo --synthetic knowledge import --input reports/annotation-synthetic-response.json",
+    "python -m jeb --root dist/demo --synthetic knowledge report --input reports/annotation-synthetic-response.json --output reports/annotation-drafts.md"
+  ],
+  "date": "2026-10-30",
+  "historical_scripture_artifacts_downloaded": 0,
+  "kind": "Actual Codex-assisted passage research and annotation drafting on the original non-scripture fixture; no real scholarship or human review",
+  "limitations": [
+    "Five drafts are staged outside the canonical bank and reader.",
+    "The source-witness record describes only the original technical fixture, not biblical or historical corroboration.",
+    "The reflection and fictional note carry explicit AI-assisted attribution and do not claim the owner voice.",
+    "Research returned no new real bibliography; lead truth and contribution eligibility require inspection.",
+    "Human knowledge review/promotion and rich structured entity/event/story authoring are not implemented by this slice."
+  ],
+  "new_bibliographic_leads": 0,
+  "owner_text_approvals": 0,
+  "protocols": [
+    {
+      "drafts": 0,
+      "items": 4,
+      "leads": 0,
+      "packet_id": "fixture-passage-research-v1",
+      "packet_sha256": "bbef75dfe9cf9b5b8b7e4eba999e0dc54fb3f11fb71fbaf940daad0398af7671",
+      "packet_size_bytes": 23978,
+      "report": "reports/passage-research-synthetic.md",
+      "report_sha256": "e7a31346638ff6d39faea127573d53e023c380277cbcc87502b59291d787e4f1",
+      "response": "reports/passage-research-synthetic-response.json",
+      "response_sha256": "a52ee9e460e0305b9ad18632c78956a3c78faa5fb7909ae1b2835fdc306a0e85",
+      "review_state": "unreviewed",
+      "task": "research"
+    },
+    {
+      "drafts": 5,
+      "items": 4,
+      "leads": 0,
+      "packet_id": "fixture-annotations-v1",
+      "packet_sha256": "15c31c623cc1ebb50149c30af94eef199585da150945a200225ba8813fbabe7d",
+      "packet_size_bytes": 29993,
+      "report": "reports/annotation-synthetic.md",
+      "report_sha256": "ee58e69c544cc815be8c32811f7d1a376b773ffe1012279077ddaafe9e948650",
+      "response": "reports/annotation-synthetic-response.json",
+      "response_sha256": "2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de",
+      "review_state": "unreviewed",
+      "task": "annotate"
+    }
+  ],
+  "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+  "reader_unchanged": true,
+  "real_biblical_segments": 0,
+  "schema_version": "1.0",
+  "staged_annotation_drafts": 5
+}

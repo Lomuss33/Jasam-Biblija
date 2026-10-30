@@ -1,0 +1,11 @@
+--- a/cmake/muxsources.cmake
++++ b/cmake/muxsources.cmake
+@@ -63,7 +63,7 @@
+ 	SET(WITH_CURL 1)
+ ELSE(CURL_FOUND AND NOT SWORD_NO_CURL STREQUAL "Yes")
+ 	MESSAGE(STATUS "cURL: no")
+-	SET(sword_SOURCES ${sword_SOURCES} ${sword_curl_nofound_SOURCES})
++	# JEB offline diagnostic build: omit the legacy FTP transport implementation.
+ 	SET(WITH_CURL 0)
+ ENDIF(CURL_FOUND AND NOT SWORD_NO_CURL STREQUAL "Yes")
+ 

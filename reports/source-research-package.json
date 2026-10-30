@@ -1,0 +1,213 @@
+{
+  "commands": [
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\source-research-wheels",
+        "."
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: jugoslavenska-ekumenska-biblija\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): started\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): finished with status 'done'\n  Created wheel for jugoslavenska-ekumenska-biblija: filename=jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl size=84279 sha256=d09effceda4b4cea788aa1a9fa98aab7927f6a0ad7d73646a7894b677b27bac6\n  Stored in directory: c:\\users\\lovropc\\appdata\\local\\pip\\cache\\wheels\\7f\\44\\f4\\a1ea1c616e108f280324076be72e652ed0c03d944facb93221\nSuccessfully built jugoslavenska-ekumenska-biblija"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--force-reinstall",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\source-research-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\\dist\\source-research-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl\nInstalling collected packages: jugoslavenska-ekumenska-biblija\n  Attempting uninstall: jugoslavenska-ekumenska-biblija\n    Found existing installation: jugoslavenska-ekumenska-biblija 0.1.0.dev0\n    Uninstalling jugoslavenska-ekumenska-biblija-0.1.0.dev0:\n      Successfully uninstalled jugoslavenska-ekumenska-biblija-0.1.0.dev0\nSuccessfully installed jugoslavenska-ekumenska-biblija-0.1.0.dev0"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import jeb.source_research; print(jeb.source_research.__file__)"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Lib\\site-packages\\jeb\\source_research.py"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "validate",
+        "--stage",
+        "schemas"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"valid_schemas\": 19\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "research",
+        "prepare",
+        "--source",
+        "crosswire-srkdijekav",
+        "--packet-id",
+        "cw-lineage-followup-01"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"corpus_permission\": false,\n  \"output\": \"data/source-research/cw-lineage-followup-01/input.json\",\n  \"packet_sha256\": \"f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28\",\n  \"questions\": 5\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata",
+        "sources",
+        "research",
+        "prepare",
+        "--source",
+        "crosswire-srkdijekav",
+        "--packet-id",
+        "wheel-metadata-smoke"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"corpus_permission\": false,\n  \"output\": \"data/source-research/wheel-metadata-smoke/input.json\",\n  \"packet_sha256\": \"c9ea38df353ab8e7c62e28797def9fa000a13903443a6363f432e90f937eb012\",\n  \"questions\": 5\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata",
+        "sources",
+        "research",
+        "validate",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata\\returned-smoke.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"corpus_permission\": false,\n  \"leads\": 0,\n  \"review_state\": \"unreviewed\",\n  \"valid_questions\": 5\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata",
+        "sources",
+        "research",
+        "import",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata\\returned-smoke.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"corpus_permission\": false,\n  \"output\": \"data/source-research/wheel-metadata-smoke/responses/2bce686be2f5693104a84e6315f45238203f090ada071f7e104c3df1f3d6a947.json\",\n  \"response_sha256\": \"2bce686be2f5693104a84e6315f45238203f090ada071f7e104c3df1f3d6a947\",\n  \"review_state\": \"unreviewed\",\n  \"source_clearance_changed\": false\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata",
+        "sources",
+        "research",
+        "report",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-source-metadata\\data\\source-research\\wheel-metadata-smoke\\responses\\2bce686be2f5693104a84e6315f45238203f090ada071f7e104c3df1f3d6a947.json",
+        "--output",
+        "reports/metadata-smoke.md"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"corpus_permission\": false,\n  \"output\": \"reports/metadata-smoke.md\",\n  \"review_state\": \"unreviewed\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "research",
+        "validate",
+        "--input",
+        "data/source-research/cw-submission-history-01/returned.json"
+      ],
+      "exit_code": 2,
+      "stderr": "jeb: Stale or substituted research source/dossier, scope, policy, prompt or output schema",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "inspect",
+        "--source",
+        "crosswire-srkdijekav"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"admission_blockers\": [\n    {\n      \"code\": \"source_not_verified\",\n      \"detail\": \"Source status is needs_review.\"\n    },\n    {\n      \"code\": \"missing_edition_year\",\n      \"detail\": \"Exact source edition year is not established.\"\n    },\n    {\n      \"code\": \"missing_edition_publication_place\",\n      \"detail\": \"Exact source edition publication_place is not established.\"\n    },\n    {\n      \"code\": \"missing_edition_transcriber\",\n      \"detail\": \"Exact source edition transcriber is not established.\"\n    },\n    {\n      \"code\": \"unresolved_exact_edition\",\n      \"detail\": \"No provider link from this module to a specific historical print edition. An 1868 catalogue lead is not a demonstrated ancestor.\"\n    },\n    {\n      \"code\": \"unresolved_digital_provenance\",\n      \"detail\": \"TextSource is absent. The automated 2017 SrKDIjekav notice credits unexpanded Br; the separate Ekavian notice credits Tomas. A 2014 post mentions two unnamed Serbian texts without a demonstrated link. Exact digital source, transcriber identity/role and correction history remain unknown.\"\n    },\n    {\n      \"code\": \"unresolved_component_rights\",\n      \"detail\": \"Actual biblical text, headings, notes, introductions, apparatus, maps and database/digitization components not inventoried or cleared across configured countries.\"\n    },\n    {\n      \"code\": \"unresolved_versification_fidelity\",\n      \"detail\": \"Calvin declared in config, but exact GEN/MAT/MRK/LUK/JHN mappings and linked/empty/bridge entries not inspected. NoParagraphs cannot prove historical paragraph fidelity.\"\n    },\n    {\n      \"code\": \"unresolved_adapter\",\n      \"detail\": \"Pinned SWORD 1.9.0 built and tested only with original synthetic data. Stock mod2imp emitted linked text without link identity; mod2osis omitted introductions and labelled Calvin as KJV. A bounded stored-byte/link probe works for the fixed fixture, but no historical module or production adapter fidelity has been evaluated.\"\n    },\n    {\n      \"code\": \"unresolved_rights_DE\",\n      \"detail\": \"Exact-artifact rights remain unverified for DE.\"\n    },\n    {\n      \"code\": \"unresolved_rights_US\",\n      \"detail\": \"Exact-artifact rights remain unverified for US.\"\n    },\n    {\n      \"code\": \"unresolved_rights_BA\",\n      \"detail\": \"Exact-artifact rights remain unverified for BA.\"\n    },\n    {\n      \"code\": \"unresolved_rights_HR\",\n      \"detail\": \"Exact-artifact rights remain unverified for HR.\"\n    },\n    {\n      \"code\": \"unresolved_rights_RS\",\n      \"detail\": \"Exact-artifact rights remain unverified for RS.\"\n    },\n    {\n      \"code\": \"unresolved_rights_ME\",\n      \"detail\": \"Exact-artifact rights remain unverified for ME.\"\n    },\n    {\n      \"code\": \"missing_lock\",\n      \"detail\": \"No reviewed corpus artifact/coverage lock exists.\"\n    }\n  ],\n  \"admission_error\": \"Source crosswire-srkdijekav: needs_review; ingestion blocked\",\n  \"admitted\": false,\n  \"assessment\": {\n    \"assessor\": \"Codex-assisted source research; no human legal or scholarly sign-off\",\n    \"checked_at\": \"2026-10-30\",\n    \"checks\": {\n      \"adapter\": {\n        \"evidence_ids\": [\n          \"cw-export-limit\",\n          \"cw-config-doc\",\n          \"jeb-synthetic-sword-evaluation\"\n        ],\n        \"status\": \"unresolved\",\n        \"summary\": \"Pinned SWORD 1.9.0 built and tested only with original synthetic data. Stock mod2imp emitted linked text without link identity; mod2osis omitted introductions and labelled Calvin as KJV. A bounded stored-byte/link probe works for the fixed fixture, but no historical module or production adapter fidelity has been evaluated.\"\n      },\n      \"component_rights\": {\n        \"evidence_ids\": [\n          \"cw-config\",\n          \"hr-law\",\n          \"ba-guidance\",\n          \"rs-guidance\",\n          \"me-law-link\"\n        ],\n        \"status\": \"unresolved\",\n        \"summary\": \"Actual biblical text, headings, notes, introductions, apparatus, maps and database/digitization components not inventoried or cleared across configured countries.\"\n      },\n      \"digital_provenance\": {\n        \"evidence_ids\": [\n          \"cw-config\",\n          \"cw-release-news\",\n          \"cw-upload-ijek-2017\",\n          \"cw-upload-ekav-2017\",\n          \"cw-two-serbian-2014\"\n        ],\n        \"status\": \"unresolved\",\n        \"summary\": \"TextSource is absent. The automated 2017 SrKDIjekav notice credits unexpanded Br; the separate Ekavian notice credits Tomas. A 2014 post mentions two unnamed Serbian texts without a demonstrated link. Exact digital source, transcriber identity/role and correction history remain unknown.\"\n      },\n      \"exact_edition\": {\n        \"evidence_ids\": [\n          \"cw-config\",\n          \"ia-1868-catalogue\",\n          \"ol-1868-catalogue\",\n          \"cw-upload-ijek-2017\"\n        ],\n        \"status\": \"unresolved\",\n        \"summary\": \"No provider link from this module to a specific historical print edition. An 1868 catalogue lead is not a demonstrated ancestor.\"\n      },\n      \"versification_fidelity\": {\n        \"evidence_ids\": [\n          \"cw-config\",\n          \"cw-config-doc\"\n        ],\n        \"status\": \"unresolved\",\n        \"summary\": \"Calvin declared in config, but exact GEN/MAT/MRK/LUK/JHN mappings and linked/empty/bridge entries not inspected. NoParagraphs cannot prove historical paragraph fidelity.\"\n      }\n    },\n    \"evidence\": [\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"toolchain_documentation\",\n        \"evidence_id\": \"jeb-synthetic-sword-evaluation\",\n        \"locator\": \"docs/sources/SWORD_TOOLCHAIN_EVALUATION.md; reports/sword-toolchain-evaluation.json; two local native builds of the hashed official software\",\n        \"snapshot\": null,\n        \"summary\": \"Original synthetic OSIS/zText/Calvin experiment preserves ten requested slot states, stored markup and explicit requested-key links. It exposes stock-export losses and engine/importer transformations. Zero historical passages were acquired or tested; no candidate clearance or production adapter approval follows.\",\n        \"url\": \"urn:jeb:evidence:synthetic-sword-1.9.0-evaluation\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"provider_metadata\",\n        \"evidence_id\": \"cw-config\",\n        \"locator\": \"Configuration section SrKDIjekav; SourceType, Versification, GlobalOptionFilter, Feature, CopyrightContact; no TextSource key\",\n        \"snapshot\": {\n          \"content_scope\": \"metadata_only\",\n          \"private_cache_path\": \"sources/evidence/private/crosswire-srkdijekav.conf\",\n          \"sha256\": \"67d1b3237912e57bb8c8300237dfdd39720f91b5e61faaa7ab568c315335fa1e\",\n          \"size_bytes\": 910\n        },\n        \"summary\": \"Primary provider metadata declares OSIS/zText, Calvin, headings and NoParagraphs. No base print-edition identifier or TextSource present. CopyrightContact is not proof of authorship or transcriber identity.\",\n        \"url\": \"https://www.crosswire.org/ftpmirror/pub/sword/raw/mods.d/srkdijekav.conf\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"provider_history\",\n        \"evidence_id\": \"cw-release-news\",\n        \"locator\": \"Serbian translation entry posted 2017-06-18, by refdoc\",\n        \"snapshot\": null,\n        \"summary\": \"Provider announces Ekavian and Ijekavian module availability on this date. The notice does not identify the exact historical print edition or digital transcription source.\",\n        \"url\": \"https://crosswire.org/sword/newsarchive.jsp\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"toolchain_documentation\",\n        \"evidence_id\": \"cw-export-limit\",\n        \"locator\": \"Debugging modules; mod2imp link-entry and round-trip warning\",\n        \"snapshot\": null,\n        \"summary\": \"Provider documentation says mod2imp skips linked entries and warns that the round trip is not guaranteed lossless. It also documents mod2osis for checking plain-text modules; this candidate declares zText/OSIS, so no fidelity guarantee is inferred.\",\n        \"url\": \"https://wiki.crosswire.org/DevTools:Modules\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"toolchain_documentation\",\n        \"evidence_id\": \"cw-config-doc\",\n        \"locator\": \"SourceType; Versification; Feature NoParagraphs; GlobalOptionFilter; TextSource\",\n        \"snapshot\": null,\n        \"summary\": \"Configuration documentation distinguishes data driver, embedded markup and source/versification metadata. NoParagraphs is descriptive; it does not restore historical layout or prove headings absent.\",\n        \"url\": \"https://wiki.crosswire.org/DevTools:conf_Files\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"legal_reference\",\n        \"evidence_id\": \"hr-law\",\n        \"locator\": \"Articles 119, 126, 127\",\n        \"snapshot\": null,\n        \"summary\": \"Official current law linked by DZIV: general life-plus-70 rule, year calculation, and continuing attribution/integrity/honor obligations after expiry. No exact-edition/digital-file assessment completed.\",\n        \"url\": \"https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"legal_reference\",\n        \"evidence_id\": \"ba-guidance\",\n        \"locator\": \"Koliko traje autorsko pravo?; legislation list\",\n        \"snapshot\": null,\n        \"summary\": \"Official institute guidance states general lifetime plus 70-year protection. It does not clear the candidate digital edition or related rights.\",\n        \"url\": \"https://www.ipr.gov.ba/en/intellectual-property/copyright-and-related-rights/faq-on-copyright-and-related-rights\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"legal_reference\",\n        \"evidence_id\": \"rs-guidance\",\n        \"locator\": \"Copyright; moral rights; Laws and regulations\",\n        \"snapshot\": null,\n        \"summary\": \"Official office guidance states general lifetime plus 70-year protection and explains moral rights. Exact-edition, revisions and ongoing obligations not resolved.\",\n        \"url\": \"https://www.zis.gov.rs/en/rights/copyright-and-related-rights/\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"legal_reference\",\n        \"evidence_id\": \"me-law-link\",\n        \"locator\": \"Law on Copyright and Related Rights, version 1.0 posted 2024-11-15; linked Word document\",\n        \"snapshot\": null,\n        \"summary\": \"Legislation landing page inspected. Its Word download was unsupported in web research; no current consolidated-law or term conclusion adopted.\",\n        \"url\": \"https://www.gov.me/en/article/copyright-and-related-rights-3\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"bibliographic_catalogue\",\n        \"evidence_id\": \"ia-1868-catalogue\",\n        \"locator\": \"Item metadata identifier, date, publisher, sponsor, rights/license and language fields\",\n        \"snapshot\": {\n          \"content_scope\": \"metadata_only\",\n          \"private_cache_path\": \"sources/evidence/private/ia-1868-item-metadata.json\",\n          \"sha256\": \"8c531f4f1b57667fd9bd8416aab4bcb4fac38f8fce0cf50a7f0a494b3a3aeb4c\",\n          \"size_bytes\": 174222\n        },\n        \"summary\": \"Catalogue describes an 1868 item sponsored by University of Toronto. Metadata has degraded names, language code chu, and null rights/license fields. It is a potential comparison witness, not an established module ancestor or cleared replacement.\",\n        \"url\": \"https://archive.org/metadata/svetopismostaro00daniuoft\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"bibliographic_catalogue\",\n        \"evidence_id\": \"ol-1868-catalogue\",\n        \"locator\": \"Edition identifiers, publication year/place, contributors\",\n        \"snapshot\": null,\n        \"summary\": \"Catalogue links the same Internet Archive item and describes an 1868 Pest edition. This is not independent evidence that CrossWire transcribed that edition.\",\n        \"url\": \"https://openlibrary.org/books/OL23344280M/Sveto_pismo_Staroga_i_Novoga_zavjeta.\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"provider_history\",\n        \"evidence_id\": \"cw-upload-ijek-2017\",\n        \"locator\": \"Individual archive message subject/date/body and automatic-upload footer where present\",\n        \"snapshot\": {\n          \"content_scope\": \"metadata_only\",\n          \"private_cache_path\": \"sources/evidence/private/cw-upload-ijek-2017.html\",\n          \"sha256\": \"f2af1e420b1933906afb0925bb36eba92b53b90e253cd1de900396d6ff9c1d05\",\n          \"size_bytes\": 2641\n        },\n        \"summary\": \"2017-06-18 automated SrKDIjekav upload notice; body credits Br and calls the upload an updated version. No exact edition, full credited identity, role or source file supplied.\",\n        \"url\": \"https://crosswire.org/pipermail/sword-devel/2017-June/044747.html\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"provider_history\",\n        \"evidence_id\": \"cw-upload-ekav-2017\",\n        \"locator\": \"Individual archive message subject/date/body and automatic-upload footer where present\",\n        \"snapshot\": {\n          \"content_scope\": \"metadata_only\",\n          \"private_cache_path\": \"sources/evidence/private/cw-upload-ekav-2017.html\",\n          \"sha256\": \"59bc2737e413d766317219c440c66c1239d75184f7c37482bda4474540029b30\",\n          \"size_bytes\": 2669\n        },\n        \"summary\": \"Separate 2017-06-18 SrKDEkavski notice credits Tomas. It is not a credit or lineage witness for SrKDIjekav.\",\n        \"url\": \"https://crosswire.org/pipermail/sword-devel/2017-June/044746.html\"\n      },\n      {\n        \"access_date\": \"2026-10-30\",\n        \"category\": \"provider_history\",\n        \"evidence_id\": \"cw-two-serbian-2014\",\n        \"locator\": \"Individual archive message subject/date/body and automatic-upload footer where present\",\n        \"snapshot\": {\n          \"content_scope\": \"metadata_only\",\n          \"private_cache_path\": \"sources/evidence/private/cw-two-serbian-2014.html\",\n          \"sha256\": \"8937a64e19c2c26b953d6521022084f8f4cd9c866e1d940b40c92de8912018d2\",\n          \"size_bytes\": 3126\n        },\n        \"summary\": \"2014-12-27 development post discusses two Serbian texts intended for beta, without module identifiers, base editions or transcribers. No direct link to either 2017 artifact is established.\",\n        \"url\": \"https://crosswire.org/pipermail/sword-devel/2014-December/041834.html\"\n      }\n    ],\n    \"module_metadata\": {\n      \"declared_fields\": {\n        \"BlockType\": \"BOOK\",\n        \"CompressType\": \"ZIP\",\n        \"CopyrightContact\": \"ecce@ecce.cz\",\n        \"DataPath\": \"./modules/texts/ztext/srkdijekav/\",\n        \"DistributionLicense\": \"Public Domain\",\n        \"Encoding\": \"UTF-8\",\n        \"Feature\": \"NoParagraphs\",\n        \"GlobalOptionFilter\": \"OSISHeadings\",\n        \"History_1.0\": \"(2017-06-18) First Release\",\n        \"InstallSize\": \"1852613\",\n        \"Lang\": \"sr\",\n        \"MinimumVersion\": \"1.8.0\",\n        \"ModDrv\": \"zText\",\n        \"SourceType\": \"OSIS\",\n        \"SwordVersionDate\": \"2017-06-18\",\n        \"Versification\": \"Calvin\",\n        \"Version\": \"1.0\"\n      },\n      \"module_id\": \"SrKDIjekav\",\n      \"sha256\": \"67d1b3237912e57bb8c8300237dfdd39720f91b5e61faaa7ab568c315335fa1e\",\n      \"size_bytes\": 910,\n      \"url\": \"https://www.crosswire.org/ftpmirror/pub/sword/raw/mods.d/srkdijekav.conf\"\n    },\n    \"schema_version\": \"1.0\",\n    \"source_id\": \"crosswire-srkdijekav\",\n    \"source_record_sha256\": \"1810c571601d95700267fd6cc570aad6a1283fc5f8fb2f1db16848556a9f849a\",\n    \"unresolved_questions\": [\n      \"Which exact print edition and page/verse witnesses underlie the digital module?\",\n      \"Who transcribed or revised its source file, from what edition, and what corrections were made?\",\n      \"Can the original OSIS file and transformation history be inspected under compatible permissions?\",\n      \"What is the scope of the provider public-domain assertion, including headings, apparatus and database/digitization rights?\",\n      \"Are there linked entries or altered/absent references under Calvin versification in the five approved books?\",\n      \"What pinned export/reconstruction chain preserves raw entry markup, linked entries, headings, notes, layout information and mappings?\",\n      \"Who or what does the unexpanded Br upload credit denote, and was that a transcription, conversion, submission or another role?\",\n      \"Does the automated updated-version wording denote an earlier beta/source revision or only a generic upload template, given the config first-release history?\"\n    ]\n  },\n  \"notice\": \"Metadata snapshot hashes identify evidence only; they are not corpus hashes or clearance.\",\n  \"schema_version\": \"1.0\",\n  \"scope\": [\n    \"DE\",\n    \"US\",\n    \"BA\",\n    \"HR\",\n    \"RS\",\n    \"ME\"\n  ],\n  \"source_artifact\": {\n    \"expected_identity\": \"Unverified exact digital representation of credited historical translation; edition must be established before admission\",\n    \"format\": \"sword\",\n    \"provider_revision\": \"1.0 (2017-06-18)\",\n    \"sha256\": null,\n    \"size_bytes\": null\n  },\n  \"source_id\": \"crosswire-srkdijekav\",\n  \"source_record_sha256\": \"1810c571601d95700267fd6cc570aad6a1283fc5f8fb2f1db16848556a9f849a\",\n  \"status\": \"needs_review\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "demo"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"exports\": [\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.json\",\n      \"sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    },\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.md\",\n      \"sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    }\n  ],\n  \"owner_approvals\": 0,\n  \"proposal_id\": \"fixture-modernize-v1-40b78ddaba32f24c\",\n  \"real_biblical_segments\": 0,\n  \"search_matches\": 1,\n  \"synthetic_only\": true,\n  \"synthetic_segments\": 4,\n  \"workspace\": \"dist/demo\"\n}"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "No broken requirements found."
+    }
+  ],
+  "date_utc": "2026-10-30T19:28:26.543569+00:00",
+  "demo_unchanged": true,
+  "historical_sources_admitted": 0,
+  "inventory": {
+    "gpl_notice": true,
+    "native_binaries": [],
+    "schemas": 19,
+    "source_research_module": true
+  },
+  "kind": "Isolated installed-wheel validation using -I in existing hash-locked clean venv; local no-index build/reinstall",
+  "metadata_smoke_fixture_only": true,
+  "owner_text_approvals": 0,
+  "real_biblical_segments": 0,
+  "smoke_source_files_unchanged": true,
+  "stale_response_correctly_rejected": true,
+  "wheel": "dist/source-research-wheels/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl",
+  "wheel_sha256": "d09effceda4b4cea788aa1a9fa98aab7927f6a0ad7d73646a7894b677b27bac6"
+}

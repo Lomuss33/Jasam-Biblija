@@ -1,0 +1,179 @@
+{
+  "$defs": {
+    "node": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "type": {
+              "const": "text"
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "children": {
+              "items": {
+                "$ref": "#/$defs/node"
+              },
+              "maxItems": 100000,
+              "minItems": 1,
+              "type": "array"
+            },
+            "style": {
+              "enum": [
+                "italic",
+                "bold"
+              ]
+            },
+            "type": {
+              "const": "emphasis"
+            }
+          },
+          "required": [
+            "type",
+            "style",
+            "children"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:jeb:schema:decision:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+      "type": "string"
+    },
+    "human_attestation": {
+      "const": true
+    },
+    "policy_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "proposal_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    },
+    "proposal_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "rationale": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolutions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "flag": {
+            "enum": [
+              "linguistic",
+              "meaning_sensitive",
+              "number_changed",
+              "negation_changed",
+              "name_changed",
+              "protected_form_changed"
+            ]
+          },
+          "resolution": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "flag",
+          "resolution"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "reviewed_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer_role": {
+      "enum": [
+        "owner",
+        "linguist",
+        "domain_expert"
+      ]
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "segment_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "approved",
+        "rejected",
+        "linguistic_review",
+        "meaning_sensitive_review"
+      ]
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "text_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "proposal_id",
+    "proposal_sha256",
+    "segment_id",
+    "text_sha256",
+    "policy_sha256",
+    "state",
+    "reviewer_id",
+    "reviewer_role",
+    "human_attestation",
+    "reviewed_at",
+    "rationale",
+    "resolutions",
+    "supersedes"
+  ],
+  "type": "object"
+}

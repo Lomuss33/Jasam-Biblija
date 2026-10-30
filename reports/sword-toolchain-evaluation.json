@@ -1,0 +1,125 @@
+{
+  "command": "python -m jeb toolchain evaluate --lock dist/sword-tools-rebuild/toolchain.lock.json --tools dist/sword-tools-rebuild/build/utilities --output dist/sword-evaluation-final",
+  "date": "2026-10-30",
+  "empty_slots": [
+    "Gen.1.6"
+  ],
+  "engine_transformations": [
+    {
+      "engine_sha256": "8b300f035d3934d1bc75c4fc4f2c11533e1694a43a915fce5c367512500a4960",
+      "osis_id": "Gen.0.0",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "21e8adfa20dd4aa25c8695ae44867f31ee0697635813a56b6a10b700012b8c78"
+    },
+    {
+      "engine_sha256": "35d0ac7a669fb0c40966ef2c9e2d0a62149630d4e8a86ed3e2f4b1bcf97307c7",
+      "osis_id": "Gen.1.0",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "db5ae1dd19f2861f182434cadfca528ad78adfd8b02f1432061504ae3d84e3ea"
+    },
+    {
+      "engine_sha256": "93d1a5f0a8929a183bd8e62516eaffc2a2d95bd180a308e7b84eb54f378a70c7",
+      "osis_id": "Gen.1.1",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "75d738a0444109fcc33014f568bea0d608af6c3de89beec6eccb1cec76ec6fbf"
+    },
+    {
+      "engine_sha256": "7c6c89bb3406401761c229e613676f60e7bb34aceff19c3c8b4250a46c5d8db9",
+      "osis_id": "Gen.1.2",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "2b2d48dec0dc50238a2bb26e3b336d31e367ef4ec4b0eb15f7c149ba6177b29e"
+    },
+    {
+      "engine_sha256": "ba13e3e18a365c2b4f23d6837589c8276f2e62a57cfd9bd742893d02111a3e9c",
+      "osis_id": "Gen.1.3",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "fa572069974ca1447f54d759a034faca455a5971ed27edfb4e42a3e50f1a8d3f"
+    },
+    {
+      "engine_sha256": "ba13e3e18a365c2b4f23d6837589c8276f2e62a57cfd9bd742893d02111a3e9c",
+      "osis_id": "Gen.1.4",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "fa572069974ca1447f54d759a034faca455a5971ed27edfb4e42a3e50f1a8d3f"
+    },
+    {
+      "engine_sha256": "bf2c6c6045119d0f9e157b7d16daae24198fe1c45f3f10518f2787a15c5e359b",
+      "osis_id": "Gen.1.5",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "eda144f49bc51bf13e369d7e3c4d4209cdcafa510baaa629f2274c5f5a47bc98"
+    },
+    {
+      "engine_sha256": "ba13e3e18a365c2b4f23d6837589c8276f2e62a57cfd9bd742893d02111a3e9c",
+      "osis_id": "Gen.1.7",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "fa572069974ca1447f54d759a034faca455a5971ed27edfb4e42a3e50f1a8d3f"
+    },
+    {
+      "engine_sha256": "8a8530517d935c1e7de970c4a6a073a3d1a44fbbcc68f2571901bc164d8aec6e",
+      "osis_id": "Matt.5.1",
+      "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+      "stored_sha256": "7f35438c67422e8af9b9649b7908d81c1eebd0c1e7c207c20dbf64b52eeb0118"
+    }
+  ],
+  "fixture_sha256": "b58fa820857a6ba89ec20cf4687b031c7ade30898ce6a49bdceb6c8dc1ae92f3",
+  "identical_text_independent_slot": "Gen.1.7",
+  "introduced_eof_lf": [
+    "Matt.5.1"
+  ],
+  "linked_aliases": 1,
+  "local_lock": "toolchains/sword-1.9.0/windows-rebuild.lock.json",
+  "note": "Actual native execution; original synthetic data only. No historical source, human approval or production adapter clearance.",
+  "platform": "Windows 11 x64",
+  "present_slots": 9,
+  "previous_capture_matches": true,
+  "production_adapter_approved": false,
+  "production_source_status_changed": false,
+  "real_biblical_segments": 0,
+  "requested_slots": 10,
+  "runs": [
+    {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e43c5e657be7a003f5620fcd02278fe40071f7b9819f7acbdf5ea6bd1d5a9460",
+      "tool": "imp2vs"
+    },
+    {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "034dc398d555241f8b01ffc319ec0af2b21feb3a5130ad60390f8ce4d1e6da1d",
+      "tool": "jeb-synthetic-probe"
+    },
+    {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ecfb2f871b9cb9468450b140264dccbdd9dbc714f233ac5576cce152e24a5a21",
+      "tool": "mod2imp"
+    },
+    {
+      "returncode": 0,
+      "stderr_sha256": "11e407b83ba2650de7cd017dfe3b599eaf729105b9c5e352993123279773d6c3",
+      "stdout_sha256": "74069f81194f7db7442c8bd9c06ea19b6f328599c66dda067cb08307a389e05b",
+      "tool": "mod2osis"
+    }
+  ],
+  "schema_version": "1.0",
+  "snapshot_sha256": "034dc398d555241f8b01ffc319ec0af2b21feb3a5130ad60390f8ce4d1e6da1d",
+  "stock_export_observations": {
+    "book_introduction_preserved": false,
+    "chapter_introduction_preserved": false,
+    "declared_module_scheme": "Calvin",
+    "mod2imp_sample_headers": [
+      "Genesis 1:3",
+      "Genesis 1:4",
+      "Genesis 1:7"
+    ],
+    "mod2imp_three_samples_have_equal_text": true,
+    "mod2osis_ref_systems": [
+      "Bible.KJV",
+      "Bible.KJV"
+    ],
+    "note": "Observations apply to this pinned synthetic experiment only; no general losslessness claim."
+  },
+  "stored_entries": 8,
+  "synthetic_only": true,
+  "toolchain_lock_sha256": "414938bb041356373d457fe77adeb353f60447af031d3d80c31257683cb8da67"
+}

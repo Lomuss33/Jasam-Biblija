@@ -1,0 +1,8 @@
+schema_version: '1.0'
+edition_id: jeb-selected-dev
+version: 0.1.0-dev
+title: Jugoslavenska ekumenska Biblija
+corpus_kind: historical
+jurisdictions: [DE, US, BA, HR, RS, ME]
+language_policy: project-jekavica-v1
+release_preface_approved: false

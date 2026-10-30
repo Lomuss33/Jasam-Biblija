@@ -1,0 +1,10 @@
+{
+  "capture": "Native imp2vs and jeb-synthetic-probe executed locally on the original fixture",
+  "fixture_input_sha256": "b58fa820857a6ba89ec20cf4687b031c7ade30898ce6a49bdceb6c8dc1ae92f3",
+  "fixture_sha256": "eb39032a9c7bd5e6f1569892fcdf1d17fac46135fafa7ebcb113e0029ad3373c",
+  "original_stdout_sha256": "034dc398d555241f8b01ffc319ec0af2b21feb3a5130ad60390f8ce4d1e6da1d",
+  "schema_version": "1.0",
+  "scope": "Original synthetic input only; not historical scripture or human review",
+  "toolchain_lock_sha256": "63699187ae8ee96d6a888cc4bc556090a4cf743682ea96e9812de5eadb0ce0d7",
+  "transform": "JSON rows reserialized compact UTF-8 with LF separators for Git portability; field strings and bytes remain unchanged. Original native stdout retained under ignored dist/sword-evaluation-v3."
+}
