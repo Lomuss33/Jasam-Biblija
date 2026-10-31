@@ -1,5 +1,54 @@
 # Changelog
 
+## 0.1.0-dev — 2026-10-31
+
+Unsigned narrative inspection handoffs:
+
+- Added exact-imported-response review export with source/normalized/reader
+  separation, literal spans beside roles and relations, transitive support
+  metadata and original name-approval identities.
+- Preserved all draft/prompt identities and read-only editorial behavior;
+  no decision, approval, canonical narrative or new schema is created.
+- Added fifteen focused tests for bindings, currentness, spans, prior approvals,
+  transitive/cyclic links, immutable output, bounded rendering and literal data.
+- Passed 268 offline tests, 32 schemas and 29 installed-wheel checks on Windows /
+  Python 3.13.3; the actual synthetic handoff creates no new draft or approval.
+
+Structured narrative drafts:
+
+- Added three schemas and separate manual prepare/validate/import/report commands
+  for unreviewed entities, events and stories bound to exact eligible display text.
+- Added typed participants and scoped presentation/anchored/uncertain relations;
+  kept source narration, unverified historical claims and fiction distinct.
+- Enforced evidence/claim coverage, approved-name gates, exact Unicode spans,
+  attribution, uncertainty and isolation from canonical approval/reader/archive.
+- Authored eight original synthetic nodes and one support proposal; prior five
+  annotation drafts and reader bytes remain unchanged. No real source or approval.
+- Added twenty-three offline regression cases; full checks passed 253 tests,
+  32 schemas and 26 installed-wheel checks on Windows/Python 3.13.3.
+
+Local build archives:
+
+- Added bounded allowlisted ZIP create/validate/restore commands and an
+  inspectable manifest with exact file, engine, corpus and reader identities.
+- Preserved complete canonical text/review/curation history and rebuilt
+  corpus/exports/indexes before isolated restore into a new destination.
+- Added one schema and nineteen recovery/safety tests. Working caches, arbitrary
+  files and software are excluded; no source gate or approval is bypassed.
+
+Knowledge curation:
+
+- Added separate owner withdrawal, reactivation and version selection with
+  immutable target snapshots, explicit history and no automatic fallback.
+- Added optional declared revision provenance; new revisions stay out of reader
+  output until explicitly selected with their original ancestry.
+- Propagated exclusions through notes and packet evidence, preserved curation
+  metadata in JSON/Markdown, and kept passage approvals unchanged.
+- Added two schemas and twenty-five offline regression tests, including stale
+  rights gates, support dependencies, search identity and Windows receipt paths.
+- Persistent curation reports are unsigned and have no approved targets. No real
+  source, owner approval, withdrawal or selection was manufactured.
+
 ## 0.1.0-dev — 2026-10-30
 
 Human knowledge review and promotion:

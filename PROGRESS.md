@@ -1,11 +1,15 @@
-# Session continuity: 2026-10-30
+# Session continuity: 2026-10-31
 
-Latest continuation: human knowledge review and provenance-preserving canonical
-promotion implemented; the five persistent synthetic drafts remain unapproved.
-Current checks: **186 tests passed, 26 schemas valid**; all **18 installed-wheel
-checks passed**, including two temporary simulated review tests. Historical
-corpus coverage and real human approvals remain zero. Earlier session records
-below are preserved; the latest details follow at the end.
+Latest continuation: exact imported narrative responses now have an unsigned
+inspection handoff with source spans beside roles/relations, support chains and
+prior name-approval identities. Current checks: **268 tests passed, 32 schemas
+valid, 29 installed-wheel checks passed**. The report indexes four spans from
+the existing eight original synthetic nodes and one witness proposal; it creates
+no draft, decision or approval. Prior annotation/narrative drafts and reader
+bytes are unchanged. Real coverage and human approvals/actions remain zero.
+There is no narrative decision validator, apply or promotion endpoint yet.
+Older archives and matching wheels remain preserved; use each exact engine.
+Earlier session records are preserved; latest details follow at the end.
 
 Version: 0.1.0-dev. **Phase 0 completed; Phase 1 working synthetic slice
 implemented and tested. Real-source ingestion and the editorial pilot remain
@@ -855,3 +859,719 @@ must remain unapproved until real owner review. No new owner decision is needed
 for that reversible implementation. The real editorial pilot still needs new
 primary exact-edition/digital-lineage/component/rights evidence. Preserve the
 prepared metadata handoff and do not recycle completed searches as new evidence.
+
+## Continuation: knowledge withdrawal and version selection, 2026-10-31
+
+Resumed the next independent task from NEXT_STEPS, preserving the prior worktree
+and all editorial/source gates. User instructions reconfirmed the same five-book
+scope and no fabricated human participation. No actual owner action was supplied
+or generated. The five persistent demonstration drafts remain unapproved.
+
+Implemented:
+
+- `src/jeb/knowledge_curation.py` and `jeb knowledge curate export/validate/apply`.
+  Reports are unsigned metadata subjects with exact record/approval/provenance
+  bindings and no stored text bodies. Optional source eligibility is assessed
+  honestly; blocked corpus display does not prevent a metadata report or an
+  exact withdrawal of a previously approved subject.
+- Two new self-contained schemas, `knowledge-curation-decisions` and
+  `knowledge-curation-receipt`, bringing the total to twenty-eight. Separate
+  actual-owner actions have explicit checks for identity/impact, resolved
+  withdrawal reasons/current support, or comparison of alternatives. They do
+  not grant source rights, expert participation, identity authentication or new
+  wording approval.
+- One atomic immutable content-hashed receipt under ignored
+  `data/knowledge-curation/<action-id>/<receipt-hash>.json`, containing the owner
+  decision and exact approved snapshots. Original records, approval receipts,
+  attribution and passage decisions are never rewritten or deleted. Current
+  heads require explicit acyclic/nonbranching supersession. Replays, conflicts,
+  missing predecessors and filename-case action-ID collisions are refused.
+- Withdrawals work with stale context/policy or a now-blocked source, provided
+  intact canonical approval identities remain and the action binds the current
+  policy. They hide their target and evidence/claim/entity/related dependents
+  transitively. Reactivation requires the current withdrawal, a resolved-reason
+  check, current eligible source/support and a compatible active version choice.
+- Optional human approval-item `version_of`, bound to an exact already approved
+  original, plus `revision_relationship_checked`. Type, book, layer/category and
+  exact segment scope must match. The binding survives in canonical/reader
+  provenance. Declared revisions remain withheld until explicitly selected;
+  independent notes are not automatically inferred to be versions.
+- Version groups bind at least two approved candidates, retain prior candidates
+  and complete declared ancestry, have exclusive membership, and select one
+  current version. A withdrawn/stale selection has no automatic fallback.
+  Reactivation and selection may be one atomic submitted group. Selecting new
+  evidence does not retarget another note's old supporting links.
+- Reader JSON/Markdown disclose active receipt/head identities and withheld/
+  selected IDs. Approval history remains intact; withheld records count under
+  pending_or_stale. Packet evidence marks withdrawn/inactive support unusable,
+  and search indexes become stale when their complete reader artifact changes.
+  With no curation or declared revisions, the old reader bytes are unchanged.
+
+Documentation: `docs/KNOWLEDGE_CURATION.md`, decision 0010, targeted updates to
+README, KNOWLEDGE_REVIEW, REVIEW_GUIDE, DATA_MODEL, ARCHITECTURE and CHANGELOG.
+CI adds only an unsigned synthetic curation export, never owner decisions.
+Neither source-rights policy nor the editorial-policy input was regenerated.
+
+Actual persistent commands and outcomes:
+
+```text
+python -m jeb --root dist/demo --synthetic knowledge curate export --source synthetic-v1 --output reports/knowledge-curation.md
+python -m jeb knowledge curate export --output reports/generated/knowledge-curation.md
+python -m jeb --root dist/demo --synthetic knowledge curate validate --decisions reports/annotation-synthetic-response.json
+python -m jeb --root dist/demo --synthetic knowledge curate apply --decisions reports/annotation-synthetic-response.json
+python -m jeb --root dist/demo --synthetic validate --stage knowledge --source synthetic-v1
+python -m jeb --root dist/demo --synthetic export --source synthetic-v1 --format json --maturity preview --output exports/after-knowledge-curation.json
+python -m jeb --root dist/demo --synthetic export --source synthetic-v1 --format json --maturity release --output exports/forbidden-curation-release.json
+```
+
+Both reports succeeded with zero approved subjects and zero actions created.
+Using the AI annotation response as a curator decision correctly failed twice
+with exit 2 and no traceback. Canonical validation returned zero records, preview
+bytes matched the original reader, and synthetic release correctly failed with
+exit 2 and no release file. No actual approval, withdrawal, reactivation or
+selection was manufactured. The seven observed commands and zero-count results
+are in `reports/knowledge-curation-workflow.json`.
+
+Reports copied byte-for-byte from actual CLI output:
+
+- `reports/knowledge-curation-synthetic.md`, SHA-256
+  `6745d771b5a52761721f5387733a811c45c17a5baec5447c2b715b41b228bf1b`.
+- `reports/knowledge-curation-production.md`, SHA-256
+  `8bddc1d0f975af5611ae8c75961a87714add322b1bbbfef2582dfb0a28ad4491`.
+
+Actual final local verification: Windows 11 / CPython 3.13.3, the existing
+hash-locked environment, no new runtime dependency or external service.
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+python -m jeb sources audit
+python -m jeb sources inspect --source crosswire-srkdijekav
+python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-lineage-followup-01
+python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
+python -m jeb demo
+```
+
+All passed: lint clean, **38 Python files formatted, 28 valid schemas, 211 tests
+passed in 134.036 seconds**. Twenty-five new regression cases cover withdrawal
+cascades, stale policy/rights gates, explicit reactivation, closed prospective
+groups, revision declarations and selection, ancestry/membership/history
+conflicts, no fallback or support retargeting, immutable restoration checks,
+atomic failures, CLI schema boundaries, search identity and Windows receipt paths.
+The initial 22 focused cases passed in 43.722 seconds; added targeted cases and
+the final complete suite also passed. All simulated attestations/actions stay
+inside automatically removed temporary synthetic roots.
+
+Results and exact code/schema/test fingerprints:
+`reports/knowledge-curation-verification.json`; complete test output:
+`reports/knowledge-curation-tests.txt`. Existing manual packets, AI critique,
+unsigned knowledge review and fixed native diagnostic capture also revalidated.
+No native rebuild or repeated public-source investigation was performed.
+
+Built the wheel offline with `--no-index --no-build-isolation --no-deps`, then
+reinstalled it without dependency resolution into the existing clean verification
+venv. **All 19 installed-wheel checks passed.** Python `-I` verified actual
+site-packages imports and all 28 packaged schemas. Three targeted installed tests
+simulated successful CLI owner actions, revision withholding/selection and long
+Windows receipt reading/replay rejection only inside temporary test roots.
+The fresh persistent deep workspace reproduced the 274-character staged response
+path and unsigned report, rejected AI-as-owner validation/apply, retained zero
+records and curation receipts, reproduced the source-only reader, and blocked
+synthetic release. Production metadata reporting, source audit, unchanged
+lineage packet and `pip check` passed. All actual outputs:
+`reports/knowledge-curation-package.json`. Wheel SHA-256:
+`6f43c600c4cf8825f4eef0e3abfbfba68bff94aa1f752fa9ce82e65a7b2c70ec`.
+The wheel contains no native binaries and retains separate license files.
+No Linux execution or remote CI result is claimed by this local run.
+
+Historical status is unchanged: CrossWire SrKDIjekav and eBible srp1865 need
+review; Šarić remains excluded; production lock is empty. CrossWire still has
+fourteen evidence records, five unresolved checks and sixteen admission blockers.
+The ready metadata packet remains
+`f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28`.
+No historical artifact was acquired or parsed. Real GEN 1:1-5, MAT 5:1-12,
+MRK 1:1-8, LUK 17:20-21 and JHN 1:1-5 coverage is **zero**, as are complete real
+books, real modernization, approved knowledge and owner text/name/note approvals.
+Persistent review/curation receipts remain zero. Four invented source segments
+and five unapproved drafts do not count as biblical coverage. Reader JSON stays
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown, original proposal and cached manual packet identities are unchanged.
+
+Final Git inspection found the existing main commit `17f2613` (update 2), which
+this continuation did not create. Earlier commit/unborn statements above are
+historical snapshots. Preserved the current baseline, prior local work and
+remote configuration. No commit, push, branch/history rewrite, contact,
+publication, release, paid-service/model API call, machine setting change or chat
+automation was performed by this continuation.
+
+Next independent task: bounded local archive/restore of eligible canonical build
+inputs, with an inspectable manifest and exact review/curation history, so ignored
+approval files are recoverable. Exercise it with synthetic temporary decisions;
+never bundle arbitrary workspace files/secrets, relax source eligibility or
+publish an archive as a release. The actual five drafts must remain unapproved.
+Real pilot work still requires new primary exact-edition/digital-lineage/
+component/rights evidence. No new owner decision blocks the reversible archive
+implementation; preserve the prepared metadata handoff rather than repeat old
+searches without a new lead.
+
+## Continuation: local build archive and isolated recovery, 2026-10-31
+
+Completed the next independent task from NEXT_STEPS. Kept the source gate,
+five-book allowlist, existing editorial decisions and all prior work. No real
+source has become eligible, and no actual owner decision was supplied or created.
+
+Implemented:
+
+- `src/jeb/build_archive.py` and `jeb archive create/validate/restore`. Creation
+  snapshots one admitted source with fixed configuration/editorial policy,
+  registry/lock/assessment metadata, exact locked transcript bytes, imported
+  modernization proposals and their input packets, all text decisions, legacy
+  canonical knowledge and complete review/curation receipts. Available fixed
+  rights/license notices are preserved; historical builds require a rights policy.
+- One new self-contained `build-archive-manifest` schema, bringing the packaged
+  total to twenty-nine. The inspectable manifest binds sorted file paths, sizes,
+  SHA-256 values, edition/corpus kind, exact package/schema engine and rebuilt
+  corpus/policy/reader JSON/Markdown identities plus review counts.
+- Strict ZIP-only bounds: 32 MiB container, 64 MiB expanded inputs, 255 inputs
+  plus manifest, and 128 KiB manifest. No `extractall`, directory/link/device or
+  encrypted members, traversal/drive/device paths, filename-case duplicates,
+  unlisted/orphan inputs, arbitrary workspace files or executable software.
+- Validation in a private temporary workspace before a restored destination is
+  published. It rebuilds corpus and reader artifacts, validates active review
+  heads and complete hash-bound historical snapshots, checks expected identities
+  and dependencies, and rejects unsupported engine/schema migration.
+- Restore works without the original project/configuration, rebuilds exports and
+  the SQLite index, and renames staging only into a new nonexistent destination.
+  Existing files/empty destinations are refused. Synthetic opt-in remains
+  mandatory. Original approval, attribution, revision and curation identities
+  remain unchanged; no new approval or release authority is generated.
+
+This is deliberately a canonical-build archive, not a general workspace backup.
+Unapproved knowledge/research working caches, AI critiques, private research
+snapshot files, older full source artifacts, secrets, environments and binaries
+are excluded. Original annotation input/response snapshots already inside a
+canonical review receipt are retained. Restoring only this archive does not
+recreate unfinished working caches; the original five pending drafts remain in
+the untouched original workspace. Current raw artifacts and historical bounded
+packet/receipt contexts are distinguished explicitly in the guide.
+
+Documentation: `docs/BUILD_ARCHIVES.md`, decision 0011, README, DATA_MODEL,
+ARCHITECTURE and CHANGELOG. CI now creates, validates and restores only the
+original synthetic build. It never creates human decisions. No policy input,
+source register, source lock or source-assessment bytes were regenerated.
+
+Actual persistent recovery workflow:
+
+```text
+python -m jeb --root dist/demo --synthetic archive create --source synthetic-v1 --archive-id fixture-build-final-v1 --output dist/archives/fixture-build-final-v1.zip
+python -m jeb --synthetic archive validate --input dist/demo/dist/archives/fixture-build-final-v1.zip
+python -m jeb --synthetic archive restore --input dist/demo/dist/archives/fixture-build-final-v1.zip --destination dist/archive-restored-fixture-v1
+```
+
+All succeeded. The ZIP has eleven explicit inputs, four invented non-scripture
+source segments, one unapproved modernization proposal and zero text decisions,
+canonical knowledge records, review receipts or curation actions. The new
+`dist/archive-restored-fixture-v1` workspace rebuilds identical source-only reader
+JSON/Markdown and a usable search index; `covik` returns one synthetic match.
+It is still a partial synthetic fixture, not biblical or complete-book coverage.
+
+Concrete recorded artifacts:
+
+- Local ZIP: `dist/demo/dist/archives/fixture-build-final-v1.zip`, SHA-256
+  `c7290f39f3575ce3cd30f8b1c1ec548ea8fbba671dfe773f8936205425ccb40c`.
+- Inspectable `reports/build-archive-manifest.json`, canonical manifest SHA-256
+  `052ffada40ab6a6ab9c2f502e230aa2924f45e0def8066a0d5c58538fc1b9724`.
+- Exact engine identity:
+  `1f37db2ff57c1d22dff3c7ea0a513d54cf82e8897f85220272dc7775fde70842`.
+- `reports/build-archive-workflow.json`: all nine observed workflow/gate commands,
+  archive/manifest/reader identities, rebuilt counts and explicit scope limits.
+
+Repeated restore into the existing destination, validation without synthetic
+opt-in, historical archive creation from the unresolved CrossWire source and
+synthetic edition release all correctly failed with exit 2 and no traceback.
+No blocked-source ZIP, overwritten destination or release file was created.
+An earlier exploratory `synthetic-build-v1.zip` is retained under ignored local
+storage; its pre-final engine is not the final backup recorded above. Exact
+engine compatibility is required, and there is no silent refresh/migration.
+
+Actual final local verification: Windows 11 / CPython 3.13.3, existing
+hash-locked environment, no new runtime dependency or external service:
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+python -m jeb sources audit
+python -m jeb sources inspect --source crosswire-srkdijekav
+python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-lineage-followup-01
+python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
+python -m jeb demo
+```
+
+All passed: lint clean, **40 Python files formatted, 29 valid schemas, 230 tests
+passed in 163.381 seconds**. Nineteen new cases cover deterministic snapshots,
+admission/opt-in, secret exclusion, loss of the original configuration, exact
+selected/withdrawn knowledge and superseded text-history recovery, immutable
+destinations, checksum/engine/reader mismatches, malformed archives, missing
+dependencies, unsafe paths/links/case variants, resource limits, corrupt cached
+normalization, failed atomic publication, CLI recovery and long Windows receipts.
+The initial focused suite passed in 29.758 seconds; the added targeted limits/
+corruption checks also passed. All simulated attestations and their archives
+remain confined to automatically removed temporary synthetic test roots.
+
+Actual outputs and exact code/schema/test fingerprints:
+`reports/build-archive-verification.json`; complete test output:
+`reports/build-archive-tests.txt`. Existing manual passage packets, optional AI
+critique, unsigned review/curation reports and native diagnostic capture also
+revalidated. Their packet identities did not change. No native build was rerun.
+
+Built the wheel offline with `--no-index --no-build-isolation --no-deps`, then
+reinstalled into the existing clean verification venv without dependency
+resolution. **All 17 installed-wheel checks passed.** Python `-I` verified
+site-packages imports and all 29 schemas, validated the development snapshot with
+the installed engine, and produced a byte-identical ZIP from a fresh synthetic
+workspace. It recovered into a blank parent with no project configuration,
+rebuilt matching reader/search artifacts, refused duplicate restore/missing
+synthetic opt-in/uncleared real-source archive/release, and passed `pip check`.
+Two targeted installed tests recovered temporary simulated review/curation/text
+history and long Windows receipt paths. Persistent roots still have zero owner
+approvals/actions. Actual output: `reports/build-archive-package.json`.
+Matching wheel SHA-256:
+`d3341ca0a9d3fa5a851f1dd0d739bca5e57dbd783fdf94567038f475bbbaf45e`.
+Retain that wheel and dependency lock separately for this exact engine; the
+archive does not bundle or install software. No native binaries are in the wheel;
+separate license files remain intact. No Linux or remote CI result is claimed.
+
+Source status is unchanged: CrossWire SrKDIjekav and eBible srp1865 need review;
+Šarić remains excluded; production lock is empty. CrossWire retains fourteen
+evidence records, five unresolved checks and sixteen admission blockers. Current
+metadata handoff identity remains
+`f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28`.
+No historical artifact was acquired or parsed. Real pilot/complete-book coverage,
+real modernization, approved knowledge and owner text/name/note approvals are
+**zero for GEN, MAT, MRK, LUK and JHN**. The four invented fixture segments and
+five pending drafts do not count as scripture coverage. Original and recovered
+JSON reader SHA stays
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown stays
+`07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9`.
+
+Preserved existing main commit `17f2613` and all prior local work. This
+continuation made no commit, push, remote/history change, contact, publication,
+release, paid/model API call, machine setting change or chat automation.
+Only local ignored archives/recovery workspaces and reviewable project files were
+written. No new user decision blocked this authorized implementation.
+
+Next independent task: a bounded typed event/story draft model and manual
+unreviewed authoring for an exact eligible passage or the original fixture.
+Keep narrated events, historical corroboration and fictional adaptation distinct;
+preserve evidence, uncertainty, attribution, exact scope and name-mapping gates.
+Do not invent real biblical events/participants or expand the collection. Real
+editorial work still needs new primary edition/lineage/component/rights evidence.
+Preserve the prepared metadata handoff rather than repeat completed searches.
+
+## Continuation: typed unreviewed narrative drafts, 2026-10-31
+
+Read the continuity files and Git state before continuing the stated next task.
+Preserved main commit `17f2613`, the existing remote, all earlier local work and
+all editorial/source decisions. Implemented the bounded draft slice without
+changing canonical knowledge or the existing annotation return schema/prompt.
+
+New implementation:
+
+- `src/jeb/narrative_packets.py`: admitted exact-passage snapshots, manual
+  prepare/validate/import/report, immutable hashed staging and fenced reports.
+- `src/jeb/schemas/narrative-{node,packet,response}.json`: three self-contained
+  versioned schemas, bundled in the same package/CLI. Responses are unreviewed,
+  have no approval authority, cannot attest human review and retain null node
+  approvals. Source IDs, current display/policy/knowledge namespace, prompts and
+  return schemas are bound to the packet hash.
+- `knowledge narrative` CLI branch and ignored `data/narrative-proposals/`
+  namespace. Nothing imports into canonical JSONL, human annotation promotion,
+  reader/search or build archives. No model API, network operation or new runtime
+  dependency was added.
+- `tests/test_narrative_packets.py`: twenty-three focused regression cases;
+  updated the CLI schema-count assertion for the three actual new schemas.
+- `docs/NARRATIVE_DRAFTS.md`, decision 0012, current README/model/architecture/
+  review guides, CI smoke commands and the next-task handoff.
+
+Entity labels require their exact source mention unless an attached approved
+name mapping supplies the exact display form and a matching witnessed form.
+No native names, transliteration, saint prefixes or inflection rules were
+generated. Spans use bounded Unicode character offsets into current reader text,
+separate from original source byte spans. Event participants are typed same-basis
+entity references; story members are typed same-basis events. Source entities
+represent individual mentions, not inferred identity across passages. Scopes
+are exact selected-book/segment/dependency unions; IDs cannot shadow knowledge.
+
+`source_narrative` requires selected-source primary-witness coverage.
+`historical_claim` additionally requires separately registered secondary evidence
+and historical claims directly linked to that evidence, all still unreviewed.
+These structural rules do not prove independence, source inspection or history.
+`fiction` cannot claim evidentiary support, source mentions or historical name
+mappings, and cannot supply nodes to either factual graph. Support proposals
+reuse existing evidence/claim category, scope, registration and acyclic support
+checks. No real historical event or participant was authored.
+
+Story event lists follow presentation order. `narrative_before` requires ordered
+distinct nonoverlapping source anchors; it is not chronological corroboration.
+`source_stated_before` needs an exact source span and human semantic inspection.
+Asserted edges cannot cycle; uncertain alternatives remain labelled. There are
+no inferred motives, omitted subjects, dates, quotations or harmonized scenes.
+Bounds are packet 96 KiB, response 48 KiB, 32 nodes, 20 support drafts, 32
+participants/events per node and 64 relations per story; the reused passage
+snapshot also retains its 64 KiB preparation limit.
+
+Actual manually authored Codex-assisted synthetic demonstration:
+
+- Packet `dist/demo/data/narrative-proposals/fixture-narrative-v1/input.json`,
+  46,360 bytes, canonical SHA-256
+  `a1624156c28bb4ced94a32254ac5f2c30f725520526cfd34624f2f3ff594978c`.
+- `reports/narrative-synthetic-response.json`, 13,375 bytes, canonical SHA-256
+  `14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733`.
+- `reports/narrative-synthetic.md`, SHA-256
+  `b18fd9b87ffd2d714288361d960f6d461db3c3c06ef83ed4f94e95ee7b1560fb`.
+- `reports/narrative-workflow.json` records the actual commands, exact bindings,
+  counts, labels, archive compatibility smoke and remaining limitations.
+
+Five source-narrative nodes describe only the first invented fixture segment:
+two exact mentions (`covik` and `probni zapis`), two events and their presentation
+story. The negation and numeral 2 are preserved. The reading clause's omitted
+agent is deliberately not assigned to the preceding person. Three separately
+labelled fiction nodes invent a reader sorting cards. One new attributed primary
+witness proposal describes the original technical fixture. There are **zero
+actual historical-claim nodes, new scholarly sources or human decisions**.
+All nine new proposals are unreviewed. The prior five annotation drafts, their
+response hash and all previous packet hashes remain unchanged. An empty response
+is valid; there is no requirement to manufacture content for a missing segment.
+
+Actual final local checks used the existing hash-locked Windows 11 / CPython
+3.13.3 environment:
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+python -m jeb sources audit
+python -m jeb sources inspect --source crosswire-srkdijekav
+python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-lineage-followup-01
+python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
+python -m jeb demo
+```
+
+All passed: **42 Python files formatted, 32 valid schemas, 253 tests passed in
+188.223 seconds**. The focused twenty-three-case suite passed in 28.639 seconds.
+The first full run had 252 passes and one outdated expected-schema-count
+assertion (29 instead of 32), in 198.097 seconds. Corrected the assertion; no
+rights, review or admission gate was changed. The failed attempt and its exact
+test output are preserved as `reports/narrative-verification-attempt.json` and
+`reports/narrative-tests-attempt.txt`. Earlier focused fixture mistakes were
+corrected before the successful focused/full runs. Final source/schema/test
+fingerprints and all observed commands/results are in
+`reports/narrative-verification.json`; full test output is
+`reports/narrative-tests.txt`.
+
+New tests cover deterministic snapshots, admission/opt-in, changed input/policy/
+source/namespace/display hashes, false approval fields, Latin and five-book
+scope, Unicode offset bounds, literal labels and approved witnessed mappings,
+typed/dangling/shadowed references, fiction leakage, secondary evidence/claim
+requirements, source presentation versus anchored/uncertain order and cycles,
+out-of-order node input, complete ordered coverage, empty drafts, size/JSON
+bounds, immutable imports/report fencing and unchanged reader/archive behavior.
+All simulated name attestations and test historical claims exist only in
+automatically removed temporary synthetic test roots, not in the real workspace.
+
+All **26 installed-wheel checks passed**, including three targeted temporary
+tests for approved-name bindings, historical support and reordered malformed
+nodes. Built offline with `--no-index --no-build-isolation --no-deps`; reinstalled
+only into the existing clean verification venv without dependency resolution.
+Python `-I` confirmed site-packages imports and all 32 bundled schemas. Old and
+new packet hashes matched; the actual report and archive were byte-identical to
+the development run. Deep Windows response paths worked. A blank-parent restore
+rebuilt matching reader/search artifacts, excluded narrative working caches and
+retained zero canonical knowledge/decisions. Duplicate import, missing synthetic
+opt-in, unresolved real-source drafting, synthetic release and incompatible old
+engine use correctly failed with exit 2 and no traceback. `pip check` passed.
+Actual commands/output: `reports/narrative-package.json`.
+
+Current matching wheel:
+`dist/narrative-wheels/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl`,
+SHA-256 `6bd44db26e667d0379aad27093d1eac883d98f33c645a11fd1523815fdef98a0`.
+No native binaries entered the wheel. No Linux or remote CI result is claimed.
+The optional native diagnostic capture revalidated; no native build was rerun.
+
+Current-engine archive smoke uses a separate snapshot, preserving the original:
+
+- `dist/demo/dist/archives/narrative-engine-v1.zip`, SHA-256
+  `c40be4f01337cf6b21822d441b2c0795fde73ccf31015698f1126e8a9123b22f`.
+- `reports/narrative-build-manifest.json`, canonical SHA-256
+  `004ec38d488d9678e8f0253e537c4d4993412d8c44e4710b7b6539dce97997cf`.
+- Exact new engine:
+  `7048d97bdb13d7369376d9ea2a3e8d64c3e3aaec102684b8b4c63587097093c7`.
+- Restored `dist/narrative-build-restored-v1`; eleven canonical-build input files,
+  zero review/curation/text decisions and no pending narrative cache included.
+
+The prior `fixture-build-final-v1.zip`, its manifest/reports, recovered root and
+matching wheel SHA `d3341ca0...` were not overwritten. Before replacing the smoke
+venv's old engine, it successfully revalidated that unchanged old ZIP; the
+read-only result is `reports/narrative-prior-engine-check.json`. The new engine
+correctly refuses it rather than migrating it. Retain each matching wheel and
+dependency lock with its archive. Neither snapshot is a full working-cache
+backup, authenticated signature, rights clearance or public release.
+
+The actual JSON reader SHA remains
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown remains
+`07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9`.
+The source registry, rights/editorial policy and five configuration inputs have
+no tracked changes (`git diff --exit-code -- config sources
+docs/EDITORIAL_POLICY.md docs/RIGHTS_POLICY.md` returned 0). Source clearance is
+unchanged: CrossWire/eBible srp1865 need review; Šarić is excluded; the production
+lock is empty. CrossWire retains fourteen evidence records, five unresolved
+checks and sixteen admission blockers. The metadata handoff hash remains
+`f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28`.
+No historical text was acquired or parsed. Exact real pilot coverage, complete
+books, real modernization, approved knowledge and owner text/name/note approvals
+are **zero for GEN, MAT, MRK, LUK, JHN**. The synthetic fixture is unreleasable.
+
+This continuation made no commit, push, remote/history change, contact,
+publication, release, paid/model API call, machine setting change or chat
+automation. Existing local work remains reviewable in GitHub Desktop.
+
+Next small independent task: an unsigned read-only human narrative review
+handoff that places exact spans, roles, supporting claims/evidence, uncertainty,
+name-approval identities and presentation/chronology assertions side by side.
+Do not manufacture owner attestations or promote these drafts; a typed
+promotion workflow is a separately reviewed future slice. Real editorial work
+still needs new primary edition/lineage/component/rights evidence. No new owner
+input is required for the next reversible engineering task. See NEXT_STEPS.
+
+## Continuation: unsigned narrative inspection handoff, 2026-10-31
+
+Read AGENTS, continuity files and Git status before continuing the specified
+next task. Preserved commit `17f2613`, all earlier local work, exact five-book
+scope and the existing editorial/source decisions. Added a read-only inspection
+aid for an exact already-imported narrative response; no new draft was authored.
+
+Implementation and documentation:
+
+- `src/jeb/narrative_review.py` and `knowledge narrative review export`: require
+  a safe packet ID/full lowercase response hash, validate the immutable imported
+  response and current admitted packet, then write only the requested Markdown
+  handoff. Missing imports, cross-packet substitution, changed data, stale policy/
+  source/namespace/display, unsupported apply and missing synthetic opt-in fail.
+- The derived `jeb-narrative-review/1` report binds packet, corpus, policy,
+  source metadata, namespace, individual nodes and support/envelope identities.
+  It shows original/normalized/reader wording separately, proposed roles beside
+  source excerpts, exact deduplicated spans with Unicode offsets/slice hashes,
+  story presentation/anchored/uncertain relations and original attribution.
+- Transitive typed support links remain inspectable, including related cycles
+  without claiming corroboration. Draft support is shown intact; canonical
+  support is attached metadata plus typed links and approval/provenance hashes,
+  without copying additional note prose. Selected narrative name mappings retain
+  the complete original mapping and exact prior approval/content identities.
+- Free text is fenced; returned table punctuation is encoded literally and line
+  breaks are visible. Full exact spans remain available; table previews exceeding
+  80 characters are explicitly labelled and linked. Context is at most 80
+  characters per side. Output is capped at 1 MiB before one atomic immutable write.
+- `tests/test_narrative_review.py` adds fifteen focused regression cases.
+  `docs/NARRATIVE_REVIEW.md`, decision 0013, README/model/architecture/review guides,
+  CI smoke commands and NEXT_STEPS describe the actual boundaries.
+
+There is no new stored-data schema, decision format, narrative approval or
+promotion operation. All 32 existing schemas, packet prompts and response
+identities are preserved. Export generates no human identity, date, answers or
+attestation. Existing recorded name/support approvals do not approve a narrative.
+No report content is executed, no citation is fetched, and no new runtime
+dependency, service or frontend was added.
+
+Actual synthetic handoff:
+
+```text
+python -m jeb --root dist/demo --synthetic knowledge narrative review export --packet-id fixture-narrative-v1 --response-sha256 14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733 --output reports/narrative-review.md
+```
+
+This succeeded and an identical repeat was idempotent. The curated copy is
+`reports/narrative-review-synthetic.md`, 37,841 bytes, SHA-256
+`584d7c2769d4487de65475f1aa6e27457598016d4a065e097cb2aaa0426ebcc2`.
+It indexes four distinct spans from five source-narrative nodes and three
+separate fiction nodes, with one existing witness proposal. There are zero
+historical-claim nodes and zero selected name mappings in this actual example.
+The reading clause retains an unspecified agent; negation and number 2 remain.
+No event, participant, scripture wording or new scholarly bibliography was added.
+The original packet hash remains
+`a1624156c28bb4ced94a32254ac5f2c30f725520526cfd34624f2f3ff594978c`;
+response hash remains
+`14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733`.
+The previous generic narrative report and all earlier annotation/research/AI
+critique packets also revalidated with unchanged identities. The earlier five
+annotation drafts and all nine narrative/support proposals remain unreviewed.
+
+Actual final checks used the existing hash-locked Windows 11 / CPython 3.13.3
+environment. No dependency resolution, historical text or network was needed:
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+python -m jeb sources audit
+python -m jeb sources inspect --source crosswire-srkdijekav
+python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-lineage-followup-01
+python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
+python -m jeb demo
+```
+
+All passed: lint clean, **44 Python files formatted, 32 schemas valid, 268 tests
+passed in 186.580 seconds**. The focused fifteen-case suite passed in 20.269
+seconds. A preliminary unused test import was removed; no functional test failed
+in the focused/full runs. Actual complete output is
+`reports/narrative-review-tests.txt`. Exact source/schema/test fingerprints and
+all thirty observed workflow/check commands are in
+`reports/narrative-review-verification.json`; actual handoff identities and
+limits are in `reports/narrative-review-workflow.json`.
+
+The new tests cover imported identity and cross-packet substitution, stale rights/
+policy/namespace and cached-content integrity, Unicode offsets, raw/normalized/
+approved-display separation, role/fiction/chronology boundaries, complete typed
+support chains including related cycles, literal returned table content and
+safe fences, exact prior mapping approvals, bounded atomic immutable output,
+empty/support-only/reordered graphs, CLI refusal and no extra data writes.
+Tests compare every original workspace file plus reader/decision state before
+and after handoff generation. All simulated text/name attestations remain only
+inside automatically removed temporary synthetic test roots. No actual owner
+approval was created or inferred from running the tests or exporting the report.
+
+All **29 installed-wheel checks passed**, including four targeted temporary
+tests for approved-display offsets, canonical metadata isolation/support chains,
+exact prior name approval and literal table/fence rendering. Built with
+`--no-index --no-build-isolation --no-deps`, then installed only into the existing
+clean verification venv with `--no-index --no-deps --force-reinstall`. Python
+`-I` confirmed site-packages imports and all 32 schemas. Old/new packet hashes
+matched, and the handoff and current-engine archive were byte-identical to the
+development run. Deep Windows imported-response/report paths worked. Missing
+import, short hash, nonexistent apply, missing synthetic opt-in, uncleared real
+source, synthetic release and old-engine mismatch all failed with exit 2 and no
+traceback. A blank-parent recovery rebuilt matching reader/search data with zero
+knowledge/text decisions and no pending narrative cache. `pip check` passed.
+Commands/output: `reports/narrative-review-package.json`. No Linux or remote CI
+execution is claimed. Native capture validation passed; no native build was run.
+
+Current matching wheel:
+`dist/narrative-review-wheels/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl`,
+SHA-256 `15c5e092b07ee941bf5b99b04182fb30392e178bcbae234e6d49dea1dd4cab4b`.
+No native binaries entered the package. New code changes the exact engine even
+though the dev version is unchanged; the compatibility smoke uses a new archive:
+
+- `dist/demo/dist/archives/narrative-review-engine-v1.zip`, SHA-256
+  `27c557f9677c88480f554ba427c3deed97667486914fbdcfdd90d53faf3e3d48`.
+- `reports/narrative-review-build-manifest.json`, canonical SHA-256
+  `5e24b5e242fa72f3b56eecf29e8d16a8eda0c21906bf6783d96b903931092b9f`.
+- Exact engine:
+  `4172835d8b9653f1b8dd3523afdad6a5c7d5cf1bb5a8775951c872498f38726c`.
+- Recovery root `dist/narrative-review-build-restored-v1`; eleven canonical-build
+  inputs, zero decisions/curation/review receipts and no narrative working cache.
+
+The previous `narrative-engine-v1.zip`, its reports/recovery root and matching
+wheel SHA `6bd44db2...` remain unchanged. Before updating the verification venv,
+its retained prior engine successfully revalidated that ZIP; see
+`reports/narrative-review-prior-engine-check.json`. The current engine correctly
+refuses the older snapshot. The even earlier archive and matching wheel also
+remain intact. Retain each exact wheel and dependency lock with its snapshot;
+there is no automatic migration, public release or full working-cache backup.
+
+Reader JSON SHA stays
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown SHA stays
+`07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9`.
+`git diff --exit-code -- config sources docs/EDITORIAL_POLICY.md
+docs/RIGHTS_POLICY.md` returned 0: no source/rights/editorial configuration input
+was changed. CrossWire SrKDIjekav and eBible srp1865 still need review, Šarić is
+excluded, and the production lock is empty. The fourteen CrossWire evidence
+records, five unresolved checks and sixteen admission blockers are unchanged.
+The source-research handoff remains
+`f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28`.
+No historical text was acquired or parsed. Exact real pilot/complete-book
+coverage, real modernization, canonical knowledge and owner text/name/note
+approvals remain **zero for GEN, MAT, MRK, LUK and JHN**.
+
+This continuation made no commit, push, remote/history change, release,
+publication, contact, paid/model API call, machine setting change or chat
+automation. Existing local work remains available for GitHub Desktop review.
+No new owner input was required for this authorized reversible engineering slice.
+
+Next small task: a dedicated versioned human narrative decision format and
+validation-only command for one exact imported response, with truthful owner
+participation and explicit meaning/support/category/rights checks. It must bind
+the complete typed graph and original contribution identities, create no
+receipt/approval/canonical data, and exercise attestations only in temporary
+synthetic tests. Eventual receipt/promotion is a separate later slice. Real
+editorial work still needs new primary source-lineage/edition/rights evidence.
+See NEXT_STEPS; do not repeat the completed handoff or source searches.
+
+
+## 2026-10-31 — validation-only decisions and independent source audit
+
+Read PROGRESS, NEXT_STEPS and git status before editing; preserved the substantial
+existing uncommitted work. Added shipped narrative-review-decisions 1.0 schema
+and `python -m jeb knowledge narrative review validate --decisions PATH`.
+The command binds the complete current validated packet and exact imported
+response, every typed node and original support envelope; requires owner
+attestation, date/identity, explicit five inspection checks and rationale.
+It writes nothing and creates no receipt/approval/canonical content. Human
+identity and attestation truth are not authenticated. Original credits remain
+bound through exact response/envelope hashes; no actual owner document was made.
+Tests use only temporary synthetic attestations. Existing annotation promotion
+was not changed. No new wheel/archive compatibility verification was performed;
+retain previous exact engines with their archives.
+
+Source investigation: public web opens of all five supplied leads plus direct
+Python urllib acquisition recovered actual CrossWire ZIP and eBible USFM/USFX
+ZIPs (initial eBible 403 overcome using www hostname/browser User-Agent), IA
+metadata/OCR and selected page JPEGs. Metadata web fetch failed, but direct
+HTTPS succeeded. Direct page n980 returned 404; full scan completeness is not
+claimed. All downloads remain ignored private evidence under
+`data/private-source-audit`, outside package/demo/corpus. No network tests added.
+The audit has exact evidence URLs and component/gap distinctions:
+`docs/sources/SOURCE_COMPARISON_2026-10-31.md`; acquired file sizes/SHA-256 in
+`reports/source-audit-2026-10-31.json`.
+
+Inspected actual module config (not only catalogue): first release 2017-06-18,
+no exact print source/transcriber/correction history, OSIS headings enabled,
+Calvin/zText. Did not decode compressed scripture or claim a component inventory
+from that config. eBible front matter declares modernization/Ekavianization and
+a Cyrillic 1868 base although the downloaded text is Latin; metadata says
+Revision with empty archive history. Introduction credits Branko Bjelajac,
+1996, requiring separate rights evidence. Unknown transcription is not proof
+of infringement; blanket PD notices do not settle later component rights.
+
+Visually inspected IA general title n4, OT contents n6, GEN page 1/n8 and NT
+title n740. Both title pages identify Latin 1868 Pest BFBS edition and translator
+credits. This supplies a better documented research route, not production
+clearance. Private GEN 1:1–5 pilot compares every verse to n8 and records OCR
+corrections separately; no transliteration or modernization, human review still
+pending. Whole-scan/five-book collation and exact jurisdiction assessment remain.
+Source registry, rights assessments and empty lock are unchanged. No source was
+admitted. No messages sent: short CrossWire/eBible drafts and official contact
+routes are in the audit. Scope stays GEN/MAT/MRK/LUK/JHN; no real approval,
+publication, push, release, model API or historical text reconstruction.
+
+Verification commands used the existing hash-locked `.venv` Python 3.13:
+
+- `python -m ruff check src tests`: passed.
+- `python -m ruff format --check src tests`: 44 files formatted, passed.
+- `python -m jeb validate --stage schemas`: 33 schemas valid.
+- `python -m jeb knowledge narrative review validate --help`: exit 0.
+- `git diff --check`: exit 0 (only existing Windows line-ending warnings).
+- `python -m unittest tests.test_narrative_review.NarrativeDecisionTests tests.test_cli.CliTests.test_all_packaged_schemas_validate -v`: 2 passed in 3.132s.
+
+Initial full run: 284 tests, one schema-count assertion failure and one inherited
+helper collision error. Fixed expected schema count to 33 and isolated the new
+test class/helper; no production behavior failed in that run. Output retained in
+`reports/narrative-decision-tests.txt` (and partial attempt snapshot). An attempted
+rerun to the same still-open log failed at shell redirection; fresh run uses
+`reports/narrative-decision-tests-final.txt`. Final result follows below.

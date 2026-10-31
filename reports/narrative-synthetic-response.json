@@ -1,0 +1,378 @@
+{
+  "approval_authority": "none",
+  "human_attestation": false,
+  "items": [
+    {
+      "action": "drafts_proposed",
+      "node_ids": [
+        "fixture-narrative-covik",
+        "fixture-narrative-zapis",
+        "fixture-narrative-stanje",
+        "fixture-narrative-citanje",
+        "fixture-narrative-redoslijed",
+        "fixture-fiction-citalac",
+        "fixture-fiction-kartice",
+        "fixture-fiction-prica"
+      ],
+      "rationale": "Izvorni probni prikaz i odvojena fikcija.",
+      "segment_id": "synthetic-v1:GEN.1.1",
+      "support_record_ids": [
+        "fixture-narrative-witness"
+      ],
+      "text_sha256": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+    },
+    {
+      "action": "no_draft",
+      "node_ids": [],
+      "rationale": "Bez dodatnog nacrta za ovaj točan probni segment.",
+      "segment_id": "synthetic-v1:GEN.1.2a",
+      "support_record_ids": [],
+      "text_sha256": "4bd9b83ed04e8793739464376ed25159e15ddfd3075e02ff641689c034980695"
+    },
+    {
+      "action": "no_draft",
+      "node_ids": [],
+      "rationale": "Bez dodatnog nacrta za ovaj točan probni segment.",
+      "segment_id": "synthetic-v1:GEN.1.3-4",
+      "support_record_ids": [],
+      "text_sha256": "c70c760db5e5d53e6db94c80bcbae6b25bd76bfd85725541ec0469782860b6b5"
+    },
+    {
+      "action": "no_draft",
+      "node_ids": [],
+      "rationale": "Bez dodatnog nacrta za ovaj točan probni segment.",
+      "segment_id": "synthetic-v1:GEN.1.5",
+      "support_record_ids": [],
+      "text_sha256": "cf033a9f742315d23a4fa97fcf8caa0e10d4ad3bc30b2ce580e84c15ca3d32d4"
+    }
+  ],
+  "limitations": [
+    "Izvorni sintetički tehnički uzorak; nije Sveto pismo ili povijesno istraživanje.",
+    "Nema historical_claim čvorova, neovisne bibliografije, novih izvora, ljudskog pregleda ili odobrenja.",
+    "Rasponi označavaju točne znakove; stroj ne dokazuje uloge, značenje ili kronologiju.",
+    "Izmišljeni čitalac i kartice pripadaju zasebnoj označenoj fikciji, bez dokazne uloge."
+  ],
+  "nodes": [
+    {
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "source_narrative",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "entity_type": "person",
+      "evidence_ids": [
+        "fixture-narrative-witness"
+      ],
+      "kind": "entity",
+      "label": "covik",
+      "mention": {
+        "end": 24,
+        "segment_id": "synthetic-v1:GEN.1.1",
+        "start": 19
+      },
+      "name_mapping_id": null,
+      "node_id": "fixture-narrative-covik",
+      "rationale": "Izvorni tehnički uzorak; opisuje samo priloženo probno čitanje.",
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "uncertainty": "Izričita riječ u probnom tekstu; osobno ime i identitet nisu navedeni."
+    },
+    {
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "source_narrative",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "entity_type": "object",
+      "evidence_ids": [
+        "fixture-narrative-witness"
+      ],
+      "kind": "entity",
+      "label": "probni zapis",
+      "mention": {
+        "end": 62,
+        "segment_id": "synthetic-v1:GEN.1.1",
+        "start": 50
+      },
+      "name_mapping_id": null,
+      "node_id": "fixture-narrative-zapis",
+      "rationale": "Izvorni tehnički uzorak; opisuje samo priloženo probno čitanje.",
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "uncertainty": "Oznaka GEN pripada testu. Nema biblijske tvrdnje, povijesne potvrde ili ljudskog odobrenja."
+    },
+    {
+      "anchor": {
+        "end": 43,
+        "segment_id": "synthetic-v1:GEN.1.1",
+        "start": 25
+      },
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "source_narrative",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "description": "covik ne mijenja 2 broja.",
+      "event_kind": "state",
+      "evidence_ids": [
+        "fixture-narrative-witness"
+      ],
+      "kind": "event",
+      "node_id": "fixture-narrative-stanje",
+      "participants": [
+        {
+          "entity_id": "fixture-narrative-covik",
+          "role": "agent",
+          "uncertainty": "Imenica je izričito navedena u istoj probnoj rečenici."
+        }
+      ],
+      "rationale": "Izvorni tehnički uzorak; opisuje samo priloženo probno čitanje.",
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "uncertainty": "Oznaka GEN pripada testu. Nema biblijske tvrdnje, povijesne potvrde ili ljudskog odobrenja."
+    },
+    {
+      "anchor": {
+        "end": 63,
+        "segment_id": "synthetic-v1:GEN.1.1",
+        "start": 45
+      },
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "source_narrative",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "description": "Čita probni zapis.",
+      "event_kind": "action",
+      "evidence_ids": [
+        "fixture-narrative-witness"
+      ],
+      "kind": "event",
+      "node_id": "fixture-narrative-citanje",
+      "participants": [
+        {
+          "entity_id": "fixture-narrative-zapis",
+          "role": "patient",
+          "uncertainty": "Navedeni predmet čitanja; izostavljeni subjekt nije dodijeljen prethodnom liku."
+        }
+      ],
+      "rationale": "Izvorni tehnički uzorak; opisuje samo priloženo probno čitanje.",
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "uncertainty": "Rečenica ne imenuje čitaoca. Nema automatske veze između tog subjekta i riječi covik."
+    },
+    {
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "source_narrative",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "event_ids": [
+        "fixture-narrative-stanje",
+        "fixture-narrative-citanje"
+      ],
+      "evidence_ids": [
+        "fixture-narrative-witness"
+      ],
+      "kind": "story",
+      "node_id": "fixture-narrative-redoslijed",
+      "ordering": "source_presentation",
+      "rationale": "Izvorni tehnički uzorak; opisuje samo priloženo probno čitanje.",
+      "relations": [
+        {
+          "anchor": null,
+          "from_event_id": "fixture-narrative-stanje",
+          "relation": "narrative_before",
+          "to_event_id": "fixture-narrative-citanje",
+          "uncertainty": "Samo redoslijed prikaza. Tekst ne potvrđuje vremenski ni uzročni slijed."
+        }
+      ],
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "title": "Redoslijed dviju probnih rečenica",
+      "uncertainty": "Oznaka GEN pripada testu. Nema biblijske tvrdnje, povijesne potvrde ili ljudskog odobrenja."
+    },
+    {
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "fiction",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "entity_type": "person",
+      "evidence_ids": [],
+      "kind": "entity",
+      "label": "izmišljeni čitalac",
+      "mention": null,
+      "name_mapping_id": null,
+      "node_id": "fixture-fiction-citalac",
+      "rationale": "Izričito izmišljena uloga za zasebnu kreativnu vježbu.",
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "uncertainty": "Nema izvornog spomena, potvrđenog identiteta ili povijesnog imena."
+    },
+    {
+      "anchor": null,
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "fiction",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "description": "Izmišljeni čitalac slaže kartice na stolu.",
+      "event_kind": "action",
+      "evidence_ids": [],
+      "kind": "event",
+      "node_id": "fixture-fiction-kartice",
+      "participants": [
+        {
+          "entity_id": "fixture-fiction-citalac",
+          "role": "agent",
+          "uncertainty": "Izmišljena uloga; nije tumačenje izvornog subjekta."
+        }
+      ],
+      "rationale": "Izvorna izmišljena radnja, odvojena od opisa probnog izvora.",
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "uncertainty": "Kreativna vježba bez povijesne ili biblijske tvrdnje."
+    },
+    {
+      "approval": null,
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "basis": "fiction",
+      "book_id": "GEN",
+      "claim_ids": [],
+      "depends_on": {
+        "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+      },
+      "event_ids": [
+        "fixture-fiction-kartice"
+      ],
+      "evidence_ids": [],
+      "kind": "story",
+      "node_id": "fixture-fiction-prica",
+      "ordering": "fictional_presentation",
+      "rationale": "Izričito izmišljena kratka adaptacija, bez proširenja izvornog događaja.",
+      "relations": [],
+      "review_state": "draft",
+      "schema_version": "1.0",
+      "segment_ids": [
+        "synthetic-v1:GEN.1.1"
+      ],
+      "title": "Izmišljena vježba s karticama",
+      "uncertainty": "Nije izvorno svjedočanstvo, vlasnički glas ili potvrđena povijest."
+    }
+  ],
+  "packet_id": "fixture-narrative-v1",
+  "packet_sha256": "a1624156c28bb4ced94a32254ac5f2c30f725520526cfd34624f2f3ff594978c",
+  "review_state": "unreviewed",
+  "schema_version": "1.0",
+  "source_id": "synthetic-v1",
+  "support_drafts": [
+    {
+      "attribution": {
+        "credit": "Codex-assisted original synthetic drafting; no owner voice, human review or expert authorship",
+        "kind": "ai_assisted_draft"
+      },
+      "rationale": "Novi zasebni nacrt svjedoka za točan prvi probni zapis; raniji nacrti ostaju neizmijenjeni.",
+      "record": {
+        "access_date": "2026-10-31",
+        "approval": null,
+        "bibliographic_details": "JEB original synthetic.txt fixture (JEB-TRANSCRIPT/1); not a historical edition",
+        "book_id": "GEN",
+        "claim_ids": [],
+        "depends_on": {
+          "synthetic-v1:GEN.1.1": "9cd2e4fa60ee452f855724548e64e41b5cb29496ec4fa85ff97b292486fa1add"
+        },
+        "entity_ids": [],
+        "evidence_category": "primary_witness",
+        "evidence_ids": [],
+        "layer": "source_witness",
+        "locator": "Prvi izvorni izmišljeni segment; točan tekst i izvorni raspon nalaze se u paketu.",
+        "record_id": "fixture-narrative-witness",
+        "record_type": "evidence",
+        "related_ids": [],
+        "review_state": "draft",
+        "schema_version": "1.0",
+        "segment_ids": [
+          "synthetic-v1:GEN.1.1"
+        ],
+        "selected_name_mapping_id": null,
+        "source_id": "synthetic-v1",
+        "text": "Prvi zapis izvornog sintetičkog tehničkog uzorka sadrži riječ covik, negaciju ne, broj 2 i zasebnu rečenicu o čitanju probnog zapisa.",
+        "uncertainty": "Tehnički svjedok vlastitog izmišljenog teksta; nije povijesni ili neovisan stručni izvor.",
+        "url": "urn:jeb:synthetic:fixture-v1"
+      }
+    }
+  ],
+  "task": "narrative",
+  "tool": {
+    "model_identifier": null,
+    "name": "Codex-assisted manual original synthetic drafting",
+    "reported_at": "2026-10-31"
+  }
+}

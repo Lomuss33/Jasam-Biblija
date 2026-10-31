@@ -1,3 +1,11 @@
+# Current continuation — 2026-10-31
+
+Narrative decision schema and validation-only command are implemented. No receipt, promotion or real reviewer answers exist. Next small coding task: independently exercise the CLI against stale decision context before separately designing immutable typed-graph receipts. Do not implement promotion implicitly.
+
+Read docs/sources/SOURCE_COMPARISON_2026-10-31.md before earlier source notes below. Actual eBible and CrossWire packages were acquired as private evidence. eBible includes a separately credited 1996 introduction and declares modernization/Ekavianization. Direct transcription of the image-identified Latin 1868 Pest scan is preferred. Private GEN 1:1–5 review pilot: data/private-source-audit/GEN-1-1-5-review.md. Next source task: exact five-book scan-leaf collation and edition usage assessment. Provider drafts/routes are documented and unsent. Source assessments/production lock remain unchanged; no source is cleared. Retain previous wheels/archives; this engine has no new wheel verification.
+
+Earlier history follows.
+
 # Next small task
 
 Read PROGRESS, AGENTS and Git status first. The foundation and synthetic demo
@@ -28,22 +36,78 @@ Human knowledge review/promotion is now implemented. See
 envelopes and attribution are retained in atomic immutable receipts; only
 approved closed current groups project into canonical knowledge. Pending and
 rejected heads can be explicitly superseded, and partial groups can resume from
-the same response. Current checks: **186 tests, 26 schemas and 18 installed-wheel
-checks passed**. The persistent five drafts still have zero human decisions or
+the same response. That milestone passed **186 tests, 26 schemas and 18
+installed-wheel checks**. The persistent five drafts still have zero human decisions or
 approvals. Do not rebuild this workflow as the next milestone.
 
-**Next independent engineering task: human knowledge withdrawal and editorial
-selection among approved versions.** Preserve every original approval receipt
-and immutable record. Bind a separate actual-owner action to exact canonical
-record/provenance/content hashes and the selected revision. Support withdrawing
-an erroneous or stale note without deleting history or changing passage text
-approval. Hide dependent notes transitively; replacing a version must explicitly
-select one approved current candidate rather than export both silently. Define
-nonbranching supersession, conflict handling, recovery and reactivation rules.
-Keep reflection/fiction labels and AI attribution intact. Exercise everything
-with temporary synthetic attestations; do not approve or withdraw any of the
-actual five staged drafts on the owner's behalf. The current implementation
-freezes approved IDs and has no withdrawal/version-selection interface yet.
+Knowledge withdrawal, explicit reactivation and approved-version selection are
+now implemented. See `docs/KNOWLEDGE_CURATION.md`, decision 0010 and
+`reports/knowledge-curation-workflow.json`. Exact original approvals and
+attribution are retained; declared revisions are withheld until selected, and
+withdrawn/stale selections have no automatic fallback. That milestone passed
+**211 tests, 28 schemas and 19 installed-wheel checks**. Persistent
+production/demo reports are unsigned, with zero approved targets and zero owner
+actions. Do not rebuild this completed curation slice as the next milestone.
+
+Bounded local canonical-build archive/validation/isolated restore is now
+implemented. See `docs/BUILD_ARCHIVES.md`, decision 0011,
+`reports/build-archive-manifest.json` and `reports/build-archive-workflow.json`.
+The eleven-input fixture archive recovered identical reader/search data into
+`dist/archive-restored-fixture-v1`. That milestone passed **230 tests, 29 schemas and
+17 installed-wheel checks**. No approvals/actions were created. Original
+review/curation history is preserved; unapproved working caches, arbitrary
+workspace files and private research snapshots are outside this build scope.
+The five actual drafts remain untouched in the original workspace. Retain the
+matching engine wheel recorded in PROGRESS; there is no automatic migration or
+public-release authority. Do not rebuild this completed archive slice next.
+
+Bounded structured narrative drafts are now implemented. See
+`docs/NARRATIVE_DRAFTS.md`, decision 0012 and `reports/narrative-workflow.json`.
+That milestone passed **253 tests, 32 schemas and 26 installed-wheel checks**.
+Three separate draft schemas and the manual `knowledge narrative` commands bind
+exact display spans, typed participants, story relations, scope, support,
+approved-name mappings, attribution and uncertainty. Source narration,
+unverified historical claims and fiction retain separate graph rules. The
+actual original fixture adds eight nodes and one support proposal; no historical
+claim or human approval was created. The prior five annotation drafts remain
+unchanged. Narratives stay outside canonical knowledge, human promotion,
+reader/search and build archives. Do not rebuild this completed draft slice.
+
+Retain the old archive and matching engine wheel recorded in PROGRESS. This
+milestone changes the engine identity; the new synthetic compatibility check
+uses a different archive. Never overwrite/migrate the earlier snapshot silently.
+Pending narrative packets are not included in either canonical-build archive.
+
+The unsigned narrative inspection handoff is now implemented. See
+`docs/NARRATIVE_REVIEW.md`, decision 0013 and
+`reports/narrative-review-synthetic.md`. This milestone passed **268 tests,
+32 schemas and 29 installed-wheel checks**. `knowledge narrative review export`
+requires an exact imported response and a current eligible packet, then shows
+literal spans beside roles/relations, distinct source/normalized/reader wording,
+transitive typed support metadata and exact prior name approval identities.
+The existing eight nodes and one witness proposal remain unreviewed; no new
+draft, decision or approval was created. There is no narrative review apply or
+promotion operation. Do not rebuild this completed report slice.
+
+**Next small independent task: a dedicated human narrative decision format and
+validation-only command.** Bind one exact imported response, each typed node and
+support envelope, source spans/roles/relations, policy and selected name-approval
+identities. Require truthful owner participation and explicit inspection checks
+for meaning, support, category/uncertainty and contribution rights, with no
+inference from a report export. Validate graph closure and currentness before
+accepting any submitted decision document. Preserve original contribution credit.
+
+Keep this first slice validation-only: it must create no receipt, approval or
+canonical narrative, and must not convert typed graphs into generic text JSONL.
+Use only temporary synthetic attestations in tests; never complete the actual
+reviewer's answers. A separately reviewed later receipt/promotion slice must
+preserve the entire typed graph and original packet/response/provenance. The
+existing annotation promotion endpoint must continue to reject narratives.
+
+Keep exact GEN/MAT/MRK/LUK/JHN scope, Latin output and protected literal forms.
+Demonstrate only original non-scripture data. Continue reversible engineering
+without contact, paid/model APIs or publication. No new owner decision is needed
+until concrete eligible editorial choices are presented.
 
 Continue this reversible engineering work if there is no new primary lineage
 record or authorized provider reply, instead of repeating completed searches.

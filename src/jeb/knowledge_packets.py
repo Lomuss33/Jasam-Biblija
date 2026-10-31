@@ -119,6 +119,11 @@ def _make_packet(
         if retained == usable:
             break
         usable = retained
+    from jeb.knowledge_curation import filter_records, read_receipts
+
+    usable = set(
+        filter_records(knowledge, {key: knowledge[key] for key in usable}, read_receipts(project))
+    )
     metadata_fields = (
         "record_id",
         "record_type",

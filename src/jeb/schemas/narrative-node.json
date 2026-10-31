@@ -1,0 +1,592 @@
+{
+  "$defs": {
+    "narrative_entity": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "type": "null"
+        },
+        "attribution": {
+          "additionalProperties": false,
+          "properties": {
+            "credit": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "ai_assisted_draft"
+            }
+          },
+          "required": [
+            "kind",
+            "credit"
+          ],
+          "type": "object"
+        },
+        "basis": {
+          "enum": [
+            "source_narrative",
+            "historical_claim",
+            "fiction"
+          ]
+        },
+        "book_id": {
+          "enum": [
+            "GEN",
+            "MAT",
+            "MRK",
+            "LUK",
+            "JHN"
+          ]
+        },
+        "claim_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "depends_on": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "maxProperties": 100,
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "entity_type": {
+          "enum": [
+            "person",
+            "group",
+            "place",
+            "object",
+            "unspecified"
+          ]
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "kind": {
+          "const": "entity"
+        },
+        "label": {
+          "maxLength": 300,
+          "minLength": 1,
+          "type": "string"
+        },
+        "mention": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/narrative_span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name_mapping_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "node_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "review_state": {
+          "const": "draft"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "segment_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "uncertainty": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "node_id",
+        "book_id",
+        "basis",
+        "segment_ids",
+        "depends_on",
+        "evidence_ids",
+        "claim_ids",
+        "attribution",
+        "rationale",
+        "uncertainty",
+        "review_state",
+        "approval",
+        "kind",
+        "entity_type",
+        "label",
+        "mention",
+        "name_mapping_id"
+      ],
+      "type": "object"
+    },
+    "narrative_event": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/narrative_span"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "approval": {
+          "type": "null"
+        },
+        "attribution": {
+          "additionalProperties": false,
+          "properties": {
+            "credit": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "ai_assisted_draft"
+            }
+          },
+          "required": [
+            "kind",
+            "credit"
+          ],
+          "type": "object"
+        },
+        "basis": {
+          "enum": [
+            "source_narrative",
+            "historical_claim",
+            "fiction"
+          ]
+        },
+        "book_id": {
+          "enum": [
+            "GEN",
+            "MAT",
+            "MRK",
+            "LUK",
+            "JHN"
+          ]
+        },
+        "claim_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "depends_on": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "maxProperties": 100,
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "description": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "event_kind": {
+          "enum": [
+            "action",
+            "speech",
+            "state",
+            "unspecified"
+          ]
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "kind": {
+          "const": "event"
+        },
+        "node_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+          "type": "string"
+        },
+        "participants": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "role": {
+                "enum": [
+                  "agent",
+                  "patient",
+                  "speaker",
+                  "recipient",
+                  "location",
+                  "instrument",
+                  "unspecified"
+                ]
+              },
+              "uncertainty": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "entity_id",
+              "role",
+              "uncertainty"
+            ],
+            "type": "object"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "review_state": {
+          "const": "draft"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "segment_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "uncertainty": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "node_id",
+        "book_id",
+        "basis",
+        "segment_ids",
+        "depends_on",
+        "evidence_ids",
+        "claim_ids",
+        "attribution",
+        "rationale",
+        "uncertainty",
+        "review_state",
+        "approval",
+        "kind",
+        "description",
+        "event_kind",
+        "anchor",
+        "participants"
+      ],
+      "type": "object"
+    },
+    "narrative_span": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "segment_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "segment_id",
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "narrative_story": {
+      "additionalProperties": false,
+      "properties": {
+        "approval": {
+          "type": "null"
+        },
+        "attribution": {
+          "additionalProperties": false,
+          "properties": {
+            "credit": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "ai_assisted_draft"
+            }
+          },
+          "required": [
+            "kind",
+            "credit"
+          ],
+          "type": "object"
+        },
+        "basis": {
+          "enum": [
+            "source_narrative",
+            "historical_claim",
+            "fiction"
+          ]
+        },
+        "book_id": {
+          "enum": [
+            "GEN",
+            "MAT",
+            "MRK",
+            "LUK",
+            "JHN"
+          ]
+        },
+        "claim_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "depends_on": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "maxProperties": 100,
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "event_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "kind": {
+          "const": "story"
+        },
+        "node_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+          "type": "string"
+        },
+        "ordering": {
+          "enum": [
+            "source_presentation",
+            "fictional_presentation"
+          ]
+        },
+        "rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "relations": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "anchor": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/narrative_span"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "from_event_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "relation": {
+                "enum": [
+                  "narrative_before",
+                  "source_stated_before",
+                  "uncertain"
+                ]
+              },
+              "to_event_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "uncertainty": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "from_event_id",
+              "to_event_id",
+              "relation",
+              "anchor",
+              "uncertainty"
+            ],
+            "type": "object"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "review_state": {
+          "const": "draft"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "segment_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "title": {
+          "maxLength": 300,
+          "minLength": 1,
+          "type": "string"
+        },
+        "uncertainty": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "node_id",
+        "book_id",
+        "basis",
+        "segment_ids",
+        "depends_on",
+        "evidence_ids",
+        "claim_ids",
+        "attribution",
+        "rationale",
+        "uncertainty",
+        "review_state",
+        "approval",
+        "kind",
+        "title",
+        "event_ids",
+        "ordering",
+        "relations"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:jeb:schema:narrative-node:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/narrative_entity"
+    },
+    {
+      "$ref": "#/$defs/narrative_event"
+    },
+    {
+      "$ref": "#/$defs/narrative_story"
+    }
+  ]
+}

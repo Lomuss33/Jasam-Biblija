@@ -1,0 +1,250 @@
+{
+  "$id": "urn:jeb:schema:knowledge-curation-decisions:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+      "type": "string"
+    },
+    "human_attestation": {
+      "const": true
+    },
+    "items": {
+      "items": {
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "checks": {
+                "items": {
+                  "enum": [
+                    "record_identity_checked",
+                    "impact_checked",
+                    "withdrawal_reason_resolved",
+                    "current_dependencies_checked",
+                    "alternatives_compared"
+                  ]
+                },
+                "maxItems": 4,
+                "minItems": 2,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "kind": {
+                "enum": [
+                  "withdraw",
+                  "reactivate"
+                ]
+              },
+              "rationale": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "supersedes": {
+                "anyOf": [
+                  {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "target": {
+                "additionalProperties": false,
+                "properties": {
+                  "approval_sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "provenance_sha256": {
+                    "anyOf": [
+                      {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "record_id": {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                    "type": "string"
+                  },
+                  "record_sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "record_id",
+                  "record_sha256",
+                  "approval_sha256",
+                  "provenance_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "kind",
+              "target",
+              "rationale",
+              "checks",
+              "supersedes"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "candidates": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "approval_sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    "provenance_sha256": {
+                      "anyOf": [
+                        {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "record_id": {
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                      "type": "string"
+                    },
+                    "record_sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "record_id",
+                    "record_sha256",
+                    "approval_sha256",
+                    "provenance_sha256"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 128,
+                "minItems": 2,
+                "type": "array"
+              },
+              "checks": {
+                "items": {
+                  "enum": [
+                    "record_identity_checked",
+                    "impact_checked",
+                    "withdrawal_reason_resolved",
+                    "current_dependencies_checked",
+                    "alternatives_compared"
+                  ]
+                },
+                "maxItems": 4,
+                "minItems": 2,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "group_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "kind": {
+                "const": "select"
+              },
+              "rationale": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "selected_record_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "supersedes": {
+                "anyOf": [
+                  {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "kind",
+              "group_id",
+              "candidates",
+              "selected_record_id",
+              "rationale",
+              "checks",
+              "supersedes"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "maxItems": 128,
+      "minItems": 1,
+      "type": "array"
+    },
+    "policy_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "pattern": "\\S",
+      "type": "string"
+    },
+    "reviewer_role": {
+      "const": "owner"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "action_id",
+    "source_id",
+    "policy_sha256",
+    "reviewer_id",
+    "reviewer_role",
+    "human_attestation",
+    "reviewed_at",
+    "items"
+  ],
+  "type": "object"
+}

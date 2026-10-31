@@ -78,6 +78,13 @@ Decision input is bounded to 32 KiB; the complete receipt is bounded to 160 KiB.
 Global `--root` and `--synthetic` precede `knowledge`; input paths are relative to
 the shell, and output paths must remain inside the selected project.
 
+For an actual revision of an approved record, optionally add `version_of` with
+the original's exact record/approval/provenance binding and include the additional
+`revision_relationship_checked` check. The type, layer/category and segment scope
+must match. Declared revisions stay out of the reader until explicitly selected;
+see [knowledge curation](KNOWLEDGE_CURATION.md). Independent notes are not inferred
+to be versions, and the original approval and AI response remain unchanged.
+
 ## Dependencies, alternatives and corrections
 
 All evidence/claim/entity/related references of an approved draft must point to
@@ -93,11 +100,11 @@ be acyclic, nonbranching and refer to the same record and book. Reusing a review
 ID, silently picking a winner, mixing envelopes or overwriting canonical IDs
 fails. No tool consensus counts as independent evidence.
 
-This first promotion workflow makes approved canonical IDs immutable. A revised
-draft needs a new version ID and a new packet; it does not silently replace or
-withdraw an earlier approved note. Withdrawal and editorial selection among
-approved versions are not implemented yet. Until that separate workflow exists,
-do not treat a second approved version as having removed its predecessor.
+Approved canonical IDs remain immutable. A revised draft needs a new ID and a
+new packet; it does not silently replace or withdraw an earlier approved note.
+The separate [curation workflow](KNOWLEDGE_CURATION.md) now records exact-hash
+withdrawals, explicit reactivation and selection among approved versions.
+Its actions change reader eligibility while preserving every original receipt.
 
 ## Storage and exports
 
@@ -124,6 +131,8 @@ approved inputs before any future release. Reader generation can use a receipt
 after the working packet/response cache is removed, because both snapshots are
 inside it. The local workflow assumes one writer; hashes detect accidental
 edits, not authenticated reviewer identity or a maliciously rewritten archive.
+The [local build archive](BUILD_ARCHIVES.md) preserves these canonical receipts;
+unapproved working caches are outside that archive's explicit scope.
 
 The [unsigned synthetic review](../reports/knowledge-review-synthetic.md) shows
 the actual five staged drafts. Simulated approvals are confined to temporary

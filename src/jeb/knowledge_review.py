@@ -68,13 +68,17 @@ def _bindings(receipt: dict) -> tuple[dict, dict, dict]:
             item["draft_sha256"] == digest(drafts[key]), "Review targets a changed draft envelope"
         )
         if item["state"] == "approved":
-            expected_checks = APPROVAL_CHECKS | ({REVISION_CHECK} if item.get("version_of") is not None else set())
+            expected_checks = APPROVAL_CHECKS | (
+                {REVISION_CHECK} if item.get("version_of") is not None else set()
+            )
             require(
                 set(item["checks"]) == expected_checks,
                 "Approval requires every explicit human knowledge check",
             )
         else:
-            require(item.get("version_of") is None, "Only approval can declare a knowledge revision")
+            require(
+                item.get("version_of") is None, "Only approval can declare a knowledge revision"
+            )
     return decision, packet, drafts
 
 
@@ -263,8 +267,13 @@ def validate_decisions(project: Project, value: dict) -> dict:
             parent = item["version_of"]
             require(parent["record_id"] in known, "Unknown original knowledge version")
             original = known[parent["record_id"]]
-            require(parent == target_identity(original), "Original knowledge version identity changed")
-            require(version_scope(drafts[key]["record"]) == version_scope(original), "Knowledge revision changes its category or passage scope")
+            require(
+                parent == target_identity(original), "Original knowledge version identity changed"
+            )
+            require(
+                version_scope(drafts[key]["record"]) == version_scope(original),
+                "Knowledge revision changes its category or passage scope",
+            )
         if key in old_heads:
             old_id, _ = old_heads[key]
             require(

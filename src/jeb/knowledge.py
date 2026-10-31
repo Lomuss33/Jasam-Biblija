@@ -40,16 +40,25 @@ def stored_records(project: Project) -> dict[str, dict]:
         latin_tree(record)
         file_id(record["record_id"])
         require(record["record_id"] not in records, "Duplicate knowledge ID")
-        require(record["book_id"] in project.collection["books"], "Knowledge book outside collection")
+        require(
+            record["book_id"] in project.collection["books"], "Knowledge book outside collection"
+        )
         if record["review_state"] == "approved":
             require(record["approval"] is not None, "Approved knowledge lacks human approval")
-            require(record["approval"]["content_sha256"] == digest({k: v for k, v in record.items() if k != "approval"}), "Knowledge edited after approval")
+            require(
+                record["approval"]["content_sha256"]
+                == digest({k: v for k, v in record.items() if k != "approval"}),
+                "Knowledge edited after approval",
+            )
         records[record["record_id"]] = record
     return records
 
 
 def target_identity(record: dict) -> dict:
-    require(record["review_state"] == "approved" and record["approval"] is not None, "Curation targets must already be human-approved")
+    require(
+        record["review_state"] == "approved" and record["approval"] is not None,
+        "Curation targets must already be human-approved",
+    )
     return {
         "record_id": record["record_id"],
         "record_sha256": digest(record),
@@ -59,7 +68,13 @@ def target_identity(record: dict) -> dict:
 
 
 def version_scope(record: dict) -> tuple:
-    return (record["record_type"], record["book_id"], record["layer"], record["evidence_category"], tuple(sorted(record["segment_ids"])))
+    return (
+        record["record_type"],
+        record["book_id"],
+        record["layer"],
+        record["evidence_category"],
+        tuple(sorted(record["segment_ids"])),
+    )
 
 
 def validate_knowledge(project: Project, books: dict) -> dict[str, dict]:
@@ -195,10 +210,18 @@ def validate_records(project: Project, books: dict, values: list[dict]) -> dict[
     for record in records.values():
         parent = record.get("provenance", {}).get("version_of")
         if parent is not None:
-            require(parent["record_id"] in records and parent["record_id"] != record["record_id"], "Missing/self original knowledge version")
+            require(
+                parent["record_id"] in records and parent["record_id"] != record["record_id"],
+                "Missing/self original knowledge version",
+            )
             original = records[parent["record_id"]]
-            require(parent == target_identity(original), "Original knowledge version identity changed")
-            require(version_scope(record) == version_scope(original), "Knowledge revision changes its category or passage scope")
+            require(
+                parent == target_identity(original), "Original knowledge version identity changed"
+            )
+            require(
+                version_scope(record) == version_scope(original),
+                "Knowledge revision changes its category or passage scope",
+            )
         for key, expected_kind in (
             ("evidence_ids", "evidence"),
             ("claim_ids", "claim"),

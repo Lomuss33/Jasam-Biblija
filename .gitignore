@@ -19,7 +19,12 @@ data/proposals/
 data/source-research/
 data/review-assistance/
 data/knowledge-proposals/
+data/narrative-proposals/
 data/knowledge-reviews/
+data/knowledge-curation/
 data/index/
 reports/generated/
 sources/evidence/private/
+
+# Private historical evidence; never corpus/demo/package input
+/data/private-source-audit/

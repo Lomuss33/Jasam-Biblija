@@ -1,9 +1,19 @@
 # Initial data model (schema 1.0)
 
-Twenty-six self-contained Draft 2020-12 JSON Schemas ship with the package under
+Twenty-nine self-contained Draft 2020-12 JSON Schemas ship with the package under
 `src/jeb/schemas/`. No remote schema references are resolved at runtime. Schemas
 reject extra properties and version mismatches; code validates collection,
 foreign keys, exact identities, hashes and review gates across documents.
+
+`build-archive-manifest` describes a bounded one-source local build backup. It
+binds the edition/corpus kind, exact package/schema engine, sorted allowlisted
+input paths/sizes/hashes, current source/corpus/policy and reader JSON/Markdown
+identities, plus canonical review counts. The ZIP embeds no executable code or
+disposable artifacts. Restore checks the whole graph in staging and rebuilds
+corpus/exports/indexes before publishing a new isolated destination. Original
+approvals, attribution and curation choices remain unchanged; no release or
+source-clearance authority is supplied by an archive. Working research and
+unapproved knowledge-proposal caches are outside this canonical-build scope.
 
 `source-assessment` adds the historical source's evidence-linked admission
 dossier. It binds the current registry hash, dated assessor, five readiness
@@ -64,6 +74,26 @@ and support bindings. Approval hashes include provenance. Stale dependencies
 hide affected notes transitively; archived receipts are retained. The original
 annotation response schema and all prior packet bytes remain unchanged.
 
+`knowledge-curation-decisions` and `knowledge-curation-receipt` add separate owner
+withdrawals, reactivation and explicit selection among approved versions. Targets
+bind the full record, approval and provenance hashes. One receipt embeds exact
+approved snapshots and the entire owner action; originals are not mutated.
+Supersession is explicit, acyclic and nonbranching for each record/group. Version
+groups retain prior candidates, exact ancestry and exclusive membership.
+
+Human knowledge approval items may optionally declare `version_of` with an exact
+approved-original binding and an extra relationship check. The binding becomes
+optional provenance in canonical/reader records. A declared revision remains
+withheld until selected; ordinary notes are not automatically grouped. Reader
+artifacts optionally carry `knowledge_curation` with receipt/head identities,
+withdrawn/inactive IDs and selected groups. When no curation or declared revisions
+exist, this property is absent and prior reader bytes stay unchanged.
+`pending_or_stale` includes withdrawn and inactive-version records; approval
+history is retained even when a note is withheld. Selection never retargets a
+dependent note's evidence links. No stale/withdrawn selection has an automatic
+fallback. Withdrawals can be recorded without corpus-display permission;
+reactivation/selection still require current eligible source/support.
+
 `toolchain-lock` records a pinned software archive, patches, probe source,
 compiler/build identity and executable hashes for the optional synthetic-only
 SWORD experiment. `sword-probe-entry` describes only the ten fixed synthetic
@@ -119,12 +149,28 @@ or locator still needs actual evidence inspection by a human.
 
 The initial envelope is deliberately small. Rich attested-word analysis,
 one-to-many/many-to-one/unresolved lexical alignments, title term morphology,
-full book scholarship fields and bounded event/story structures require later
+full book scholarship fields and canonical typed narrative promotion require later
 schema extensions and real evidence. Do not fill the generic text field with
 unsupported assertions to imitate complete metadata. Original-name mappings
 already distinguish attested Latin forms, witness/language/locator, historical
 attestation versus reconstruction, alternatives, scheme, aliases, rationale
 and owner approval; none is populated or approved in production.
+
+`narrative-node`, `narrative-packet` and `narrative-response` separately describe
+unreviewed typed entities, events and stories. They carry exact selected-book and
+display-hash scope, character spans, typed local references, attribution and
+uncertainty. `source_narrative`, `historical_claim` and `fiction` have separate
+support and reference rules. Historical claims require additional secondary
+evidence and linked historical-layer claims but remain unverified. Presentation
+order does not prove chronology; anchored assertions need human inspection.
+See [field and relation rules](NARRATIVE_DRAFTS.md). These records remain outside
+the canonical envelope and its approval, reader and archive paths.
+
+The derived Markdown `jeb-narrative-review/1` inspection handoff binds an exact
+imported response and its node/support identities. It displays character spans,
+typed roles/relations, transitive support metadata and exact prior name approval
+identities without storing human decisions or adding a canonical narrative type.
+It is an unsigned review aid, not a decision document or an approval projection.
 
 `reader` is a generated single-edition artifact, not canonical storage. It
 states source identities and rights scope, collection completeness, actual

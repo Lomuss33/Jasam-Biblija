@@ -88,9 +88,23 @@ reflection and creative material must retain their labels and attribution.
 Use `knowledge review export/validate/apply` for imported annotation drafts;
 AI returns are never human decisions. Canonical receipt projections retain the
 original packet/response and credit. Approved IDs cannot be overwritten;
-withdrawal/version selection is not implemented by this first promotion slice.
+[knowledge curation](KNOWLEDGE_CURATION.md) separately controls withdrawal,
+reactivation and version selection. No curation action approves new wording.
 Do not turn narrative claims into independently corroborated history, infer
 motives, invent quotations or harmonize differing Gospel scenes as an original.
+
+The separate [structured narrative workflow](NARRATIVE_DRAFTS.md) can stage exact
+mentions, participant roles and story relations with explicit uncertainty. Its
+source-narrative, historical-claim and fiction bases remain distinct. In-range
+spans and registered citations alone do not establish semantics or independent
+corroboration. Narrative drafts currently have no human promotion endpoint;
+do not submit them as annotation decisions or copy them into canonical JSONL.
+
+Use `knowledge narrative review export --packet-id <id> --response-sha256
+<full-hash> --output <report.md>` for the [unsigned inspection handoff](NARRATIVE_REVIEW.md).
+It requires the exact imported response and current source/packet, puts literal
+source excerpts beside proposed roles/ordering, and shows supporting references
+and prior name approvals. It creates no owner answers, decisions or approvals.
 
 Before release, preserve eligible exact source snapshots plus the packet,
 response, proposal, decision and policy snapshots in a recoverable archive.

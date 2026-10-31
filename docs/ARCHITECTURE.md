@@ -67,6 +67,15 @@ AI attribution, exact content/support identities and independent text approval.
 Pending/rejected decisions are history only. Current dependency groups can be
 promoted partially and resumed from the same exact response; competing pending
 heads require explicit nonbranching supersession. Approved IDs are immutable.
+`knowledge_curation.py` records exact-hash owner withdrawals, reactivation and
+version selection in independent atomic receipts with approved-record snapshots.
+Canonical identity reads do not require corpus-display eligibility, so a blocked
+source cannot prevent withdrawal. Reactivation/selection require a current source
+and prospective closed support. Declared revision ancestry is bound in approval
+provenance; revisions remain withheld until selected. Groups retain candidates
+and ancestry, cannot overlap, and never supply an automatic fallback. Reader and
+packet currentness propagate curation exclusions transitively. Optional reader
+state discloses active choices and receipt identities without rewriting records.
 `export.py` builds reader JSON or Markdown from faithful normalized text plus
 exactly approved text, preserving typed layout/notes and explicit coverage.
 Current approved knowledge records and their current dependencies can appear;
@@ -75,6 +84,36 @@ a disposable SQLite FTS5 index from the same preview. Its stored artifact hash
 prevents searching a stale index. Only approved name aliases are indexed.
 
 ## Acquisition boundaries
+
+`narrative_packets.py` reuses the side-effect-free admitted passage snapshot but
+ships its own bounded packet/response/node schemas and ignored staging namespace.
+It validates typed entity/event/story references, exact Unicode character spans,
+participant scope and story relations. Source narration needs primary support;
+unverified historical claims additionally need separate secondary evidence and
+linked historical claims. Fiction has no evidentiary links and cannot cross into
+either factual graph. Only attached approved name mappings may replace literal
+mention labels. The existing evidence/claim DAG checks are reused without changing
+old annotation schemas or packet hashes. No narrative approval, canonical write,
+reader/index contribution or build-archive inclusion exists in this slice. See
+[narrative drafts](NARRATIVE_DRAFTS.md) and decision 0012.
+
+`narrative_review.py` exports an unsigned inspection handoff for a full exact
+imported response. Current validation precedes rendering; packet/node/support
+identities, deduplicated spans, proposed roles, distinct relation semantics and
+prior name approvals are shown without creating decisions or canonical data.
+Canonical support remains attached metadata, with typed transitive links rather
+than copied note text. Free text is fenced/table-escaped and output is capped
+at 1 MiB before one atomic write. See [handoffs](NARRATIVE_REVIEW.md), decision
+0013. This adds no promotion endpoint or stored-data schema.
+
+`build_archive.py` captures only explicit eligible canonical-build inputs in a
+bounded ZIP. A manifest binds file identities, the exact package/schema engine
+and rebuilt corpus/reader identities. Validation runs in a private workspace;
+restore rebuilds exports/indexes and renames staging into a new nonexistent
+destination only after success. Canonical review/curation history is retained,
+including stale superseded snapshots, without rewriting approval or attribution.
+No archive code is run and no software is installed. This is not a general
+workspace backup, automatic migration, source clearance or public release.
 
 HTTPS only, fixed timeout, bounded retries, exact allowlisted redirects, fixed
 maximum and locked size, stream bounds and SHA-256 checks precede an atomic
@@ -137,8 +176,8 @@ the owner is responsible for truthful identity and source assessments.
 
 ## Scope of this implementation
 
-Real source-format adapters, knowledge withdrawal/version selection, rich
-structured entity/event/story authoring,
+Real source-format adapters, archive migration/full working-cache backup,
+human review/promotion of structured narrative drafts,
 expert D-class approval, rich scholarly title/word-alignment authoring tools,
 automatic inflection rules, complete-book editorial work, EPUB/PDF/USFM/OSIS
 output and frontend/publishing are future phases. The initial knowledge schema

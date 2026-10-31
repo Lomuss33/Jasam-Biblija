@@ -1,0 +1,74 @@
+{
+  "crosswire.zip": {
+    "bytes": 1609798,
+    "sha256": "3deeeb892fb062b6094aa414a9061b6d75f6982d55b140ea9278b40ee8874a13"
+  },
+  "ebible-package.zip": {
+    "bytes": 1370190,
+    "sha256": "c34794f252f9c32185fd78be1fe44c153a1d2dfb93219598fa70ec14e2a96444"
+  },
+  "ebible-usfm.zip": {
+    "bytes": 1370190,
+    "sha256": "c34794f252f9c32185fd78be1fe44c153a1d2dfb93219598fa70ec14e2a96444"
+  },
+  "ebible-usfx.zip": {
+    "bytes": 1493396,
+    "sha256": "a02a3bd04caa2f61ee1ff82e74e5de68125970e7019c58bb9fd773e027eac9c8"
+  },
+  "GEN-1-1-5-review.md": {
+    "bytes": 2324,
+    "sha256": "54ae15d0b060b39f9aa6b08c71da49a7d9959b38b2413d015834346a9fb258b9"
+  },
+  "ia-metadata.json": {
+    "bytes": 174222,
+    "sha256": "4d62924c4b95d23fec036562c967e23710d5f6dddc56fd4f303d0385231e67f1"
+  },
+  "leaf-10.jpg": {
+    "bytes": 1327033,
+    "sha256": "12d27e89b68e75eb54eab00380e98cfb200754e25a52ddd7e8ab5fbebf3bc571"
+  },
+  "leaf-4.jpg": {
+    "bytes": 762044,
+    "sha256": "7af92965f3c2c5d89790a1580703f4f1c15472f7f68c3fc57123beec7a7a7f8c"
+  },
+  "leaf-5.jpg": {
+    "bytes": 940318,
+    "sha256": "8dcaaa89d7780e9c97d7d982f65623cef40b96803d6e809205a720540687705a"
+  },
+  "leaf-6.jpg": {
+    "bytes": 935151,
+    "sha256": "befff209a4c965147d6d179a8ab785a6e5aabd67e24cc7ce1a71fe8e1a7dbd23"
+  },
+  "leaf-7.jpg": {
+    "bytes": 977109,
+    "sha256": "95c3fa69db63dcd572c2693170906ad0bd039cb1c1cd197e1ed2affcecafddd9"
+  },
+  "leaf-740.jpg": {
+    "bytes": 863856,
+    "sha256": "dfbdefe483533d217081ca611634cac903382ef7cae3e1fcd5cac4ee735c16f5"
+  },
+  "leaf-742.jpg": {
+    "bytes": 951858,
+    "sha256": "cc8d75b9cd253debf0a07c700be4ba7174df86a4fbc1987b0a1c1d92ff593fce"
+  },
+  "leaf-8.jpg": {
+    "bytes": 1168092,
+    "sha256": "99ad7f8de90267fa7402fb8b6f0cddaee3d123c90c3afb5ff13cb65c7b0bed80"
+  },
+  "leaf-9.jpg": {
+    "bytes": 1296579,
+    "sha256": "3ea2f5f3b5fa3422b2667789e3275bb70bcae0eff9069f178566e94ad1c3f114"
+  },
+  "leaf-975.jpg": {
+    "bytes": 819999,
+    "sha256": "5a5f78d46decfc721b031983edb6074309febd31cd138466ce632870364918f8"
+  },
+  "leaf-976.jpg": {
+    "bytes": 854802,
+    "sha256": "57e7e06dd4ff360f68050215179caea5a5b0fb6b62b6eda55790f974a75e2f74"
+  },
+  "ocr.txt": {
+    "bytes": 4198239,
+    "sha256": "8df25fefaf1524076e79073c6215c41203602cd4d65279e70e1e70d385963b8c"
+  }
+}

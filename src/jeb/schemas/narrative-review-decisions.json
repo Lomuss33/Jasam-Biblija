@@ -1,0 +1,106 @@
+{
+  "$id": "urn:jeb:schema:narrative-review-decisions:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "human_attestation": {
+      "const": true
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "target_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "target_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "state": {
+            "enum": [
+              "approved",
+              "rejected",
+              "needs_review"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "checks": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "meaning_and_roles_checked",
+                "support_inspected",
+                "category_and_uncertainty_checked",
+                "contribution_rights_checked",
+                "attribution_checked"
+              ]
+            }
+          }
+        },
+        "required": [
+          "target_id",
+          "target_sha256",
+          "state",
+          "rationale",
+          "checks"
+        ]
+      }
+    },
+    "packet_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    },
+    "response_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "review_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer_role": {
+      "const": "owner"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "context_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "review_id",
+    "packet_id",
+    "response_sha256",
+    "reviewer_id",
+    "reviewer_role",
+    "human_attestation",
+    "reviewed_at",
+    "items",
+    "context_sha256"
+  ],
+  "type": "object"
+}

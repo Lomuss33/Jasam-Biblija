@@ -41,4 +41,13 @@ jobs:
       - run: python -m jeb --root dist/demo --synthetic knowledge validate --input reports/annotation-synthetic-response.json
       - run: python -m jeb --root dist/demo --synthetic knowledge import --input reports/annotation-synthetic-response.json
       - run: python -m jeb --root dist/demo --synthetic knowledge review export --packet-id fixture-annotations-v1 --response-sha256 2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de --output reports/human-knowledge-review.md
+      - run: python -m jeb --root dist/demo --synthetic knowledge curate export --source synthetic-v1 --output reports/knowledge-curation.md
+      - run: python -m jeb --root dist/demo --synthetic knowledge narrative prepare --source synthetic-v1 --selection fixture --packet-id fixture-narrative-v1
+      - run: python -m jeb --root dist/demo --synthetic knowledge narrative validate --input reports/narrative-synthetic-response.json
+      - run: python -m jeb --root dist/demo --synthetic knowledge narrative import --input reports/narrative-synthetic-response.json
+      - run: python -m jeb --root dist/demo --synthetic knowledge narrative report --input reports/narrative-synthetic-response.json --output reports/narrative.md
+      - run: python -m jeb --root dist/demo --synthetic knowledge narrative review export --packet-id fixture-narrative-v1 --response-sha256 14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733 --output reports/narrative-review.md
+      - run: python -m jeb --root dist/demo --synthetic archive create --source synthetic-v1 --archive-id ci-fixture-build --output dist/archives/ci-fixture-build.zip
+      - run: python -m jeb --synthetic archive validate --input dist/demo/dist/archives/ci-fixture-build.zip
+      - run: python -m jeb --synthetic archive restore --input dist/demo/dist/archives/ci-fixture-build.zip --destination dist/ci-restored-build
       - run: python -m pip wheel --no-build-isolation --no-deps --wheel-dir dist/wheels .

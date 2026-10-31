@@ -10,7 +10,14 @@ from jeb.review import all_decisions, decision_item, heads
 from jeb.sources import admitted
 
 
-def reader(project: Project, source_id: str, maturity: str, profile: str = "five-book") -> dict:
+def reader(
+    project: Project,
+    source_id: str,
+    maturity: str,
+    profile: str = "five-book",
+    *,
+    _apply_curation: bool = True,
+) -> dict:
     require(profile == "five-book", "Unknown collection profile")
     require(maturity in ("preview", "release"), "Unknown export maturity")
     source, lock = admitted(project, source_id)
@@ -105,6 +112,11 @@ def reader(project: Project, source_id: str, maturity: str, profile: str = "five
         if len(retained) == len(eligible_metadata):
             break
         eligible_metadata = retained
+    from jeb.knowledge_curation import filter_records, read_receipts, state
+
+    curation = read_receipts(project)
+    if _apply_curation:
+        eligible_metadata = filter_records(knowledge, eligible_metadata, curation)
     approved_metadata = list(eligible_metadata.values())
     pending_metadata = len(knowledge) - len(approved_metadata)
     artifact = {
@@ -162,6 +174,9 @@ def reader(project: Project, source_id: str, maturity: str, profile: str = "five
         "books": output_books,
         "knowledge": approved_metadata,
     }
+    selection = state(knowledge, curation)
+    if _apply_curation and (curation or selection["inactive_version_ids"]):
+        artifact["knowledge_curation"] = selection
     validate_schema("reader", artifact)
     latin_tree(artifact)
     return artifact
@@ -247,6 +262,22 @@ def export(
                     "```json",
                     json.dumps(artifact["knowledge"], ensure_ascii=False, sort_keys=True, indent=2),
                     "```",
+                ]
+            )
+        if "knowledge_curation" in artifact:
+            import json
+
+            lines.extend(
+                [
+                    "",
+                    "Knowledge withdrawal/version decisions (approval history retained):",
+                    "",
+                    "```json",
+                    json.dumps(
+                        artifact["knowledge_curation"], ensure_ascii=False, sort_keys=True, indent=2
+                    ),
+                    "```",
+                    "",
                 ]
             )
         payload = ("\n".join(lines).rstrip() + "\n").encode("utf-8")

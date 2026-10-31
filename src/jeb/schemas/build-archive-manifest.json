@@ -1,0 +1,136 @@
+{
+  "$id": "urn:jeb:schema:build-archive-manifest:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "archive_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    },
+    "build": {
+      "additionalProperties": false,
+      "properties": {
+        "corpus_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "curation_receipts": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "knowledge_records": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "markdown_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "reader_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "review_receipts": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "text_decisions": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "corpus_sha256",
+        "reader_sha256",
+        "markdown_sha256",
+        "policy_sha256",
+        "knowledge_records",
+        "text_decisions",
+        "review_receipts",
+        "curation_receipts"
+      ],
+      "type": "object"
+    },
+    "corpus_kind": {
+      "enum": [
+        "synthetic",
+        "historical"
+      ]
+    },
+    "edition_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    },
+    "engine_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "size_bytes": {
+            "maximum": 33554432,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "size_bytes",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 255,
+      "minItems": 9,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "kind": {
+      "const": "jeb-local-build-archive"
+    },
+    "package_version": {
+      "maxLength": 80,
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope": {
+      "const": "One admitted-source build snapshot; not a workspace backup or public release"
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "archive_id",
+    "source_id",
+    "edition_id",
+    "corpus_kind",
+    "package_version",
+    "engine_sha256",
+    "build",
+    "scope",
+    "files"
+  ],
+  "type": "object"
+}

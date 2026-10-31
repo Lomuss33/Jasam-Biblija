@@ -26,7 +26,7 @@ class CliTests(WorkspaceTest):
     def test_all_packaged_schemas_validate(self):
         result = self.cli("validate", "--stage", "schemas")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout)["valid_schemas"], 26)
+        self.assertEqual(json.loads(result.stdout)["valid_schemas"], 33)
 
     def test_production_audit_is_successful_inspection_without_clearance(self):
         result = self.cli("sources", "audit", root=REPO, synthetic=False)

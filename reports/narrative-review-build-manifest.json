@@ -1,0 +1,78 @@
+{
+  "archive_id": "narrative-review-engine-v1",
+  "build": {
+    "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+    "curation_receipts": 0,
+    "knowledge_records": 0,
+    "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+    "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+    "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+    "review_receipts": 0,
+    "text_decisions": 0
+  },
+  "corpus_kind": "synthetic",
+  "edition_id": "jeb-synthetic-demo",
+  "engine_sha256": "4172835d8b9653f1b8dd3523afdad6a5c7d5cf1bb5a8775951c872498f38726c",
+  "files": [
+    {
+      "path": "config/collection.yaml",
+      "sha256": "d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117",
+      "size_bytes": 399
+    },
+    {
+      "path": "config/edition.yaml",
+      "sha256": "182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032",
+      "size_bytes": 291
+    },
+    {
+      "path": "config/modernization_rules.yaml",
+      "sha256": "28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719",
+      "size_bytes": 428
+    },
+    {
+      "path": "config/name_registry.yaml",
+      "sha256": "bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3",
+      "size_bytes": 61
+    },
+    {
+      "path": "config/terminology.yaml",
+      "sha256": "22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112",
+      "size_bytes": 1735
+    },
+    {
+      "path": "data/batches/fixture-modernize-v1/input.json",
+      "sha256": "4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa",
+      "size_bytes": 18116
+    },
+    {
+      "path": "data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json",
+      "sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+      "size_bytes": 4859
+    },
+    {
+      "path": "data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt",
+      "sha256": "620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50",
+      "size_bytes": 1731
+    },
+    {
+      "path": "docs/EDITORIAL_POLICY.md",
+      "sha256": "1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276",
+      "size_bytes": 4157
+    },
+    {
+      "path": "sources/lock.json",
+      "sha256": "8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c",
+      "size_bytes": 1284
+    },
+    {
+      "path": "sources/registry.yaml",
+      "sha256": "90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561",
+      "size_bytes": 2323
+    }
+  ],
+  "kind": "jeb-local-build-archive",
+  "package_version": "0.1.0-dev",
+  "schema_version": "1.0",
+  "scope": "One admitted-source build snapshot; not a workspace backup or public release",
+  "source_id": "synthetic-v1"
+}

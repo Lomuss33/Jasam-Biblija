@@ -184,9 +184,55 @@ bindings, explicit checks, partial dependency groups and competing responses.
 One immutable receipt preserves the original packet, AI attribution and human
 decision; approved records derive from it without hand-copying JSONL. Rejections
 and pending reviews add no canonical content. Approved IDs remain immutable;
-withdrawal/version selection and rich story authoring are future work. The
+separate curation controls their reader eligibility. The
 [synthetic review report](reports/knowledge-review-synthetic.md) is unsigned;
 the five persistent drafts still have no human approval.
+
+Withdrawals, explicit reactivation and selection among approved versions use:
+
+```powershell
+jeb knowledge curate export --output reports/generated/curation.md
+jeb knowledge curate validate --decisions <owner-actions-json>
+jeb knowledge curate apply --decisions <owner-actions-json>
+```
+
+See the [curation guide](docs/KNOWLEDGE_CURATION.md). A revised draft can declare
+its exact original in the human approval item's optional `version_of`, with an
+additional relationship check. It stays withheld until explicitly selected.
+Curation keeps original approvals and attribution intact, hides dependents and
+never silently falls back to an older note. Withdrawal works for stale or
+rights-blocked subjects; selection/reactivation require current source/support.
+The [unsigned synthetic curation report](reports/knowledge-curation-synthetic.md)
+has no approved targets, because the five drafts remain unapproved.
+
+Typed unreviewed entities, events and stories use a separate manual workflow:
+
+```powershell
+jeb knowledge narrative prepare --source <eligible-source> --selection GEN --packet-id narrative-01
+jeb knowledge narrative validate --input <returned-json>
+jeb knowledge narrative import --input <returned-json>
+jeb knowledge narrative report --input <returned-json> --output reports/generated/narrative-01.md
+```
+
+The [narrative guide](docs/NARRATIVE_DRAFTS.md) explains exact character spans,
+participants, presentation order, source evidence and uncertainty. Source
+narration, unverified historical claims and fiction keep separate typed graphs.
+Only attached approved name mappings can change a source mention's display.
+Imports stay outside canonical knowledge, human promotion, reader/search and
+build archives. The [original synthetic example](reports/narrative-synthetic.md)
+adds eight nodes and one witness proposal, all unreviewed; real coverage stays
+zero. No historical events or owner approvals were manufactured.
+
+For an exact imported narrative response, export the unsigned inspection handoff:
+
+```powershell
+jeb knowledge narrative review export --packet-id <packet-id> --response-sha256 <full-sha256> --output reports/generated/narrative-review.md
+```
+
+The [handoff guide](docs/NARRATIVE_REVIEW.md) and
+[synthetic handoff](reports/narrative-review-synthetic.md) show literal spans beside
+roles/ordering proposals, support chains and prior name-approval identities.
+This writes one bounded Markdown report and creates no decision or approval.
 
 Preview exports include faithful normalized source text and exact approved
 text where present. They never export unapproved modernization. Every segment
@@ -196,6 +242,20 @@ current provenance and a separately approved honest preface. Synthetic fixtures
 and unresolved meaning-sensitive edits can never pass release checks.
 
 ## Validate locally
+
+Local build recovery is available without publishing an edition:
+
+```powershell
+jeb --root dist/demo --synthetic archive create --source synthetic-v1 --archive-id fixture-build-01 --output dist/archives/fixture-build-01.zip
+jeb --synthetic archive validate --input <archive.zip>
+jeb --root <existing-parent> --synthetic archive restore --input <archive.zip> --destination recovered-build
+```
+
+The [archive guide](docs/BUILD_ARCHIVES.md) describes the explicit input allowlist,
+scope, limits and compatible-engine requirement. Original review/curation history
+is preserved; corpus, reader and index are rebuilt in staging. Recovery needs a
+new destination and creates no approvals. This is a local canonical-build backup;
+unapproved working caches and arbitrary workspace files are excluded.
 
 ```powershell
 .\.venv\Scripts\python.exe -m ruff check src tests

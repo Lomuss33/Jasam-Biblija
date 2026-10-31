@@ -771,6 +771,41 @@
                   "reported_at"
                 ],
                 "type": "object"
+              },
+              "version_of": {
+                "additionalProperties": false,
+                "properties": {
+                  "approval_sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "provenance_sha256": {
+                    "anyOf": [
+                      {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "record_id": {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                    "type": "string"
+                  },
+                  "record_sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "record_id",
+                  "record_sha256",
+                  "approval_sha256",
+                  "provenance_sha256"
+                ],
+                "type": "object"
               }
             },
             "required": [
@@ -911,6 +946,70 @@
       "maxItems": 100000,
       "minItems": 0,
       "type": "array"
+    },
+    "knowledge_curation": {
+      "additionalProperties": false,
+      "properties": {
+        "head_action_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "inactive_version_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "receipt_sha256": {
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "selected_versions": {
+          "additionalProperties": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "propertyNames": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "withdrawn_record_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+            "type": "string"
+          },
+          "maxItems": 100000,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "receipt_sha256",
+        "head_action_ids",
+        "withdrawn_record_ids",
+        "inactive_version_ids",
+        "selected_versions"
+      ],
+      "type": "object"
     },
     "maturity": {
       "enum": [

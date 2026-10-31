@@ -1,0 +1,322 @@
+{
+  "all_checks_passed": true,
+  "archive_sha256": "c7290f39f3575ce3cd30f8b1c1ec548ea8fbba671dfe773f8936205425ccb40c",
+  "blank_parent_recovery_passed": true,
+  "commands": [
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\build-archive-wheels",
+        "."
+      ],
+      "executable": ".venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: jugoslavenska-ekumenska-biblija\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): started\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): finished with status 'done'\n  Created wheel for jugoslavenska-ekumenska-biblija: filename=jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl size=131268 sha256=d3341ca0a9d3fa5a851f1dd0d739bca5e57dbd783fdf94567038f475bbbaf45e\n  Stored in directory: c:\\users\\lovropc\\appdata\\local\\pip\\cache\\wheels\\7f\\44\\f4\\a1ea1c616e108f280324076be72e652ed0c03d944facb93221\nSuccessfully built jugoslavenska-ekumenska-biblija"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--force-reinstall",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\build-archive-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\\dist\\build-archive-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl\nInstalling collected packages: jugoslavenska-ekumenska-biblija\n  Attempting uninstall: jugoslavenska-ekumenska-biblija\n    Found existing installation: jugoslavenska-ekumenska-biblija 0.1.0.dev0\n    Uninstalling jugoslavenska-ekumenska-biblija-0.1.0.dev0:\n      Successfully uninstalled jugoslavenska-ekumenska-biblija-0.1.0.dev0\nSuccessfully installed jugoslavenska-ekumenska-biblija-0.1.0.dev0"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import jeb.build_archive; print(jeb.build_archive.__file__)"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Lib\\site-packages\\jeb\\build_archive.py"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "validate",
+        "--stage",
+        "schemas"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"valid_schemas\": 29\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\dist\\archives\\fixture-build-final-v1.zip"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"archive_sha256\": \"c7290f39f3575ce3cd30f8b1c1ec548ea8fbba671dfe773f8936205425ccb40c\",\n  \"manifest\": {\n    \"archive_id\": \"fixture-build-final-v1\",\n    \"build\": {\n      \"corpus_sha256\": \"91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45\",\n      \"curation_receipts\": 0,\n      \"knowledge_records\": 0,\n      \"markdown_sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"policy_sha256\": \"5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\",\n      \"reader_sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"review_receipts\": 0,\n      \"text_decisions\": 0\n    },\n    \"corpus_kind\": \"synthetic\",\n    \"edition_id\": \"jeb-synthetic-demo\",\n    \"engine_sha256\": \"1f37db2ff57c1d22dff3c7ea0a513d54cf82e8897f85220272dc7775fde70842\",\n    \"files\": [\n      {\n        \"path\": \"config/collection.yaml\",\n        \"sha256\": \"d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117\",\n        \"size_bytes\": 399\n      },\n      {\n        \"path\": \"config/edition.yaml\",\n        \"sha256\": \"182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032\",\n        \"size_bytes\": 291\n      },\n      {\n        \"path\": \"config/modernization_rules.yaml\",\n        \"sha256\": \"28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719\",\n        \"size_bytes\": 428\n      },\n      {\n        \"path\": \"config/name_registry.yaml\",\n        \"sha256\": \"bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3\",\n        \"size_bytes\": 61\n      },\n      {\n        \"path\": \"config/terminology.yaml\",\n        \"sha256\": \"22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112\",\n        \"size_bytes\": 1735\n      },\n      {\n        \"path\": \"data/batches/fixture-modernize-v1/input.json\",\n        \"sha256\": \"4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa\",\n        \"size_bytes\": 18116\n      },\n      {\n        \"path\": \"data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json\",\n        \"sha256\": \"6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf\",\n        \"size_bytes\": 4859\n      },\n      {\n        \"path\": \"data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt\",\n        \"sha256\": \"620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50\",\n        \"size_bytes\": 1731\n      },\n      {\n        \"path\": \"docs/EDITORIAL_POLICY.md\",\n        \"sha256\": \"1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276\",\n        \"size_bytes\": 4157\n      },\n      {\n        \"path\": \"sources/lock.json\",\n        \"sha256\": \"8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c\",\n        \"size_bytes\": 1284\n      },\n      {\n        \"path\": \"sources/registry.yaml\",\n        \"sha256\": \"90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561\",\n        \"size_bytes\": 2323\n      }\n    ],\n    \"kind\": \"jeb-local-build-archive\",\n    \"package_version\": \"0.1.0-dev\",\n    \"schema_version\": \"1.0\",\n    \"scope\": \"One admitted-source build snapshot; not a workspace backup or public release\",\n    \"source_id\": \"synthetic-v1\"\n  },\n  \"manifest_sha256\": \"052ffada40ab6a6ab9c2f502e230aa2924f45e0def8066a0d5c58538fc1b9724\",\n  \"release\": false,\n  \"valid\": true\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import sys,unittest,jeb.build_archive; assert 'site-packages' in jeb.build_archive.__file__; sys.path.insert(0,'C:\\\\Users\\\\LovroPC\\\\Desktop\\\\HELLO\\\\Karijera\\\\_THM\\\\git repos\\\\githubdesktop\\\\Jugoslavenska-Ekumenska-Biblija'); names=['tests.test_build_archive.BuildArchiveTests.test_review_versions_withdrawals_and_text_decisions_recover_exactly','tests.test_build_archive.BuildArchiveTests.test_long_windows_review_history_survives_archive_restore']; result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromNames(names)); sys.exit(0 if result.wasSuccessful() else 1)"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "test_review_versions_withdrawals_and_text_decisions_recover_exactly (tests.test_build_archive.BuildArchiveTests.test_review_versions_withdrawals_and_text_decisions_recover_exactly) ... ok\ntest_long_windows_review_history_survives_archive_restore (tests.test_build_archive.BuildArchiveTests.test_long_windows_review_history_survives_archive_restore) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 9.519s\n\nOK",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base",
+        "demo"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"exports\": [\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.json\",\n      \"sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    },\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.md\",\n      \"sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    }\n  ],\n  \"owner_approvals\": 0,\n  \"proposal_id\": \"fixture-modernize-v1-40b78ddaba32f24c\",\n  \"real_biblical_segments\": 0,\n  \"search_matches\": 1,\n  \"synthetic_only\": true,\n  \"synthetic_segments\": 4,\n  \"workspace\": \"dist/demo\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\dist\\demo",
+        "--synthetic",
+        "archive",
+        "create",
+        "--source",
+        "synthetic-v1",
+        "--archive-id",
+        "fixture-build-final-v1",
+        "--output",
+        "dist/archives/fixture-build-final-v1.zip"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"archive_sha256\": \"c7290f39f3575ce3cd30f8b1c1ec548ea8fbba671dfe773f8936205425ccb40c\",\n  \"build\": {\n    \"corpus_sha256\": \"91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45\",\n    \"curation_receipts\": 0,\n    \"knowledge_records\": 0,\n    \"markdown_sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n    \"policy_sha256\": \"5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\",\n    \"reader_sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n    \"review_receipts\": 0,\n    \"text_decisions\": 0\n  },\n  \"files\": 11,\n  \"manifest_sha256\": \"052ffada40ab6a6ab9c2f502e230aa2924f45e0def8066a0d5c58538fc1b9724\",\n  \"output\": \"dist/archives/fixture-build-final-v1.zip\",\n  \"release\": false\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\blank-recovery-parent",
+        "--synthetic",
+        "archive",
+        "restore",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\dist\\demo\\dist\\archives\\fixture-build-final-v1.zip",
+        "--destination",
+        "recovered"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"archive_sha256\": \"c7290f39f3575ce3cd30f8b1c1ec548ea8fbba671dfe773f8936205425ccb40c\",\n  \"build\": {\n    \"corpus_sha256\": \"91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45\",\n    \"curation_receipts\": 0,\n    \"knowledge_records\": 0,\n    \"markdown_sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n    \"policy_sha256\": \"5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\",\n    \"reader_sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n    \"review_receipts\": 0,\n    \"text_decisions\": 0\n  },\n  \"exports_and_index_rebuilt\": true,\n  \"manifest_sha256\": \"052ffada40ab6a6ab9c2f502e230aa2924f45e0def8066a0d5c58538fc1b9724\",\n  \"output\": \"recovered\",\n  \"release\": false\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\blank-recovery-parent",
+        "--synthetic",
+        "archive",
+        "restore",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\dist\\demo\\dist\\archives\\fixture-build-final-v1.zip",
+        "--destination",
+        "recovered"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: Restore needs a new nonexistent destination; existing files are never merged",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "archive",
+        "validate",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\dist\\demo\\dist\\archives\\fixture-build-final-v1.zip"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: Synthetic archive requires --synthetic",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\blank-recovery-parent\\recovered",
+        "--synthetic",
+        "search",
+        "--source",
+        "synthetic-v1",
+        "--query",
+        "covik"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "[\n  {\n    \"book_id\": \"GEN\",\n    \"segment_id\": \"synthetic-v1:GEN.1.1\",\n    \"text\": \"Sintetički uzorak: covik ne mijenja 2 broja.\\nČita probni zapis.\"\n  }\n]"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\blank-recovery-parent\\recovered",
+        "--synthetic",
+        "validate",
+        "--stage",
+        "knowledge",
+        "--source",
+        "synthetic-v1"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"valid_knowledge_records\": 0\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-build-archive-base\\blank-recovery-parent\\recovered",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "release",
+        "--output",
+        "exports/forbidden-release.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: Synthetic fixtures can never be a public edition release",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "archive",
+        "create",
+        "--source",
+        "crosswire-srkdijekav",
+        "--archive-id",
+        "blocked",
+        "--output",
+        "dist/archives/blocked-installed.zip"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: Source crosswire-srkdijekav: needs_review; ingestion blocked",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "audit"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"admitted_count\": 0,\n  \"corpus_kind\": \"historical\",\n  \"jurisdictions\": [\n    \"DE\",\n    \"US\",\n    \"BA\",\n    \"HR\",\n    \"RS\",\n    \"ME\"\n  ],\n  \"schema_version\": \"1.0\",\n  \"sources\": [\n    {\n      \"admitted\": false,\n      \"reason\": \"needs_review\",\n      \"source_id\": \"crosswire-srkdijekav\",\n      \"status\": \"needs_review\"\n    },\n    {\n      \"admitted\": false,\n      \"reason\": \"needs_review\",\n      \"source_id\": \"ebible-srp1865\",\n      \"status\": \"needs_review\"\n    },\n    {\n      \"admitted\": false,\n      \"reason\": \"excluded\",\n      \"source_id\": \"ebible-hrv-saric\",\n      \"status\": \"excluded\"\n    }\n  ]\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "No broken requirements found."
+    }
+  ],
+  "date": "2026-10-31",
+  "linux_execution_claimed": false,
+  "manifest_sha256": "052ffada40ab6a6ab9c2f502e230aa2924f45e0def8066a0d5c58538fc1b9724",
+  "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+  "native_binaries_in_wheel": 0,
+  "packaged_schemas": 29,
+  "persistent_owner_approvals_created": 0,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3",
+  "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+  "real_biblical_segments": 0,
+  "remote_ci_executed": false,
+  "schema_version": "1.0",
+  "source_and_installed_archives_byte_identical": true,
+  "system_settings_changed": false,
+  "temporary_simulated_history_tests": 2,
+  "wheel": "dist\\build-archive-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl",
+  "wheel_sha256": "d3341ca0a9d3fa5a851f1dd0d739bca5e57dbd783fdf94567038f475bbbaf45e"
+}

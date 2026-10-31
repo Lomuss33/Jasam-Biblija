@@ -34,9 +34,32 @@ def parser() -> argparse.ArgumentParser:
         "--synthetic", action="store_true", help="Explicitly allow an isolated synthetic workspace"
     )
     commands = cli.add_subparsers(dest="command", required=True)
+    work = commands.add_parser("work", help="Human terminal menu and short everyday tasks")
+    work.add_argument(
+        "action",
+        nargs="?",
+        default="menu",
+        choices=("menu", "status", "sources", "queue", "review", "demo", "check"),
+    )
+    work.add_argument(
+        "--demo", action="store_true", help="Explicitly use the isolated dist/demo workspace"
+    )
+    work.add_argument("--source", help="Show blockers for one source with the sources task")
     commands.add_parser(
         "demo", help="Build a synthetic workspace under dist/demo; never ingest scripture"
     )
+    archives = commands.add_parser("archive").add_subparsers(
+        dest="archive_operation", required=True
+    )
+    sub = archives.add_parser("create")
+    sub.add_argument("--source", required=True)
+    sub.add_argument("--archive-id", required=True)
+    sub.add_argument("--output", required=True)
+    for name in ("validate", "restore"):
+        sub = archives.add_parser(name)
+        sub.add_argument("--input", required=True, type=Path)
+        if name == "restore":
+            sub.add_argument("--destination", required=True)
     sources = commands.add_parser("sources").add_subparsers(dest="operation", required=True)
     sources.add_parser("audit")
     sources.add_parser("inspect").add_argument("--source", required=True)
@@ -101,6 +124,36 @@ def parser() -> argparse.ArgumentParser:
     sub.add_argument("--output", required=True)
     for name in ("validate", "apply"):
         knowledge_review.add_parser(name).add_argument("--decisions", required=True, type=Path)
+    curation = knowledge.add_parser("curate").add_subparsers(
+        dest="curation_operation", required=True
+    )
+    sub = curation.add_parser("export")
+    sub.add_argument("--output", required=True)
+    sub.add_argument("--source")
+    for name in ("validate", "apply"):
+        curation.add_parser(name).add_argument("--decisions", required=True, type=Path)
+    narrative = knowledge.add_parser("narrative").add_subparsers(
+        dest="narrative_operation", required=True
+    )
+    sub = narrative.add_parser("prepare")
+    sub.add_argument("--source", required=True)
+    sub.add_argument(
+        "--selection", required=True, choices=("GEN", "MAT", "MRK", "LUK", "JHN", "fixture")
+    )
+    sub.add_argument("--packet-id", required=True)
+    for name in ("validate", "import", "report"):
+        sub = narrative.add_parser(name)
+        sub.add_argument("--input", required=True, type=Path)
+        if name == "report":
+            sub.add_argument("--output", required=True)
+    narrative_review = narrative.add_parser("review").add_subparsers(
+        dest="narrative_review_operation", required=True
+    )
+    sub = narrative_review.add_parser("export")
+    sub.add_argument("--packet-id", required=True)
+    sub.add_argument("--response-sha256", required=True)
+    sub.add_argument("--output", required=True)
+    narrative_review.add_parser("validate").add_argument("--decisions", required=True, type=Path)
     review = commands.add_parser("review").add_subparsers(dest="operation", required=True)
     sub = review.add_parser("export")
     sub.add_argument("--proposal", required=True)
@@ -135,6 +188,18 @@ def parser() -> argparse.ArgumentParser:
 
 
 def run(args: argparse.Namespace):
+    if args.command == "archive":
+        from jeb import build_archive
+
+        if args.archive_operation == "validate":
+            return build_archive.validate(args.input, synthetic=args.synthetic)
+        if args.archive_operation == "restore":
+            return build_archive.restore(
+                args.root, args.input, args.destination, synthetic=args.synthetic
+            )
+        return build_archive.create(
+            Project(args.root, synthetic=args.synthetic), args.source, args.archive_id, args.output
+        )
     if args.command == "demo":
         from jeb.demo import demo
 
@@ -210,6 +275,55 @@ def run(args: argparse.Namespace):
     if args.command == "knowledge":
         from jeb import knowledge_packets
 
+        if args.operation == "narrative":
+            from jeb import narrative_packets
+
+            if args.narrative_operation == "review":
+                from jeb import narrative_review
+
+                if args.narrative_review_operation == "validate":
+                    return narrative_review.validate_decisions(project, args.decisions)
+                return narrative_review.report(
+                    project, args.packet_id, args.response_sha256, args.output
+                )
+            if args.narrative_operation == "prepare":
+                packet = narrative_packets.prepare(
+                    project, args.source, args.selection, args.packet_id
+                )
+                return {
+                    "output": f"data/narrative-proposals/{args.packet_id}/input.json",
+                    "packet_sha256": packet["packet_sha256"],
+                    "segments": len(packet["coverage_manifest"]),
+                    "approval_authority": "none",
+                }
+            if args.narrative_operation == "import":
+                return narrative_packets.import_response(project, args.input)
+            if args.narrative_operation == "report":
+                return narrative_packets.report(project, args.input, args.output)
+            value = narrative_packets.read_response(args.input)
+            narrative_packets.validate_response(project, value)
+            return {
+                "valid_items": len(value["items"]),
+                "nodes": len(value["nodes"]),
+                "support_drafts": len(value["support_drafts"]),
+                "review_state": "unreviewed",
+                "approval_authority": "none",
+            }
+        if args.operation == "curate":
+            from jeb import knowledge_curation
+
+            if args.curation_operation == "export":
+                return knowledge_curation.report(project, args.output, args.source)
+            if args.curation_operation == "apply":
+                return knowledge_curation.apply(project, args.decisions)
+            receipt = knowledge_curation.validate_decisions(
+                project, knowledge_curation.read_decisions(args.decisions)
+            )
+            return {
+                "valid_items": len(receipt["decisions"]["items"]),
+                "owner_actions_created": 0,
+                "approvals_created": 0,
+            }
         if args.operation == "review":
             from jeb import knowledge_review
 
@@ -298,6 +412,22 @@ def run(args: argparse.Namespace):
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
     try:
+        if args.command == "work":
+            from jeb import workbench
+
+            for stream in (sys.stdout, sys.stderr):
+                if hasattr(stream, "reconfigure"):
+                    stream.reconfigure(encoding="utf-8", errors="replace")
+            try:
+                return workbench.run(
+                    Project(args.root, synthetic=args.synthetic),
+                    args.action,
+                    demo=args.demo,
+                    source_id=args.source,
+                )
+            except KeyboardInterrupt:
+                print("\nCancelled.")
+                return 130
         result = run(args)
     except (ValueError, OSError, UnicodeError, sqlite3.Error) as exc:
         print(f"jeb: {exc}", file=sys.stderr)

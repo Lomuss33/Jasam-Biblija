@@ -1,0 +1,391 @@
+{
+  "archive": "dist/demo/dist/archives/narrative-engine-v1.zip",
+  "archive_sha256": "c40be4f01337cf6b21822d441b2c0795fde73ccf31015698f1126e8a9123b22f",
+  "build": {
+    "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+    "curation_receipts": 0,
+    "knowledge_records": 0,
+    "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+    "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+    "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+    "review_receipts": 0,
+    "text_decisions": 0
+  },
+  "canonical_knowledge_records": 0,
+  "checks": [
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "narrative",
+        "prepare",
+        "--source",
+        "synthetic-v1",
+        "--selection",
+        "fixture",
+        "--packet-id",
+        "fixture-narrative-v1"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "output": "data/narrative-proposals/fixture-narrative-v1/input.json",
+        "packet_sha256": "a1624156c28bb4ced94a32254ac5f2c30f725520526cfd34624f2f3ff594978c",
+        "segments": 4
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "narrative",
+        "validate",
+        "--input",
+        "reports/narrative-synthetic-response.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "nodes": 8,
+        "review_state": "unreviewed",
+        "support_drafts": 1,
+        "valid_items": 4
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "narrative",
+        "import",
+        "--input",
+        "reports/narrative-synthetic-response.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "canonical_knowledge_changed": false,
+        "output": "data/narrative-proposals/fixture-narrative-v1/responses/14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733.json",
+        "response_sha256": "14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733",
+        "review_state": "unreviewed"
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "narrative",
+        "report",
+        "--input",
+        "reports/narrative-synthetic-response.json",
+        "--output",
+        "reports/narrative.md"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "output": "reports/narrative.md",
+        "review_state": "unreviewed"
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "narrative",
+        "import",
+        "--input",
+        "reports/narrative-synthetic-response.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Duplicate narrative response already imported"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "knowledge",
+        "narrative",
+        "prepare",
+        "--source",
+        "crosswire-srkdijekav",
+        "--selection",
+        "GEN",
+        "--packet-id",
+        "blocked-real-narrative"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Source crosswire-srkdijekav: needs_review; ingestion blocked"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "archive",
+        "create",
+        "--source",
+        "synthetic-v1",
+        "--archive-id",
+        "narrative-engine-v1",
+        "--output",
+        "dist/archives/narrative-engine-v1.zip"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "archive_sha256": "c40be4f01337cf6b21822d441b2c0795fde73ccf31015698f1126e8a9123b22f",
+        "build": {
+          "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+          "curation_receipts": 0,
+          "knowledge_records": 0,
+          "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+          "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+          "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+          "review_receipts": 0,
+          "text_decisions": 0
+        },
+        "files": 11,
+        "manifest_sha256": "004ec38d488d9678e8f0253e537c4d4993412d8c44e4710b7b6539dce97997cf",
+        "output": "dist/archives/narrative-engine-v1.zip",
+        "release": false
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "dist/demo/dist/archives/narrative-engine-v1.zip"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "archive_sha256": "c40be4f01337cf6b21822d441b2c0795fde73ccf31015698f1126e8a9123b22f",
+        "manifest": {
+          "archive_id": "narrative-engine-v1",
+          "build": {
+            "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+            "curation_receipts": 0,
+            "knowledge_records": 0,
+            "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+            "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+            "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+            "review_receipts": 0,
+            "text_decisions": 0
+          },
+          "corpus_kind": "synthetic",
+          "edition_id": "jeb-synthetic-demo",
+          "engine_sha256": "7048d97bdb13d7369376d9ea2a3e8d64c3e3aaec102684b8b4c63587097093c7",
+          "files": [
+            {
+              "path": "config/collection.yaml",
+              "sha256": "d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117",
+              "size_bytes": 399
+            },
+            {
+              "path": "config/edition.yaml",
+              "sha256": "182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032",
+              "size_bytes": 291
+            },
+            {
+              "path": "config/modernization_rules.yaml",
+              "sha256": "28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719",
+              "size_bytes": 428
+            },
+            {
+              "path": "config/name_registry.yaml",
+              "sha256": "bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3",
+              "size_bytes": 61
+            },
+            {
+              "path": "config/terminology.yaml",
+              "sha256": "22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112",
+              "size_bytes": 1735
+            },
+            {
+              "path": "data/batches/fixture-modernize-v1/input.json",
+              "sha256": "4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa",
+              "size_bytes": 18116
+            },
+            {
+              "path": "data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json",
+              "sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+              "size_bytes": 4859
+            },
+            {
+              "path": "data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt",
+              "sha256": "620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50",
+              "size_bytes": 1731
+            },
+            {
+              "path": "docs/EDITORIAL_POLICY.md",
+              "sha256": "1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276",
+              "size_bytes": 4157
+            },
+            {
+              "path": "sources/lock.json",
+              "sha256": "8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c",
+              "size_bytes": 1284
+            },
+            {
+              "path": "sources/registry.yaml",
+              "sha256": "90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561",
+              "size_bytes": 2323
+            }
+          ],
+          "kind": "jeb-local-build-archive",
+          "package_version": "0.1.0-dev",
+          "schema_version": "1.0",
+          "scope": "One admitted-source build snapshot; not a workspace backup or public release",
+          "source_id": "synthetic-v1"
+        },
+        "manifest_sha256": "004ec38d488d9678e8f0253e537c4d4993412d8c44e4710b7b6539dce97997cf",
+        "release": false,
+        "valid": true
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "restore",
+        "--input",
+        "dist/demo/dist/archives/narrative-engine-v1.zip",
+        "--destination",
+        "dist/narrative-build-restored-v1"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "archive_sha256": "c40be4f01337cf6b21822d441b2c0795fde73ccf31015698f1126e8a9123b22f",
+        "build": {
+          "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+          "curation_receipts": 0,
+          "knowledge_records": 0,
+          "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+          "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+          "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+          "review_receipts": 0,
+          "text_decisions": 0
+        },
+        "exports_and_index_rebuilt": true,
+        "manifest_sha256": "004ec38d488d9678e8f0253e537c4d4993412d8c44e4710b7b6539dce97997cf",
+        "output": "dist/narrative-build-restored-v1",
+        "release": false
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "dist/demo/dist/archives/fixture-build-final-v1.zip"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Archive needs its exact compatible package/schema engine; no automatic migration"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "release",
+        "--output",
+        "exports/forbidden-narrative-release.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Synthetic fixtures can never be a public edition release"
+    }
+  ],
+  "collection_scope": [
+    "GEN",
+    "MAT",
+    "MRK",
+    "LUK",
+    "JHN"
+  ],
+  "curation_actions_created": 0,
+  "date": "2026-10-31",
+  "engine_sha256": "7048d97bdb13d7369376d9ea2a3e8d64c3e3aaec102684b8b4c63587097093c7",
+  "fiction_nodes": 3,
+  "historical_claim_nodes": 0,
+  "kind": "Actual original synthetic narrative drafting; unreviewed, not scripture or historical research",
+  "limitations": [
+    "No real source is admitted and no historical text was acquired.",
+    "Narrative/support proposals remain outside canonical knowledge, reader/search and human promotion.",
+    "In-range spans and registered citations do not prove meaning, chronology, independence or truth.",
+    "Pending working caches are excluded from canonical-build archives.",
+    "Old build archives require their separately retained exact engine; no silent migration."
+  ],
+  "manifest": "reports/narrative-build-manifest.json",
+  "manifest_sha256": "004ec38d488d9678e8f0253e537c4d4993412d8c44e4710b7b6539dce97997cf",
+  "narrative_working_cache_in_build_archive": false,
+  "new_narrative_nodes": 8,
+  "new_support_drafts": 1,
+  "old_archive_and_matching_wheel_preserved": true,
+  "owner_approvals_created": 0,
+  "packet": "dist/demo/data/narrative-proposals/fixture-narrative-v1/input.json",
+  "packet_sha256": "a1624156c28bb4ced94a32254ac5f2c30f725520526cfd34624f2f3ff594978c",
+  "packet_size_bytes": 46360,
+  "previous_annotation_drafts_unchanged": 5,
+  "real_biblical_segments": 0,
+  "recovered_workspace": "dist/narrative-build-restored-v1",
+  "report": "reports/narrative-synthetic.md",
+  "report_sha256": "b18fd9b87ffd2d714288361d960f6d461db3c3c06ef83ed4f94e95ee7b1560fb",
+  "response": "reports/narrative-synthetic-response.json",
+  "response_sha256": "14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733",
+  "response_size_bytes": 13375,
+  "schema_version": "1.0",
+  "source_narrative_nodes": 5
+}
