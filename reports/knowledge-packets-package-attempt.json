@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-30",
+  "destination_path": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-base\\dist\\demo\\data\\knowledge-proposals\\fixture-passage-research-v1\\responses\\a52ee9e460e0305b9ad18632c78956a3c78faa5fb7909ae1b2835fdc306a0e85.json",
+  "destination_path_characters": 270,
+  "failure_workspace_preserved": true,
+  "observed_LongPathsEnabled": 0,
+  "old_wheel_sha256": "23bd4fd771f52b3db4a49f344fde47e37cb9636fa6332be43a2fb5ceb043a188",
+  "resolution": "Use extended-length absolute filesystem paths for core IO and duplicate-import checks; verify the fixed wheel in a fresh deeper workspace.",
+  "schema_version": "1.0",
+  "status": "failed_before_windows_path_fix",
+  "summary": "The first installed-wheel smoke run reached passage research import, then os.replace failed with WinError 3 for the staged full-SHA response destination. It did not complete the planned smoke checks.",
+  "system_settings_changed": false
+}

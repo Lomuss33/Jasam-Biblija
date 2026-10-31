@@ -1,6 +1,6 @@
 # Initial data model (schema 1.0)
 
-Twenty-four self-contained Draft 2020-12 JSON Schemas ship with the package under
+Twenty-six self-contained Draft 2020-12 JSON Schemas ship with the package under
 `src/jeb/schemas/`. No remote schema references are resolved at runtime. Schemas
 reject extra properties and version mismatches; code validates collection,
 foreign keys, exact identities, hashes and review gates across documents.
@@ -46,6 +46,23 @@ and creative material cannot become explanatory evidence. New support cycles
 are refused; ordinary related-note cycles are allowed. Stale/rejected/unbound
 support and its transitive dependents cannot support a returned draft. Imports
 remain unreviewed proposals and do not change reader or approval counts.
+
+`knowledge-review-decisions` is a separate actual-owner interface, bound to the
+exact staged response, packet, draft envelopes and policy. Every approval has
+explicit scope, attribution, category/uncertainty, support and contribution-rights
+checks. Rejected/pending heads can be explicitly superseded; approved canonical
+IDs cannot be overwritten. Partial groups require current closed support and
+related links. Text decisions and source admission stay independent.
+
+`knowledge-review-receipt` embeds the entire original packet, response and human
+decision in one immutable content-hashed canonical file. Canonical validation
+combines legacy JSONL and deterministic approved projections from these receipts;
+there is no multi-file record-copy step. Projected `knowledge` and `reader`
+records gain optional provenance with AI attribution/tool/rationale, exact
+packet/response/draft/decision hashes, source-corpus/policy/bibliography identity
+and support bindings. Approval hashes include provenance. Stale dependencies
+hide affected notes transitively; archived receipts are retained. The original
+annotation response schema and all prior packet bytes remain unchanged.
 
 `toolchain-lock` records a pinned software archive, patches, probe source,
 compiler/build identity and executable hashes for the optional synthetic-only

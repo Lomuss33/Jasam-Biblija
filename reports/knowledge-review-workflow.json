@@ -1,0 +1,179 @@
+{
+  "canonical_knowledge_records": 0,
+  "checks": [
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "review",
+        "export",
+        "--packet-id",
+        "fixture-annotations-v1",
+        "--response-sha256",
+        "2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de",
+        "--output",
+        "reports/human-knowledge-review.md"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approvals_created": 0,
+        "drafts": 5,
+        "human_decisions_created": 0,
+        "output": "reports/human-knowledge-review.md"
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "review",
+        "validate",
+        "--decisions",
+        "reports/annotation-synthetic-response.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: knowledge-review-decisions schema: human_attestation: True was expected; items/0: Additional properties are not allowed ('action', 'record_ids', 'segment_id', 'text_sha256' were unexpected); items/0: 'record_id' is a required property; items/0: 'draft_sha256' is a required property; items/0: 'state' is a required property; items/0: 'checks' is a required property"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "review",
+        "apply",
+        "--decisions",
+        "reports/annotation-synthetic-response.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: knowledge-review-decisions schema: human_attestation: True was expected; items/0: Additional properties are not allowed ('action', 'record_ids', 'segment_id', 'text_sha256' were unexpected); items/0: 'record_id' is a required property; items/0: 'draft_sha256' is a required property; items/0: 'state' is a required property; items/0: 'checks' is a required property"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "validate",
+        "--stage",
+        "knowledge",
+        "--source",
+        "synthetic-v1"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "valid_knowledge_records": 0
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "preview",
+        "--output",
+        "exports/after-knowledge-review.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "maturity": "preview",
+        "output": "exports/after-knowledge-review.json",
+        "sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+        "source_segments": 4,
+        "synthetic": true
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "release",
+        "--output",
+        "exports/forbidden-knowledge-release.json"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Synthetic fixtures can never be a public edition release"
+    }
+  ],
+  "date": "2026-10-30",
+  "drafts": [
+    {
+      "draft_sha256": "89a3bf8cd4ee65f2d1dec69b9a6373c3fe3df1f2ffec0c9f8ad7adbabe865350",
+      "record_id": "fixture-note-evidence"
+    },
+    {
+      "draft_sha256": "19994b7d28df17da3bd0c3ca9bee74b66f83358a7b2960af303f131c67920d2e",
+      "record_id": "fixture-note-claim"
+    },
+    {
+      "draft_sha256": "a9c8dfa2a4d983add4668de56560f31113368fc275e51d5c9417fc8a249e6249",
+      "record_id": "fixture-note-explanation"
+    },
+    {
+      "draft_sha256": "46628c4f81ebcd396bb5f0561b3fe0ff4bfd3fa1d5c88183ed71cfa8934bf2ef",
+      "record_id": "fixture-note-reflection"
+    },
+    {
+      "draft_sha256": "d3404448a48ec9f7cfb4257bdd8aed648d6195b7cc8b636d4e48a24e421c13ca",
+      "record_id": "fixture-note-creative"
+    }
+  ],
+  "kind": "Actual unsigned human-review export of original synthetic AI-assisted drafts; no human decisions supplied or fabricated",
+  "limitations": [
+    "Review export is unsigned and cannot approve anything.",
+    "Simulated approvals occur only inside temporary automated tests.",
+    "Approved-ID withdrawal/version selection is not yet implemented.",
+    "No cleared real source, human scholarship or legal sign-off is implied."
+  ],
+  "owner_name_approvals": 0,
+  "owner_note_approvals": 0,
+  "owner_text_approvals": 0,
+  "packet_id": "fixture-annotations-v1",
+  "packet_sha256": "15c31c623cc1ebb50149c30af94eef199585da150945a200225ba8813fbabe7d",
+  "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+  "reader_unchanged": true,
+  "real_biblical_segments": 0,
+  "report_sha256": "67780651d88dc53156b449a5ce7438b6a22fe3ab5ea899b300e71952dd89f265",
+  "response_sha256": "2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de",
+  "review_receipts": 0,
+  "schema_version": "1.0",
+  "staged_drafts": 5,
+  "unsigned_report": "reports/knowledge-review-synthetic.md"
+}

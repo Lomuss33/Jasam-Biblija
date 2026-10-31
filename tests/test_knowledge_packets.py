@@ -2,11 +2,16 @@ from __future__ import annotations
 
 import copy
 import json
+import os
+import shutil
 import subprocess
 import sys
+import tempfile
+import unittest
+from pathlib import Path
 from unittest.mock import patch
 
-from jeb.core import JebError, canonical, digest, read_yaml, write_json
+from jeb.core import JebError, Project, canonical, digest, native_path, read_yaml, write_json
 from jeb.export import reader
 from jeb.knowledge import validate_knowledge
 from jeb.knowledge_packets import (
@@ -456,6 +461,28 @@ class KnowledgePacketTests(WorkspaceTest):
         response["limitations"] = ["Changed response"]
         with self.assertRaisesRegex(JebError, "Existing artifact differs"):
             report(self.project, self.returned(response), "reports/notes.md")
+
+    @unittest.skipUnless(os.name == "nt", "Windows extended-length staged response paths")
+    def test_long_windows_staging_paths_support_import_reports_and_duplicate_rejection(self):
+        response = self.response()
+        with tempfile.TemporaryDirectory(dir=native_path(Path(tempfile.gettempdir()))) as directory:
+            root = Path(directory.removeprefix("\\\\?\\")) / ("deep-" + "x" * 50)
+            shutil.copytree(self.project.root, native_path(root))
+            project = Project(root, synthetic=True)
+            packet = prepare(project, self.source_id, "fixture", "annotate", "p" * 119)
+            response.update(packet_id=packet["packet_id"], packet_sha256=packet["packet_sha256"])
+            returned = project.path("returned.json")
+            write_json(returned, response)
+            result = import_response(project, returned)
+            staged = project.path(result["output"])
+            self.assertGreater(len(str(staged)), 260)
+            self.assertTrue(native_path(staged).is_file())
+            self.assertEqual(read_response(staged), response)
+            with self.assertRaisesRegex(JebError, "Duplicate"):
+                import_response(project, returned)
+            report(project, staged, "reports/long-path.md")
+            self.assertTrue(project.path("reports/long-path.md").is_file())
+            self.assertEqual(len(validate_knowledge(project, self.books())), 0)
 
     def test_cli_preparation_and_validation_reject_incomplete_input_without_traceback(self):
         args = [

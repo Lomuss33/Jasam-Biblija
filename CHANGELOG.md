@@ -2,6 +2,18 @@
 
 ## 0.1.0-dev — 2026-10-30
 
+Human knowledge review and promotion:
+
+- Added unsigned review export and separate exact-hash owner-decision validation
+  and apply commands for imported annotation packages.
+- Preserved original packets, responses and attribution in one atomic immutable
+  canonical receipt, with approved projections and provenance in reader exports.
+- Added two schemas and twenty-two tests for closed/partial groups, competing
+  reviews, stale inputs, receipt integrity, command-line gates and Windows paths.
+- Generated the five-draft unsigned synthetic review; no persistent human
+  attestation or approval was created. Approved ID withdrawal/version selection
+  remains future work.
+
 Passage research and annotation staging:
 
 - Added separate manual research/annotation packets bound to eligible source
@@ -9,7 +21,9 @@ Passage research and annotation staging:
 - Added typed unreviewed leads and attributed draft evidence/claim/annotation
   graphs, with exact dependencies and separated explanation/reflection/fiction.
 - Added three schemas, shared side-effect-free graph validation and eighteen
-  tests. Imports stay outside the canonical bank and reader.
+  packet tests. Imports stay outside the canonical bank and reader.
+- Fixed atomic file operations and duplicate-import checks for long Windows
+  paths, with two Windows regression tests; no system settings are changed.
 - Demonstrated no new bibliographic leads and five original synthetic drafts;
   no historical coverage, source clearance or human approval was added.
 

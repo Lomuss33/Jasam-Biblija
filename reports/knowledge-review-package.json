@@ -1,0 +1,356 @@
+{
+  "all_checks_passed": true,
+  "canonical_knowledge_records": 0,
+  "commands": [
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\knowledge-review-wheels",
+        "."
+      ],
+      "executable": ".venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: jugoslavenska-ekumenska-biblija\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): started\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): finished with status 'done'\n  Created wheel for jugoslavenska-ekumenska-biblija: filename=jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl size=115504 sha256=6f98601ac3adddc27901526b84f2105348fd360dddf1a85281a436d282b4bcdc\n  Stored in directory: c:\\users\\lovropc\\appdata\\local\\pip\\cache\\wheels\\7f\\44\\f4\\a1ea1c616e108f280324076be72e652ed0c03d944facb93221\nSuccessfully built jugoslavenska-ekumenska-biblija"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--force-reinstall",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\knowledge-review-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\\dist\\knowledge-review-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl\nInstalling collected packages: jugoslavenska-ekumenska-biblija\n  Attempting uninstall: jugoslavenska-ekumenska-biblija\n    Found existing installation: jugoslavenska-ekumenska-biblija 0.1.0.dev0\n    Uninstalling jugoslavenska-ekumenska-biblija-0.1.0.dev0:\n      Successfully uninstalled jugoslavenska-ekumenska-biblija-0.1.0.dev0\nSuccessfully installed jugoslavenska-ekumenska-biblija-0.1.0.dev0"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import jeb.knowledge_review; print(jeb.knowledge_review.__file__)"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Lib\\site-packages\\jeb\\knowledge_review.py"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "validate",
+        "--stage",
+        "schemas"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"valid_schemas\": 26\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import sys,unittest,jeb.knowledge_review; assert 'site-packages' in jeb.knowledge_review.__file__; sys.path.insert(0,'C:\\\\Users\\\\LovroPC\\\\Desktop\\\\HELLO\\\\Karijera\\\\_THM\\\\git repos\\\\githubdesktop\\\\Jugoslavenska-Ekumenska-Biblija'); names=['tests.test_knowledge_review.KnowledgeReviewTests.test_cli_validation_and_apply_require_the_separate_human_decision_schema','tests.test_knowledge_review.KnowledgeReviewTests.test_long_windows_review_receipts_remain_readable_and_duplicate_safe']; result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromNames(names)); sys.exit(0 if result.wasSuccessful() else 1)"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "test_cli_validation_and_apply_require_the_separate_human_decision_schema (tests.test_knowledge_review.KnowledgeReviewTests.test_cli_validation_and_apply_require_the_separate_human_decision_schema) ... ok\ntest_long_windows_review_receipts_remain_readable_and_duplicate_safe (tests.test_knowledge_review.KnowledgeReviewTests.test_long_windows_review_receipts_remain_readable_and_duplicate_safe) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 2.565s\n\nOK",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base",
+        "demo"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"exports\": [\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.json\",\n      \"sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    },\n    {\n      \"maturity\": \"preview\",\n      \"output\": \"exports/reader.md\",\n      \"sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"source_segments\": 4,\n      \"synthetic\": true\n    }\n  ],\n  \"owner_approvals\": 0,\n  \"proposal_id\": \"fixture-modernize-v1-40b78ddaba32f24c\",\n  \"real_biblical_segments\": 0,\n  \"search_matches\": 1,\n  \"synthetic_only\": true,\n  \"synthetic_segments\": 4,\n  \"workspace\": \"dist/demo\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "knowledge",
+        "prepare",
+        "--source",
+        "synthetic-v1",
+        "--selection",
+        "fixture",
+        "--task",
+        "annotate",
+        "--packet-id",
+        "fixture-annotations-v1"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"approval_authority\": \"none\",\n  \"output\": \"data/knowledge-proposals/fixture-annotations-v1/input.json\",\n  \"packet_sha256\": \"15c31c623cc1ebb50149c30af94eef199585da150945a200225ba8813fbabe7d\",\n  \"segments\": 4,\n  \"task\": \"annotate\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "knowledge",
+        "validate",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\reports\\annotation-synthetic-response.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"approval_authority\": \"none\",\n  \"drafts\": 5,\n  \"leads\": 0,\n  \"review_state\": \"unreviewed\",\n  \"task\": \"annotate\",\n  \"valid_items\": 4\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "knowledge",
+        "import",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\reports\\annotation-synthetic-response.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"approval_authority\": \"none\",\n  \"canonical_knowledge_changed\": false,\n  \"output\": \"data/knowledge-proposals/fixture-annotations-v1/responses/2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de.json\",\n  \"response_sha256\": \"2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de\",\n  \"review_state\": \"unreviewed\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "knowledge",
+        "review",
+        "export",
+        "--packet-id",
+        "fixture-annotations-v1",
+        "--response-sha256",
+        "2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de",
+        "--output",
+        "reports/human-knowledge-review.md"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"approvals_created\": 0,\n  \"drafts\": 5,\n  \"human_decisions_created\": 0,\n  \"output\": \"reports/human-knowledge-review.md\"\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "knowledge",
+        "review",
+        "validate",
+        "--decisions",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\reports\\annotation-synthetic-response.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: knowledge-review-decisions schema: human_attestation: True was expected; items/0: Additional properties are not allowed ('action', 'record_ids', 'segment_id', 'text_sha256' were unexpected); items/0: 'record_id' is a required property; items/0: 'draft_sha256' is a required property; items/0: 'state' is a required property; items/0: 'checks' is a required property",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "knowledge",
+        "review",
+        "apply",
+        "--decisions",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\reports\\annotation-synthetic-response.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: knowledge-review-decisions schema: human_attestation: True was expected; items/0: Additional properties are not allowed ('action', 'record_ids', 'segment_id', 'text_sha256' were unexpected); items/0: 'record_id' is a required property; items/0: 'draft_sha256' is a required property; items/0: 'state' is a required property; items/0: 'checks' is a required property",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "validate",
+        "--stage",
+        "knowledge",
+        "--source",
+        "synthetic-v1"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"valid_knowledge_records\": 0\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "preview",
+        "--output",
+        "exports/after-knowledge-review.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"maturity\": \"preview\",\n  \"output\": \"exports/after-knowledge-review.json\",\n  \"sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n  \"source_segments\": 4,\n  \"synthetic\": true\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-knowledge-review-base\\dist\\demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "release",
+        "--output",
+        "exports/forbidden-release.json"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stderr": "jeb: Synthetic fixtures can never be a public edition release",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "research",
+        "prepare",
+        "--source",
+        "crosswire-srkdijekav",
+        "--packet-id",
+        "cw-lineage-followup-01"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"corpus_permission\": false,\n  \"output\": \"data/source-research/cw-lineage-followup-01/input.json\",\n  \"packet_sha256\": \"f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28\",\n  \"questions\": 5\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "audit"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"admitted_count\": 0,\n  \"corpus_kind\": \"historical\",\n  \"jurisdictions\": [\n    \"DE\",\n    \"US\",\n    \"BA\",\n    \"HR\",\n    \"RS\",\n    \"ME\"\n  ],\n  \"schema_version\": \"1.0\",\n  \"sources\": [\n    {\n      \"admitted\": false,\n      \"reason\": \"needs_review\",\n      \"source_id\": \"crosswire-srkdijekav\",\n      \"status\": \"needs_review\"\n    },\n    {\n      \"admitted\": false,\n      \"reason\": \"needs_review\",\n      \"source_id\": \"ebible-srp1865\",\n      \"status\": \"needs_review\"\n    },\n    {\n      \"admitted\": false,\n      \"reason\": \"excluded\",\n      \"source_id\": \"ebible-hrv-saric\",\n      \"status\": \"excluded\"\n    }\n  ]\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "executable": "dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stderr": "",
+      "stdout": "No broken requirements found."
+    }
+  ],
+  "current_source_metadata_packet_sha256": "f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28",
+  "date": "2026-10-30",
+  "linux_execution_claimed": false,
+  "long_staged_path_characters": 272,
+  "native_binaries_in_wheel": 0,
+  "owner_note_approvals": 0,
+  "packaged_schemas": 26,
+  "persistent_review_receipts": 0,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3",
+  "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+  "real_biblical_segments": 0,
+  "remote_ci_executed": false,
+  "schema_version": "1.0",
+  "simulated_attestations_confined_to_temporary_test_roots": true,
+  "staged_drafts": 5,
+  "system_settings_changed": false,
+  "temporary_simulated_review_tests": 2,
+  "unsigned_report_sha256": "67780651d88dc53156b449a5ce7438b6a22fe3ab5ea899b300e71952dd89f265",
+  "wheel": "dist\\knowledge-review-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl",
+  "wheel_sha256": "6f98601ac3adddc27901526b84f2105348fd360dddf1a85281a436d282b4bcdc"
+}

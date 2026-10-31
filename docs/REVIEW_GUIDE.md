@@ -4,7 +4,8 @@ No human text/name/annotation approval exists yet. First clear an exact source
 and prepare short eligible samples. Modernization and separate optional AI
 review-assistance packets are implemented. Passage research and annotation draft
 packets use the [knowledge workflow](PASSAGE_KNOWLEDGE_WORKFLOW.md); human
-knowledge review/promotion remains separate future work. Source-metadata
+knowledge review/promotion uses a [separate owner-decision workflow](KNOWLEDGE_REVIEW.md).
+Its persistent synthetic example remains unapproved. Source-metadata
 research is a distinct pre-admission workflow.
 
 `jeb batch prepare` accepts one of GEN, MAT, MRK, LUK, JHN for the five exact
@@ -84,6 +85,10 @@ new valid decision supersedes it; active conflicts fail rather than pick a winne
 Annotation approval is independent, content-hashed and linked to exact dependent
 text hashes. Re-review annotations/alignments after passage edits. Personal
 reflection and creative material must retain their labels and attribution.
+Use `knowledge review export/validate/apply` for imported annotation drafts;
+AI returns are never human decisions. Canonical receipt projections retain the
+original packet/response and credit. Approved IDs cannot be overwritten;
+withdrawal/version selection is not implemented by this first promotion slice.
 Do not turn narrative claims into independently corroborated history, infer
 motives, invent quotations or harmonize differing Gospel scenes as an original.
 

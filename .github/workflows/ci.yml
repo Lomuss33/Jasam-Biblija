@@ -39,4 +39,6 @@ jobs:
       - run: python -m jeb --root dist/demo --synthetic knowledge prepare --source synthetic-v1 --selection fixture --task annotate --packet-id fixture-annotations-v1
       - run: python -m jeb --root dist/demo --synthetic knowledge validate --input reports/passage-research-synthetic-response.json
       - run: python -m jeb --root dist/demo --synthetic knowledge validate --input reports/annotation-synthetic-response.json
+      - run: python -m jeb --root dist/demo --synthetic knowledge import --input reports/annotation-synthetic-response.json
+      - run: python -m jeb --root dist/demo --synthetic knowledge review export --packet-id fixture-annotations-v1 --response-sha256 2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de --output reports/human-knowledge-review.md
       - run: python -m pip wheel --no-build-isolation --no-deps --wheel-dir dist/wheels .

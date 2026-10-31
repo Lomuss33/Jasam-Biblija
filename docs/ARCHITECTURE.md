@@ -59,6 +59,14 @@ evidence/claim/annotation graphs with exact current text hashes, typed reference
 separate explanatory/reflection/creative layers and no human approval. Imports
 write only hashed responses outside the canonical bank; reports retain the
 unreviewed data and provenance. No reader, text decision or source lock changes.
+`knowledge_review.py` exports an unsigned review subject and validates a separate
+owner-decision document. One atomic, content-hashed receipt retains the complete
+original packet, response and actual human decisions. Canonical validation
+combines legacy JSONL with approved projections from these receipts, preserving
+AI attribution, exact content/support identities and independent text approval.
+Pending/rejected decisions are history only. Current dependency groups can be
+promoted partially and resumed from the same exact response; competing pending
+heads require explicit nonbranching supersession. Approved IDs are immutable.
 `export.py` builds reader JSON or Markdown from faithful normalized text plus
 exactly approved text, preserving typed layout/notes and explicit coverage.
 Current approved knowledge records and their current dependencies can appear;
@@ -118,13 +126,19 @@ The filesystem workflow is intended for one local writer at a time. Individual
 writes are atomic; a multi-file batch is validated before writing but is not a
 database transaction. After an interrupted write, rerun structural validation
 and compare immutable artifacts; do not approve a partially recovered batch.
+Core bounded reads, atomic writes, containment symlink checks and response-import
+duplicate checks use absolute extended-length paths on Windows. Logical and
+stored project paths retain their usual spelling. This supports long staged
+response filenames without changing machine settings; it does not establish
+long-path compatibility for every optional native tool. See the
+[Windows path rules](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation).
 No code signs or proves the authenticity of a human attestation or legal opinion;
 the owner is responsible for truthful identity and source assessments.
 
 ## Scope of this implementation
 
-Real source-format adapters, human knowledge review/promotion, rich structured
-entity/event/story authoring,
+Real source-format adapters, knowledge withdrawal/version selection, rich
+structured entity/event/story authoring,
 expert D-class approval, rich scholarly title/word-alignment authoring tools,
 automatic inflection rules, complete-book editorial work, EPUB/PDF/USFM/OSIS
 output and frontend/publishing are future phases. The initial knowledge schema

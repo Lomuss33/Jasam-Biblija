@@ -10,14 +10,43 @@ synthetic critique report. It preserves proposal text, flags, human decisions an
 reader output; it is not source clearance or owner approval. Do not rebuild it
 as the next milestone.
 
-**Next independent engineering task: bounded passage evidence-research and
-annotation packets**, using eligible source context or the isolated synthetic
-fixture. Keep source explanation, personal reflection and creative adaptation
-separate; import any returned knowledge as unapproved proposals, with exact
-passage/evidence dependencies. No invented real scholarship, quotations, names,
-events or human review. These are the remaining requested manual packet types.
-Continue this work if there is no new primary lineage record or authorized
-provider reply, instead of repeating the same public searches.
+Passage evidence-research and annotation packets are now implemented, including
+separate explanation/reflection/fiction drafts and strict unreviewed staging.
+See `docs/PASSAGE_KNOWLEDGE_WORKFLOW.md`, decision 0008 and
+`reports/knowledge-packets-workflow.json`. Five original synthetic drafts remain
+outside the canonical bank; no new real bibliography or human approval exists.
+That packet milestone passed 164 tests, 24 schemas and 24 installed-wheel checks.
+The Windows long-path failure and fix are recorded in
+`reports/knowledge-packets-package-attempt.json` and
+`reports/knowledge-packets-package.json`. Do not rebuild these packet types as
+the next milestone.
+
+Human knowledge review/promotion is now implemented. See
+`docs/KNOWLEDGE_REVIEW.md`, decision 0009,
+`reports/knowledge-review-workflow.json` and the unsigned
+`reports/knowledge-review-synthetic.md`. Owner decisions, complete original
+envelopes and attribution are retained in atomic immutable receipts; only
+approved closed current groups project into canonical knowledge. Pending and
+rejected heads can be explicitly superseded, and partial groups can resume from
+the same response. Current checks: **186 tests, 26 schemas and 18 installed-wheel
+checks passed**. The persistent five drafts still have zero human decisions or
+approvals. Do not rebuild this workflow as the next milestone.
+
+**Next independent engineering task: human knowledge withdrawal and editorial
+selection among approved versions.** Preserve every original approval receipt
+and immutable record. Bind a separate actual-owner action to exact canonical
+record/provenance/content hashes and the selected revision. Support withdrawing
+an erroneous or stale note without deleting history or changing passage text
+approval. Hide dependent notes transitively; replacing a version must explicitly
+select one approved current candidate rather than export both silently. Define
+nonbranching supersession, conflict handling, recovery and reactivation rules.
+Keep reflection/fiction labels and AI attribution intact. Exercise everything
+with temporary synthetic attestations; do not approve or withdraw any of the
+actual five staged drafts on the owner's behalf. The current implementation
+freezes approved IDs and has no withdrawal/version-selection interface yet.
+
+Continue this reversible engineering work if there is no new primary lineage
+record or authorized provider reply, instead of repeating completed searches.
 
 The optional native SWORD evaluation is now implemented and tested with original
 synthetic data. Read `docs/sources/SWORD_TOOLCHAIN_EVALUATION.md` and

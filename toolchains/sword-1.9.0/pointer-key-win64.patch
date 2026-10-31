@@ -22,6 +22,7 @@
  #include <stdlib.h>
  #include <stdio.h>
 @@ -35,5 +36,5 @@
+ char Latin1UTF16::processText(SWBuf &text, const SWKey *key, const SWModule *module) {
      const unsigned char *from;
 -	 if ((unsigned long)key < 2)	// hack, we're en(1)/de(0)ciphering
 +	 if (reinterpret_cast<std::uintptr_t>(key) < 2)	// hack, we're en(1)/de(0)ciphering

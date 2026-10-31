@@ -166,11 +166,27 @@ Research returns unverified leads and questions. Annotation returns attributed,
 unapproved evidence/claim/annotation drafts with exact text and evidence links.
 Imports stay under `data/knowledge-proposals/`, separate from the canonical bank
 and reader. Explanation, personal reflection and creative adaptation retain
-distinct labels. Human knowledge review/promotion and structured story authoring
-remain future work. See the [passage workflow](docs/PASSAGE_KNOWLEDGE_WORKFLOW.md)
+distinct labels. See the [passage workflow](docs/PASSAGE_KNOWLEDGE_WORKFLOW.md)
 and [synthetic drafts](reports/annotation-synthetic.md). The unchanged v1 editorial
 policy's final implementation note describes the initial slice; this command
 guide records the current interfaces.
+
+Human knowledge review uses a separate owner-decision format:
+
+```powershell
+jeb knowledge review export --packet-id <packet-id> --response-sha256 <full-sha256> --output reports/generated/human-notes.md
+jeb knowledge review validate --decisions <reviewed-json>
+jeb knowledge review apply --decisions <reviewed-json>
+```
+
+The [human knowledge review guide](docs/KNOWLEDGE_REVIEW.md) explains exact
+bindings, explicit checks, partial dependency groups and competing responses.
+One immutable receipt preserves the original packet, AI attribution and human
+decision; approved records derive from it without hand-copying JSONL. Rejections
+and pending reviews add no canonical content. Approved IDs remain immutable;
+withdrawal/version selection and rich story authoring are future work. The
+[synthetic review report](reports/knowledge-review-synthetic.md) is unsigned;
+the five persistent drafts still have no human approval.
 
 Preview exports include faithful normalized source text and exact approved
 text where present. They never export unapproved modernization. Every segment

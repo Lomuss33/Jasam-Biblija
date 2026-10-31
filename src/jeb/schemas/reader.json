@@ -648,6 +648,149 @@
               }
             ]
           },
+          "provenance": {
+            "additionalProperties": false,
+            "properties": {
+              "attribution": {
+                "additionalProperties": false,
+                "properties": {
+                  "credit": {
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "kind": {
+                    "const": "ai_assisted_draft"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "credit"
+                ],
+                "type": "object"
+              },
+              "corpus_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "decision_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "draft_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "kind": {
+                "const": "staged_annotation"
+              },
+              "packet_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$",
+                "type": "string"
+              },
+              "packet_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "policy_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "rationale": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "response_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "review_id": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                "type": "string"
+              },
+              "source_metadata_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "support": {
+                "additionalProperties": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "draft",
+                        "canonical"
+                      ]
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "propertyNames": {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "tool": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_identifier": {
+                    "anyOf": [
+                      {
+                        "maxLength": 200,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "reported_at": {
+                    "format": "date",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "model_identifier",
+                  "reported_at"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "kind",
+              "packet_id",
+              "packet_sha256",
+              "response_sha256",
+              "draft_sha256",
+              "review_id",
+              "decision_sha256",
+              "policy_sha256",
+              "source_metadata_sha256",
+              "corpus_sha256",
+              "attribution",
+              "tool",
+              "rationale",
+              "support"
+            ],
+            "type": "object"
+          },
           "record_id": {
             "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$",
             "type": "string"

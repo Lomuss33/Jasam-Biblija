@@ -92,6 +92,15 @@ def parser() -> argparse.ArgumentParser:
         sub.add_argument("--input", required=True, type=Path)
         if name == "report":
             sub.add_argument("--output", required=True)
+    knowledge_review = knowledge.add_parser("review").add_subparsers(
+        dest="knowledge_review_operation", required=True
+    )
+    sub = knowledge_review.add_parser("export")
+    sub.add_argument("--packet-id", required=True)
+    sub.add_argument("--response-sha256", required=True)
+    sub.add_argument("--output", required=True)
+    for name in ("validate", "apply"):
+        knowledge_review.add_parser(name).add_argument("--decisions", required=True, type=Path)
     review = commands.add_parser("review").add_subparsers(dest="operation", required=True)
     sub = review.add_parser("export")
     sub.add_argument("--proposal", required=True)
@@ -201,6 +210,23 @@ def run(args: argparse.Namespace):
     if args.command == "knowledge":
         from jeb import knowledge_packets
 
+        if args.operation == "review":
+            from jeb import knowledge_review
+
+            if args.knowledge_review_operation == "export":
+                return knowledge_review.report(
+                    project, args.packet_id, args.response_sha256, args.output
+                )
+            if args.knowledge_review_operation == "apply":
+                return knowledge_review.apply(project, args.decisions)
+            receipt = knowledge_review.validate_decisions(
+                project, knowledge_review.read_decisions(args.decisions)
+            )
+            return {
+                "valid_items": len(receipt["decisions"]["items"]),
+                "human_decisions_created": 0,
+                "approvals_created": 0,
+            }
         if args.operation == "prepare":
             packet = knowledge_packets.prepare(
                 project, args.source, args.selection, args.task, args.packet_id

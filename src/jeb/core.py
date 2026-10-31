@@ -60,8 +60,20 @@ def yaml_mapping(loader: UniqueLoader, node: yaml.MappingNode) -> dict:
 UniqueLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, yaml_mapping)
 
 
+def native_path(path: Path) -> Path:
+    """Use Windows extended-length file spelling without changing stored project paths."""
+    if os.name != "nt":
+        return path
+    absolute = os.path.abspath(path)
+    if absolute.startswith("\\\\?\\"):
+        return Path(absolute)
+    if absolute.startswith("\\\\"):
+        return Path("\\\\?\\UNC\\" + absolute[2:])
+    return Path("\\\\?\\" + absolute)
+
+
 def read_bytes(path: Path, limit: int = MAX_DOCUMENT) -> bytes:
-    with path.open("rb") as stream:
+    with native_path(path).open("rb") as stream:
         data = stream.read(limit + 1)
     require(len(data) <= limit, f"File exceeds {limit} bytes: {path}")
     return data
@@ -99,6 +111,7 @@ def digest(data: Any) -> str:
 
 
 def atomic_write(path: Path, data: bytes, *, replace: bool = True) -> None:
+    path = native_path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     require(not path.is_symlink(), f"Refusing symlink output: {path}")
     if path.exists():
@@ -126,7 +139,7 @@ def inside(root: Path, relative: str | Path) -> Path:
     require(path.resolve().is_relative_to(root), f"Path escapes project: {relative}")
     current = path
     while current != root:
-        require(not current.is_symlink(), f"Symlink path forbidden: {current}")
+        require(not native_path(current).is_symlink(), f"Symlink path forbidden: {current}")
         current = current.parent
     return path
 

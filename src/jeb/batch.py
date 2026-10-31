@@ -13,6 +13,7 @@ from jeb.core import (
     file_id,
     json_loads,
     latin_tree,
+    native_path,
     read_json,
     require,
     sha256,
@@ -262,7 +263,7 @@ def import_response(project: Project, path: Path) -> dict:
     response_hash = digest(response)
     proposal_id = file_id(f"{response['batch_id']}-{response_hash[:16]}")
     target = project.path(f"data/proposals/{proposal_id}.json")
-    require(not target.exists(), "Duplicate response already imported")
+    require(not native_path(target).exists(), "Duplicate response already imported")
     proposal = {
         "schema_version": "1.0",
         "proposal_id": proposal_id,

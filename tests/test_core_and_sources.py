@@ -1,15 +1,45 @@
 from __future__ import annotations
 
 import copy
+import os
+import tempfile
 import unittest
+from pathlib import Path
 
-from jeb.core import JebError, Project, file_id, json_loads, latin, read_json, read_yaml, write_json
+from jeb.core import (
+    JebError,
+    Project,
+    file_id,
+    json_loads,
+    latin,
+    native_path,
+    read_json,
+    read_yaml,
+    write_json,
+)
 from jeb.fetch import fetch
 from jeb.sources import admitted, audit
 from tests.support import REPO, WorkspaceTest
 
 
 class StrictInputTests(unittest.TestCase):
+    @unittest.skipUnless(os.name == "nt", "Windows extended-length filesystem paths")
+    def test_long_windows_paths_preserve_atomic_read_write_and_immutability(self):
+        with tempfile.TemporaryDirectory(dir=native_path(Path(tempfile.gettempdir()))) as directory:
+            base = Path(directory.removeprefix("\\\\?\\"))
+            path = base.joinpath(*("segment-" + "x" * 32 for _ in range(6)), "a" * 64 + ".json")
+            self.assertGreater(len(str(path)), 260)
+            original = {"text": "svjet vrjeme covik razumit čćđšž"}
+            write_json(path, original, replace=False)
+            self.assertEqual(read_json(path), original)
+            write_json(path, original, replace=False)
+            with self.assertRaisesRegex(JebError, "Existing artifact differs"):
+                write_json(path, {"changed": True}, replace=False)
+            self.assertEqual(read_json(path), original)
+            write_json(path, {"changed": True})
+            self.assertEqual(read_json(path), {"changed": True})
+            self.assertEqual(list(native_path(path.parent).glob(".jeb-*")), [])
+
     def test_json_duplicate_keys_rejected(self):
         with self.assertRaisesRegex(JebError, "Duplicate key"):
             json_loads('{"id": 1,"id": 2}')

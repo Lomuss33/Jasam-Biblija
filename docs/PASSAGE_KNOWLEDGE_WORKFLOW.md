@@ -88,9 +88,10 @@ shows current text and the unreviewed response with returned content fenced as
 data. Different existing output files are preserved.
 
 No imported lead or draft enters `data/knowledge/*.jsonl`, reader output, source
-locks, text decisions or approval counts. Human knowledge review/promotion is
-not implemented here; future promotion must preserve exact provenance and
-attribution. Do not hand-copy records and discard that envelope. AI validation
+locks, text decisions or approval counts. The separate
+[human review workflow](KNOWLEDGE_REVIEW.md) preserves the entire original
+envelope and attribution when an actual owner approves a closed current group.
+Do not hand-copy records and discard that envelope. AI validation
 does not authenticate a contributor, establish source truth, guarantee original
 wording or waive third-party rights.
 

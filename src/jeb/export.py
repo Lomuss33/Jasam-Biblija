@@ -5,7 +5,7 @@ from __future__ import annotations
 from jeb.batch import names
 from jeb.core import Project, atomic_write, digest, latin_tree, require, sha256, validate_schema
 from jeb.corpus import load_corpus, segments
-from jeb.knowledge import validate_knowledge
+from jeb.knowledge import provenance_current, source_cards, validate_knowledge
 from jeb.review import all_decisions, decision_item, heads
 from jeb.sources import admitted
 
@@ -80,9 +80,15 @@ def reader(project: Project, source_id: str, maturity: str, profile: str = "five
         s["segment_id"]: s["text_sha256"] for b in output_books for s in b["segments"]
     }
     eligible_metadata = {}
+    metadata_hash = digest(source_cards(project))
+    policy_hash = project.policy_hash()
     for record in knowledge.values():
         current = all(display_hashes.get(s) == h for s, h in record["depends_on"].items())
-        if record["review_state"] == "approved" and current:
+        if (
+            record["review_state"] == "approved"
+            and current
+            and provenance_current(record, knowledge, policy_hash, metadata_hash, digest(books))
+        ):
             eligible_metadata[record["record_id"]] = record
     # Never publish a current note whose supporting claim/evidence is stale.
     # Remove stale dependencies transitively while allowing documented cycles.

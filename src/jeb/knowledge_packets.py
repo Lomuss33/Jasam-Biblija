@@ -15,6 +15,7 @@ from jeb.core import (
     file_id,
     json_loads,
     latin_tree,
+    native_path,
     read_bytes,
     require,
     validate_schema,
@@ -22,9 +23,8 @@ from jeb.core import (
 )
 from jeb.corpus import load_corpus
 from jeb.export import reader
-from jeb.knowledge import validate_knowledge, validate_records
+from jeb.knowledge import provenance_current, source_cards, validate_knowledge, validate_records
 from jeb.review_assistance import fenced
-from jeb.sources import registry
 
 MAX_PACKET = 64 * 1024
 MAX_RESPONSE = 32 * 1024
@@ -64,7 +64,13 @@ TASK_PROMPTS = {
 
 
 def _make_packet(
-    project: Project, source_id: str, selection: str, task: str, packet_id: str
+    project: Project,
+    source_id: str,
+    selection: str,
+    task: str,
+    packet_id: str,
+    *,
+    knowledge: dict | None = None,
 ) -> dict:
     file_id(packet_id)
     file_id(source_id)
@@ -74,7 +80,7 @@ def _make_packet(
     require(len({s["book_id"] for s in selected}) == 1, "One coherent book passage per packet")
     preview = reader(project, source_id, "preview")
     display = {s["segment_id"]: s for b in preview["books"] for s in b["segments"]}
-    knowledge = validate_knowledge(project, books)
+    knowledge = validate_knowledge(project, books) if knowledge is None else knowledge
     requested = {s["segment_id"] for s in selected}
     relevant = {
         key
@@ -89,10 +95,15 @@ def _make_packet(
         if expanded == relevant:
             break
         relevant = expanded
+    policy_hash = project.policy_hash()
+    sources = source_cards(project)
     usable = {
         key
         for key in relevant
         if knowledge[key]["review_state"] != "rejected"
+        and provenance_current(
+            knowledge[key], knowledge, policy_hash, digest(sources), digest(books)
+        )
         and set(knowledge[key]["depends_on"]) == set(knowledge[key]["segment_ids"])
         and all(
             display.get(s, {}).get("text_sha256") == h
@@ -133,20 +144,6 @@ def _make_packet(
         }
         for key in sorted(relevant)
     ]
-    sources = [
-        {
-            field: s[field]
-            for field in (
-                "source_id",
-                "title",
-                "kind",
-                "status",
-                "landing_url",
-                "rights_statement_url",
-            )
-        }
-        for s in registry(project)["sources"]
-    ]
     packet = {
         "schema_version": "1.0",
         "packet_id": packet_id,
@@ -154,7 +151,7 @@ def _make_packet(
         "source_id": source_id,
         "corpus_kind": project.edition["corpus_kind"],
         "corpus_sha256": digest(books),
-        "policy_sha256": project.policy_hash(),
+        "policy_sha256": policy_hash,
         "policy": project.path("docs/EDITORIAL_POLICY.md").read_text("utf-8"),
         "terminology": project.config("terminology"),
         "name_mappings": [m for m in names(project).values() if m["status"] == "approved"],
@@ -187,7 +184,7 @@ def prepare(project: Project, source_id: str, selection: str, task: str, packet_
     return packet
 
 
-def current_packet(project: Project, packet_id: str) -> dict:
+def current_packet(project: Project, packet_id: str, *, knowledge: dict | None = None) -> dict:
     file_id(packet_id)
     path = project.path(f"data/knowledge-proposals/{packet_id}/input.json")
     packet = json_loads(read_bytes(path, MAX_PACKET).decode("utf-8", errors="strict"))
@@ -201,7 +198,12 @@ def current_packet(project: Project, packet_id: str) -> dict:
     require(
         packet
         == _make_packet(
-            project, packet["source_id"], packet["selection"], packet["task"], packet_id
+            project,
+            packet["source_id"],
+            packet["selection"],
+            packet["task"],
+            packet_id,
+            knowledge=knowledge,
         ),
         "Stale or substituted passage text, knowledge/source namespace, policy, prompt or schema",
     )
@@ -259,13 +261,15 @@ def _research(packet: dict, response: dict) -> None:
     require(used == set(ids), "Unreferenced passage research lead")
 
 
-def _annotations(project: Project, packet: dict, response: dict) -> None:
+def _annotations(
+    project: Project, packet: dict, response: dict, *, knowledge: dict | None = None
+) -> None:
     display = {row["display"]["segment_id"]: row["display"] for row in packet["segments"]}
     drafts = [draft["record"] for draft in response["drafts"]]
     ids = [r["record_id"] for r in drafts]
     require(len(ids) == len(set(ids)), "Duplicate annotation draft ID")
     books = load_corpus(project, packet["source_id"])
-    known = validate_knowledge(project, books)
+    known = validate_knowledge(project, books) if knowledge is None else knowledge
     require(not set(ids) & set(known), "Draft collides with a canonical knowledge ID")
     attached = {r["record_id"]: r for r in packet["knowledge_catalog"]}
     for record in drafts:
@@ -355,7 +359,7 @@ def _annotations(project: Project, packet: dict, response: dict) -> None:
         )
 
 
-def validate_response(project: Project, response: dict) -> dict:
+def validate_response(project: Project, response: dict, *, knowledge: dict | None = None) -> dict:
     require(len(canonical(response)) <= MAX_RESPONSE, "Passage response exceeds 32 KiB bound")
     require(
         isinstance(response, dict) and response.get("task") in SCHEMAS,
@@ -363,7 +367,7 @@ def validate_response(project: Project, response: dict) -> dict:
     )
     validate_schema(SCHEMAS[response["task"]], response)
     latin_tree(response)
-    packet = current_packet(project, response["packet_id"])
+    packet = current_packet(project, response["packet_id"], knowledge=knowledge)
     require(
         response["task"] == packet["task"]
         and response["source_id"] == packet["source_id"]
@@ -384,7 +388,7 @@ def validate_response(project: Project, response: dict) -> dict:
     if response["task"] == "research":
         _research(packet, response)
     else:
-        _annotations(project, packet, response)
+        _annotations(project, packet, response, knowledge=knowledge)
     return packet
 
 
@@ -393,7 +397,10 @@ def import_response(project: Project, path: Path) -> dict:
     validate_response(project, value)
     identity = digest(value)
     output = f"data/knowledge-proposals/{value['packet_id']}/responses/{identity}.json"
-    require(not project.path(output).exists(), "Duplicate passage response already imported")
+    require(
+        not native_path(project.path(output)).exists(),
+        "Duplicate passage response already imported",
+    )
     write_json(project.path(output), value, replace=False)
     return {
         "output": output,

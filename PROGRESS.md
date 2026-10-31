@@ -1,10 +1,11 @@
 # Session continuity: 2026-10-30
 
-Latest continuation: separate optional AI review-assistance packets and a
-synthetic critique completed locally. Current checks: **144 tests passed,
-21 schemas valid**; installed-wheel workflow checks passed. Historical corpus
-coverage and human approvals remain zero. Earlier session records below are
-preserved; the latest details follow at the end.
+Latest continuation: human knowledge review and provenance-preserving canonical
+promotion implemented; the five persistent synthetic drafts remain unapproved.
+Current checks: **186 tests passed, 26 schemas valid**; all **18 installed-wheel
+checks passed**, including two temporary simulated review tests. Historical
+corpus coverage and real human approvals remain zero. Earlier session records
+below are preserved; the latest details follow at the end.
 
 Version: 0.1.0-dev. **Phase 0 completed; Phase 1 working synthetic slice
 implemented and tested. Real-source ingestion and the editorial pilot remain
@@ -568,3 +569,289 @@ passage evidence-research/annotation packets with unapproved knowledge staging.
 Real-source work still needs the original digital file and exact edition/roles/
 correction/component evidence. Preserve the ready metadata packet and resume
 that investigation on a new primary lead rather than recycling completed searches.
+
+## Continuation: passage research and annotation staging, 2026-10-30
+
+Completed the next independent task in NEXT_STEPS. All four requested manual
+packet types now exist: modernization, optional AI critique, passage research
+and annotation. Source-metadata research remains a separate permission-free
+investigation workflow. No real biblical source is cleared or ingested.
+
+Implemented and documented:
+
+- `src/jeb/knowledge_packets.py`, `jeb knowledge prepare/validate/import/report`
+  and three new packaged schemas: passage-work-packet,
+  passage-research-response and annotation-response. One exact pilot passage
+  or the opt-in original fixture per packet; 64 KiB input and 32 KiB return.
+- Shared exact passage/context selection in `batch.py` and side-effect-free
+  canonical-plus-draft graph checks in `knowledge.py`. Existing modernization
+  and critique packet identities remain unchanged.
+- Current reader wording, eligible source/context, exact hashes, policies,
+  approved names, registered bibliography and scoped knowledge metadata bind
+  each packet. External evidence text bodies are not copied. Stale, rejected
+  or unbound transitive support cannot be used as current evidence.
+- Typed research leads and attributed evidence/claim/annotation drafts. Exact
+  scope, ordered complete coverage, current display dependencies, typed links,
+  ID collisions, fabricated registered references, self/circular support,
+  unsupported script and impersonated approvals are rejected. Explanations,
+  reflection and fiction remain separate; zero leads/drafts is valid.
+- Immutable unreviewed responses under ignored `data/knowledge-proposals/`,
+  with safe readable reports. No canonical bank, human decision, name mapping,
+  rights assessment, source lock or reader is changed by import.
+- `docs/PASSAGE_KNOWLEDGE_WORKFLOW.md`, decision 0008, current README,
+  data-model, architecture, review-guide and CI instructions. Rich structured
+  entity/event/story authoring and human knowledge promotion remain future work.
+
+Actual Codex-assisted fixture work, without invented human participation:
+
+| Protocol | Packet ID | Packet bytes | Result |
+| --- | --- | ---: | --- |
+| research | fixture-passage-research-v1 | 23,978 | four items, zero new bibliographic leads |
+| annotate | fixture-annotations-v1 | 29,993 | four items, five unapproved drafts |
+
+Packet identities:
+
+- Research: `bbef75dfe9cf9b5b8b7e4eba999e0dc54fb3f11fb71fbaf940daad0398af7671`.
+- Annotation: `15c31c623cc1ebb50149c30af94eef199585da150945a200225ba8813fbabe7d`.
+
+The five drafts are original fixture evidence, a textual claim, an explanatory
+note, an attributed AI-assisted reflection and an explicitly fictional note.
+They concern only four invented non-scripture sentences. The fixture-witness
+record supplies no independent historical corroboration. The owner voice is not
+claimed. All five remain outside the canonical bank and reader, with null
+approval. Actual returns and reports are preserved at:
+
+- `reports/passage-research-synthetic-response.json` and
+  `reports/passage-research-synthetic.md`.
+- `reports/annotation-synthetic-response.json` and
+  `reports/annotation-synthetic.md`.
+- `reports/knowledge-packets-workflow.json`: actual eight preparation,
+  validation, staging and reporting commands, response hashes and output hashes.
+
+The first installed-wheel check exposed a genuine Windows failure: an atomic
+rename to a 270-character response filename raised WinError 3. The earlier
+wheel and failed workspace are retained. Read-only inspection found
+LongPathsEnabled=0. Core bounded reads, atomic writes, containment symlink
+checks and all four response-import duplicate checks now use absolute Windows
+extended-length paths internally. Stored project paths retain their spelling;
+no registry or other machine setting was changed. Two Windows regressions cover
+long-path immutable writes and actual annotation import/read/report/duplicate
+rejection. This does not assert compatibility for every optional native tool.
+Failure record: `reports/knowledge-packets-package-attempt.json`.
+
+Final local verification: Windows 11 / CPython 3.13.3, using the existing
+hash-locked `.venv`. Actual commands include:
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+python -m jeb sources audit
+python -m jeb sources inspect --source crosswire-srkdijekav
+python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-lineage-followup-01
+python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
+python -m jeb demo
+python -m jeb --root dist/demo --synthetic review assist prepare --proposal fixture-modernize-v1-40b78ddaba32f24c --packet-id fixture-review-v1
+python -m jeb --root dist/demo --synthetic review assist validate --input reports/review-assistance-synthetic-response.json
+python -m jeb --root dist/demo --synthetic knowledge prepare --source synthetic-v1 --selection fixture --task research --packet-id fixture-passage-research-v1
+python -m jeb --root dist/demo --synthetic knowledge prepare --source synthetic-v1 --selection fixture --task annotate --packet-id fixture-annotations-v1
+python -m jeb --root dist/demo --synthetic knowledge validate --input reports/passage-research-synthetic-response.json
+python -m jeb --root dist/demo --synthetic knowledge validate --input reports/annotation-synthetic-response.json
+```
+
+All passed: lint clean, **34 Python files formatted, 24 valid schemas, 164 tests
+passed in 46.180 seconds** (18 new packet tests and two Windows regressions).
+The two focused Windows regressions also passed in 0.829 seconds. Complete final
+outputs and source/test fingerprints are in
+`reports/knowledge-packets-final-verification.json` and
+`reports/knowledge-packets-final-tests.txt`. The earlier 162-test check is kept
+in `reports/knowledge-packets-verification.json` as an intermediate snapshot.
+No Linux execution or remote CI run is claimed.
+
+Built the fixed wheel offline with `pip wheel --no-index --no-build-isolation
+--no-deps`; reinstalled it into the existing clean verification venv with no
+dependency resolution. All **24 installed-wheel checks passed** in a new deeper
+`dist/verify-knowledge-base-v2/dist/demo` workspace. Python `-I` verified actual
+site-packages imports and all 24 packaged schemas. Both prepare/validate/import/
+report workflows reproduced the recorded packet and report hashes; staged paths
+were 273 and 268 characters, duplicate imports failed cleanly, and imported long
+files were readable and valid. AI-as-human review and synthetic release were
+correctly rejected with exit 2 and no traceback. No approval/release file was
+created; canonical records stayed zero and `pip check` passed. The wheel contains
+no native binaries and retains the separate license files. Full actual command
+output: `reports/knowledge-packets-package.json`. Fixed wheel SHA-256:
+`20dafca3899ce0d23061b2f748bc3bc3d5094f276c1500ed4d1cbeaa361c33a1`.
+
+Historical status remains unchanged: CrossWire SrKDIjekav and eBible srp1865
+need review, Šarić is excluded, production lock is empty, and all five exact
+pilot passages and complete books have **zero real coverage**. CrossWire still
+has fourteen evidence records, five unresolved checks and sixteen admission
+blockers. The current lineage packet remains
+`f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28`.
+Owner text/name/note approvals and approved knowledge records remain zero.
+Synthetic reader JSON stays
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown and the original modernization proposal are unchanged. No editorial
+policy or rights-policy input bytes were changed.
+
+Current Git inspection shows existing commit `0dac5e8` (1st update) on main;
+earlier unborn/uncommitted statements above are historical snapshots. This
+continuation did not create a commit or push. The existing SWORD pointer-patch
+worktree edit was preserved, and the remote is unchanged. Source/schema/example
+files from this milestone are present in the current baseline; the Windows fix,
+new verification records and continuity edits remain local changes for review.
+No contact, publication, release, paid service, model API or chat automation.
+
+Next independent task: a provenance-preserving human knowledge review and
+promotion workflow for these staged packages. It must keep source facts,
+AI-assisted attribution, exact dependencies and independent text/note approval
+intact, reject stale/conflicting packages, and never invent owner participation.
+No new owner decision is required for that reversible engineering work.
+Real-source pilot work still requires new exact-edition/lineage/component/rights
+evidence; preserve the prepared metadata handoff instead of repeating old leads.
+
+## Continuation: human knowledge review and canonical receipts, 2026-10-30
+
+Completed the next independent task from NEXT_STEPS without generating an owner
+decision. The persistent five-draft synthetic package is still unreviewed; no
+record was promoted in the production or persistent demo workspace.
+
+Implemented:
+
+- `src/jeb/knowledge_review.py` and `jeb knowledge review export/validate/apply`.
+  Export is an unsigned readable review subject with exact packet, response,
+  policy and draft-envelope hashes, current text, AI credit, tool, uncertainty,
+  locators and recorded review states. It creates no reviewer fields or approval.
+- Two additional self-contained schemas: `knowledge-review-decisions` and
+  `knowledge-review-receipt`, bringing the total to twenty-six. A separate actual
+  owner decision must attest human participation and explicitly check content/
+  scope, attribution, category/uncertainty, actual support inspection and
+  contribution rights. The system cannot authenticate the person, certify facts,
+  supply expertise or waive third-party rights from these fields.
+- One atomic, immutable canonical-content-hashed receipt per complete submitted
+  review, under ignored `data/knowledge-reviews/<review-id>/<receipt-hash>.json`.
+  It embeds the entire original packet, response and human decision. Canonical
+  validation combines legacy JSONL with deterministic approved projections from
+  these receipts. There is no partial multi-file copying of approved records.
+- Optional provenance in `knowledge` and `reader` schemas: exact AI attribution,
+  tool/rationale, packet/response/draft/decision identities, source-corpus/policy/
+  bibliography hashes and support bindings. Approval hashes cover this provenance.
+  Original annotation-response schema and earlier packet bytes remain unchanged.
+- Full current evidence/claim/entity/related closure for approval. Closed partial
+  groups can be promoted and resumed from the same exact staged response; the
+  original packet is reconstructed while excluding only its own already verified
+  projections. Normal AI imports keep the strict namespace/collision gate.
+- Rejected and needs_review decisions are history only. Competing responses need
+  explicit, acyclic, nonbranching supersession of pending/rejected heads for the
+  same ID/book. Approved IDs and existing canonical records cannot be overwritten.
+  Reflection and fiction retain their exact categories and credit after approval.
+- Changed passage/context, policy, bibliography or exact supporting record hides
+  affected notes and their transitive dependents. Historical receipts remain
+  available; text approvals and source admission are independent. A receipt is
+  sufficient to rebuild its approved projection after working caches are removed.
+
+The first promotion workflow deliberately leaves approved IDs immutable.
+Withdrawal and editorial selection among approved versions remain unimplemented;
+a new approved version does not remove an earlier one. This limitation is explicit
+in the guide and decision 0009, and is the next small engineering task.
+
+Documentation: `docs/KNOWLEDGE_REVIEW.md`,
+`docs/decisions/0009-preserve-human-knowledge-review-receipts.md`, README,
+DATA_MODEL, ARCHITECTURE, REVIEW_GUIDE and PASSAGE_KNOWLEDGE_WORKFLOW. CI now
+imports the original annotation package and exports its unsigned human-review
+subject. No human decision is generated by the CI workflow.
+
+Actual persistent demonstration:
+
+```text
+python -m jeb --root dist/demo --synthetic knowledge review export --packet-id fixture-annotations-v1 --response-sha256 2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de --output reports/human-knowledge-review.md
+python -m jeb --root dist/demo --synthetic knowledge review validate --decisions reports/annotation-synthetic-response.json
+python -m jeb --root dist/demo --synthetic knowledge review apply --decisions reports/annotation-synthetic-response.json
+python -m jeb --root dist/demo --synthetic validate --stage knowledge --source synthetic-v1
+python -m jeb --root dist/demo --synthetic export --source synthetic-v1 --format json --maturity preview --output exports/after-knowledge-review.json
+python -m jeb --root dist/demo --synthetic export --source synthetic-v1 --format json --maturity release --output exports/forbidden-knowledge-release.json
+```
+
+Export succeeded and created no human decisions. Both attempts to use the AI
+annotation response as a human decision correctly failed with exit 2 and no
+traceback. Knowledge validation returned zero canonical records; preview bytes
+were unchanged; synthetic release correctly failed with exit 2 and no output.
+These are observed gate checks, not an attempted human approval. No persistent
+review receipt or owner approval was written.
+
+The unsigned report was copied byte-for-byte to
+`reports/knowledge-review-synthetic.md`, SHA-256
+`67780651d88dc53156b449a5ce7438b6a22fe3ab5ea899b300e71952dd89f265`.
+It covers all five original technical drafts, with exact individual envelope
+hashes. `reports/knowledge-review-workflow.json` records the actual six commands,
+expected refusals and zero approval/record counts. Existing annotation packet
+identity remains `15c31c623cc1ebb50149c30af94eef199585da150945a200225ba8813fbabe7d`.
+
+Actual local verification, Windows 11 / CPython 3.13.3:
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+python -m jeb sources audit
+python -m jeb sources inspect --source crosswire-srkdijekav
+python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id cw-lineage-followup-01
+python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
+python -m jeb demo
+```
+
+All passed: lint clean, **36 Python files formatted, 26 valid schemas, 186 tests
+passed in 69.666 seconds**. Twenty-two added regressions cover closed and partial
+promotion, rejected/pending history, competing responses, owner/check/hash/date
+boundaries, stale policy/corpus/bibliography/support, original receipt integrity,
+cache independence, approval attribution, reader/text separation, CLI decisions
+and Windows long paths. All simulated attestations stay in temporary synthetic
+test roots; no actual person or expert participated. Final actual commands,
+outputs and code/schema/test fingerprints: `reports/knowledge-review-verification.json`;
+full test output: `reports/knowledge-review-tests.txt`.
+
+Prior research/annotation packets, optional critique and native diagnostic capture
+were also revalidated successfully. The current lineage packet identity is still
+`f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28`.
+No native build or repeated public-source investigation was needed.
+
+Built the local wheel with `--no-index --no-build-isolation --no-deps` and
+reinstalled it without dependency resolution into the existing clean verification
+venv. **All 18 installed-wheel checks passed.** Python `-I` verified site-packages
+imports, 26 schemas and the fresh deep synthetic workflow. Two targeted tests
+using the installed package simulated successful CLI validate/apply and long-path
+receipt reading/duplicate rejection only in automatically removed temporary roots.
+The persistent fresh workspace imported its draft at a 272-character path,
+reproduced the unsigned report, rejected AI-as-human validation/apply, retained
+zero receipts and canonical records, reproduced the unchanged reader, and blocked
+synthetic release. Production audit still admitted zero sources; `pip check`
+passed. Full actual output: `reports/knowledge-review-package.json`. Wheel SHA-256:
+`6f98601ac3adddc27901526b84f2105348fd360dddf1a85281a436d282b4bcdc`.
+No native binaries are included, and separate license files are retained.
+No Linux or remote CI execution is claimed.
+
+Source status and coverage remain unchanged: CrossWire SrKDIjekav and eBible
+srp1865 need review; Šarić stays excluded; the production lock is empty. CrossWire
+has fourteen evidence records, five unresolved checks and sixteen admission
+blockers. Real source text, pilot passages, complete books, modernized passages,
+approved knowledge records and owner text/name/note approvals are all **zero**
+for GEN, MAT, MRK, LUK and JHN. Four invented non-scripture source segments and
+five staged drafts are the only persistent demonstration. Reader JSON remains
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown, original proposal, rights-policy and editorial-policy input bytes are
+unchanged. No actual source artifact was acquired or parsed.
+
+Preserved the existing worktree, prior Windows long-path fix, SWORD pointer-patch
+edit and commit `0dac5e8`; the remote is unchanged. This continuation made no
+commit, push, contact, publication, release, paid-service/model API call, machine
+setting change or chat automation. Changes remain local for GitHub Desktop review.
+
+Next independent task: exact-hash human withdrawal and version selection for
+approved knowledge, preserving receipts and hiding dependent notes transitively.
+Use temporary synthetic decisions only; the five actual demonstration drafts
+must remain unapproved until real owner review. No new owner decision is needed
+for that reversible implementation. The real editorial pilot still needs new
+primary exact-edition/digital-lineage/component/rights evidence. Preserve the
+prepared metadata handoff and do not recycle completed searches as new evidence.

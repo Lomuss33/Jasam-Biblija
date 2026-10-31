@@ -16,6 +16,7 @@ from jeb.core import (
     file_id,
     json_loads,
     latin_tree,
+    native_path,
     read_bytes,
     require,
     validate_schema,
@@ -196,7 +197,8 @@ def import_response(project: Project, path: Path) -> dict:
     response_hash = digest(response)
     output = f"data/review-assistance/{response['packet_id']}/responses/{response_hash}.json"
     require(
-        not project.path(output).exists(), "Duplicate review assistance response already imported"
+        not native_path(project.path(output)).exists(),
+        "Duplicate review assistance response already imported",
     )
     write_json(project.path(output), response, replace=False)
     return {
