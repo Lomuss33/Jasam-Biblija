@@ -1,4 +1,4 @@
-# Naša a moja biblija (NMB)
+# Ja sam jasna biblija (JSB)
 
 An independent, noninstitutional **selected collection**: Genesis/Postanak
 (`GEN`), Matthew (`MAT`), Mark (`MRK`), Luke (`LUK`), John (`JHN`). The intended
