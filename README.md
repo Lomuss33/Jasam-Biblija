@@ -1,4 +1,4 @@
-# Jugoslavenska ekumenska Biblija (JEB)
+# Naša a moja biblija (JEB)
 
 An independent, noninstitutional **selected collection**: Genesis/Postanak
 (`GEN`), Matthew (`MAT`), Mark (`MRK`), Luke (`LUK`), John (`JHN`). The intended
