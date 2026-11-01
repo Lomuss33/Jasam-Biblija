@@ -7,10 +7,29 @@ translation, with explicit translator credits. It is not a new translation from
 ancient languages, a complete Bible, or a church-endorsed canon.
 
 Development version: **0.1.0-dev**. Phase 0 and the synthetic Phase 1 slice are
-implemented. **No historical scripture artifact is cleared, downloaded, or ingested;
-zero real verses and zero owner text approvals.** The software demonstration
+implemented. **No historical scripture artifact is cleared or ingested into the
+corpus; zero admitted real verses and zero owner text approvals.** Private source
+investigations do not count as admitted coverage. The software demonstration
 uses four explicitly invented segments, never scripture generated from memory.
 Read [PROGRESS.md](PROGRESS.md) and [NEXT_STEPS.md](NEXT_STEPS.md) when resuming.
+
+## Everyday use in the repository terminal
+
+Already set up? On Windows, run **`.\jeb.cmd`** for the numbered task menu.
+Choose status, source blockers, saved review work, the isolated example or checks.
+Review selection uses numbers instead of copying long hashes.
+
+```powershell
+.\jeb.cmd status
+.\jeb.cmd demo
+.\jeb.cmd --demo review
+.\jeb.cmd check
+```
+
+See the [short terminal guide](docs/TERMINAL_WORKFLOW.md). The menu produces
+inspection reports and never records approvals, changes source clearance or
+publishes. Existing advanced JSON commands remain available. First-time setup
+is below; no activation or PowerShell execution-policy change is needed.
 
 ## Start on Windows 11 / PowerShell
 
@@ -23,8 +42,7 @@ access; subsequent tests and the demo are offline.
 py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --require-hashes -r requirements.lock
 .\.venv\Scripts\python.exe -m pip install --no-build-isolation --no-deps -e .
-.\.venv\Scripts\python.exe -m jeb sources audit
-.\.venv\Scripts\python.exe -m jeb demo
+.\jeb.cmd
 ```
 
 Using the venv executable directly avoids changing PowerShell execution policy.

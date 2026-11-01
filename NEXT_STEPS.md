@@ -1,3 +1,37 @@
+# Current content step — 2026-10-31
+
+Read docs/sources/LANGUAGE_ENTRY_BATCH_2026-10-31.md. Actual Škarić 1858 PDF title
+and GEN pp.1–3 are now image-inspected; four HJP entries are inspected with their
+limits. Next: inspect slog 9 title/MAT 5:1–12 and slog 10 title/JHN 1:1–5; keep
+witness differences separate. Locate independent Bosnian/regional entries when
+publicly available. Katančić 1831 scan remains unlocated, and 2016 revision is not
+a substitute. Prepare coherent content batches, no paragraph-level questions,
+no inferred replacements or source clearance. Existing code work is preserved.
+
+# Language research completed — 2026-10-31
+
+Read docs/HERZEGOVINIAN_LANGUAGE_GUIDE.md first. It records eleven targeted
+language/translation references, access depth and five page-located lexical
+examples; it does not claim eleven books were read. Next small content step:
+inspect exact dictionary pages for frequent pilot vocabulary and hljeb/kruh,
+and locate inspectable exact Škarić/Katančić volumes. Continue independent public
+research without asking the owner to collect documentation. Prepare one coherent
+batch with evidence and a short exception list, not paragraph-by-paragraph
+questions. No replacement rule, new approval or source admission was created.
+
+# Owner language direction — 2026-10-31
+
+See decision 0014: local Herzegovinian voice with broad Bosnian/Herzegovinian
+comprehensibility. Preserve the four literal forms. Next small content task:
+research a compact regional-language/translation bibliography from multiple
+independent sources, then prepare a reusable vocabulary/style proposal with
+attested examples and uncertainties. Prepare coherent batches; do not ask for
+paragraph-by-paragraph choices or infer approvals. Keep supporting evidence
+books separate from the fixed GEN/MAT/MRK/LUK/JHN output scope. Do not prioritize
+more review infrastructure over source/language work. This policy text change
+intentionally makes earlier policy-bound packets stale; never reseal them as
+human approval. Historical source clearance remains unresolved.
+
 # Current continuation — 2026-10-31
 
 Narrative decision schema and validation-only command are implemented. No receipt, promotion or real reviewer answers exist. Next small coding task: independently exercise the CLI against stale decision context before separately designing immutable typed-graph receipts. Do not implement promotion implicitly.
@@ -89,20 +123,31 @@ The existing eight nodes and one witness proposal remain unreviewed; no new
 draft, decision or approval was created. There is no narrative review apply or
 promotion operation. Do not rebuild this completed report slice.
 
-**Next small independent task: a dedicated human narrative decision format and
-validation-only command.** Bind one exact imported response, each typed node and
-support envelope, source spans/roles/relations, policy and selected name-approval
-identities. Require truthful owner participation and explicit inspection checks
-for meaning, support, category/uncertainty and contribution rights, with no
-inference from a report export. Validate graph closure and currentness before
-accepting any submitted decision document. Preserve original contribution credit.
+The owner then prioritized human use from the repository terminal. The
+`jeb.cmd` launcher and `jeb work` menu now provide status, source blockers,
+numbered saved-work selection, immutable inspection reports, a read-only pager,
+explicit isolated demo selection and one-command offline checks. See
+`docs/TERMINAL_WORKFLOW.md` and `reports/terminal-workflow.json`. This milestone
+passed **291 tests, 33 schemas and 21 installed-package checks**. Existing JSON
+commands, exact identity checks and all editorial/source gates remain intact.
+The menu does not generate or submit human decisions. Do not restart this
+completed terminal entry-point work or silently add an approval shortcut.
 
-Keep this first slice validation-only: it must create no receipt, approval or
-canonical narrative, and must not convert typed graphs into generic text JSONL.
-Use only temporary synthetic attestations in tests; never complete the actual
-reviewer's answers. A separately reviewed later receipt/promotion slice must
-preserve the entire typed graph and original packet/response/provenance. The
-existing annotation promotion endpoint must continue to reject narratives.
+**Next small usability task: section navigation in the read-only report viewer.**
+Let the human jump to source/proposal/flags or narrative roles/relations instead
+of paging through every provenance block. Use the already validated generated
+report; preserve exact stored bytes, clear workspace labels, cancellation and
+terminal-control escaping. No frontend, source download or decision writing.
+
+The separate advanced narrative validation-only schema/command is already
+present in local commit `8a736d4`; see `docs/NARRATIVE_REVIEW.md` and the later
+source-audit/validation entry in PROGRESS. It creates no receipt, approval or
+canonical narrative. Preserve that work; do not rebuild the validator as though
+it were absent. The terminal menu does not submit decision files or populate
+human answers. Any future receipt/promotion slice needs its own reviewed typed
+schema/code workflow with complete original contribution provenance. Existing
+annotation promotion must continue to reject narrative responses. Synthetic
+attestations remain confined to temporary tests.
 
 Keep exact GEN/MAT/MRK/LUK/JHN scope, Latin output and protected literal forms.
 Demonstrate only original non-scripture data. Continue reversible engineering

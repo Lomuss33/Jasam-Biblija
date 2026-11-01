@@ -1,0 +1,192 @@
+{
+  "archive": "dist/demo/dist/archives/terminal-workflow-engine-v1.zip",
+  "archive_sha256": "2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1",
+  "build": {
+    "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+    "curation_receipts": 0,
+    "knowledge_records": 0,
+    "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+    "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+    "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+    "review_receipts": 0,
+    "text_decisions": 0
+  },
+  "canonical_knowledge_records": 0,
+  "date": "2026-10-31",
+  "engine_sha256": "493c9d840d9f5ec3ac4dd502dd7849680c0acec76e6f63dbf88c5c5f8805313b",
+  "human_decisions_created": 0,
+  "kind": "Actual local human-terminal walkthrough; original synthetic work only, no human approvals",
+  "launcher": "jeb.cmd",
+  "launcher_sha256": "d0a1adadd764a87a54f2b6f51b859972b1def41589dd427e1d16e8fd12c3e724",
+  "limitations": [
+    "One-time hash-locked setup is still required; no automatic installs.",
+    "Inspection reports only; no approval, source-clearance, download or publication actions.",
+    "Queue scans saved metadata; full gate validation happens on selection.",
+    "Source evidence and human decisions still require their explicit workflows.",
+    "Generated reports and pending caches are not included in canonical-build archives."
+  ],
+  "manifest": "reports/terminal-workflow-build-manifest.json",
+  "manifest_sha256": "7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d",
+  "menu_command": ".\\jeb.cmd",
+  "new_editorial_drafts": 0,
+  "owner_approvals_created": 0,
+  "previous_archive": "dist/demo/dist/archives/narrative-review-engine-v1.zip",
+  "previous_archive_and_matching_wheel_preserved": true,
+  "previous_engine_validation": {
+    "arguments": [
+      "-I",
+      "-m",
+      "jeb",
+      "--synthetic",
+      "archive",
+      "validate",
+      "--input",
+      "dist/demo/dist/archives/narrative-review-engine-v1.zip"
+    ],
+    "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Scripts\\python.exe",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "output": {
+      "archive_sha256": "27c557f9677c88480f554ba427c3deed97667486914fbdcfdd90d53faf3e3d48",
+      "manifest": {
+        "archive_id": "narrative-review-engine-v1",
+        "build": {
+          "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+          "curation_receipts": 0,
+          "knowledge_records": 0,
+          "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+          "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+          "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+          "review_receipts": 0,
+          "text_decisions": 0
+        },
+        "corpus_kind": "synthetic",
+        "edition_id": "jeb-synthetic-demo",
+        "engine_sha256": "4172835d8b9653f1b8dd3523afdad6a5c7d5cf1bb5a8775951c872498f38726c",
+        "files": [
+          {
+            "path": "config/collection.yaml",
+            "sha256": "d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117",
+            "size_bytes": 399
+          },
+          {
+            "path": "config/edition.yaml",
+            "sha256": "182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032",
+            "size_bytes": 291
+          },
+          {
+            "path": "config/modernization_rules.yaml",
+            "sha256": "28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719",
+            "size_bytes": 428
+          },
+          {
+            "path": "config/name_registry.yaml",
+            "sha256": "bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3",
+            "size_bytes": 61
+          },
+          {
+            "path": "config/terminology.yaml",
+            "sha256": "22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112",
+            "size_bytes": 1735
+          },
+          {
+            "path": "data/batches/fixture-modernize-v1/input.json",
+            "sha256": "4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa",
+            "size_bytes": 18116
+          },
+          {
+            "path": "data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json",
+            "sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+            "size_bytes": 4859
+          },
+          {
+            "path": "data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt",
+            "sha256": "620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50",
+            "size_bytes": 1731
+          },
+          {
+            "path": "docs/EDITORIAL_POLICY.md",
+            "sha256": "1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276",
+            "size_bytes": 4157
+          },
+          {
+            "path": "sources/lock.json",
+            "sha256": "8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c",
+            "size_bytes": 1284
+          },
+          {
+            "path": "sources/registry.yaml",
+            "sha256": "90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561",
+            "size_bytes": 2323
+          }
+        ],
+        "kind": "jeb-local-build-archive",
+        "package_version": "0.1.0-dev",
+        "schema_version": "1.0",
+        "scope": "One admitted-source build snapshot; not a workspace backup or public release",
+        "source_id": "synthetic-v1"
+      },
+      "manifest_sha256": "5e24b5e242fa72f3b56eecf29e8d16a8eda0c21906bf6783d96b903931092b9f",
+      "release": false,
+      "valid": true
+    }
+  },
+  "queue": [
+    {
+      "key": "fixture-annotations-v1",
+      "kind": "annotations",
+      "path": "data/knowledge-proposals/fixture-annotations-v1/responses/2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de.json",
+      "problem": "",
+      "sha256": "2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de",
+      "source_id": "synthetic-v1"
+    },
+    {
+      "key": "fixture-narrative-v1",
+      "kind": "narrative",
+      "path": "data/narrative-proposals/fixture-narrative-v1/responses/14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733.json",
+      "problem": "",
+      "sha256": "14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733",
+      "source_id": "synthetic-v1"
+    },
+    {
+      "key": "fixture-modernize-v1-40b78ddaba32f24c",
+      "kind": "text",
+      "path": "data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json",
+      "problem": "",
+      "sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+      "source_id": "synthetic-v1"
+    }
+  ],
+  "real_biblical_segments": 0,
+  "reports": [
+    {
+      "input_sha256": "2145bfcaf36f897f2cbcee25cd910f32c190ad845889d838d48e3f048bf296de",
+      "item_id": "fixture-annotations-v1",
+      "kind": "annotations",
+      "output": "dist/demo/reports/generated/work/annotations-fixture-annotations-v1-67780651d88dc531.md",
+      "report_sha256": "67780651d88dc53156b449a5ce7438b6a22fe3ab5ea899b300e71952dd89f265",
+      "report_size_bytes": 10568,
+      "source_id": "synthetic-v1"
+    },
+    {
+      "input_sha256": "14daac25578624d336fa2b0f004318bd662ee874f212d69b56e9cbdceaee6733",
+      "item_id": "fixture-narrative-v1",
+      "kind": "narrative",
+      "output": "dist/demo/reports/generated/work/narrative-fixture-narrative-v1-584d7c2769d4487d.md",
+      "report_sha256": "584d7c2769d4487de65475f1aa6e27457598016d4a065e097cb2aaa0426ebcc2",
+      "report_size_bytes": 37841,
+      "source_id": "synthetic-v1"
+    },
+    {
+      "input_sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+      "item_id": "fixture-modernize-v1-40b78ddaba32f24c",
+      "kind": "text",
+      "output": "dist/demo/reports/generated/work/text-fixture-modernize-v1-40b78ddaba3-6687032e0e9fca95.md",
+      "report_sha256": "6687032e0e9fca9512f8b55fd9d2f8f2bd8e810213c77f08b9416d0f7ee9fcb7",
+      "report_size_bytes": 2319,
+      "source_id": "synthetic-v1"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_metadata_packet_sha256": "f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28"
+}

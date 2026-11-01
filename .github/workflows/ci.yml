@@ -28,11 +28,13 @@ jobs:
       - run: python -m ruff format --check src tests
       - run: python -m jeb validate --stage schemas
       - run: python -m jeb sources audit
+      - run: python -m jeb work status
       - run: python -m jeb sources inspect --source crosswire-srkdijekav
       - run: python -m jeb sources research prepare --source crosswire-srkdijekav --packet-id ci-source-metadata
       - run: python -m jeb toolchain validate --input tests/fixtures/sword/synthetic-probe.jsonl
       - run: python -m unittest discover -s tests -v
       - run: python -m jeb demo
+      - run: python -m jeb work --demo queue
       - run: python -m jeb --root dist/demo --synthetic review assist prepare --proposal fixture-modernize-v1-40b78ddaba32f24c --packet-id fixture-review-v1
       - run: python -m jeb --root dist/demo --synthetic review assist validate --input reports/review-assistance-synthetic-response.json
       - run: python -m jeb --root dist/demo --synthetic knowledge prepare --source synthetic-v1 --selection fixture --task research --packet-id fixture-passage-research-v1

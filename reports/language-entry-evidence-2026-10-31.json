@@ -1,0 +1,74 @@
+{
+  "hjp-duh.html": {
+    "bytes": 14588,
+    "sha256": "bc2d125f5b4190911cb59b752fcadb9bf1f86a00ac52acf7fa67da45b7b6cf78"
+  },
+  "hjp-hljeb-result.html": {
+    "bytes": 18596,
+    "sha256": "de6224920be3e6ba8e393c63e2b1bf61efaef3224300d77f710fc08cc84a9528"
+  },
+  "hjp-hljeb.html": {
+    "bytes": 13215,
+    "sha256": "41760abc9a230780fabb67940e9711fd416adf8098aa3a618ba938d07e67f0d7"
+  },
+  "hjp-svjetlost.html": {
+    "bytes": 18365,
+    "sha256": "7114d1097d654a3a02fe82104d4d65b5a6be21ad0763b06386a8d7e80d3878c5"
+  },
+  "hjp-tama.html": {
+    "bytes": 18316,
+    "sha256": "a237b5ec57a6064b26f6c91f4b59426f6741ae1b44802cbd3b4ad0da380c23c2"
+  },
+  "skaric-gen-048.png": {
+    "bytes": 328086,
+    "sha256": "b3c461c2d6ad24894ea6e81c20ddca0d4c5a97734caf64708289c0e1e92220b6"
+  },
+  "skaric-gen-049.png": {
+    "bytes": 395829,
+    "sha256": "37e1baea108ba8ce468a52e45f07f1ecde46328d549a9bbd6dd6203c5bff2c34"
+  },
+  "skaric-gen-050.png": {
+    "bytes": 369829,
+    "sha256": "f4c7c9152be92765bd7a188eddfbb972f6cdf43a4518771f585178198f238bc8"
+  },
+  "skaric-metadata.json": {
+    "bytes": 40211,
+    "sha256": "9483cf18104ace61f1629e08af9e221de8ce796f4fa32a465efe877680e7ef98"
+  },
+  "skaric-ocr.txt": {
+    "bytes": 1302147,
+    "sha256": "b03033bcd40d91a5480e7c95d44f7ffac9c8529deb646e561d29beeba4da0fb5"
+  },
+  "skaric-ocr.xml": {
+    "bytes": 12200396,
+    "sha256": "a330dcfb7f78d6a931d05b5ff06543a16f662894d9846f9a3d75b0bcea62a4b1"
+  },
+  "skaric-pdf12.png": {
+    "bytes": 108290,
+    "sha256": "ad687a9b586af3f4ab000edefa15bf3ec1d8a7483666dde0b16c4690f2363d29"
+  },
+  "skaric-pdf13.png": {
+    "bytes": 30162,
+    "sha256": "6e0b3d503e902e7207301ff4f14ea7431f4eac7081848d4812e183c2788d4825"
+  },
+  "skaric-pdf3.png": {
+    "bytes": 48663,
+    "sha256": "c3d562b9a990034333e79821630d441ce7ec17dfc5d73ead3e74e18e18525878"
+  },
+  "skaric-pdf5.png": {
+    "bytes": 20549,
+    "sha256": "237d1c19fc05d5926d36f915cc142bdbbe9498e1506206b8ad352aaa5dde241a"
+  },
+  "skaric-scandata.xml": {
+    "bytes": 158856,
+    "sha256": "9e3e6bd077afdd8e88a27ab2c9b10c760f6bb57e31507775b389712298fb0274"
+  },
+  "skaric-slog1.pdf": {
+    "bytes": 16458985,
+    "sha256": "17de4be92e0d25f3671673730ba8ab199a8d04898a371f564eb835e0ac3b4a05"
+  },
+  "skaric-slog1.txt": {
+    "bytes": 1369679,
+    "sha256": "0e3612ff0ca04f4b38c672ef8f1bfece890970add9ce42d59e1926370ccb3e1c"
+  }
+}

@@ -86,6 +86,14 @@ def saved_work(project: Project) -> list[SavedWork]:
                 if kind == "text":
                     key = value.get("proposal_id")
                     require(key == path.stem, "Proposal filename/ID mismatch")
+                    response = value.get("response")
+                    require(isinstance(response, dict), "Missing proposal response")
+                    batch_id = response.get("batch_id")
+                    require(isinstance(batch_id, str), "Missing batch ID")
+                    file_id(batch_id)
+                    packet = read_json(project.path(f"data/batches/{batch_id}/input.json"))
+                    require(isinstance(packet, dict), "Missing batch packet metadata")
+                    source_id = packet.get("source_id")
                 else:
                     # Passage research uses another workflow; this menu lists editorial drafts.
                     if kind == "annotations" and value.get("task") == "research":
@@ -100,7 +108,8 @@ def saved_work(project: Project) -> list[SavedWork]:
                     )
                 require(isinstance(key, str), "Missing saved-work ID")
                 file_id(key)
-                source_id = value.get("source_id")
+                if kind != "text":
+                    source_id = value.get("source_id")
                 require(isinstance(source_id, str), "Missing source ID")
                 file_id(source_id)
                 identity = digest(value)
@@ -115,6 +124,8 @@ def saved_work(project: Project) -> list[SavedWork]:
 
 def show_queue(project: Project, terminal: Terminal) -> list[SavedWork]:
     items = saved_work(project)
+    if project.synthetic:
+        terminal.say("SYNTHETIC EXAMPLE — NOT SCRIPTURE")
     terminal.say("Saved review work (no automatic selection or approval)")
     if not items:
         terminal.say("No saved editorial drafts in this workspace.")
@@ -151,11 +162,16 @@ def status(project: Project, terminal: Terminal) -> None:
     items = saved_work(project)
     terminal.say(f"Saved review items: {len(items)} (inspection work, not a count of approvals)")
     terminal.say(
+        "Next: sources explains the evidence gaps; --demo review lets you inspect the example."
+    )
+    terminal.say(
         "This task menu never approves text, changes source clearance, pushes or publishes."
     )
 
 
 def source_gaps(project: Project, terminal: Terminal, source_id: str | None = None) -> None:
+    if project.synthetic:
+        terminal.say("SYNTHETIC EXAMPLE — NOT SCRIPTURE")
     sources = audit(project)["sources"]
     require(
         source_id is None or source_id in {s["source_id"] for s in sources}, "Unknown source ID"
@@ -171,10 +187,12 @@ def source_gaps(project: Project, terminal: Terminal, source_id: str | None = No
             )
         else:
             for blocker in result["admission_blockers"]:
-                terminal.say("  - " + blocker["detail"])
-    terminal.say(
-        "\nNo source was downloaded or cleared. Existing evidence questions: docs/sources/CROSSWIRE_QUESTIONS.md"
-    )
+                terminal.say(
+                    "  - " + blocker["detail"].replace("publication_place", "publication place")
+                )
+    terminal.say("\nNo source was downloaded or cleared.")
+    if native_path(project.path("docs/sources/CROSSWIRE_QUESTIONS.md")).is_file():
+        terminal.say("Existing evidence questions: docs/sources/CROSSWIRE_QUESTIONS.md")
 
 
 def export_report(project: Project, item: SavedWork) -> str:
@@ -225,9 +243,14 @@ def choose_review(project: Project, terminal: Terminal) -> None:
         return
     while True:
         choice = terminal.ask("Choose a number to create an inspection report; 0 = back")
-        if choice is None or choice in ("", "0", "q"):
+        if choice is None or choice.lower() in ("", "0", "q"):
             return
-        if not choice.isascii() or not choice.isdecimal() or not 1 <= int(choice) <= len(items):
+        if (
+            len(choice) > 3
+            or not choice.isascii()
+            or not choice.isdecimal()
+            or not 1 <= int(choice) <= len(items)
+        ):
             terminal.say("Enter one of the listed numbers, or 0 to go back.")
             continue
         item = items[
@@ -236,7 +259,7 @@ def choose_review(project: Project, terminal: Terminal) -> None:
         output = export_report(project, item)
         terminal.say(f"Inspection report saved: {project.path(output)}")
         terminal.say("No decision or approval was recorded.")
-        if terminal.ask("Type v to read it here, or Enter to return") == "v":
+        if (terminal.ask("Type v to read it here, or Enter to return") or "").lower() == "v":
             view_report(project, output, terminal)
         return
 
@@ -322,7 +345,7 @@ def run(project: Project, action="menu", *, demo=False, source_id=None, terminal
             "1. Status and next useful step\n2. Why a source is blocked\n3. List saved review work\n4. Choose work and read an inspection report\n5. Run offline checks\n6. Build/use the isolated synthetic demo\n7. Return to the initial workspace\n0. Exit"
         )
         choice = terminal.ask("Choose a task number (0 = exit)")
-        if choice is None or choice in ("", "0", "q"):
+        if choice is None or choice.lower() in ("", "0", "q"):
             terminal.say("Done. Short commands: status, sources, queue, review, demo, check.")
             return 0
         try:

@@ -1,0 +1,736 @@
+{
+  "actual_workflow_report": "reports/terminal-workflow.json",
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "dist/demo/dist/archives/narrative-review-engine-v1.zip"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "archive_sha256": "27c557f9677c88480f554ba427c3deed97667486914fbdcfdd90d53faf3e3d48",
+        "manifest": {
+          "archive_id": "narrative-review-engine-v1",
+          "build": {
+            "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+            "curation_receipts": 0,
+            "knowledge_records": 0,
+            "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+            "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+            "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+            "review_receipts": 0,
+            "text_decisions": 0
+          },
+          "corpus_kind": "synthetic",
+          "edition_id": "jeb-synthetic-demo",
+          "engine_sha256": "4172835d8b9653f1b8dd3523afdad6a5c7d5cf1bb5a8775951c872498f38726c",
+          "files": [
+            {
+              "path": "config/collection.yaml",
+              "sha256": "d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117",
+              "size_bytes": 399
+            },
+            {
+              "path": "config/edition.yaml",
+              "sha256": "182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032",
+              "size_bytes": 291
+            },
+            {
+              "path": "config/modernization_rules.yaml",
+              "sha256": "28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719",
+              "size_bytes": 428
+            },
+            {
+              "path": "config/name_registry.yaml",
+              "sha256": "bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3",
+              "size_bytes": 61
+            },
+            {
+              "path": "config/terminology.yaml",
+              "sha256": "22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112",
+              "size_bytes": 1735
+            },
+            {
+              "path": "data/batches/fixture-modernize-v1/input.json",
+              "sha256": "4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa",
+              "size_bytes": 18116
+            },
+            {
+              "path": "data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json",
+              "sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+              "size_bytes": 4859
+            },
+            {
+              "path": "data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt",
+              "sha256": "620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50",
+              "size_bytes": 1731
+            },
+            {
+              "path": "docs/EDITORIAL_POLICY.md",
+              "sha256": "1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276",
+              "size_bytes": 4157
+            },
+            {
+              "path": "sources/lock.json",
+              "sha256": "8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c",
+              "size_bytes": 1284
+            },
+            {
+              "path": "sources/registry.yaml",
+              "sha256": "90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561",
+              "size_bytes": 2323
+            }
+          ],
+          "kind": "jeb-local-build-archive",
+          "package_version": "0.1.0-dev",
+          "schema_version": "1.0",
+          "scope": "One admitted-source build snapshot; not a workspace backup or public release",
+          "source_id": "synthetic-v1"
+        },
+        "manifest_sha256": "5e24b5e242fa72f3b56eecf29e8d16a8eda0c21906bf6783d96b903931092b9f",
+        "release": false,
+        "valid": true
+      }
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "launcher_arguments": "check",
+      "output_file": "reports/terminal-workflow-checks.txt",
+      "seconds": 225.5,
+      "tests": 291
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "launcher_arguments": "status",
+      "output": "JEB terminal workspace\nReal project workspace\nFolder: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\nCollection: GEN, MAT, MRK, LUK, JHN\nPython: 3.13.3\nSources eligible for ingestion here: 0\nReal text editing is blocked: exact edition, digital lineage and rights evidence are still needed.\n  crosswire-srkdijekav: needs_review\n  ebible-srp1865: needs_review\n  ebible-hrv-saric: excluded\nSaved review items: 0 (inspection work, not a count of approvals)\nNext: sources explains the evidence gaps; --demo review lets you inspect the example.\nThis task menu never approves text, changes source clearance, pushes or publishes."
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "launcher_arguments": "sources --source crosswire-srkdijekav",
+      "output": "crosswire-srkdijekav: needs_review\n  - Source status is needs_review.\n  - Exact source edition year is not established.\n  - Exact source edition publication place is not established.\n  - Exact source edition transcriber is not established.\n  - No provider link from this module to a specific historical print edition. An 1868 catalogue lead is not a demonstrated ancestor.\n  - TextSource is absent. The automated 2017 SrKDIjekav notice credits unexpanded Br; the separate Ekavian notice credits Tomas. A 2014 post mentions two unnamed Serbian texts without a demonstrated link. Exact digital source, transcriber identity/role and correction history remain unknown.\n  - Actual biblical text, headings, notes, introductions, apparatus, maps and database/digitization components not inventoried or cleared across configured countries.\n  - Calvin declared in config, but exact GEN/MAT/MRK/LUK/JHN mappings and linked/empty/bridge entries not inspected. NoParagraphs cannot prove historical paragraph fidelity.\n  - Pinned SWORD 1.9.0 built and tested only with original synthetic data. Stock mod2imp emitted linked text without link identity; mod2osis omitted introductions and labelled Calvin as KJV. A bounded stored-byte/link probe works for the fixed fixture, but no historical module or production adapter fidelity has been evaluated.\n  - Exact-artifact rights remain unverified for DE.\n  - Exact-artifact rights remain unverified for US.\n  - Exact-artifact rights remain unverified for BA.\n  - Exact-artifact rights remain unverified for HR.\n  - Exact-artifact rights remain unverified for RS.\n  - Exact-artifact rights remain unverified for ME.\n  - No reviewed corpus artifact/coverage lock exists.\n\nNo source was downloaded or cleared.\nExisting evidence questions: docs/sources/CROSSWIRE_QUESTIONS.md"
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "0\n",
+      "launcher_arguments": "",
+      "output": "JEB — human terminal tasks\nReal project\n1. Status and next useful step\n2. Why a source is blocked\n3. List saved review work\n4. Choose work and read an inspection report\n5. Run offline checks\n6. Build/use the isolated synthetic demo\n7. Return to the initial workspace\n0. Exit\nChoose a task number (0 = exit)\nDone. Short commands: status, sources, queue, review, demo, check."
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "launcher_arguments": "demo",
+      "output": "Building the isolated synthetic example — NOT scripture; no approvals.\nDemo ready: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\nReview the example with .\\jeb.cmd --demo review (or python -m jeb work --demo review)."
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "launcher_arguments": "--demo queue",
+      "output": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. annotations | fixture-annotations-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 2145bfcaf36f\n2. narrative | fixture-narrative-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 14daac255786\n3. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12"
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "1\n\n",
+      "launcher_arguments": "--demo review",
+      "output": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. annotations | fixture-annotations-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 2145bfcaf36f\n2. narrative | fixture-narrative-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 14daac255786\n3. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12\nChoose a number to create an inspection report; 0 = back\nInspection report saved: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\reports\\generated\\work\\annotations-fixture-annotations-v1-67780651d88dc531.md\nNo decision or approval was recorded.\nType v to read it here, or Enter to return"
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "2\n\n",
+      "launcher_arguments": "--demo review",
+      "output": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. annotations | fixture-annotations-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 2145bfcaf36f\n2. narrative | fixture-narrative-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 14daac255786\n3. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12\nChoose a number to create an inspection report; 0 = back\nInspection report saved: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\reports\\generated\\work\\narrative-fixture-narrative-v1-584d7c2769d4487d.md\nNo decision or approval was recorded.\nType v to read it here, or Enter to return"
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "3\n\n",
+      "launcher_arguments": "--demo review",
+      "output": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. annotations | fixture-annotations-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 2145bfcaf36f\n2. narrative | fixture-narrative-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 14daac255786\n3. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12\nChoose a number to create an inspection report; 0 = back\nInspection report saved: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\reports\\generated\\work\\text-fixture-modernize-v1-40b78ddaba3-6687032e0e9fca95.md\nNo decision or approval was recorded.\nType v to read it here, or Enter to return"
+    },
+    {
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "0\n",
+      "launcher_arguments": "--demo review",
+      "output": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. annotations | fixture-annotations-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 2145bfcaf36f\n2. narrative | fixture-narrative-v1 | source: synthetic-v1 | saved; check on selection\n   Saved response: 14daac255786\n3. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12\nChoose a number to create an inspection report; 0 = back"
+    },
+    {
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "input": "",
+      "launcher_arguments": "approve",
+      "output": "",
+      "stderr": "usage: jeb work [-h] [--demo] [--source SOURCE]\n                [{menu,status,sources,queue,review,demo,check}]\njeb work: error: argument action: invalid choice: 'approve' (choose from menu, status, sources, queue, review, demo, check)"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "sources",
+        "audit"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "admitted_count": 0,
+        "corpus_kind": "historical",
+        "jurisdictions": [
+          "DE",
+          "US",
+          "BA",
+          "HR",
+          "RS",
+          "ME"
+        ],
+        "schema_version": "1.0",
+        "sources": [
+          {
+            "admitted": false,
+            "reason": "needs_review",
+            "source_id": "crosswire-srkdijekav",
+            "status": "needs_review"
+          },
+          {
+            "admitted": false,
+            "reason": "needs_review",
+            "source_id": "ebible-srp1865",
+            "status": "needs_review"
+          },
+          {
+            "admitted": false,
+            "reason": "excluded",
+            "source_id": "ebible-hrv-saric",
+            "status": "excluded"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "sources",
+        "research",
+        "prepare",
+        "--source",
+        "crosswire-srkdijekav",
+        "--packet-id",
+        "cw-lineage-followup-01"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "corpus_permission": false,
+        "output": "data/source-research/cw-lineage-followup-01/input.json",
+        "packet_sha256": "f4b980da7684f7d0605e1ca72a59c00de4806204c3b4d39d50b8754b76c3cb28",
+        "questions": 5
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "toolchain",
+        "validate",
+        "--input",
+        "tests/fixtures/sword/synthetic-probe.jsonl"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "empty_slots": [
+          "Gen.1.6"
+        ],
+        "engine_transformations": [
+          {
+            "engine_sha256": "8b300f035d3934d1bc75c4fc4f2c11533e1694a43a915fce5c367512500a4960",
+            "osis_id": "Gen.0.0",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "21e8adfa20dd4aa25c8695ae44867f31ee0697635813a56b6a10b700012b8c78"
+          },
+          {
+            "engine_sha256": "35d0ac7a669fb0c40966ef2c9e2d0a62149630d4e8a86ed3e2f4b1bcf97307c7",
+            "osis_id": "Gen.1.0",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "db5ae1dd19f2861f182434cadfca528ad78adfd8b02f1432061504ae3d84e3ea"
+          },
+          {
+            "engine_sha256": "93d1a5f0a8929a183bd8e62516eaffc2a2d95bd180a308e7b84eb54f378a70c7",
+            "osis_id": "Gen.1.1",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "75d738a0444109fcc33014f568bea0d608af6c3de89beec6eccb1cec76ec6fbf"
+          },
+          {
+            "engine_sha256": "7c6c89bb3406401761c229e613676f60e7bb34aceff19c3c8b4250a46c5d8db9",
+            "osis_id": "Gen.1.2",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "2b2d48dec0dc50238a2bb26e3b336d31e367ef4ec4b0eb15f7c149ba6177b29e"
+          },
+          {
+            "engine_sha256": "ba13e3e18a365c2b4f23d6837589c8276f2e62a57cfd9bd742893d02111a3e9c",
+            "osis_id": "Gen.1.3",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "fa572069974ca1447f54d759a034faca455a5971ed27edfb4e42a3e50f1a8d3f"
+          },
+          {
+            "engine_sha256": "ba13e3e18a365c2b4f23d6837589c8276f2e62a57cfd9bd742893d02111a3e9c",
+            "osis_id": "Gen.1.4",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "fa572069974ca1447f54d759a034faca455a5971ed27edfb4e42a3e50f1a8d3f"
+          },
+          {
+            "engine_sha256": "bf2c6c6045119d0f9e157b7d16daae24198fe1c45f3f10518f2787a15c5e359b",
+            "osis_id": "Gen.1.5",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "eda144f49bc51bf13e369d7e3c4d4209cdcafa510baaa629f2274c5f5a47bc98"
+          },
+          {
+            "engine_sha256": "ba13e3e18a365c2b4f23d6837589c8276f2e62a57cfd9bd742893d02111a3e9c",
+            "osis_id": "Gen.1.7",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "fa572069974ca1447f54d759a034faca455a5971ed27edfb4e42a3e50f1a8d3f"
+          },
+          {
+            "engine_sha256": "8a8530517d935c1e7de970c4a6a073a3d1a44fbbcc68f2571901bc164d8aec6e",
+            "osis_id": "Matt.5.1",
+            "reason": "SWORD prepText changes LF/terminal whitespace; stored bytes retained separately.",
+            "stored_sha256": "7f35438c67422e8af9b9649b7908d81c1eebd0c1e7c207c20dbf64b52eeb0118"
+          }
+        ],
+        "identical_text_independent_slot": "Gen.1.7",
+        "introduced_eof_lf": [
+          "Matt.5.1"
+        ],
+        "linked_aliases": 1,
+        "present_slots": 9,
+        "production_adapter_approved": false,
+        "real_biblical_segments": 0,
+        "requested_slots": 10,
+        "schema_version": "1.0",
+        "snapshot_sha256": "eb39032a9c7bd5e6f1569892fcdf1d17fac46135fafa7ebcb113e0029ad3373c",
+        "stored_entries": 8,
+        "synthetic_only": true
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "prepare",
+        "--source",
+        "synthetic-v1",
+        "--selection",
+        "fixture",
+        "--task",
+        "research",
+        "--packet-id",
+        "fixture-passage-research-v1"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "output": "data/knowledge-proposals/fixture-passage-research-v1/input.json",
+        "packet_sha256": "bbef75dfe9cf9b5b8b7e4eba999e0dc54fb3f11fb71fbaf940daad0398af7671",
+        "segments": 4,
+        "task": "research"
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "validate",
+        "--input",
+        "reports/passage-research-synthetic-response.json"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "drafts": 0,
+        "leads": 0,
+        "review_state": "unreviewed",
+        "task": "research",
+        "valid_items": 4
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "prepare",
+        "--source",
+        "synthetic-v1",
+        "--selection",
+        "fixture",
+        "--task",
+        "annotate",
+        "--packet-id",
+        "fixture-annotations-v1"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "output": "data/knowledge-proposals/fixture-annotations-v1/input.json",
+        "packet_sha256": "15c31c623cc1ebb50149c30af94eef199585da150945a200225ba8813fbabe7d",
+        "segments": 4,
+        "task": "annotate"
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "validate",
+        "--input",
+        "reports/annotation-synthetic-response.json"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "drafts": 5,
+        "leads": 0,
+        "review_state": "unreviewed",
+        "task": "annotate",
+        "valid_items": 4
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "knowledge",
+        "narrative",
+        "validate",
+        "--input",
+        "reports/narrative-synthetic-response.json"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "approval_authority": "none",
+        "nodes": 8,
+        "review_state": "unreviewed",
+        "support_drafts": 1,
+        "valid_items": 4
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "archive",
+        "create",
+        "--source",
+        "synthetic-v1",
+        "--archive-id",
+        "terminal-workflow-engine-v1",
+        "--output",
+        "dist/archives/terminal-workflow-engine-v1.zip"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "archive_sha256": "2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1",
+        "build": {
+          "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+          "curation_receipts": 0,
+          "knowledge_records": 0,
+          "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+          "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+          "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+          "review_receipts": 0,
+          "text_decisions": 0
+        },
+        "files": 11,
+        "manifest_sha256": "7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d",
+        "output": "dist/archives/terminal-workflow-engine-v1.zip",
+        "release": false
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "dist/demo/dist/archives/terminal-workflow-engine-v1.zip"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": {
+        "archive_sha256": "2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1",
+        "manifest": {
+          "archive_id": "terminal-workflow-engine-v1",
+          "build": {
+            "corpus_sha256": "91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45",
+            "curation_receipts": 0,
+            "knowledge_records": 0,
+            "markdown_sha256": "07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9",
+            "policy_sha256": "5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a",
+            "reader_sha256": "c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43",
+            "review_receipts": 0,
+            "text_decisions": 0
+          },
+          "corpus_kind": "synthetic",
+          "edition_id": "jeb-synthetic-demo",
+          "engine_sha256": "493c9d840d9f5ec3ac4dd502dd7849680c0acec76e6f63dbf88c5c5f8805313b",
+          "files": [
+            {
+              "path": "config/collection.yaml",
+              "sha256": "d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117",
+              "size_bytes": 399
+            },
+            {
+              "path": "config/edition.yaml",
+              "sha256": "182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032",
+              "size_bytes": 291
+            },
+            {
+              "path": "config/modernization_rules.yaml",
+              "sha256": "28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719",
+              "size_bytes": 428
+            },
+            {
+              "path": "config/name_registry.yaml",
+              "sha256": "bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3",
+              "size_bytes": 61
+            },
+            {
+              "path": "config/terminology.yaml",
+              "sha256": "22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112",
+              "size_bytes": 1735
+            },
+            {
+              "path": "data/batches/fixture-modernize-v1/input.json",
+              "sha256": "4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa",
+              "size_bytes": 18116
+            },
+            {
+              "path": "data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json",
+              "sha256": "6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf",
+              "size_bytes": 4859
+            },
+            {
+              "path": "data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt",
+              "sha256": "620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50",
+              "size_bytes": 1731
+            },
+            {
+              "path": "docs/EDITORIAL_POLICY.md",
+              "sha256": "1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276",
+              "size_bytes": 4157
+            },
+            {
+              "path": "sources/lock.json",
+              "sha256": "8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c",
+              "size_bytes": 1284
+            },
+            {
+              "path": "sources/registry.yaml",
+              "sha256": "90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561",
+              "size_bytes": 2323
+            }
+          ],
+          "kind": "jeb-local-build-archive",
+          "package_version": "0.1.0-dev",
+          "schema_version": "1.0",
+          "scope": "One admitted-source build snapshot; not a workspace backup or public release",
+          "source_id": "synthetic-v1"
+        },
+        "manifest_sha256": "7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d",
+        "release": false,
+        "valid": true
+      }
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "dist/demo/dist/archives/narrative-review-engine-v1.zip"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Archive needs its exact compatible package/schema engine; no automatic migration"
+    },
+    {
+      "arguments": [
+        "-m",
+        "jeb",
+        "--root",
+        "dist/demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--maturity",
+        "release",
+        "--format",
+        "json",
+        "--output",
+        "exports/forbidden-terminal-release.json"
+      ],
+      "executable": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\.venv\\Scripts\\python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "",
+      "stderr": "jeb: Synthetic fixtures can never be a public edition release"
+    }
+  ],
+  "date": "2026-10-31",
+  "launcher_sha256": "d0a1adadd764a87a54f2b6f51b859972b1def41589dd427e1d16e8fd12c3e724",
+  "linux_execution_claimed": false,
+  "owner_approvals_created": 0,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3",
+  "real_biblical_segments": 0,
+  "remote_ci_executed": false,
+  "schema_version": "1.0",
+  "schemas": 33,
+  "source_fingerprint": {
+    "src/jeb/__init__.py": "302f3a941377eb275b9d96774e29701b0982f8fe89c2d45863d6f61ced3f52f4",
+    "src/jeb/__main__.py": "b80aa9c2ef2e25f4776963b21f9701b00c82c937525e6315d98e8967309f07dd",
+    "src/jeb/batch.py": "79f252936ffe5bc95f05fa81b7ea68c7eaaf8e4200a5f03c910304e1b9b63ce3",
+    "src/jeb/build_archive.py": "f81fd4efadb45a5462b0c799b45060378a2ad7c2b41914afa2c64e97b3704b0f",
+    "src/jeb/cli.py": "122e31a2bfc6d24e808a6526278c9c0d4e35fe15c2c3cade22729b16eb7d74de",
+    "src/jeb/core.py": "e22212491557b96b0ac740d230c2ff721c457d6abb71072a036513c35d091d3d",
+    "src/jeb/corpus.py": "cb8ed612dfa1e02ec610f8adcdca0df83ccb4b549d8693a24f86921fb74929bd",
+    "src/jeb/demo.py": "1c5c9e7460f1dab3046168e48669b68984b6701c84343a6be75a279c7469b9c6",
+    "src/jeb/export.py": "3d955abc3ccd4524383fc4d13d39d550fa4608f035b9d307d2ef09f337945732",
+    "src/jeb/fetch.py": "050862da08bf5175e5a9446b05c70c8a8ebe115712c9a35e7f65088b9a1eabe4",
+    "src/jeb/knowledge.py": "be674e2d05d2fb49d78c53773df53c0b3342bd01c505fdaa20fa87f62d351b48",
+    "src/jeb/knowledge_curation.py": "3028c5ca21cbcf47620628945c6d66aa80186d6d4ce6c2a68aee7a01e21e3f07",
+    "src/jeb/knowledge_packets.py": "e6db46d9f3800c2bf6fa446ab80c8e9cd09b5566e407a5405ec66a0db621c6bc",
+    "src/jeb/knowledge_review.py": "e4dc497259ba1264d958edbb960ced37a520693f50d28eefcf64bb5e504309c2",
+    "src/jeb/narrative_packets.py": "8ec568196a90c35eb56d240f9f462c9e7fb63b62dfb2eb3f1975741cbdfc35a3",
+    "src/jeb/narrative_review.py": "1cd772e753bff4f6cb881ccc177f0973060918924cfb3d4299f8f32c3e5fca3d",
+    "src/jeb/normalize.py": "b0a6665181ece7c83cd3d34cf548604a53fa3c8d572dd9c4cb25832c950cc212",
+    "src/jeb/parse/__init__.py": "7100dca7ceb9353a42ccf32c8dbfea23d24f3dc94c686c264b95bf09242a66a7",
+    "src/jeb/parse/transcript.py": "66b2dff399d88eca4534bcd563cd3975140f1c90ecd60fb7edfab2daa36aa0dc",
+    "src/jeb/review.py": "439bf3163c2941d013e7138d4e049d1317fd4c2fcc7dee0655f249d26845c4b3",
+    "src/jeb/review_assistance.py": "445eaf28aae6a340e4dad357e7282c6195dde1ceb3f71981dbd6e174f1792579",
+    "src/jeb/schemas/annotation-response.json": "ddfa0c57e63b6b98d8b96f106e88f7cd92d2e5069ad6e8f361c805a1943ae755",
+    "src/jeb/schemas/batch-packet.json": "cdc0b9f7e8d4dcefa01201379eb422f4a8d4ffe5b9583d2acf046fba3a56a9d3",
+    "src/jeb/schemas/batch-response.json": "d10d9a122fcd8b2c8a7fa1b336f9ebb2e25ffe47811e6d319475a4c62d1b8617",
+    "src/jeb/schemas/book.json": "92ec84a26b2c246e8cb61eb1e51cf1c1abdb61b5630d3effb4b20d1f25983b60",
+    "src/jeb/schemas/build-archive-manifest.json": "21dad16b4b7b143793e23c02e8b8b1bb3674cbbfe2e8d8f4050035f63098f270",
+    "src/jeb/schemas/collection.json": "fb5fc0e7b9121cb5ff008f45141dfb4c21b8de188a58739660e1bafc3127a301",
+    "src/jeb/schemas/decision.json": "8e85c3a5c1fbc7b035ea55c509ad551296973b005f50df9aea731f668a260c1e",
+    "src/jeb/schemas/decisions.json": "9b51fb5608a06b34ca0bdc93ab1a4f47811c99e5b1b5ba4790f2d9238b667247",
+    "src/jeb/schemas/edition.json": "1efb6d9be35f3f83943464022c357e656f35d0b9c268d341f0e655646d4e19bb",
+    "src/jeb/schemas/knowledge-curation-decisions.json": "d3731233a228c7c5f756e747d5ddeda55d9464bd682684155cd5cc88e3081cf2",
+    "src/jeb/schemas/knowledge-curation-receipt.json": "d492f8087a0d69a6e229011704b85dfa831fcbbd211f191916ffd28a2841dbae",
+    "src/jeb/schemas/knowledge-review-decisions.json": "14b32329d19576f0521bbeafea24cbfb3f1516ed326c75db1a68311ed8a230e3",
+    "src/jeb/schemas/knowledge-review-receipt.json": "e67d7e88425bccb29ba8beb00eb9343f82ff4383582f0b9bae2217a7a5f406f3",
+    "src/jeb/schemas/knowledge.json": "8b7f5afd6b6d3584bb9fa25c45ef27ae64546fc700403193eff91e6682566e80",
+    "src/jeb/schemas/lock.json": "028d6dc9402476838cf6254125d3b3ccd9cb441484099aa05a43181a17a6ae18",
+    "src/jeb/schemas/names.json": "11eca39ed4dac7cdf22bc2527197cd5bb1bf7d9788368277d3acd0300d57763c",
+    "src/jeb/schemas/narrative-node.json": "41d87bc3429e3cbfe977e8b1c1e761af6005cc1ad5348f8a0181a35be3edd8cd",
+    "src/jeb/schemas/narrative-packet.json": "116626ed6735933961a4216b4ffe0a8e31cddccf47b3f8dd2072eeb052195232",
+    "src/jeb/schemas/narrative-response.json": "d2dc81767d2612d1eca96939519496b5712c6ffac946a271adf2509cd9dcb1b5",
+    "src/jeb/schemas/narrative-review-decisions.json": "3e92b867e4044219fb7a9a5ddff9f0f2a090d917d99e361c6135911b40b04c76",
+    "src/jeb/schemas/passage-research-response.json": "dfa745b9ed9e10c87fefedbba81af0cac8227cdff722cd030208a3641d587169",
+    "src/jeb/schemas/passage-work-packet.json": "71cf9b20e2ab6e320a20f8e366ba360ce3097316977b3f887cc4d16adc7cf407",
+    "src/jeb/schemas/proposal.json": "24d3455026cc5818ed4b57f90dbcea61c3180426804861ed7933e2be99671ec2",
+    "src/jeb/schemas/reader.json": "7db528528a1f36c5983d4c00d3e005db6ba7e3719821a4a40c139280f6bb506a",
+    "src/jeb/schemas/registry.json": "e604a6a44c4597ddce115f455e40c157bad293edce48f57660609fd01bf773e3",
+    "src/jeb/schemas/review-assistance-packet.json": "cfdad11630a07cdc14be72dd54bb7795ee244f5af25e3bff919c5dc3f762dcd6",
+    "src/jeb/schemas/review-assistance-response.json": "79fae359032b152ad0e9e8b0774ed94107beca485e574d41ecd853c8d25fa672",
+    "src/jeb/schemas/source-assessment.json": "13f6332ca9f76b2defcef2a550523ce5905b532b01e5d0f8ab1851c5f2697258",
+    "src/jeb/schemas/source-research-packet.json": "dd507dab29d986f6328772b7f2f660f987509887d421aaba049631e7bd6a0a92",
+    "src/jeb/schemas/source-research-response.json": "a51ca59df826d6ebb93ec31ebb6380c9b16f1de7ee5ecd6e874976754860c354",
+    "src/jeb/schemas/sword-probe-entry.json": "26339ad216da56f40a9a02c2940772ee607771e2649bbee56fcc08b549842dbf",
+    "src/jeb/schemas/toolchain-lock.json": "add9d6818e921b7dbab40442ec5fd9a95b5e29da7859b4e7999443ffa4e4753a",
+    "src/jeb/schemas/transcript-record.json": "1c2b2352bc16e97f8205ad7cb484cccdab01e394dfc29da6a9c9e783e50f0a76",
+    "src/jeb/search.py": "4e2878647f9fa4ba169d87750be19245462fb2c3d1240d15eb9db4ba91076a9f",
+    "src/jeb/source_assessment.py": "d5b930721b783ef59a4e2df8a8391a345e5fa3a2c43c79e57eeeb7bdccaa5488",
+    "src/jeb/source_research.py": "fa8cab32ec29a418500210b975cf519867a4574303f28668f35e826c4baa3821",
+    "src/jeb/sources.py": "7593c3bb6e6c2d181e518bf0e452ac038b2f74d52a8ec8329ef001ce530fcf5d",
+    "src/jeb/sword_build.py": "9db31cba4e5b72bf9d721e0a0c87bdd2768aa055a311a1a81d2180cfda817f61",
+    "src/jeb/sword_diagnostic.py": "20b5de842a17402c87a856e5541cd71531977455dfab55c1bae333d5259975cb",
+    "src/jeb/workbench.py": "784b2c5099ef6ff76b1bb20098ba2fde611cfc6adff01d9c00b5dca276c001ab",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/support.py": "0f04068dfdc62d0e9e7547291dd7359cd9082df64e981e7fed597f742094296a",
+    "tests/test_build_archive.py": "fcf0031ffefad6bb409762e00972d0cd5e077e370aeb9b7a381fc4ad23a5afde",
+    "tests/test_cli.py": "b2d5532e508254e9c1a4d63efbb8aef7659035bb6a971d5813236610cc6ebc18",
+    "tests/test_core_and_sources.py": "603b8f787e3ec41b3afe1179f09e349dda1f896d59e37cc7af6f3970618a3966",
+    "tests/test_editorial.py": "a0883fdef82d1490e4ecfdee8531e2620ace8746b57e9065a0ecaf648b53e6f9",
+    "tests/test_fetch.py": "29084e932bf68e378ba3c240c6460005c3ee4239e744f0d602388d7b99db058d",
+    "tests/test_knowledge_curation.py": "605017bfe3c0c713759acb677c9b5e79327b4b0db7864c9f8c4aa5a52c92caca",
+    "tests/test_knowledge_packets.py": "fc699f4820fefe774bf2906ae59049d4e132b33e69b79b69b1f6db5dea192427",
+    "tests/test_knowledge_review.py": "72e477435661699e9ba1506208b950411185f4ba345bc5fa23e5eec26953c576",
+    "tests/test_narrative_packets.py": "6b08003d551dd2fe4c191361b9203ae19f44fed99cb8997d95dc03d2904e7296",
+    "tests/test_narrative_review.py": "97f415db033fb91ce558effa4a975d2b5aa8b7f0a9c91054b7c678bd72eae165",
+    "tests/test_pipeline.py": "03ec9e42170651ddfbf5f41074be5e1b6f3443536a485a8e7bf8d3ecb39732c6",
+    "tests/test_review_assistance.py": "0940e31bd8b1137e367cae367c7db9ca2f486e0942f2fb897e841def84baf5cf",
+    "tests/test_source_assessment.py": "96e28bc456bf9ded6484a6df42c5008238f33a47d138005a738282d89d83d6d3",
+    "tests/test_source_research.py": "6ae997a718c6ad470a321f39477061a782376ffba72d3eb561e1b9a7a7a290df",
+    "tests/test_sword_diagnostic.py": "c4976aadec1df011e44b6fc49ce1ade3d080f20fa7c5b3ca55ccecea194a9b6d",
+    "tests/test_workbench.py": "7c56457b009cbf217b8ce58df09c85bb8e15653a407f6e739eb93e76e58b1898"
+  },
+  "test_seconds": 225.5,
+  "tested_source_fingerprint_sha256": "efce2eeb5f05f9a9e073243c39dc6d59a0e4385732b9e50ee16f9d97cc13b6a9",
+  "tests": 291
+}

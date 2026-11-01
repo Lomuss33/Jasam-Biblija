@@ -2,6 +2,15 @@
 
 ## 0.1.0-dev — 2026-10-31
 
+Human terminal workflow:
+
+- Added a repository launcher and numbered task menu with short status, source
+  blockers, saved-work selection, report viewing, demo and offline-check tasks.
+- Removed manual hash copying for inspection reports while reusing full exact
+  identities and existing validation APIs. Reports preserve local edits.
+- Preserved explicit synthetic isolation, all source/review gates and advanced
+  JSON interfaces; no approval, publication or automatic install shortcut.
+
 Unsigned narrative inspection handoffs:
 
 - Added exact-imported-response review export with source/normalized/reader

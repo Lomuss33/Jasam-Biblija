@@ -7,6 +7,13 @@ Latin script. Ordinary Latin diacritics remain provisionally. The writing
 system is not called bosančica. Source bytes in another script remain unchanged
 privately; a supported, reviewed Latin transliteration is required for display.
 
+Owner direction recorded 2026-10-31 (decision 0014): use local Herzegovinian
+speech with broadly understandable Bosnian/Herzegovinian wording. This does not
+select a single regional dialect or authorize inferred vocabulary/inflection
+rules. Prepare coherent batches and evidence-backed reusable language proposals;
+avoid paragraph-by-paragraph approval questions. Exact final text remains
+unapproved until a real human decision; batch preparation creates no approvals.
+
 Preserve the owner's literal forms `svjet`, `vrjeme`, `covik`, `razumit`.
 Do not silently substitute `svijet`, `vrijeme`, `čovjek`, `razumjeti`.
 `covik` is literal, not approval of `čovik` or a general no-diacritics policy.

@@ -430,7 +430,17 @@ def main(argv: list[str] | None = None) -> int:
                 return 130
         result = run(args)
     except (ValueError, OSError, UnicodeError, sqlite3.Error) as exc:
-        print(f"jeb: {exc}", file=sys.stderr)
+        message = str(exc)
+        if args.command == "work":
+            from jeb.workbench import visible
+
+            message = (
+                "Invalid saved data; use its explicit validator for details"
+                if " schema:" in message
+                else message
+            )
+            message = visible(message)
+        print(f"jeb: {message}", file=sys.stderr)
         return 2
     sys.stdout.buffer.write(canonical(result))
     return 0

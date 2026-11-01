@@ -1,0 +1,392 @@
+{
+  "all_checks_passed": true,
+  "archive_sha256": "2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1",
+  "blank_parent_recovery_passed": true,
+  "canonical_knowledge_records": 0,
+  "commands": [
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "wheel",
+        "--no-index",
+        "--no-build-isolation",
+        "--no-deps",
+        "--wheel-dir",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\terminal-workflow-wheels",
+        "."
+      ],
+      "executable": ".venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: jugoslavenska-ekumenska-biblija\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): started\n  Building wheel for jugoslavenska-ekumenska-biblija (pyproject.toml): finished with status 'done'\n  Created wheel for jugoslavenska-ekumenska-biblija: filename=jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl size=156364 sha256=d8c373ed4f3027b9ad2bbee7939aa32da94d562f9e3511be22afabb9c509b195\n  Stored in directory: c:\\users\\lovropc\\appdata\\local\\pip\\cache\\wheels\\7f\\44\\f4\\a1ea1c616e108f280324076be72e652ed0c03d944facb93221\nSuccessfully built jugoslavenska-ekumenska-biblija"
+    },
+    {
+      "arguments": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--force-reinstall",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\terminal-workflow-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "Processing c:\\users\\lovropc\\desktop\\hello\\karijera\\_thm\\git repos\\githubdesktop\\jugoslavenska-ekumenska-biblija\\dist\\terminal-workflow-wheels\\jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl\nInstalling collected packages: jugoslavenska-ekumenska-biblija\n  Attempting uninstall: jugoslavenska-ekumenska-biblija\n    Found existing installation: jugoslavenska-ekumenska-biblija 0.1.0.dev0\n    Uninstalling jugoslavenska-ekumenska-biblija-0.1.0.dev0:\n      Successfully uninstalled jugoslavenska-ekumenska-biblija-0.1.0.dev0\nSuccessfully installed jugoslavenska-ekumenska-biblija-0.1.0.dev0"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import jeb.workbench; print(jeb.workbench.__file__)"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-venv\\Lib\\site-packages\\jeb\\workbench.py"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "validate",
+        "--stage",
+        "schemas"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "{\n  \"valid_schemas\": 33\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-c",
+        "import sys,unittest,jeb.workbench; assert 'site-packages' in jeb.workbench.__file__; sys.path.insert(0,'C:\\\\Users\\\\LovroPC\\\\Desktop\\\\HELLO\\\\Karijera\\\\_THM\\\\git repos\\\\githubdesktop\\\\Jugoslavenska-Ekumenska-Biblija'); names=['tests.test_workbench.WorkbenchTests.test_all_three_report_types_delegate_exact_identities_and_preserve_data','tests.test_workbench.WorkbenchTests.test_stale_policy_and_source_gates_still_block_selected_reports','tests.test_workbench.WorkbenchTests.test_existing_report_with_human_notes_is_not_overwritten','tests.test_workbench.WorkbenchTests.test_terminal_view_neutralizes_control_sequences_and_stays_read_only']; result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromNames(names)); sys.exit(0 if result.wasSuccessful() else 1)"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "test_all_three_report_types_delegate_exact_identities_and_preserve_data (tests.test_workbench.WorkbenchTests.test_all_three_report_types_delegate_exact_identities_and_preserve_data) ... ok\ntest_stale_policy_and_source_gates_still_block_selected_reports (tests.test_workbench.WorkbenchTests.test_stale_policy_and_source_gates_still_block_selected_reports) ... ok\ntest_existing_report_with_human_notes_is_not_overwritten (tests.test_workbench.WorkbenchTests.test_existing_report_with_human_notes_is_not_overwritten) ... ok\ntest_terminal_view_neutralizes_control_sequences_and_stays_read_only (tests.test_workbench.WorkbenchTests.test_terminal_view_neutralizes_control_sequences_and_stays_read_only) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 4.480s\n\nOK",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "work",
+        "status"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "JEB terminal workspace\nReal project workspace\nFolder: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\nCollection: GEN, MAT, MRK, LUK, JHN\nPython: 3.13.3\nSources eligible for ingestion here: 0\nReal text editing is blocked: exact edition, digital lineage and rights evidence are still needed.\n  crosswire-srkdijekav: needs_review\n  ebible-srp1865: needs_review\n  ebible-hrv-saric: excluded\nSaved review items: 0 (inspection work, not a count of approvals)\nNext: sources explains the evidence gaps; --demo review lets you inspect the example.\nThis task menu never approves text, changes source clearance, pushes or publishes."
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "work"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "0\n",
+      "stderr": "",
+      "stdout": "JEB — human terminal tasks\nReal project\n1. Status and next useful step\n2. Why a source is blocked\n3. List saved review work\n4. Choose work and read an inspection report\n5. Run offline checks\n6. Build/use the isolated synthetic demo\n7. Return to the initial workspace\n0. Exit\nChoose a task number (0 = exit)\nDone. Short commands: status, sources, queue, review, demo, check."
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "work",
+        "sources",
+        "--source",
+        "crosswire-srkdijekav"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "crosswire-srkdijekav: needs_review\n  - Source status is needs_review.\n  - Exact source edition year is not established.\n  - Exact source edition publication place is not established.\n  - Exact source edition transcriber is not established.\n  - No provider link from this module to a specific historical print edition. An 1868 catalogue lead is not a demonstrated ancestor.\n  - TextSource is absent. The automated 2017 SrKDIjekav notice credits unexpanded Br; the separate Ekavian notice credits Tomas. A 2014 post mentions two unnamed Serbian texts without a demonstrated link. Exact digital source, transcriber identity/role and correction history remain unknown.\n  - Actual biblical text, headings, notes, introductions, apparatus, maps and database/digitization components not inventoried or cleared across configured countries.\n  - Calvin declared in config, but exact GEN/MAT/MRK/LUK/JHN mappings and linked/empty/bridge entries not inspected. NoParagraphs cannot prove historical paragraph fidelity.\n  - Pinned SWORD 1.9.0 built and tested only with original synthetic data. Stock mod2imp emitted linked text without link identity; mod2osis omitted introductions and labelled Calvin as KJV. A bounded stored-byte/link probe works for the fixed fixture, but no historical module or production adapter fidelity has been evaluated.\n  - Exact-artifact rights remain unverified for DE.\n  - Exact-artifact rights remain unverified for US.\n  - Exact-artifact rights remain unverified for BA.\n  - Exact-artifact rights remain unverified for HR.\n  - Exact-artifact rights remain unverified for RS.\n  - Exact-artifact rights remain unverified for ME.\n  - No reviewed corpus artifact/coverage lock exists.\n\nNo source was downloaded or cleared.\nExisting evidence questions: docs/sources/CROSSWIRE_QUESTIONS.md"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base",
+        "work",
+        "demo"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "Building the isolated synthetic example — NOT scripture; no approvals.\nDemo ready: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\dist\\demo\nReview the example with .\\jeb.cmd --demo review (or python -m jeb work --demo review)."
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base",
+        "work",
+        "--demo",
+        "queue"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base",
+        "work",
+        "--demo",
+        "review"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "1\nv\nq\n",
+      "stderr": "",
+      "stdout": "SYNTHETIC EXAMPLE — NOT SCRIPTURE\nSaved review work (no automatic selection or approval)\nSource, policy and exact content are checked again when you choose an item.\n1. text | fixture-modernize-v1-40b78ddaba32f24c | source: synthetic-v1 | saved; check on selection\n   Saved response: 6efa24fbea12\nChoose a number to create an inspection report; 0 = back\nInspection report saved: C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\dist\\demo\\reports\\generated\\work\\text-fixture-modernize-v1-40b78ddaba3-6687032e0e9fca95.md\nNo decision or approval was recorded.\nType v to read it here, or Enter to return\nRead-only report view; terminal control characters are displayed as escapes.\n# Editorial review\n\nProposal: fixture-modernize-v1-40b78ddaba32f24c\nProposal SHA-256: 6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf\nPolicy SHA-256: 5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\n\nSynthetic fixture; not scripture.\n\n## synthetic-v1:GEN.1.1\n\nSource:\n\nSintetički uzorak: covik ne mijenja 2 broja.\nČita probni zapis.\n\nProposal:\n\nSintetički uzorak: covik ne prepravlja 2 broja.\nČita probni zapis.\n\nAction: propose; class: C\nText SHA-256: e2cef9c93e124ff55368b06b0253071e9adab9483ee54d4d63ba00e41096db16\nRationale: Invented demonstration proposal only; no owner approval or model call.\nFlags: linguistic\nDecision: unreviewed\n\nDiff (source to proposal):\n\n```diff\n--- source\n+++ proposal\n@@ -1,2 +1,2 @@\n-Sintetički uzorak: covik ne mijenja 2 broja.\n+Sintetički uzorak: covik ne prepravlja 2 broja.\n Čita probni zapis.\nEnter = next page; q = stop viewing"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "work",
+        "approve"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "input": "",
+      "stderr": "usage: jeb work [-h] [--demo] [--source SOURCE]\n                [{menu,status,sources,queue,review,demo,check}]\njeb work: error: argument action: invalid choice: 'approve' (choose from menu, status, sources, queue, review, demo, check)",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\dist\\demo",
+        "work",
+        "status"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "input": "",
+      "stderr": "jeb: Synthetic workspace requires --synthetic",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "sources",
+        "audit"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "{\n  \"admitted_count\": 0,\n  \"corpus_kind\": \"historical\",\n  \"jurisdictions\": [\n    \"DE\",\n    \"US\",\n    \"BA\",\n    \"HR\",\n    \"RS\",\n    \"ME\"\n  ],\n  \"schema_version\": \"1.0\",\n  \"sources\": [\n    {\n      \"admitted\": false,\n      \"reason\": \"needs_review\",\n      \"source_id\": \"crosswire-srkdijekav\",\n      \"status\": \"needs_review\"\n    },\n    {\n      \"admitted\": false,\n      \"reason\": \"needs_review\",\n      \"source_id\": \"ebible-srp1865\",\n      \"status\": \"needs_review\"\n    },\n    {\n      \"admitted\": false,\n      \"reason\": \"excluded\",\n      \"source_id\": \"ebible-hrv-saric\",\n      \"status\": \"excluded\"\n    }\n  ]\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\dist\\archives\\terminal-workflow-engine-v1.zip"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "{\n  \"archive_sha256\": \"2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1\",\n  \"manifest\": {\n    \"archive_id\": \"terminal-workflow-engine-v1\",\n    \"build\": {\n      \"corpus_sha256\": \"91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45\",\n      \"curation_receipts\": 0,\n      \"knowledge_records\": 0,\n      \"markdown_sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n      \"policy_sha256\": \"5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\",\n      \"reader_sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n      \"review_receipts\": 0,\n      \"text_decisions\": 0\n    },\n    \"corpus_kind\": \"synthetic\",\n    \"edition_id\": \"jeb-synthetic-demo\",\n    \"engine_sha256\": \"493c9d840d9f5ec3ac4dd502dd7849680c0acec76e6f63dbf88c5c5f8805313b\",\n    \"files\": [\n      {\n        \"path\": \"config/collection.yaml\",\n        \"sha256\": \"d23fc884d1024ed3a9e08ccb45ccac4a84bcb63c384f67da4c74c396b0e62117\",\n        \"size_bytes\": 399\n      },\n      {\n        \"path\": \"config/edition.yaml\",\n        \"sha256\": \"182bdd41db552223cfa551e2e30afd3016b19b847cc7160f026cb2c9e58d9032\",\n        \"size_bytes\": 291\n      },\n      {\n        \"path\": \"config/modernization_rules.yaml\",\n        \"sha256\": \"28580c6d92bf02b843a93cc365772413ce8f15b2ccc0d0483aa159b217f23719\",\n        \"size_bytes\": 428\n      },\n      {\n        \"path\": \"config/name_registry.yaml\",\n        \"sha256\": \"bffa73b853c8e3da24784256457c367e150862dfe0e577d6c9233115102f6fe3\",\n        \"size_bytes\": 61\n      },\n      {\n        \"path\": \"config/terminology.yaml\",\n        \"sha256\": \"22efde0d601bb87a95978e125eccdb934be2f3f866a731df3d0882d644ab0112\",\n        \"size_bytes\": 1735\n      },\n      {\n        \"path\": \"data/batches/fixture-modernize-v1/input.json\",\n        \"sha256\": \"4d46f088699ac0ff0ca883a01809ceae965c7f148a76311550e44f727164c7fa\",\n        \"size_bytes\": 18116\n      },\n      {\n        \"path\": \"data/proposals/fixture-modernize-v1-40b78ddaba32f24c.json\",\n        \"sha256\": \"6efa24fbea129226acc01644fab44b64cc31d1e4615d29f9dd02c83dfeb149cf\",\n        \"size_bytes\": 4859\n      },\n      {\n        \"path\": \"data/raw/synthetic-v1/620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50.txt\",\n        \"sha256\": \"620cbcdeeb78e462ce5a584084aed0358f5132ee108de22729322d2de5637b50\",\n        \"size_bytes\": 1731\n      },\n      {\n        \"path\": \"docs/EDITORIAL_POLICY.md\",\n        \"sha256\": \"1042036b242b27b6e60e6e9271fef16513e656dfba2f605e31ba73554e7f6276\",\n        \"size_bytes\": 4157\n      },\n      {\n        \"path\": \"sources/lock.json\",\n        \"sha256\": \"8403cc7cfce40ea10796e4a5443102e108ec1336b64cb1bde1b00bc6a8d7583c\",\n        \"size_bytes\": 1284\n      },\n      {\n        \"path\": \"sources/registry.yaml\",\n        \"sha256\": \"90d08b94b5e7bc8dd1a8405ab43769f4a2958f39a8bf6c76ec5a0d804d830561\",\n        \"size_bytes\": 2323\n      }\n    ],\n    \"kind\": \"jeb-local-build-archive\",\n    \"package_version\": \"0.1.0-dev\",\n    \"schema_version\": \"1.0\",\n    \"scope\": \"One admitted-source build snapshot; not a workspace backup or public release\",\n    \"source_id\": \"synthetic-v1\"\n  },\n  \"manifest_sha256\": \"7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d\",\n  \"release\": false,\n  \"valid\": true\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\dist\\demo",
+        "--synthetic",
+        "archive",
+        "create",
+        "--source",
+        "synthetic-v1",
+        "--archive-id",
+        "terminal-workflow-engine-v1",
+        "--output",
+        "dist/archives/terminal-workflow-engine-v1.zip"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "{\n  \"archive_sha256\": \"2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1\",\n  \"build\": {\n    \"corpus_sha256\": \"91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45\",\n    \"curation_receipts\": 0,\n    \"knowledge_records\": 0,\n    \"markdown_sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n    \"policy_sha256\": \"5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\",\n    \"reader_sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n    \"review_receipts\": 0,\n    \"text_decisions\": 0\n  },\n  \"files\": 11,\n  \"manifest_sha256\": \"7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d\",\n  \"output\": \"dist/archives/terminal-workflow-engine-v1.zip\",\n  \"release\": false\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--synthetic",
+        "archive",
+        "validate",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\dist\\archives\\narrative-review-engine-v1.zip"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "input": "",
+      "stderr": "jeb: Archive needs its exact compatible package/schema engine; no automatic migration",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\blank-recovery-parent",
+        "--synthetic",
+        "archive",
+        "restore",
+        "--input",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\demo\\dist\\archives\\terminal-workflow-engine-v1.zip",
+        "--destination",
+        "recovered"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "{\n  \"archive_sha256\": \"2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1\",\n  \"build\": {\n    \"corpus_sha256\": \"91ac5167dba76ec36f7cbf2a56a8960ca36247c5ef59241318f3e563eb920c45\",\n    \"curation_receipts\": 0,\n    \"knowledge_records\": 0,\n    \"markdown_sha256\": \"07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9\",\n    \"policy_sha256\": \"5c9c08394099b4c4253817f8473dda4250946bde00bf9bac955287dc3500611a\",\n    \"reader_sha256\": \"c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43\",\n    \"review_receipts\": 0,\n    \"text_decisions\": 0\n  },\n  \"exports_and_index_rebuilt\": true,\n  \"manifest_sha256\": \"7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d\",\n  \"output\": \"recovered\",\n  \"release\": false\n}"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\blank-recovery-parent\\recovered",
+        "--synthetic",
+        "search",
+        "--source",
+        "synthetic-v1",
+        "--query",
+        "covik"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "[\n  {\n    \"book_id\": \"GEN\",\n    \"segment_id\": \"synthetic-v1:GEN.1.1\",\n    \"text\": \"Sintetički uzorak: covik ne mijenja 2 broja.\\nČita probni zapis.\"\n  }\n]"
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "jeb",
+        "--root",
+        "C:\\Users\\LovroPC\\Desktop\\HELLO\\Karijera\\_THM\\git repos\\githubdesktop\\Jugoslavenska-Ekumenska-Biblija\\dist\\verify-terminal-workflow-base\\dist\\demo",
+        "--synthetic",
+        "export",
+        "--source",
+        "synthetic-v1",
+        "--format",
+        "json",
+        "--maturity",
+        "release",
+        "--output",
+        "exports/forbidden-terminal-release.json"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "input": "",
+      "stderr": "jeb: Synthetic fixtures can never be a public edition release",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "-I",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "executable": "dist/verify-venv/Scripts/python.exe",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "input": "",
+      "stderr": "",
+      "stdout": "No broken requirements found."
+    }
+  ],
+  "date": "2026-10-31",
+  "engine_sha256": "493c9d840d9f5ec3ac4dd502dd7849680c0acec76e6f63dbf88c5c5f8805313b",
+  "human_decisions_created": 0,
+  "linux_execution_claimed": false,
+  "native_binaries_in_wheel": 0,
+  "packaged_schemas": 33,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "previous_matching_archive_and_wheel_preserved": true,
+  "python": "3.13.3",
+  "real_biblical_segments": 0,
+  "remote_ci_executed": false,
+  "schema_version": "1.0",
+  "source_and_installed_archives_byte_identical": true,
+  "source_and_installed_text_reports_byte_identical": true,
+  "system_settings_changed": false,
+  "targeted_temporary_synthetic_tests": 4,
+  "wheel": "dist/terminal-workflow-wheels/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl",
+  "wheel_sha256": "d8c373ed4f3027b9ad2bbee7939aa32da94d562f9e3511be22afabb9c509b195"
+}

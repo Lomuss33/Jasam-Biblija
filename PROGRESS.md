@@ -1,14 +1,14 @@
 # Session continuity: 2026-10-31
 
-Latest continuation: exact imported narrative responses now have an unsigned
-inspection handoff with source spans beside roles/relations, support chains and
-prior name-approval identities. Current checks: **268 tests passed, 32 schemas
-valid, 29 installed-wheel checks passed**. The report indexes four spans from
-the existing eight original synthetic nodes and one witness proposal; it creates
-no draft, decision or approval. Prior annotation/narrative drafts and reader
-bytes are unchanged. Real coverage and human approvals/actions remain zero.
-There is no narrative decision validator, apply or promotion endpoint yet.
-Older archives and matching wheels remain preserved; use each exact engine.
+Latest continuation: human terminal use is simplified with `.\jeb.cmd` / `jeb
+work`, a numbered menu, status/source blockers, saved-work selection without
+copying hashes, immutable reports/pager, explicit demo switching and one-command
+offline checks. Current checks: **291 tests passed, 33 schemas valid, 21 installed
+package checks passed**. Existing source/review gates, JSON commands, draft and
+reader identities remain intact. Real admitted coverage and approvals remain
+zero. Local commit `8a736d4` and its validation-only narrative/schema/private
+source-audit work were preserved. The menu never submits decisions or approves.
+Older archives/matching wheels remain available; no migration was performed.
 Earlier session records are preserved; latest details follow at the end.
 
 Version: 0.1.0-dev. **Phase 0 completed; Phase 1 working synthetic slice
@@ -1575,3 +1575,259 @@ test class/helper; no production behavior failed in that run. Output retained in
 `reports/narrative-decision-tests.txt` (and partial attempt snapshot). An attempted
 rerun to the same still-open log failed at shell redirection; fresh run uses
 `reports/narrative-decision-tests-final.txt`. Final result follows below.
+
+
+Final full offline verification: `python -m unittest discover -s tests -v`
+**passed all 269 tests in 208.500 seconds**, exit 0. Complete output:
+`reports/narrative-decision-tests-final.txt`. Lint, formatting and all 33 schemas
+also passed. New decision tests verify exact target/context coverage, explicit
+checks, owner declaration fields, tampered hashes and no filesystem mutation.
+The earlier two test-harness failures are retained honestly above and are fixed.
+Next small tasks and remaining source limitations are in NEXT_STEPS.md.
+
+## Continuation: simplify the human repository terminal, 2026-10-31
+
+The owner explicitly prioritized terminal usability and selected the defaults:
+simple task menu, clear status/blockers, choosing review work without copying
+hashes, synthetic demo shortcut and one-command checks. This took precedence
+over adding another narrative decision workflow. Read the continuity/Git state
+and preserved existing work. Local commit `8a736d4` appeared during this work;
+its added validation-only schema/test and private source-research progress were
+retained. The terminal work does not modify those source/decision components.
+
+The human entry point is now:
+
+```powershell
+.\jeb.cmd
+.\jeb.cmd status
+.\jeb.cmd sources
+.\jeb.cmd demo
+.\jeb.cmd --demo review
+.\jeb.cmd check
+```
+
+`jeb.cmd` uses the repository's `.venv` from any working directory. It requires
+no activation, PowerShell policy change, global install or new dependency. A
+missing environment points to the existing three hash-locked README setup
+commands and installs nothing automatically. `python -m jeb work` / `jeb work`
+provide the same tasks on an installed environment; Linux can use the venv
+executable directly. Existing advanced commands retain their JSON interfaces.
+
+`src/jeb/workbench.py` provides:
+
+- Plain status with workspace label, exact collection, source eligibility/gaps
+  and saved-work count that is explicitly not approval/coverage. Real source
+  status still blocks editing. Source details are read offline without contact,
+  acquisition or clearance.
+- Numbered text/annotation/narrative inspection work. Each competing response is
+  listed; no implicit latest candidate. The queue reads saved metadata, then a
+  chosen item repeats full existing validation with its complete held identity.
+  Changed, corrupt, out-of-root, stale-policy or rights-blocked work fails without
+  selecting another candidate. Text source metadata comes from its exact batch
+  packet, not from a guessed ID. Passage research retains its separate workflow.
+- Existing report APIs render to a private temporary derived path, then the
+  complete result is published immutably under `reports/generated/work/` with
+  a bounded content-addressed name. Identical reports reuse the file; changed
+  reports get another name; human edits are never overwritten. Temporary reports
+  are cleaned up. No source/draft/approval/canonical/reader records are changed.
+- An optional read-only 35-line pager, Enter for next page and q to stop. Terminal
+  escape/control characters are displayed literally as escapes; stored report
+  bytes and protected literal words remain unchanged.
+- Explicit isolated demo switching and return to the initial workspace. A
+  shortcut's `--demo` requires an existing example; it never silently creates
+  one. The demo action runs the original synthetic workflow only. Fresh demos
+  have the original text proposal; existing annotation/narrative responses are
+  listed when present without inventing/importing new model results.
+- A live four-step offline check runner with the current Python and explicit
+  repository cwd, no shell, first-failure stop and timeouts. Missing development
+  dependencies are reported, not installed. Cancellation/EOF selects nothing.
+
+Updated `src/jeb/cli.py`, the README quick start, `docs/TERMINAL_WORKFLOW.md`, CI
+smoke commands and NEXT_STEPS. Added twenty-two focused cases in
+`tests/test_workbench.py`. No stored-data schema was added by this terminal layer.
+The 33rd schema and its additional test belong to the preserved local validation
+work already in `8a736d4`; the complete current suite includes them.
+
+Actual focused suite: **22 tests passed in 11.088 seconds**. Early checks found
+and corrected a text-queue metadata assumption (source is in the batch packet),
+a missing real-context registry in a temporary test fixture, and test-harness
+quoting for cmd.exe. Both Windows launcher cases then passed: another cwd, and
+a missing environment under a path with spaces/ampersand. No source/review gate
+was relaxed. Tests also cover all three report APIs/data preservation, competing
+responses, exact snapshot changes, stale rights/policy, unsafe paths, edited
+reports, invalid metadata, bounded scans, cancel/EOF, terminal controls, demo
+separation, check failures/timeouts and unchanged legacy JSON output.
+
+Actual full verification ran through the new human shortcut:
+
+```text
+.\jeb.cmd check
+```
+
+It executed these required commands in order:
+
+```text
+python -m ruff check src tests
+python -m ruff format --check src tests
+python -m jeb validate --stage schemas
+python -m unittest discover -s tests -v
+```
+
+All passed in the existing hash-locked Windows 11 / CPython 3.13.3 environment:
+**46 Python files formatted, 33 schemas valid, 291 tests passed in 225.500
+seconds**, exit 0. Complete actual output: `reports/terminal-workflow-checks.txt`.
+The verification recorder initially expected the older 290-test count; the
+preserved local validation test made the correct total 291. The checks themselves
+passed. The recorder was corrected to read actual test/schema results and resumed
+after verifying every source/test/schema/launcher fingerprint unchanged; no
+successful full check was skipped or claimed from an unexecuted run.
+
+`reports/terminal-workflow-verification.json` records all 24 observed commands,
+results and exact fingerprints. `reports/terminal-workflow.json` records the
+three numbered synthetic selections, full input identities and resulting report
+paths/hashes. The annotation, narrative and text reports all generated without
+manual full-hash input or human decisions. The narrative output is byte-identical
+to the prior unsigned handoff (`584d7c27...`). Real-project review work remains
+empty. All prior manual packet identities, metadata handoff `f4b980da...`, the
+native diagnostic capture and source audit revalidated. No native build ran.
+
+All **21 installed-package checks passed**, including four targeted temporary
+tests covering three report types/data preservation, stale source/policy gates,
+local report notes and terminal control escaping. Built with `--no-index
+--no-build-isolation --no-deps` and force-reinstalled only into the existing clean
+verification venv without dependency resolution. Python `-I` confirmed actual
+site-packages imports and all 33 schemas. The installed menu/status/source tasks,
+fresh demo, numbered review/pager and unchanged JSON audit passed. Source and
+installed text reports and archives were byte-identical. Unknown approve,
+missing synthetic opt-in, incompatible old engine and synthetic release failed
+with exit 2 and no traceback. Blank-parent recovery rebuilt identical reader and
+search artifacts. `pip check` passed. Results: `reports/terminal-workflow-package.json`.
+No Linux or remote CI run is claimed; no native binaries entered the wheel.
+
+Current matching wheel:
+`dist/terminal-workflow-wheels/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl`,
+SHA-256 `d8c373ed4f3027b9ad2bbee7939aa32da94d562f9e3511be22afabb9c509b195`.
+Current-engine snapshot:
+
+- `dist/demo/dist/archives/terminal-workflow-engine-v1.zip`, SHA-256
+  `2c987885ee9e0944a52aab89c6b258db16af0522d0a6c5c5eda5841473a47bb1`.
+- `reports/terminal-workflow-build-manifest.json`, canonical SHA-256
+  `7e56de92dc94b18621a2e5668768f7826b0188091138df2fb0a0eca8a0bf4c6d`.
+- Exact engine:
+  `493c9d840d9f5ec3ac4dd502dd7849680c0acec76e6f63dbf88c5c5f8805313b`.
+
+The preceding `narrative-review-engine-v1.zip` successfully validated with its
+retained installed engine before the verification venv update; its ZIP, wheel
+and all earlier snapshots/reports remain unchanged. Current code correctly
+refuses an old engine instead of migrating it. Eleven canonical-build inputs
+remain; generated terminal reports, pending working caches and the launcher
+software are outside that build scope. Retain the matching wheel and repository
+launcher separately; there is no full workspace backup or public release.
+
+Reader JSON SHA remains
+`c671d2838aff3c6fb507323c19081bbc3b77cbae7c5e86434bed609299b23b43`;
+Markdown remains
+`07278218ea0d46266172454e20f1ef111462c0eed4eae0d0cb4743657fd9ade9`.
+`git diff --exit-code -- config sources docs/EDITORIAL_POLICY.md
+docs/RIGHTS_POLICY.md` returned 0 against the current local commit. The production
+lock is empty, both Serbian candidates still need review and Šarić is excluded.
+Existing private scan/OCR research recorded in the preceding continuation stays
+private evidence, not cleared corpus coverage; this terminal work acquired or
+parsed no additional historical text. README now distinguishes private source
+investigation from admitted corpus data. **Admitted real pilot/complete-book
+coverage, canonical knowledge and owner text/name/note approvals remain zero**
+for GEN, MAT, MRK, LUK, JHN. All existing synthetic drafts remain unapproved.
+
+No commit, push, remote/history rewrite, contact, publication, release,
+paid/model API, global install or machine setting change was made by this
+continuation. Local `8a736d4` and existing uncommitted research/progress were
+preserved. No new owner input was needed after the owner selected the defaults.
+
+Next small usability task: section jumps in the read-only report pager, so a
+human can reach source/proposal/flags or roles/relations without paging through
+every provenance block. Preserve stored bytes and exact validation; no decision
+writing or approval shortcuts. Advanced narrative decision validation already
+exists separately; any receipt/promotion workflow remains a later reviewed slice.
+Real editorial work still requires the unresolved source evidence and actual
+human review. See NEXT_STEPS for the current priority and limitations.
+
+
+## 2026-10-31 — owner register direction recorded
+
+Read PROGRESS, NEXT_STEPS and git status; preserved existing terminal-workflow
+changes. Recorded the exact owner direction in decision 0014: local Herzegovinian
+speech with broadly understandable Bosnian/Herzegovinian wording. Updated
+EDITORIAL_POLICY and next content priority: multiple independent language and
+translation evidence sources, then a reusable style/vocabulary proposal.
+Prepare review batches rather than paragraph-by-paragraph questions. No new
+lexical/inflection rule, final-text approval, source clearance or scope expansion
+was inferred. No code changed. Policy hash changes intentionally stale earlier
+bound packets; no packet/receipt was resealed or migrated. No publication/contact.
+Validation: `git diff --check` run after edits; result recorded below.
+Result: git diff --check passed (exit 0; Windows line-ending warnings only). No code tests needed for these documentation-only changes.
+
+
+## 2026-10-31 — evidence-backed language guide, first research batch
+
+Read PROGRESS/NEXT_STEPS/git status; preserved existing local code and editorial
+work. Added docs/HERZEGOVINIAN_LANGUAGE_GUIDE.md, with eleven targeted regional,
+standard-language and translation references and explicit inspection depth.
+Primary publisher/institution/library records distinguish catalogue-only books
+from inspected paper sections. Šimić 2021 pp.331–332 supplies five located lexical
+examples (jopet, studeno, težak, tovar, dažd), all unapproved candidates with
+context/comprehensibility warnings. Four owner literals stay unchanged; no
+inflections or conversion rules inferred. Guide is a research proposal, outside
+canonical knowledge/terminology/policy inputs. No actual Bible wording generated.
+
+Verified Kraljević dictionary identity through Matica/NSK, retaining title and
+pagination differences. Verified Halilović BHDZb VII and Hadžimejlić BHDZb XI via
+publisher records; Peco book remains a cited lead, not read content. Čedić et al.
+2007 and Halilović 2017 provide wider-language reference leads, not inspected
+entries. Added distinct Škarić 1858–1861, Katančić 1831 and Zagreb 1968 comparison
+routes; exact scans/verse comparison still outstanding. These are not independent
+witnesses for every claim. No rights clearance or theological substitution.
+
+Actual research used public web search/open/find; no paid/model API, contact,
+source lock/registry change or publication. One Institut full-paper URL returned
+404 despite a search snippet; its contents were not used as inspected evidence.
+Anonymous full-dictionary PDF was not acquired. hljeb/kruh remains unresolved;
+no general claim about all Herzegovinian vocabulary follows from one local study.
+Next small task is exact entry/edition inspection, not more approval machinery.
+Docs-only change: no code/schema changes or new tests required.
+
+Checks: git diff --check passed (exit 0; line-ending warnings only); new guide Latin-script/protected-literal checks passed. No application code changed.
+
+
+## 2026-10-31 — concrete lexical entries and second historical witness
+
+Read PROGRESS/NEXT_STEPS/git status. Preserved all existing local work. Added
+LANGUAGE_ENTRY_BATCH_2026-10-31.md and guide follow-up. Public HJP form POST
+returned hljeb/kruh comparison context, svjetlost/tama entries (kruh via direct
+retrieved URL); found permanent IDs from returned HTML. Saved bounded private
+HTML, no bulk dictionary copy or paradigm activation. duh query did not provide
+a single inspected entry. HJP's Croatian labels do not define Bosnian usage.
+
+Acquired actual Škarić slog 1 1858 PDF (16,458,985 bytes), IA metadata, OCR and
+scandata as ignored private evidence. Applied PDF skill read-only. Used pdftotext
+-layout (mostly empty text; Invalid Font Weight warning) and pdftoppm PNG rendering;
+no dependencies installed. OCR XML objects located the relevant leaves; directly
+viewed PDF 12 title and PDF 48–50 / printed 1–3. Recorded GEN 1:1–5 lexical and
+construction differences, not a reconstructed complete transcription. Historical
+commentary beneath the rule stays separate from scripture. No spelling or
+meaning from memory. Exact file sizes/hashes:
+reports/language-entry-evidence-2026-10-31.json. No admitted corpus/approval.
+
+Provider BOSSPS title Saric conflicts with Škarić description/archive link;
+recorded mismatch rather than merging translators. IA user-upload description
+claims Google origin, PDF visibly has Google layers; original Google edition
+link/physical-copy chain and component usage still unverified. Public-domain
+mark does not clear the entire artifact. Katančić institutional bibliography
+advanced, but no 1831 facsimile page located. Documented 2016 revision distinction
+from KBF; did not substitute it. New book IDs were not added.
+
+Commands: Python urllib acquisition/form requests; pdftotext -layout;
+pdftoppm -f 12/-f 48 -l 50 (plus exploratory 3/5/13) and image inspection.
+No source/rights policy, registry, lock, terminology or application code changed.
+No contact, publication, release or approval. Docs-only checks follow.
+
+Results: git diff --check passed (exit 0, line-ending warnings only); Latin-script document and evidence manifest checks passed. No code tests rerun for documentation/private-evidence-only changes.
