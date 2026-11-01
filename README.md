@@ -1,4 +1,4 @@
-# Naša a moja biblija (JEB)
+# Naša a moja biblija (NMB)
 
 An independent, noninstitutional **selected collection**: Genesis/Postanak
 (`GEN`), Matthew (`MAT`), Mark (`MRK`), Luke (`LUK`), John (`JHN`). The intended
