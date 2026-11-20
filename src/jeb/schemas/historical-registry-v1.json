@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text registry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_catalog", "works", "editions", "artifacts", "relations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "source_catalog": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1, "maxLength": 1000}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
+    "works": {"type": "array", "items": {"$ref": "#/$defs/record"}},
+    "editions": {"type": "array", "items": {"$ref": "#/$defs/record"}},
+    "artifacts": {"type": "array", "items": {"$ref": "#/$defs/record"}},
+    "relations": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "$defs": {
+    "record": {"type": "object", "required": ["schema_version", "id", "record_type"], "properties": {"schema_version": {"const": "1.0"}, "id": {"type": "string", "minLength": 1}, "record_type": {"type": "string", "minLength": 1}}}
+  }
+}

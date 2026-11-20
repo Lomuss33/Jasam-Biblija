@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reviewed v2 to v3 migration decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "decision_id",
+    "decision",
+    "actor",
+    "decided_at",
+    "plan_sha256",
+    "source_workspace_id",
+    "source_head",
+    "source_records_sha256",
+    "target_path",
+    "f3a_packets",
+    "approval_authority",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "decision_id": {"$ref": "#/$defs/id"},
+    "decision": {"enum": ["proceed", "reject"]},
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "role"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "maxLength": 200},
+        "kind": {"const": "human"},
+        "role": {"const": "owner"}
+      }
+    },
+    "decided_at": {"type": "string", "format": "date-time"},
+    "plan_sha256": {"$ref": "#/$defs/hash"},
+    "source_workspace_id": {"$ref": "#/$defs/id"},
+    "source_head": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transaction_id", "manifest_sha256"],
+      "properties": {
+        "transaction_id": {"$ref": "#/$defs/id"},
+        "manifest_sha256": {"$ref": "#/$defs/hash"}
+      }
+    },
+    "source_records_sha256": {"$ref": "#/$defs/hash"},
+    "target_path": {"type": "string", "minLength": 1, "maxLength": 4000},
+    "f3a_packets": {"const": "excluded"},
+    "approval_authority": {"const": "owner_decision"},
+    "notes": {"type": "string", "maxLength": 4000}
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

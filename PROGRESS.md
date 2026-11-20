@@ -1,5 +1,2182 @@
 # Session continuity: 2026-10-31
 
+## Git handoff authorized by the owner — 2026-11-20
+
+The owner explicitly requested "push all to git". Read PROGRESS, NEXT_STEPS,
+AGENTS and git status before preparing the commit. The current branch is main,
+tracking origin/main at https://github.com/Lomuss33/Jasam-Biblija. `git fetch
+origin` succeeded and `git rev-list --left-right --count HEAD...origin/main`
+reported 0 / 0 before this commit. Remotes and existing history were not changed.
+
+Reviewed all tracked/non-ignored inputs and the pending code, metadata and
+documentation. An inline read-only Python audit checked 373 files (4,811,045
+bytes): no protected private/workspace paths, binary payloads, non-UTF-8 files
+or recognizable credential/private-key patterns were found in the Git set.
+`git ls-files -ci --exclude-standard` was empty. Existing ignores continue to
+exclude private historical evidence, all five personal-library source files,
+raw downloads, local banks, .venv, dist and generated reports. No ignored source
+bytes or generated artifacts are force-added. Library receipts, catalogue and
+research links are metadata, not the private edition files.
+
+Pre-commit commands `.venv/Scripts/python.exe -m ruff check src tests`,
+`.venv/Scripts/python.exe -m ruff format --check src tests`,
+`.venv/Scripts/python.exe -m jeb validate --stage schemas` and `git diff --check`
+passed: 75 formatted Python files and 62 valid schemas. All 108 packaged Python
+files exactly match the previously verified wheel. The existing full offline
+baseline remains 439 tests, OK with one Windows symlink skip (370.862 s), plus
+the latest 17/17 web checks and passing complete browser journey (54.489 s).
+Those test results are recorded above; no unchanged full suite is claimed as
+rerun solely for a Git operation. This handoff includes the existing pending
+bank/historical/library work together with the completed reader and draft
+recovery, retaining all source/editorial decisions and synthetic restrictions.
+
+Staged inspection exposed two extra trailing blank lines in previously
+untracked text files and Git normalization of 11 CRLF bank-schema resources.
+Removed only those blank lines and marked packaged schemas byte-preserving in
+`.gitattributes`: backup/reading identities hash exact schema bytes, so a fresh
+checkout must retain the already-verified resource bytes. No schema body or
+validation/rights rule was changed. Staged/checkout-filter byte parity is checked
+before committing; private workspaces and backup files remain untouched.
+The schema-only whitespace attribute recognizes CRLF while retaining ordinary
+blank-at-EOL/EOF and space-before-tab checks; it does not mask content whitespace.
+Final staged audit passed: 138 changed files, all 108 packaged files equal the
+verified wheel, and all 62 schemas preserve their exact bytes through Git's
+checkout filters. `git diff --cached --check` passed after the two EOF fixes.
+
+The authorized next Git operations are one ordinary commit of non-ignored
+project changes and a non-force push to the existing origin/main. No release,
+deployment, source clearance, real owner text approval or PR creation is part
+of this handoff. The next product task remains the John 9 source-readiness plan.
+
+## Changed-view and orphaned draft recovery — 2026-11-20
+
+Continued the documented next writing task after the owner's Continue. Read
+PROGRESS, NEXT_STEPS, git status and AGENTS first, preserving pre-existing dirty
+work, source/editorial decisions and the five-book scope. No further preference
+question or owner approval was inferred.
+
+Drafts bound to an earlier reading view now open a recovery panel with read-only
+original writing and quote, instead of an ordinary editor pointing at changed
+text. New drafts capture their original title/location, source binding and
+edition/creator/translator credits; older drafts label missing metadata honestly.
+Cleared temporary source focus when the view changes so coincidentally identical
+words cannot acquire an old draft's visual anchor. The panel also renders on the
+home screen when its passage was removed. Fixed source/context capture and
+restoration to tolerate absent reading panes, avoiding the former Return-to-draft
+dead end and null-pane access after a view refresh.
+
+Explicit recovery prepares a separate whole-passage note on the chosen current
+destination, copying private wording only. Its new payload has no quote anchor,
+connection target, old item ID or expected edit revision; existing Python
+validation/writing still owns all persistence. Original draft/binding/quote are
+never rewritten, and remain visible after the new note saves. If the prepared
+destination view changes too, another explicit current-view choice is required.
+Cancel new note discards only an unsaved prepared copy; original discard is
+blocked until that copy is either cancelled or confirmed saved. Discarding a
+browser original never deletes any committed bank item.
+
+Added a user-triggered private JSON download preserving original draft metadata,
+quote, credits and recovery request state. It serializes only the draft (no
+session token or application state), labels it synthetic/unreleasable/private and
+does not claim a bank backup or new import/restore contract. Nothing downloads
+automatically. Browser-draft retention is still limited to available session
+storage and the same tab; the existing committed bank backup is unchanged.
+
+Recovery copies retain their own immutable payload/UUID across unknown outcomes,
+while keeping the original draft. Strengthened ordinary and recovery retry
+handling: a denied, busy or validation failure during retry cannot prove an
+earlier unknown request never committed. Only a matching saved result or the
+existing writer errors emitted after committed request-ID lookup settle that
+uncertainty. Unknown operations cannot be edited, cancelled or copied afresh.
+The UI shows Saving while a request is running, then exposes Retry only after
+an unknown result. No arbitrary Node writer, new HTTP route, schema or source
+gate change was introduced.
+
+Updated the guide, README, pilot, product direction and NEXT_STEPS. No Python
+source, schema hashes, source bytes, real John 9 material, translator/name
+decisions, rights records or approvals changed. No dependency install, external
+contact, publication, commit or push occurred.
+
+Actual verification:
+
+- `npm run test:web`: 17/17 passed (21.883 s). New checks cover strict view
+  bindings, missing passages, unavailable views, pending recovery visibility,
+  independent unanchored payload creation, exact draft/quote/credit export and
+  preserving unknown outcomes across auth/read-only/busy/validation failures.
+  Log: `reports/generated/reading-recovery-web-2026-11-20.txt`.
+- `npm run test:reading:browser`: final run 1/1 passed, no skips or browser
+  runtime errors (54.489 s). In an isolated bank, an unsent unknown original save
+  was resolved before copying; two actual view revisions kept the old quote and
+  credits while requiring deliberate recovery destination selection. A real
+  recovery save committed despite a simulated lost reply; an intervening denied
+  retry kept it locked, and refresh/exact retry preserved the same revision and
+  quota. The recovered item is a fifth private item, a JHN topic note with null
+  anchor/target and a new binding. The original browser draft stayed intact.
+  Removing its old passage and refreshing still exposed recovery on home, with
+  no stale locator or null-pane crash and no horizontal overflow at 460 px.
+  Original discard left all five bank items intact. Prior writing, conflict,
+  source wording, private types, language/help, search and location checks passed.
+  Log: `reports/generated/reading-recovery-browser-2026-11-20.txt`; report:
+  `reports/generated/reading-browser-verification.json`.
+- The first browser attempt sampled history before an in-flight recovery request
+  completed because the disabled button already said Retry. Fixed the progress
+  label and tightened the completion wait, then reran successfully. No storage
+  gate or expected result was relaxed.
+
+Tests revised only original synthetic view metadata in temporary banks, not
+historical text or the owner's workspace. Their server/profile/processes were
+cleaned up. The prior 439-test Python and installed-wheel result remains the
+unchanged Python baseline, not a new full-suite run here. Final commands
+`node --check web/reading.js`, `node --check web/reading-state.mjs` and
+`node --check web/reading-i18n.mjs` passed. Unchanged-source checks
+`.venv/Scripts/python.exe -m ruff check src tests`,
+`.venv/Scripts/python.exe -m ruff format --check src tests` and
+`.venv/Scripts/python.exe -m jeb validate --stage schemas` passed: 75 formatted
+Python files and 62 valid schemas. `git diff --check` and a read-only check of
+Latin-authored text, whitespace and 63 local links across six guide/handoff
+documents passed. Final status preserves the existing dirty/untracked work.
+
+Next small task: the bounded John 9 exact-edition/source-readiness plan using
+existing evidence and current gates; the implemented writing recovery is not a
+populated real study desk or a claim of completed owner usability acceptance.
+
+## Direct highlight comments, keyboard writing and conflict recovery — 2026-11-20
+
+Continued after the owner's explicit CONTINUE, retaining the chosen writing
+notes/highlights priority. Read PROGRESS, NEXT_STEPS, git status and AGENTS first;
+preserved existing dirty/untracked work and editorial decisions. No new product
+preference question or inferred owner approval was needed.
+
+Saved highlight text now opens a private-item viewer beside the source, with
+mouse click or Tab then Enter/Space. Overlapping ranges expose all saved
+highlights covering the selected segment; exact source text and Unicode code
+points remain unchanged. The new `sourceSegments` projection validates current
+view/anchor ownership once per item, then attaches only matching saved IDs to
+text spans. Old-view/foreign/invalid anchors cannot become interactive, and a
+temporary evidence/focus mark is not treated as a saved comment. Selecting source
+text, including a range crossing credits and text, does not open the viewer.
+
+Confirmed saves show their private item beside the source rather than leaving
+the writer with only a message and a distant list. The viewer supports editing
+the existing item and closing without discarding an open draft. It uses safe
+text nodes, explicit private-item kinds and keyboard focus. Ctrl+Enter (also
+Meta+Enter) submits the editor through its existing validation; ordinary Enter
+remains multiline input. Saving/unknown-result guards still prevent duplicate
+submissions and prohibit editing/cancelling an uncertain committed request.
+
+On a confirmed revision conflict the UI refreshes the saved item, keeps the
+writer's draft, and displays the latest saved wording (and connection target
+where relevant). The ordinary save is disabled for that conflicting edit.
+An explicit **Save my draft as a separate item** action creates a fresh private
+item/request ID with the original source/anchor/view binding, preserving the
+newer saved record. It cannot run for an unknown save outcome, blank required
+text, read-only session or changed view. Cancel discards only the browser draft.
+Conflict state survives same-tab refresh. No automatic merge, overwrite,
+re-anchoring or new writer route was added; existing Python validation/writing
+and strict request fields handle the operation.
+
+Updated English/Bosnian help, first-session guide, README, pilot, product direction
+and NEXT_STEPS. No Python source, schema hashes, bank formats, protected literals,
+translator/edition/name decisions, rights gates or source files changed. No real
+John 9 text, interpretation or evidence was invented/acquired. The prototype is
+still opt-in, isolated and unreleasable. No dependency install, publication,
+owner attestation, commit or push was made.
+
+Actual checks:
+
+- `npm run test:web`: 14/14 passed (23.350 s). The additional projection test
+  covers exact original text, overlapping comment IDs, Unicode offsets,
+  earlier/foreign/invalid-anchor exclusion and evidence-only markers. Existing
+  saved-work search, HTTP/token/origin/size/conflict/retry checks still passed.
+  Log: `reports/generated/reading-comment-web-2026-11-20.txt`.
+- `npm run test:reading:browser`: final run 1/1 passed with zero skips/runtime
+  errors (34.673 s). Extended the complete reading journey to click and keyboard
+  open highlight comments, edit via the inline viewer, save with Ctrl+Enter,
+  retain multiline Enter, avoid opening while selecting/copying and preserve
+  a draft while opening/closing comments. An actual external edit caused a
+  conflict; its latest wording and the original draft both survived refresh.
+  Saving the draft separately produced a fourth item while the original kept
+  its latest saved content and the new item kept its view/anchor scope. Source
+  wording, all three private kinds, cancel, language/help, saved-work retrieval,
+  exact locators, lost-response recovery, source scroll and narrow layout passed.
+  Log: `reports/generated/reading-comment-browser-2026-11-20.txt`; report:
+  `reports/generated/reading-browser-verification.json`.
+- The first browser attempt stopped on a test-harness global `const mark`
+  redeclaration. Scoped the test snippets to their own functions and reran; no
+  application workaround was needed. A later final run also verified a selection
+  spanning source credits and text after tightening that click guard.
+- `node --check web/reading.js`, `node --check web/reading-state.mjs` and
+  `node --check web/reading-i18n.mjs`: passed.
+- `.venv/Scripts/python.exe -m ruff check src tests`: passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`: 75 formatted files.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`: 62 schemas passed.
+- `git diff --check`: passed after the handoff edits. A read-only documentation
+  check passed for Latin-authored text, whitespace and 63 local links across six
+  current guide/product/handoff documents. Final status preserves the existing
+  dirty and untracked work.
+
+Tests ran against separate temporary synthetic banks/profiles and cleaned their
+owned servers/processes; the owner's saved workspace was not used. The prior
+439-test Python/wheel verification remains the unchanged Python baseline, not a
+new full-suite run in this client-only increment. Full study content and owner
+acceptance remain open. Next small coding task: make stale-view draft recovery
+clearer while preserving the old exact anchor, without automatic reattachment;
+the separate real John 9 source/content plan remains pending.
+
+## Better note/highlight writing and saved-work retrieval — 2026-11-20
+
+Read PROGRESS, NEXT_STEPS, git status and AGENTS before continuing; retained all
+pre-existing uncommitted implementation/editorial work. The owner reported
+"works good i guess. but needs more work." Asked which part felt unfinished
+while examining concrete gaps in saved-work retrieval. The owner selected
+**Writing notes and highlights**. Recorded that as the current priority; it is
+tentative trial feedback, not full usability acceptance or a source approval.
+
+The private editor now opens above the explanation in the right reading pane,
+beside the exact source on desktop, rather than sending the writer below both
+panes. On narrow screens it follows the source. Add note starts a whole-passage
+note even when words happen to be selected. Highlight selection shows the exact
+quote and an explicitly optional comment. Editing existing anchored notes keeps
+their original scope. Labels/placeholders explain what to write; blank notes or
+connection reasons cannot be submitted. Save/Cancel and uncertain-save guards
+remain explicit. A link/count beside the passage title reaches saved notes.
+
+Ordinary unfinished drafts are now kept in browser session storage when
+available, scoped by reading-view record identity. They survive same-tab refresh
+and language/navigation changes without writing bank revisions. The editor
+honestly distinguishes a browser-kept draft from a committed private item and
+falls back to an unsaved warning if storage fails. Cancel and confirmed save
+clear that draft. Separate unconfirmed requests take precedence on recovery;
+their immutable UUID/payload is retried without changing text or duplicating a
+committed edit. Legacy unscoped requests migrate only for the matching view;
+another workspace's pending request is preserved. Closing a tab and browser
+draft backup are not promised; committed bank backup coverage is unchanged.
+
+Home search now finds personal wording, exact highlighted quotes and associated
+passage/destination titles under **My saved reading work / Moji spremljeni
+zapisi**. It supports note/highlight/suggestion filters, recent-first ordering,
+explicit result counts and Show more. Open saved item focuses its private card;
+Locate in source brings the exact current quote into view. Stale/earlier-view
+items keep their wording and label, without applying a locator merely because
+the same words occur in a newer view. Catalogue, source passages and personal
+items remain separate groups; literal retrieval is not AI answering.
+
+Updated the English/Bosnian in-app guide, first-session document, README,
+John 9 pilot, product direction and NEXT_STEPS with actual writing/recovery
+behavior. No Python source, packaged schema, bank format, real text, source
+policy, edition/translator/name decision or approval was changed. The synthetic
+workspace remains explicit, isolated and unreleasable. No source acquisition,
+publication, dependency download, commit or push was made.
+
+Actual verification:
+
+- `npm run test:web`: 13/13 passed (19.540 s); existing HTTP/storage-boundary
+  checks and a new retrieval/anchor test cover private wording and quotes,
+  English/Bosnian titles, kind filtering, preserved input order, Unicode spans
+  and refusing older/foreign/changed source bindings even when wording matches.
+  Log: `reports/generated/reading-saved-work-web-2026-11-20.txt`.
+- `npm run test:reading:browser`: final run 1/1 passed, no skips or runtime
+  errors (22.514 s). The complete local Edge journey now covers the editor
+  beside the source, optional highlight comment, a new whole-passage note despite
+  an active selection, empty-note prevention, same-tab draft refresh/recovery,
+  no history consumption while typing, cancel removing recovery state, keeping
+  a foreign pending request, saved-word/quote search, kind filtering, focus on
+  the saved card, exact-source return, bilingual/help behavior and narrow layout.
+  Simulated a lost response after a real committed note edit, moved its request
+  into the legacy key, refreshed and retried: the committed revision and remaining
+  history count stayed identical. Existing source wording, three saved item types,
+  source scroll/expanded-section return and reopened items still passed.
+  Log: `reports/generated/reading-writing-browser-2026-11-20.txt`; machine
+  report: `reports/generated/reading-browser-verification.json`.
+- `node --check web/reading.js`, `node --check web/reading-state.mjs` and
+  `node --check web/reading-i18n.mjs`: passed.
+- `.venv/Scripts/python.exe -m ruff check src tests`: passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`: 75 files formatted.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`: all 62 passed.
+- `git diff --check`: passed. A read-only Python documentation check verified
+  Latin-authored text, whitespace and 63 local links across six current
+  guide/product/handoff documents. Final git status retains the existing dirty
+  and untracked work.
+
+The earlier 439-test Python suite and installed-wheel check remain the prior
+unchanged Python implementation result, not a new full-suite run in this UI
+increment. Tests used isolated temporary banks/browser profiles, not the owner's
+saved workspace. The browser-owned server/profile were cleaned up.
+
+Next small task: the owner tries one passage note and one commented highlight
+with the revised editor, then fix the first concrete remaining writing issue.
+Real John 9 source/text/explanations/evidence remain a separate unpopulated track.
+
+## First-use guide and Windows reading launcher — 2026-11-20
+
+Read PROGRESS/NEXT_STEPS/git status and AGENTS before continuing; preserved the
+existing uncommitted work. Asked for concrete observed friction while examining
+the remaining John 9 preparation. The owner clarified they had not tried the
+prototype and requested a clear guide. Prioritized first-use instructions; no
+owner usability pass or new source-research finding is claimed.
+
+Added `docs/READING_DESK_FIRST_SESSION.md`, a 10-minute walkthrough using the
+actual control labels: launch, choose language, open the ledger practice story,
+read source/explanation, locate exact evidence, follow a connection and return,
+save a highlight/note/suggestion, switch language, reopen and stop/restart. It
+explains where editors and saved items appear, the catalogue/text distinction,
+John 9's expected planned state and recovery of an unconfirmed save. It links
+the existing backup instructions instead of inventing another export workflow.
+
+Added `start-reading-demo.cmd` for intentional double-click startup on Windows.
+It selects its own project directory, checks Node/local Python availability,
+calls the existing launcher with explicit synthetic opt-in and leaves actionable
+errors visible. No dependency installation, automatic browser opening, reset or
+source clearance occurs. Existing private items are preserved.
+
+Added **How to use this desk / Kako koristiti stol** in the reading header,
+with the complete walkthrough in English and Bosnian-Herzegovinian and a button
+opening the actual practice story. It is available from home or a reading page;
+opening/closing help preserves the current draft and source positions. Help
+uses safe text nodes, clear headings and an accessible expanded-state control.
+The guide and language switch do not write private bank items. Updated README,
+the John 9 pilot and NEXT_STEPS with the new entry point.
+
+Actual verification:
+
+- `npm run test:reading:browser`: 1/1 passed, no skips or browser runtime errors
+  (13.018 s). Extended the existing full reading journey to open help in both
+  languages, follow its practice link without creating any items, retain an
+  unsaved draft through help open/close and check the open guide at 460 px with
+  no horizontal overflow. Existing saves, edits, cancel, source-language/wording,
+  evidence lookup, scroll restoration and reopen checks still passed.
+  Log: `reports/generated/reading-guide-browser-2026-11-20.txt`; report:
+  `reports/generated/reading-browser-verification.json`.
+- `node reports/generated/reading-windows-launcher-check.mjs`: passed. Ran the
+  actual `.cmd` from a different temporary directory containing a space, reached
+  HTTP 200 with synthetic reading/private writing enabled, found the practice
+  source and planned John 9, and checked existing HEAD bytes were unchanged.
+  Stopped only the test-owned process tree and removed its verified temporary
+  directory. Report: `reports/generated/reading-guide-launcher-verification.json`.
+- `node --check web/reading.js`, `node --check web/reading-i18n.mjs` and
+  `git diff --check`: passed.
+- `.venv/Scripts/python.exe -m ruff check src tests`,
+  `.venv/Scripts/python.exe -m ruff format --check src tests` and
+  `.venv/Scripts/python.exe -m jeb validate --stage schemas`: passed unchanged;
+  75 formatted Python files and 62 valid schemas. A read-only documentation
+  check passed across five current guide/handoff documents and 55 local links,
+  including Latin-authored text and whitespace.
+
+Python code, schemas, bank formats, source policy and historical content were not
+changed in this guide increment. The earlier 439-test offline Python result is
+the previous implementation check, not a new full-suite run. No source bytes were
+acquired or generated, and no approval, publication, commit or push was made.
+Next small task is the owner's first guided session and its first concrete
+friction report; a populated real John 9 desk remains separate unfinished work.
+
+## Working synthetic reading desk and private reading tools — 2026-11-20
+
+Continued from the eight recorded owner preferences and John 9 pilot rather
+than restarting discovery. Read PROGRESS, NEXT_STEPS, git status and repository
+instructions first; preserved all existing uncommitted implementation/editorial
+work. Applied the Sites skill's local implementation guidance to the existing
+plain viewer. No new framework, dependency download, cloud service, publication,
+source acquisition, owner approval, commit or push was introduced.
+
+Implemented a coherent local interaction prototype: library plus prominent
+search, desktop side-by-side source/explanation, expandable attributed views,
+separate evidence categories with exact source navigation, explained fixture
+connections and a return path retaining source scroll/open sections. The new
+desk and navigation switch between English and Bosnian-Herzegovinian; source
+edition wording and authored notes stay unchanged. Header actions place Add note,
+Highlight selection and Suggest connection beside the reading panes. Narrow
+screens stack the panes. Existing catalogue metadata remains separate from
+available source text and private library downloads are not served.
+
+All three private tools save, edit and reopen through Python. New versioned
+`reading-view-v1` and `reading-item-v1` schemas ship under `src/jeb/schemas`.
+`src/jeb/reading.py` stores the view and private items as explicitly typed JSON
+bodies of existing private v3 articles in a dedicated synthetic bank. Exact book,
+source and view revisions, Unicode code-point spans, contract hashes and expected
+item revisions are checked. V3 record enums and backup schemas were not widened;
+private notes/highlights/suggestions are not evidence approvals. Writer actor
+metadata names a local tool, not a fictitious owner or human reviewer.
+
+The existing bank writer gains an optional expected-HEAD check under its lock.
+Retries use recorded request UUIDs across committed history, including after a
+later edit or uncertain post-commit failure. Foreign bindings, stale views,
+revision conflicts, invalid anchors, duplicate keys and unknown fields fail
+without silently relocating notes. Old source/view bindings remain inspectable.
+Reading backup/restore wraps existing complete committed bank backups and checks
+reading contracts; installed-package backup/restore was also exercised.
+
+Added bounded GET session/view and POST private-item endpoints to the existing
+loopback server. A configured fixed root, synthetic flag, write flag, exact
+same-origin checks and a per-server token are required for writes. Python owns
+all persistence; HTTP inputs cannot select paths. Requests are limited to 16 KiB
+and bounded concurrent subprocesses, with safe path-free errors. Other routes
+remain read-only. Browser drafts survive language/navigation changes; unconfirmed
+save requests persist in session storage for exact retry. Cancel before save
+writes nothing; an uncertain commit is never presented as undone by Cancel.
+
+`npm run reading:demo -- --synthetic` creates the isolated example only if absent
+and otherwise validates/reopens it at `http://127.0.0.1:5187/#desk`, preserving
+existing items and invalid directories. The launcher installs nothing and does
+not auto-open a browser. Missing explicit opt-in fails. Original software scenes
+are clearly synthetic/unreleasable, not scripture or a John 9 paraphrase. John 9
+is an honest planned topic with no source text, exegesis, manuscript records or
+independent historical corroboration supplied; a private topic note works and
+highlighting is unavailable without source text. Production admitted text and
+real owner approvals remain zero; five-book scope and rights gates are unchanged.
+
+Updated README, the reading-desk direction/pilot, the bank implementation plan
+and NEXT_STEPS with implemented behavior, commands, backup coverage, remaining
+limits and the next small task. The full history still has the existing 128
+snapshot / 128 MiB cap, with remaining saves shown; sources are limited to 20,000
+characters, views to 32 passages and responses to 1 MiB. There is no history
+compaction or large-corpus claim. Literal search is not an AI answer service.
+Legacy editorial pages keep their original language. Observed owner usability
+and a populated real John 9 study desk remain open acceptance work.
+
+Actual offline validation in the existing locked Python 3.13 environment:
+
+- `.venv/Scripts/python.exe -m ruff check src tests`: passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`: 75 files formatted.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`: 62 schemas passed.
+- `.venv/Scripts/python.exe -m unittest tests.test_reading -v`: 10 passed; the
+  corrected final test version is also included in the complete suite below.
+- `.venv/Scripts/python.exe -m unittest discover -s tests -v`: 439 tests in
+  370.862 s, OK with one existing Windows symlink-capability skip. Full log:
+  `reports/generated/reading-desk-unittest-2026-11-20.txt`.
+- `npm run test:web`: 12/12 passed (27.403 s), including real Python-backed HTTP
+  saves, retries, conflicts, concurrency, body/type/origin/token checks and
+  unchanged legacy viewer/library checks.
+- `npm run test:reading:browser`: final local Edge run passed, 1/1, zero skips,
+  zero runtime errors (11.242 s). It exercised actual DOM source selection, all
+  three private tools, safe literal rendering, note editing without capturing an
+  unrelated selection, evidence location, language/draft/source preservation,
+  cancel without saving, related-story return with scroll 55 restored, reopening
+  all three saved items and a 460 px viewport without horizontal overflow.
+  Log: `reports/generated/reading-browser-final-2026-11-20.txt`; machine report:
+  `reports/generated/reading-browser-verification.json`; local QA screenshot:
+  `reports/generated/reading-desk-desktop.png`. No shared browser preview or
+  hosting was used; temporary browser/test banks were cleaned up.
+- `.venv/Scripts/python.exe -m pip check`: passed; JavaScript syntax checks passed.
+- `.venv/Scripts/python.exe -m jeb sources audit`: admitted_count 0; two
+  needs_review candidates and one excluded candidate; no source status changed.
+
+Built and checked the installable package without downloading dependencies:
+
+```text
+.venv/Scripts/python.exe -m pip wheel --no-index --no-build-isolation --no-deps --wheel-dir dist/reading-desk-package .
+.venv/Scripts/python.exe -m pip install --no-index --no-deps --target dist/reading-desk-installed dist/reading-desk-package/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl
+.venv/Scripts/python.exe -I -B reports/generated/reading-wheel-check.py
+node reports/generated/reading-launcher-check.mjs
+```
+
+Installed-wheel imports came from the target package, including all 62 schema
+resources. All three item kinds, retry idempotence, identical restored reading
+state and isolated CLI/function parity passed from outside the repository.
+Wheel SHA-256: `0d93be0b66333c6dcaa8515b34fca1731f6c7b9bd144a3887302db71063a29e2`.
+Report: `reports/generated/reading-wheel-verification-2026-11-20.json`.
+The launcher check confirmed explicit opt-in, HTTP 200, writable synthetic state,
+three entries and byte-identical existing HEAD when reopened; it stopped its
+owned server. Report: `reports/generated/reading-launcher-verification.json`.
+The editable development environment and earlier distribution artifacts remain
+intact. No development server is intentionally left running.
+
+Final checks after the last UI/documentation edits: `git diff --check` passed;
+Ruff check/format and all 62 schemas passed again. A read-only Python check
+verified Latin-authored text, whitespace and 64 local links across six current
+handoff/product documents, and exact source-byte parity for all 108 packaged
+wheel files. Final git status retains the pre-existing dirty/untracked work.
+
+Next small task: observe the owner using the synthetic reading journey and fix
+the first concrete navigation/label/save problem. Separately prepare bounded
+exact-edition/source research for real John 9 content under existing gates; do
+not manufacture study content or call automated checks an owner usability pass.
+
+## John 9 usability pilot and recorded owner preferences — 2026-11-19
+
+Read current PROGRESS/NEXT_STEPS/git status, product brief and bank/source
+boundaries. Preserved all existing uncommitted implementation and editorial
+work. The owner answered the five discovery questions and three follow-ups:
+library plus prominent search equally; side-by-side text/explanation with
+expandable evidence/connections; short clear account then attributed views;
+John 9 as the concrete scenario; private notes/highlights/suggested connections
+in the first usable version; desktop/laptop first; switchable English and
+Bosnian/Herzegovinian; and both textual witnesses and independent historical
+evidence where available. These are actual product preferences, not source
+clearance, theological decisions, text approval or generated attestations.
+
+Added `docs/JOHN_9_READING_DESK_PILOT.md` with the requested journey: meaning and
+religious blindness, related blindness stories, Jesus as a character, Pharisees
+in historical context, symbolism and evidence for the selected story. It records
+the requested research destinations without supplying exegesis, verse wording,
+parallel-passage claims, manuscript identities or historical corroboration from
+model memory. No content research/acquisition was performed in this planning
+slice. John 9 stays within JHN and adds no book or admitted source.
+
+The plan separates textual transmission, event-level historical evidence,
+background context and interpretation. Exact preserved passage coverage and
+attribution are required for future witness records; a fragment preserving text
+must not be displayed as independent event corroboration. Empty states describe
+unverified content in this collection rather than claim evidence cannot exist.
+
+Updated READING_DESK_PRODUCT_DIRECTION to record all eight answers and complete
+core U0 discovery. U1 now explicitly includes save/reopen of all three private
+reading tools: a read-only increment is not the completed selected first version.
+The small versioned reading-view/private-tools contract must reuse Python
+validation/writing, preserve exact source anchors, handle conflicts/cancel/
+recovery and declare backup coverage without silently widening v3 schemas.
+Language switching must preserve location, personal wording and the exact source
+edition. Full explanation editing/authoritative curation remains later backlog.
+
+Aligned README, NEXT_STEPS, KNOWLEDGE_BANK_IMPLEMENTATION_PLAN,
+HISTORICAL_TEXTS_PIPELINE and BANK_CATHOLIC_BIBLE_PILOT. The next implementation
+task is the minimum reading-view/private-tools contract and a small connected
+viewer slice, using original synthetic fixtures while separately addressing
+real John 9 source/content readiness. Do not restart the same eight preference
+questions, resume infrastructure-first work or mislabel a synthetic interaction
+demo as a populated real John 9 study desk.
+
+This continuation changes documentation/plans only. No application/schema/source
+policy changes, real review records, publication, commit or push were made.
+Actual checks: `git diff --check` passed; a read-only Python documentation check
+passed across seven product/continuation documents and 66 local links, including
+Latin-authored text, whitespace, protected literals and recorded-answer state.
+No full application test rerun is claimed for this documentation-only change.
+
+## Reading-desk usability direction and discovery questions — 2026-11-19
+
+The owner explicitly prioritized usability: one clear place to explore books,
+context, evidence, explanations, characters, related stories and supporting
+literature, using the analogy of a medieval scribe's main text and reference
+library. The owner asked for questions and documentation/plan changes. Read
+current PROGRESS/NEXT_STEPS/git status and the existing bank, pilot, historical,
+viewer and usefulness documents before editing. Preserved uncommitted work.
+
+Added `docs/READING_DESK_PRODUCT_DIRECTION.md`, preserving the owner's actual
+wording and distinguishing confirmed direction from proposed interaction rules,
+open questions and unimplemented milestones. Asked five questions through the
+conversation: entry point, reading layout, disagreement presentation, a concrete
+reading session and personal notes/highlights/editing in the first version.
+Answers are pending; no suggested option is recorded as an owner decision.
+
+The current plan now prioritizes one book/passage → explanation → exact evidence
+→ meaningful story/character connection → return journey. Its dependent layout
+and editing behavior remain open until the owner answers. Proposed acceptance
+checks emphasize clear attribution, understandable connection reasons, retained
+reading location and completing the scenario without terminal/JSON/hash copying.
+Underlying source/record validation remains in Python. The previous CLI candidate
+context task moves to supporting backlog rather than remaining the default next
+product milestone.
+
+Aligned README, NEXT_STEPS, KNOWLEDGE_BANK_IMPLEMENTATION_PLAN,
+HISTORICAL_TEXTS_PIPELINE and BANK_CATHOLIC_BIBLE_PILOT with that priority. Replaced
+the obsolete immediate F0/F1 task in the architecture plan with the current
+discovery/reading-slice sequence, preserving the older technical backlog.
+Kept actual capabilities separate from desired ones. No new interface, record,
+schema, source access, source clearance or formal owner approval was created.
+The five-book corpus, personal-library boundary, protected literal forms and
+existing editorial/rights decisions remain unchanged. No publication or push.
+
+This is documentation and discovery only; no application tests were rerun.
+Documentation link/Latin/whitespace checks and `git diff --check` are recorded
+below after validation.
+
+Validation passed: `git diff --check` exited 0. A read-only local Python check
+verified six touched product/continuation documents, 52 existing local links,
+Latin-authored documentation, whitespace, the four protected literals and the
+explicit pending-answer state. No code/schema tests were needed for these
+documentation-only changes.
+
+## Current usefulness assessment — 2026-11-19
+
+Read current PROGRESS/NEXT_STEPS/git status and inspected README, bank/history/
+backup/search contracts, historical processing documentation, library metadata
+and retained verification evidence. Added
+`docs/PROJECT_USEFULNESS_REPORT_2026-11-19.md`, separating immediately usable
+catalogue/personal-bank features, synthetic engineering demonstrations and the
+unimplemented real-text knowledge-base experience. It documents practical use
+cases, manual handoffs, preservation/scale limits and a recommendation for one
+small owner-written/permitted-content pilot. This report is an engineering
+assessment, not a user study, source clearance or a completion score.
+
+Fresh read-only commands:
+
+```text
+.\.venv\Scripts\python.exe -m jeb sources audit
+.\.venv\Scripts\python.exe -m jeb bank validate --bank-root dist/bank-v3-synthetic-demo
+.\.venv\Scripts\python.exe -m jeb --synthetic historical status --workspace dist/historical-projection-synthetic-2026-11-19/pipeline
+```
+
+Actual results: 0 admitted sources; four valid synthetic bank records and one
+bound body; coherent synthetic historical snapshot with five candidate spans,
+no pending artifacts and releasable=false. Read-only Python metadata inspection
+confirmed 291 catalogue items, 153 findings covering 138 item IDs, five private
+download receipts and all five referenced paths present. Private source contents
+and their hashes were not re-audited for this report. Latest test evidence remains
+the preceding actual run: 429 Python tests (one skip), nine Node tests and 60
+schemas; no full test rerun is claimed for this documentation-only task.
+
+No application/schema/source-policy changes, record creation, publication,
+commit or push. The existing next small coding task in NEXT_STEPS is preserved;
+the report adds a product-level evaluation recommendation rather than starting
+another implementation. Documentation whitespace/Latin and git diff checks are
+recorded after completion below.
+
+Report checks passed: `git diff --check` exited 0; a local Python check verified
+Latin-authored text, no trailing whitespace and all 15 report links resolving
+to existing local files. No code tests were needed for this documentation-only
+assessment.
+
+## Retained synthetic PDF projections and exact-span verification — 2026-11-19
+
+Read PROGRESS, NEXT_STEPS, AGENTS and git status before continuing. Preserved
+the preceding uncommitted implementation, research and policy work. Implemented
+the selected next slice: durable bounded PDF text projections in the isolated
+synthetic historical workspace. No real source, book, rights or owner decision
+was added or changed.
+
+New managed PDF extractions use the packaged `historical-extraction-v2` schema.
+It explicitly fixes synthetic=true/releasable=false and binds projection hash
+and byte length. Exact UTF-8 bytes are retained atomically at
+`projections/<sha256>.txt` before cache/checkpoint/HEAD publication. Existing
+different bytes at the same path fail closed. Each read validates the cache
+schema/hash, projection reference/hash/size/strict UTF-8, and every candidate's
+literal Unicode code-point slice. Shared blobs are deduplicated. Bounds are
+16 MiB per projection and 128 MiB unique referenced projection bytes per
+snapshot, additional to the existing layer bounds.
+
+Workspace write failures propagate instead of being misreported as source-read
+failures: the processing checkpoint can resume and the previous HEAD remains
+readable. No reader repairs missing/corrupt evidence or reruns extraction.
+The selected PDF executable is pinned for the call and its hash checked before
+and after extraction. PDF candidate IDs also bind the projection hash; plain
+text IDs retain their previous form. Source text and protected literals are
+not normalized or rewritten.
+
+Existing v1 extraction/checkpoint/snapshot schemas are byte-identical to the
+previous installed engine. V1 caches remain readable and unmodified, with
+explicit projection_retained=false/locator_verification=not_retained. Only an
+explicit new extraction/refresh creates a new v2 cache; it never backfills the
+lost bytes of a historical v1 projection. Query provenance now carries the exact
+extraction cache hash and retained/span-verification state.
+
+The new read-only command is:
+
+```text
+python -m jeb --synthetic historical projection-verify --workspace <workspace> --cache-sha256 <exact-cache-hash>
+```
+
+It validates current or old retained extraction evidence using only the cache
+and retained projection, without opening the current source or invoking a PDF
+tool. It reports hashes, byte length and verified candidate count, not full
+projection text. V1 returns projection_not_retained and exit 2. No HTTP route,
+frontend, source admission or human decision workflow was added. README and the
+pipeline guide document retention, compatibility, limits and usage; NEXT_STEPS
+now points to small read-only candidate/context inspection by exact identities.
+
+Actual commands and results in the existing locked CPython 3.13.3 environment:
+
+```text
+.\.venv\Scripts\python.exe -m unittest tests.test_historical_projection -v
+.\.venv\Scripts\python.exe -m unittest tests.test_historical tests.test_historical_projection -v
+.\.venv\Scripts\python.exe -m ruff check src tests
+.\.venv\Scripts\python.exe -m ruff format --check src tests
+.\.venv\Scripts\python.exe -m jeb validate --stage schemas
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+npm run test:web
+.\.venv\Scripts\python.exe -m pip check
+git diff --check
+```
+
+Results: **10 new projection tests passed in 6.727 seconds; all 34 historical
+tests passed in 42.403 seconds; 73 Python files formatted; 60 schemas valid;
+429 full-suite tests completed in 304.137 seconds, OK (skipped=1); all 9 Node
+tests passed in 24.592 seconds**. The only skip remains the existing Windows
+symlink-creation test. The new optional real PDF test actually ran and passed
+with the already installed local MiKTeX pdftotext; no PDF library/tool/dependency
+was installed or downloaded. Ruff, dependency consistency, diff and manual
+new-file whitespace/Latin-guide checks passed. Full actual output is retained
+at `reports/generated/historical-projection-unittest-2026-11-19.txt`.
+
+Tests cover exact CRLF/decomposed-Unicode bytes, literal spans, deleted inputs,
+changed input/tool output, unchanged prior cache/snapshot bytes, v1 no-backfill,
+wrong hash/size/UTF-8/span, missing/corrupt blobs, junction guards, write-failure
+recovery, deduplication, snapshot byte budget and unchanged real-source gate.
+The real PDF fixture is built entirely from original software-test sentences
+with a standard-library byte writer; its independently captured local-tool
+output is byte-identical to the retained projection. No historical text is used.
+
+Additional actual verification commands:
+
+```text
+.\.venv\Scripts\python.exe -B reports/generated/historical-projection-smoke.py
+.\.venv\Scripts\python.exe -m pip wheel --no-index --no-build-isolation --no-deps --wheel-dir dist/historical-projection-package .
+.\.venv\Scripts\python.exe -m pip install --no-index --no-deps --target dist/historical-projection-installed dist/historical-projection-package/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl
+.\.venv\Scripts\python.exe -I -B reports/generated/historical-projection-wheel-check.py
+```
+
+The smoke recorder executed 8 real CLI calls against a new labelled original
+fixture at `dist/historical-projection-synthetic-2026-11-19/pipeline`. It retained
+a 76-byte exact projection with five proposed candidates, changed the input,
+refreshed into a new extraction, then moved the input out of the configured
+path. With subprocess PATH empty, both old and new caches verified and the
+dossier still resolved the current exact Luma locator. All 23 workspace files
+were byte-identical before/after these reads; prior immutable cache/projection/
+snapshot bytes were also preserved. The two generated original PDF inputs were
+retained separately as private synthetic smoke artifacts, not historical data.
+Full commands/outcomes:
+`reports/generated/historical-projection-smoke-2026-11-19.json`.
+
+Original cache hash:
+`147e4b9aab68bc62d9d403a2bf965a4697a125eab4985a3db93f239a5d9969e2`.
+Original projection hash:
+`7ff507125eac3709f133a26f2c1b423f1d232b73e280e5769ab6c65662af8e00`.
+
+The new wheel was built offline and installed only into the new isolated target;
+the existing venv and preceding wheel/installed verification were preserved.
+Python -I loaded the actual target package, checked matching current modules
+and all 60 packaged schemas, verified both retained caches through CLI/function
+parity with no tools on PATH, and read the preceding v1 text-demo workspace
+without migration. This uses existing locked-venv dependencies, not a fresh
+dependency installation or a Linux test. Results:
+`reports/generated/historical-projection-wheel-2026-11-19.json`.
+Wheel SHA-256:
+`f951b46718bd5ef6bc55128b654811bd7f292665f24c4a9d9bd35641dce92ff1`.
+
+Remaining limits: retention applies only to new managed synthetic PDF tasks;
+original source PDF bytes, legacy projections, fonts/page alignment and OCR
+evidence are not archived by the pipeline. Standalone entity-index stays
+hash-only. Per-snapshot byte bounds do not impose a full-history disk quota;
+there is no pruning or full pipeline backup/restore. Retained-span validation
+does not prove historical fidelity, entity identity or human/legal approval.
+Real-source extraction still stops at source_review_required before opening
+source bytes. No real acquisition, model API, external contact, paid service,
+commit, push, release, publication or owner approval occurred.
+
+## Incremental historical pipeline completed and verified — 2026-11-19
+
+Resumed the interrupted local implementation after reading PROGRESS,
+NEXT_STEPS, AGENTS and git status. Preserved the existing uncommitted bank,
+library, source-research, config and policy changes. This continuation did not
+change source registry/lock, rights policy, editorial decisions or book scope.
+
+The completed slice provides `historical pipeline init/step/status`, an explicit
+original synthetic demo and shared read-only `status/dossiers/detail/lookup/
+relations/dossier` queries. A writer lock, per-artifact atomic checkpoints,
+hash-addressed extraction caches and immutable four-layer snapshots allow
+bounded batches, interruption recovery, pending retries, refresh rotation and
+recovery after a failed HEAD publication. The last complete snapshot remains
+readable while later work is pending. Input registry changes require a new
+workspace; existing destinations are not adopted or overwritten.
+
+Extraction retains exact Unicode code-point offsets, CRLF bytes, surface forms,
+source/projection hashes, adapter identity, editions and translator credits.
+Capitalized Latin tokens remain unknown proposed candidates; normalized groups
+are same-surface proposals, not identities. Real extraction now explicitly
+returns `needs_review/source_review_required` before source bytes are opened.
+The earlier 18,230-candidate private research run is historical evidence, not
+admitted content, current cleared coverage or input to this synthetic demo.
+
+Node uses a bounded Python CLI bridge instead of maintaining separate hashing
+and semantic checks. HTTP tests exercise nonempty input, exact CLI/API parity,
+work-specific locator counts, malformed/stale configured layers, query errors,
+synthetic opt-in and runtime failure without hiding unrelated viewer data.
+GET queries leave checkpoint/HEAD bytes unchanged. The existing small viewer
+now has search/filter pagination, an explicit combined dossier and status
+refresh; it stays loopback, opt-in and read-only. No approval/merge/write action
+or large frontend was added.
+
+Further fixes in the resumed work:
+
+- Pin query data and accompanying status/counts to one HEAD, including a test
+  where a writer publishes between the read and response construction.
+- Apply combined dossier offsets to works as well as entities/relations; apply
+  work/availability filters to the same artifact, including detail responses.
+- Reject malformed HEAD JSON types and foreign/conflicting pending artifacts.
+- Return `response_limit_exceeded` for oversized serialized responses instead
+  of dropping rows that pagination would then silently skip.
+- Give PDF output reading and process completion one shared timeout deadline.
+- Load the viewer's initial list with its actual 50-row page size and retain
+  the synthetic label when opening an individual dossier.
+
+Actual offline checks used the existing hash-locked environment, CPython 3.13.3
+and Node v24.11.1. No dependency download or environment upgrade was performed:
+
+```text
+.\.venv\Scripts\python.exe -m unittest tests.test_historical -v
+.\.venv\Scripts\python.exe -m ruff check src tests
+.\.venv\Scripts\python.exe -m ruff format --check src tests
+.\.venv\Scripts\python.exe -m jeb validate --stage schemas
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+npm run test:web
+node --check web/app.js
+node --check web/server.mjs
+node --check web/historical.mjs
+.\.venv\Scripts\python.exe -m pip check
+git diff --check
+```
+
+Results: **24 targeted historical tests passed; 72 Python files formatted;
+59 schemas valid; 419 full-suite tests completed in 256.042 seconds,
+OK (skipped=1); all 9 Node tests passed in 18.936 seconds**. The one expected
+skip is `test_links_rejected_when_available`: this Windows environment does
+not permit symlink creation. Ruff, syntax, dependency consistency and diff
+checks passed. Full actual unittest output is retained at
+`reports/generated/historical-pipeline-unittest-2026-11-19.txt`.
+
+The following additional verification/build commands actually ran:
+
+```text
+.\.venv\Scripts\python.exe -B reports/generated/historical-pipeline-smoke.py
+.\.venv\Scripts\python.exe -m pip wheel --no-index --no-build-isolation --no-deps --wheel-dir dist/historical-pipeline-package .
+.\.venv\Scripts\python.exe -m pip install --no-index --no-deps --target dist/historical-pipeline-installed dist/historical-pipeline-package/jugoslavenska_ekumenska_biblija-0.1.0.dev0-py3-none-any.whl
+.\.venv\Scripts\python.exe -I -B reports/generated/historical-pipeline-wheel-check.py
+```
+
+The smoke recorder verified 16 real CLI calls, retaining commands and outcomes
+in `reports/generated/historical-pipeline-smoke-2026-11-19.json`. Its new
+`dist/historical-synthetic-verified-2026-11-19/pipeline` workspace has three
+complete artifacts, one deliberately missing file and one invalid UTF-8 file.
+The invented label Luma has four exact locators: three across two MAT editions
+and one in MRK. The query retains all three original synthetic contributor
+credits. It verified all 37 pipeline files byte-for-byte unchanged by read-only
+queries and failed non-opt-in/no-clobber attempts. A separate workspace completed
+five one-artifact steps, retried two blocked tasks and reused all three unchanged
+UTF-8 caches on refresh. No historical source content was used.
+
+The wheel built offline and installed only into the new isolated target above;
+the existing venv installation was not replaced. Python `-I` imported the actual
+target package, found all four new modules and all 59 packaged schemas, and
+confirmed installed CLI/function parity on a temporary nonempty synthetic demo,
+plus invalid-query exit 2. Dependencies came from the existing locked venv;
+this was not a clean dependency-install or Linux test. Results:
+`reports/generated/historical-pipeline-wheel-2026-11-19.json`.
+Wheel SHA-256:
+`4549b7ad6d5288c9a5810c15c38d994257e467bd4fcb89cbdc38ce73264e3d55`.
+
+README and `docs/HISTORICAL_TEXTS_PIPELINE.md` now document runnable commands,
+no-clobber behavior, retry/refresh, limits, status semantics, exact offset units,
+CLI/API error codes, viewer opt-in and honest source gates. `ready` means readable
+coherent layers, not a completed queue or human/legal approval.
+
+Limits remain: heuristic unknown candidates; no HTML/OCR adapter, human identity
+review, real-source admission, bank promotion, snapshot pruning or full pipeline
+backup/restore. PDF projections have hashes but are not retained, so hashes
+alone do not archive old projection text. The time budget checks work admission
+and PDF subprocess timeout; in-process processing/validation/publication may run
+longer. Tests stub the PDF adapter and do not claim a real PDF/tool round-trip.
+Next small task: preserve and validate an exact bounded synthetic PDF projection
+with an original fixture, before using such locators for durable evidence.
+
+No source acquisition, model/paid API, contact, owner approval, commit, push,
+publication or release occurred. GEN/MAT/MRK/LUK/JHN, protected literal forms,
+Latin-authored displays and zero admitted real scripture coverage remain intact.
+
+## Synthetic CLI/API parity fixture — 2026-11-19
+
+Added an end-to-end temporary four-layer historical fixture with matching
+registry/index/groups/dossiers hashes. The same fixture is inspected through
+`jeb historical status` and `/api/historical/status`; both must return the
+same `ready` status, counts and blocker list. The fixture is removed after the
+test and never touches real sources.
+
+Actual checks: 8 Node viewer tests passed, including parity, Node syntax checks
+passed and `git diff --check` passed.
+
+## CLI/API status parity — 2026-11-19
+
+Aligned the read-only CLI and viewer API status envelopes around the same
+`configured`, `counts`, `blockers` and `status` fields. Unconfigured layers
+use the shared `path_not_configured` blocker category, while malformed JSON is
+reported as `invalid_json`; neither interface starts processing or writes data.
+
+Actual checks: 9 CLI tests passed, 7 Node viewer tests passed, Ruff, format,
+Node syntax checks and `git diff --check` passed.
+
+## Read-only historical CLI inspection — 2026-11-19
+
+Added `jeb historical status` with optional registry/index/groups/dossiers
+paths. It prints the same pipeline counts and blockers without starting a
+server or writing output; unconfigured layers are reported as blockers and
+malformed files remain machine-readable errors at the API boundary.
+
+Actual checks: 9 CLI tests passed, 7 Node viewer tests passed, Ruff, format,
+Node syntax checks and `git diff --check` passed.
+
+## Historical API error and limit contracts — 2026-11-19
+
+Added machine-readable `invalid_historical_input` responses with HTTP 422 for
+malformed configured historical JSON, including only the affected logical
+layer and no filesystem path. Contract tests also verify bounded lookup and
+relation result limits; the API remains read-only.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed.
+
+## Downstream contract and stale-input guard — 2026-11-19
+
+Added canonical hash binding checks to `build-dossier` when registry, index,
+groups and dossiers are all configured. A mixed or stale set returns
+`stale_pipeline_inputs` with mismatch details and no combined data. A contract
+test covers the fail-closed path with intentionally wrong hashes.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed.
+
+## Combined build-dossier response — 2026-11-19
+
+Added read-only `/api/historical/build-dossier`, combining matching entity
+dossier summaries with work-scoped relation proposals. It preserves layer
+boundaries, reports unavailable layers, and marks the complete response
+`proposal_only: true` and `authoritative: false`.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed.
+
+## Relation-proposal lookup — 2026-11-19
+
+Added read-only `/api/historical/relations` over the explicitly configured
+registry. It filters by relation type, work, status or query and returns
+bounded relation summaries with endpoint labels and evidence counts. Every
+response carries `authoritative: false`; no similarity, parallel or same-as
+proposal becomes a fact.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed.
+
+## Bounded work/topic lookup — 2026-11-19
+
+Added read-only `/api/historical/lookup`, which groups matching dossier
+proposals by work for bounded downstream use. It accepts a topic query and/or
+work filter and returns dossier IDs plus candidate/locator counts; it never
+creates aliases, identity merges or claims.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed.
+
+## Historical pipeline status summary — 2026-11-19
+
+Added read-only `/api/historical/status` and workspace status data. When the
+four explicit historical paths are configured, the viewer reports counts for
+registry works/editions/artifacts/relations, index candidates/pending, groups
+and dossiers. Missing or unreadable phases are reported by name; no pipeline
+step is started and no file is written. The UI shows the available counts while
+keeping all items proposed and unreleasable.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed.
+
+## Read-only historical dossier viewer — 2026-11-18
+
+Connected the opt-in entity dossier file to the local viewer through
+`JEB_HISTORICAL_DOSSIERS`. The new read-only API exposes bounded summaries,
+search, status/availability/work filters and a detail view with exact
+projection-labelled locators. The UI explicitly labels results as proposed;
+there are no approval, merge or release actions. With no environment variable,
+the historical view stays disabled.
+
+Actual checks: 7 Node viewer tests passed, Node syntax checks passed and
+`git diff --check` passed. The test dossier was temporary and removed.
+The repository offline suite also passed: 56 schemas, Ruff, format and 394
+unittest tests passed with 1 expected symlink skip.
+
+## Entity dossier layer — 2026-11-18
+
+Added `jeb historical entity-dossiers`, which joins conservative surface groups
+to registry work/edition/artifact metadata and exact candidate locators. It
+returns dossier proposals only; it does not assert that a group is one person,
+place or literary character. The current pipeline produced 3,594 dossier
+proposals from 18,230 candidate spans, retaining source artifact, work, edition,
+projection, start/end and exact surface fields without copying full text.
+
+Actual checks:56 schemas, Ruff, format, CLI tests and `git diff --check` passed.
+Temporary registry/index/group/dossier artifacts were removed after the run.
+
+## Conservative entity grouping — 2026-11-18
+
+Added `jeb historical entity-groups`. It groups only exact surface forms after
+NFC, whitespace collapse and casefold; it does not strip diacritics, transliterate,
+infer inflections or merge identities. Groups remain
+`proposed_same_surface` with candidate and artifact IDs.
+
+The first 18,230-candidate run produced 3,594 conservative groups. The initial
+8 MiB generic JSON reader correctly rejected the large index; entity grouping now
+uses its own explicit 64 MiB bound rather than weakening general file limits.
+The retry succeeded; temporary registry/index/group files were removed.
+
+Checks:55 schemas, Ruff, format, 8 CLI tests and `git diff --check` passed.
+
+## Bounded PDF projection for entity candidates — 2026-11-18
+
+Extended `historical entity-index` with a local `pdftotext` projection for
+private PDF artifacts. The projection is temporary and its offsets are labelled
+`pdftotext_utf8`; full extracted text is not written to the registry or tracked
+workspace. Plain text/Markdown still use `source_utf8`. Unsupported/missing
+artifacts remain pending.
+
+Current catalog run: 18,230 unknown entity candidates from 4 local PDFs and
+149 pending artifacts. All candidates remain `proposed`/`entity_type: unknown`;
+there is no person/place merge, semantic claim or rights clearance.
+
+Checks:53 schema validation, Ruff, format, 8 CLI tests and `git diff --check`
+passed.
+
+## Read-only entity candidate index — 2026-11-18
+
+Added `jeb historical entity-index`, which walks registry artifacts without
+downloading or modifying them. It extracts only bounded, exact-offset candidate
+spans from local UTF-8 `.txt`/`.md` artifacts; unsupported, missing and
+metadata-only artifacts remain explicitly `pending`. Candidates are unknown,
+proposed entities, never silently classified as people or places.
+
+Current catalog run: `0 candidates`, `153 pending_artifacts`,
+`proposals_only:true`. This is expected because the current private artifacts
+are mostly PDF/HTML or metadata-only and no text parser was assumed. Schemas,
+CLI tests, Ruff and diff checks pass.
+
+## Read-only historical registry builder — 2026-11-18
+
+Added `jeb historical registry-build --input library/catalog.json --output ...`.
+It deterministically converts the existing personal-library metadata into a
+separate registry of works, edition records, discovered artifacts and
+metadata-backed `version_of` relation proposals. It does not download text,
+promote rights, merge characters, or admit a source into the biblical corpus.
+
+Actual result on the current catalog:
+- 291 works,153 editions,153 artifacts,153 relation proposals;
+  `metadata_only:true`.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:53 schemas passed.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:68 files passed.
+- `tests.test_cli`:8 tests passed.
+- `git diff --check`:passed.
+
+Next small task: add a read-only entity extraction/index contract for available
+text artifacts, keeping character/place matches as proposals with evidence.
+
+## Historical-texts pipeline foundation — 2026-11-18
+
+Started the actual product direction: a local registry and pipeline for works,
+editions, digital artifacts and proposed cross-world relations. Added four
+versioned schemas for `work`, `edition`, `artifact` and `relation`, plus
+`docs/HISTORICAL_TEXTS_PIPELINE.md`. This is registry metadata and proposal
+structure only; it does not ingest historical text, clear rights, merge people
+or admit new biblical books. V3 remains the provenance/evidence layer.
+
+Actual checks are pending in this entry; the next command is schema validation
+and the offline CLI regression after updating the packaged-schema count.
+
+## JHN 1:1–5 exact-volume lead — 2026-11-18
+
+The follow-up search found a stronger Katančić lead: a scholarly Hrcak record
+identifies *Sveto pismo Novog' zakona*, volume I, Budim 1831, as the Gospel
+volume and includes JHN 1:1–5 as a textual example. Wikimedia also exposes a
+title-page image for the 1831 New Testament. This is still metadata/secondary
+evidence, not an inspected source leaf: no biblical text was copied, no scan
+checksum or page identity was established, and no rights clearance or corpus
+admission was created.
+
+Next small source task: locate and inspect the actual JHN 1:1–5 scan leaf in
+Katančić New Testament volume I, retaining the original page image and exact
+edition metadata before any transcription.
+
+## JHN 1:1–5 source-candidate research — 2026-11-18
+
+For the user-selected topic Isus Krist and pilot passage JHN 1:1–5, recorded a
+metadata-only candidate review in
+`docs/sources/JHN_1_1_5_CANDIDATE_RESEARCH_2026-11-18.md`. Candidates are
+Škarić 1858–1861, Katančić/Čevapović 1831 and Šarić 1941–1942. No biblical text
+was fetched or transcribed, no source was admitted or cleared, and the user
+provided `jēšūaʿ minnåzrat` remains an unreviewed separate note. The next small
+source task is to locate one exact JHN 1:1–5 scan leaf and record its edition,
+page, digital revision and rights evidence before any text entry.
+
+## Meditations topic dossier — 2026-11-18
+
+Added `docs/TOPIC_MEDITATIONS_MARKO_AURELIJE.md` as an unreviewed, source-first
+topic draft. It separates Marcus Aurelius, the work, editions/translations,
+secondary interpretation and future educational outputs. It contains links and
+rights caveats only; no historical source bytes, copied translation or legal
+clearance was added.
+
+The dossier deliberately remains outside the five-book Biblical corpus scope.
+
+Created and imported the first five-entry metadata-only candidate batch for
+Meditations. The CLI returned `candidates: 5`, `review_state: unreviewed`,
+`corpus_permission: false` and `source_clearance_changed: false`; no content was
+downloaded.
+
+Completed the first source review pass in
+`docs/RESEARCH_REVIEW_MEDITATIONS_2026-11-18.md`. It confirms provider claims
+and separates them from jurisdictional clearance, exact-artifact identity and
+website/UI rights. No candidate was promoted and `content_acquired` remains
+false.
+
+Added `docs/RIGHTS_MATRIX_MEDITATIONS.md`, which records the current
+artifact-by-jurisdiction blockers. All five rows remain link-only for now;
+this is a deliberate evidence gap, not a preference to avoid storing files.
+
+Detailed review located Gutenberg's exact 15877 text URLs and indexed size, but
+the artifact remains link-only because the configured DE/HR rights gate and
+human source review are not complete. No bytes were fetched and no hash was
+invented.
+
+Owner decision applied: configured jurisdiction is now `DE` only and the GitHub
+working repository is private. Public distribution remains a separate future
+release scope and is not implied by this change.
+
+Revalidated and re-imported the Meditations candidate batch with `jurisdictions:
+[DE]`. The new immutable batch is
+`data/source-candidates/meditations-initial/7730cbf0bf6c97fddf5fbed98a33f762eaa588e982bc016703fca827611ce7e5.json`;
+the earlier multi-jurisdiction batch remains preserved as historical metadata.
+
+## Synthetic v3 workflow end-to-end — 2026-11-18
+
+Created the isolated `dist/bank-v3-synthetic-demo` managed3.0 bank using the
+existing v3 API. It contains one synthetic entity, source, claim and evidence
+record with real generated revision/raw-record/body references and an exact
+text-span locator. All records are private, unreviewed, synthetic and marked
+unreleasable by the workflow; no historical or project source was used.
+
+The local viewer was started on loopback port5188 with `JEB_BANK_ROOT` bound to
+that bank. API verification found schema3.0,4 records, the claim search result,
+one evidence link and one history entry. A backup written to a temporary
+directory verified successfully; restore returned4 records and an identical
+evidence-link result. The temporary directory and archive were removed by the
+temporary-directory cleanup. The viewer process was stopped afterward.
+
+Actual result:
+- `valid_records:4`, `backup_valid:true`, `restored_records:4`,
+  `restored_links_equal:true`, `approvals_created:0`, `releasable:false`.
+
+## Untrusted source-candidate intake — 2026-11-18
+
+Added `source-candidate-batch` and `jeb sources candidates validate/import` as
+the missing boundary between internet/search work and the historical source
+registry. It records query, jurisdictions, URL/provider metadata, access date,
+rights state and limitations, but rejects acquired content, credentialed or
+non-HTTPS URLs. Imported batches are hash-addressed, unreviewed, and cannot
+change source clearance, registry, locks or corpus permission. Actual download
+still requires the existing exact-edition allowlist and `fetch` gate.
+
+Actual checks:
+- `.venv/Scripts/python.exe -m unittest tests.test_source_candidates tests.test_cli -v`:10 tests passed.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:67 files passed.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:48 schemas valid.
+- `git diff --check`:passed.
+
+Limitation remains intentional: this repository does not contain a web search
+or model/cloud adapter. A browser/search export can feed this candidate inbox;
+only a separately reviewed source assessment can promote a candidate.
+
+## Catholic Bible pilot scope — 2026-11-18
+
+Added `docs/BANK_CATHOLIC_BIBLE_PILOT.md` to turn the user's first topic into a
+safe working frame. It defines the five currently allowed pilot books GEN/MAT/
+MRK/LUK/JHN, a book→source→character→claim→evidence workflow, and explicit
+`pending_owner_scope_decision` handling for books outside that scope. No
+biblical text, real source clearance, character fact or approval was invented.
+
+Next small task: create the first private entity/source record only after the
+owner supplies the exact edition/source to use.
+
+## v3 record-type filter — 2026-11-18
+
+Added a small read-only filter to the Baza znanja page so current records can
+be narrowed by entity, source, article, claim or evidence while retaining the
+existing bounded bank search endpoint. No new route, write operation, approval
+state or source content was introduced.
+
+Actual checks:
+- `npm run test:web`:6 tests passed.
+- `node --check web/app.js`:passed.
+- `git diff --check`:passed.
+
+## Quickstart end-to-end smoke — 2026-11-18
+
+Ran the documented temporary workflow exactly: managed3.0 init, entity create,
+bank search, validate, backup and backup-verify. The synthetic private fixture
+returned one exact `Aleksandar` result, one valid current record, two snapshots,
+and a valid private backup. The temporary directory was removed afterward.
+
+No repository, production bank, source, approval or publication was changed.
+
+## Bank quickstart — 2026-11-18
+
+Added `docs/BANK_QUICKSTART.md`, a short operational path from private bank
+initialization through create, search, validate, read-only viewer and backup.
+It keeps Python CLI as the write boundary, labels the viewer read-only, preserves
+source/rights cautions, and explains entity/source/claim/evidence roles without
+adding new code or data.
+
+Actual checks:
+- `git diff --check`:passed.
+- No configuration, source corpus, approval, publication or external service
+  changes.
+
+Next small task: use the quickstart with the owner's first private topic and
+only repair a concrete usability problem.
+
+## v3 viewer documentation — 2026-11-18
+
+Updated README to document typed relationship navigation and bounded revision
+history, and corrected the earlier wording that described the bank UI as wholly
+future work. Editing, assessment and selected-content export remain future
+work; the current viewer remains opt-in and read-only.
+
+Actual check: `git diff --check`:passed.
+
+## Real local viewer smoke — 2026-11-18
+
+Created a temporary private bank through the Python storage API, started the
+loopback Node viewer with `JEB_BANK_ROOT`, and queried `/api/bank/search` for a
+record. The viewer reported `enabled:true`, one exact result titled
+`Aleksandar probni zapis`, matching `title`. The temporary fixture was removed
+after the check; no repository or production bank was touched.
+
+Next small task: stop adding interface until a concrete usability issue appears.
+
+## Full offline regression after v3 viewer work — 2026-11-18
+
+Ran the repository's complete offline unittest suite after the read-only v3
+history and relationship-navigation changes. The bank, schema, backup/restore,
+migration simulation, source gates, editorial workflows, narrative workflows
+and terminal workbench all remained green.
+
+Actual result:
+- `.venv/Scripts/python.exe -m unittest discover -s tests -v`:392 tests passed,
+  1 skipped because Windows did not permit the existing real-symlink privilege
+  test; the mocked link guards passed.
+
+## Viewer search opens exact bank records — 2026-11-18
+
+Connected the read-only viewer search to `/api/bank/search`. Queries now scan
+current bank title, kind, processing state, structured data and body, return
+matching fields, and preserve exact record IDs for opening the bounded detail
+view. Requests are sequenced so an older slow response cannot replace a newer
+query. No write, approval, export or public route was added.
+
+Actual checks:
+- `npm run test:web`:6 tests passed, including bank search and exact record
+  response.
+- `node --check web/app.js; node --check web/server.mjs`:passed.
+- `git diff --check`:passed.
+
+Next small task: keep the viewer read-only and use it with a real local bank
+fixture before adding more interface.
+
+## Read-only bank search — 2026-11-18
+
+Added `jeb bank search --bank-root ... --query ...` for the daily workflow. It
+reads only the current validated committed HEAD, searches title, kind, processing
+state, structured metadata and current body, and returns exact record/revision
+IDs plus matching fields. Blank queries fail; no files or approvals are created.
+Project-level search remains separate from bank search.
+
+Actual checks:
+- `test_bank_search`, `test_cli`, `test_bank_storage`:29 tests passed.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:65 files already
+  formatted.
+- `git diff --check`:passed; no config or source corpus changes.
+
+Next small task: connect search results to exact record opening in the existing
+read-only viewer, without adding writes or exports.
+
+## Clickable v3 relationship navigation — 2026-11-18
+
+The read-only bank detail now exposes typed subject, claim, source and evidence
+relationships as safe local navigation links. Opening a related record fetches
+the same bounded detail/history view; no arbitrary path or write operation is
+introduced.
+
+Actual checks:
+- `npm run test:web`:6 tests passed.
+- `node --check web/app.js; node --check web/server.mjs`:passed.
+- `git diff --check`:passed.
+
+Next small task: preserve this viewer boundary and avoid adding a broader
+frontend or export workflow without a separately defined requirement.
+
+## Bounded v3 revision history in viewer — 2026-11-18
+
+Added a read-only `/api/bank/record/<id>` history summary for the current
+managed3.0 chain. It follows only validated snapshot parent links, caps the
+walk at 128 snapshots, returns revision IDs/timestamps/reasons and never
+returns historical body bytes. The bank detail view now shows the compact
+revision list alongside typed claim/evidence links. No writer, migration,
+approval or public route was added.
+
+Actual checks:
+- `npm run test:web`:6 tests passed, including current revision history.
+- `node --check web/app.js; node --check web/server.mjs`:passed.
+- `git diff --check`:passed.
+
+Next small task: stop expanding the viewer unless a concrete read-only need is
+identified; use the existing Python history/reference commands for full exact
+historical inspection.
+
+## Typed v3 claim/evidence viewer links — 2026-11-18
+
+Continued the existing managed3.0 work without starting migration or changing
+the bank writer. Extended the opt-in loopback viewer's read-only record detail
+response with typed claim/evidence relationships: claim subjects, evidence
+relations, exact referenced revisions, current-versus-historical status, and
+evidence claim/source links with locators. The UI now renders those fields as a
+bounded human-readable report instead of exposing only raw JSON. No write,
+approval, export, source, or public-serving path was added.
+
+Actual checks:
+- `npm run test:web`:6 tests passed, including subject-link and current-revision
+  assertions.
+- `node --check web/app.js; node --check web/server.mjs`:passed.
+- `git diff --check`:passed; no config or source corpus changes.
+
+Limitation: the viewer remains read-only and only exposes current committed
+heads; older claim/evidence revisions still require the Python history/reference
+commands. Next small task: add a compact read-only revision/history view if it
+can remain bounded and preserve exact stored bytes.
+
+## Read-only knowledge-bank viewer — 2026-11-18
+
+Shifted from migration infrastructure to daily usability. Added an opt-in local
+**Baza znanja** page to the existing loopback viewer. The server reads a bank
+only when `JEB_BANK_ROOT` is explicitly configured, exposes current record
+metadata and one-record details through bounded allowlisted paths, and keeps all
+routes GET-only. The UI supports search and safe-text inspection for
+entity/source/article/claim/evidence records; it has no edit, approval, export or
+public serving path. Default viewer startup remains bank-disabled.
+
+Actual checks:
+- `npm run test:web`:6 tests passed, including opt-in bank endpoint, traversal
+  rejection and read-only method checks.
+- `node --check web/app.js; node --check web/server.mjs`:passed.
+- `git diff --check`:passed; no config or source corpus changes.
+
+Typed claim/evidence link display is now covered by the entry above.
+
+## Synthetic migration writer simulation — 2026-11-18
+
+Added `jeb bank migrate-simulate` with mandatory `--synthetic` opt-in. It binds
+the external decision and current plan, requires a target name containing
+`synthetic`, copies the full v2 committed history into a new v3 chain in private
+sibling staging, preserves record/revision IDs and body bytes, rewrites only
+versioned envelopes/manifests, validates the target through the normal v3 reader,
+and returns `releasable:false` with zero approvals. The source v2 bank and its
+archives are never modified. This is an isolated development simulation, not a
+real migration or owner approval.
+
+Safety hardening: the simulator now holds the source writer lock through
+revalidation, copying and publication, then uses no-clobber directory rename.
+Failure injection confirms that only its own staging directory is removed.
+
+Actual checks:
+- `test_bank_simulation`, `test_bank_decision`, `test_bank_migration`,
+  `test_cli`:19 tests passed, including validation-failure staging cleanup.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:63 files already
+  formatted.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:47 schemas passed.
+- `git diff --check`:passed; no config or source corpus changes.
+
+Limitation: no real writer, owner decision, public export or release path exists.
+Next small task: review the synthetic simulation output before considering any
+future real writer proposal.
+
+## Bank migration decision binding — 2026-11-18
+
+Added versioned `bank-migration-decision-v1`, read-only
+`jeb bank migrate-decision-validate`, and synthetic offline tests. The validator
+requires a human-owner decision shape, exact plan-file hash, current v2
+workspace/HEAD/record digest, excluded F3A packets, zero blockers and a new
+target path outside the source bank. It returns `can_write` as a capability
+description only; it creates no approval, target directory, writer state or
+historical content. Synthetic fixtures explicitly state that they are not real
+owner decisions.
+
+Actual checks:
+- `test_bank_decision`, `test_bank_migration`, `test_cli`:16 tests passed after
+  adding the decision schema/validator.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:61 files already
+  formatted.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:47 schemas passed.
+- `git diff --check`:passed; no config or source corpus changes.
+
+Limitation: no actual owner decision, target creation or migration writer was
+implemented. Next small task: review decision fields, then test a writer
+simulation on synthetic data only.
+
+## Bank migration writer design — 2026-11-16
+
+Documented the reviewed-writer boundary in `docs/BANK_MIGRATION.md` without
+creating a writer, decision record, target directory or approval. The design
+requires an external owner decision bound to the exact plan hash, source
+workspace, HEAD and record digest; rejects blocked records and F3A packets;
+revalidates the source under lock; builds a sibling staging target; validates
+the complete3.0 chain privately; and publishes only to a previously absent
+destination with no-clobber rename. The v2 source and its archives remain
+untouched. A future interrupted run must not alter source HEAD.
+
+Actual checks:
+- `git diff --check`:passed.
+- `git diff --exit-code -- config sources`:passed; no configuration or corpus
+  source changes.
+
+Limitation: the decision-record schema and reviewed writer are intentionally not
+implemented. Next small task: define that schema for separate owner review.
+
+## Bank migration plan: read-only v2→v3 contract — 2026-11-16
+
+Continued the next authorized small task without changing existing banks or
+archives. Added `docs/BANK_MIGRATION.md`, read-only `jeb bank migrate-plan` and
+`jeb bank migrate-plan-verify`
+command. It validates a managed2.0 committed chain, binds the report to the
+current HEAD and current-record digest, lists every record and all historical
+revision IDs in stable order, preserves source raw hashes as provenance, keeps
+body hashes unchanged, reports blockers, and explicitly excludes F3A packets.
+The command writes only one no-clobber JSON report outside `bank-root`; it never
+creates a v3 target, writes a source bank, creates claims/evidence, or creates
+approvals. Managed3.0 input is rejected so no accidental re-planning occurs.
+
+Actual commands/results:
+- `.venv/Scripts/python.exe -m unittest tests.test_bank_migration -v`:5 tests
+  passed. They cover HEAD immutability, external/no-clobber output, v3 input
+  rejection, stale-plan rejection after a new source commit and a synthetic
+  blocked-record policy with no target identity.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:59 files already
+  formatted.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:46 schemas passed.
+- Targeted bank/CLI regression (`test_cli`, all bank storage/backup/evidence
+  suites and `test_bank_migration`):99 tests in36.308s,OK,1 skipped for the
+  existing Windows symlink privilege condition.
+- CLI smoke: v2 `bank init` followed by installed local `bank migrate-plan`
+  produced a dry-run JSON report with0 records,0 approvals and `writable:false`.
+- `git diff --check`:passed; no config or source corpus changes.
+
+Limitations: this is only a plan, not migration. It does not re-encode records,
+write a target, import F3A packets, resolve conflicts, or make an owner decision.
+Next small task: separately design the reviewed writer step.
+
+## Bank F3B: persistent historical claim/evidence — 2026-11-16
+
+Continued the explicitly authorized implementation after reading repository
+instructions, progress/next-step notes and git status. Added opt-in managed3.0
+schemas and writer/reader support for persistent `claim` and `evidence` records.
+Each claim pins its subject to a committed record/revision/raw-record hash/body
+hash. Each evidence record pins a claim and source the same way, records a typed
+relation, rationale, limitations and locator, and remains `unreviewed`. New
+records may refer only to exact earlier committed revisions; missing, forward,
+self, wrong-kind, changed-hash and foreign-bank references fail closed.
+
+History retains older source revisions, so an evidence text span can still be
+checked against the exact source body it cited after that source is edited. A
+new claim revision does not inherit the old evidence; links report whether the
+stored evidence still points to the current claim and source revision. Page,
+section and time locators are declared metadata, not verified against absent
+media. No truth selection, assessment, import, migration, approval or release
+operation was added. The existing F3A packet is still a separate v2-only draft
+format; it is not silently imported. Default init remains2.0, and v2 schemas and
+backup fingerprints remain byte-identical. See
+`docs/BANK_PERSISTENT_EVIDENCE.md`.
+
+Actual commands/results in the existing hash-locked Python3.13 environment:
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:57 files already
+  formatted.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:46 schemas passed.
+- `.venv/Scripts/python.exe -m unittest tests.test_bank_persistent_evidence -v`:
+  14 new offline tests passed. They cover exact references, source/claim
+  revisions, locators, immutable v2 defaults, v2 draft boundary, CLI, recovery,
+  and v3 backup/restore with a historical reference graph.
+- `.venv/Scripts/python.exe -m unittest discover -s tests -v`:379 tests in
+  268.958s,OK,1 skipped because Windows did not permit the existing symlink
+  privilege test. All mocked link guards passed.
+- `.venv/Scripts/python.exe -m pip wheel --no-build-isolation --no-deps
+  --no-index --wheel-dir dist/bank-v3-package .`:success. Wheel SHA-256
+  `7b8960f42dc72642b4b0247c824f3ca37cb13ee31a12ca835890e504f402b3e6`.
+- Installed the wheel under `dist/bank-v3-installed`, verified its import path,
+  and executed the complete original example from
+  `docs/BANK_PERSISTENT_EVIDENCE.md`:4 valid records,1 body, local text span
+  match, backup/restore graph equality,0 approvals. Temporary private example:
+  `C:/Users/LovroPC/AppData/Local/Temp/jeb-bank-v3-example-fj263nsj`.
+- From the installed wheel, the CLI parsed `bank --help`, initialized a fresh
+  managed3.0 bank and validated it successfully with0 records.
+- Compared all six v2 backup schema fingerprints against the prior installed
+  wheel:identical. A backup freshly created by that prior v2 installation
+  verified and restored successfully with current code.
+- `git diff --check`:passed. `git diff --exit-code -- config sources`:passed;
+  no configuration/source changes.
+
+Remaining limits: 128 full snapshots/128MiB history; no scalable index or
+frontend. There is no v2→v3 migration or F3A packet import, source-content
+verification for declared media locators, evidence-quality assessment, claim
+selection, or publish/release flow. Next small task: specify a dry-run-only v2
+copy/migration contract with explicit identity mapping and blockers while
+preserving the original bank and archives; keep F3A packet importing separate
+until provenance and conflict behavior are explicit.
+
+## Bank F3A: revision-bound claim/evidence drafts — 2026-11-15
+
+Continued authorized next step after reading continuity/status, existing bank
+storage/validation/backup schemas and repository instructions. Preserved earlier
+uncommitted work. Added bank evidence prepare/validate/inspect with two separate
+version1.0 packet/draft schemas. Managed2.0 record/workspace/transaction and backup
+schemas remain byte-identical. No new canonical record kind or silent migration.
+
+Drafts distinguish source statements, historical claims, interpretation, personal
+reflection and fiction. Evidence has supports/contradicts/contextualizes/mentions,
+rationale, limitations and typed text-span/page/section/time locators. Packets bind
+exact workspace HEAD plus referenced entity/source revision, raw record hash and
+body hash; changed HEAD/schema/bindings fail closed. Text spans check exact local
+Unicode-codepoint ranges without normalization; page/section/time locators remain
+declared_only, not verified source content. Claims without links are explicitly
+listed. Inspect retains exact source credits/editions and packet categories.
+
+Artifacts are outside the managed bank, no-clobber and private/unreviewed, with
+approval_authority none. No real historical text/claim, human decision, corpus
+admission, source/config change, model API, fetch, dependency, publish or push.
+Added BANK_EVIDENCE.md with executable original example and explicit future-format
+contract; updated README/workflow/backup notes, implementation plan and next task.
+
+Actual commands/results in existing hash-locked environment:
+- `python -m ruff check src tests`:passed; targeted ruff format applied to new
+  evidence module/tests. Final `python -m ruff format --check src tests`:55 files
+  passed. `python -m jeb validate --stage schemas`:42 schemas passed.
+- `python -m unittest tests.test_bank_evidence -v`:18 original offline tests in
+  5.716s,OK. Includes typed references, literal CRLF/UTF-8 ranges, invalid/declared
+  locators, duplicate/colliding IDs, unsupported claims, contradictions, staleness,
+  tampering/resealed bindings, unknown approval fields, output bounds and restore.
+- `.venv/Scripts/python.exe -m unittest discover -s tests -v`:365 tests in236.560s,
+  OK,1 skipped (existing real-symlink OS-privilege test; mocked guards pass).
+- `python -m pip wheel --no-build-isolation --no-deps --no-index --wheel-dir
+  dist/bank-evidence-package .`:success. Wheel SHA-256
+  b0955fb6f8461f1a7f929e17f9bfa19139237614406020691df841d556d18bde.
+- Installed with `pip install --no-index --no-deps --target
+  dist/bank-evidence-installed <wheel>`; verified imports originate there and
+  both new schema resources exist. Executed exact BANK_EVIDENCE.md example with
+  installed code:1 claim/1 local_text_match,0 approvals. Installed parser/run
+  validate/inspect and packet validation after bank backup/restore passed.
+  Original example retained at C:/Users/LovroPC/AppData/Local/Temp/
+  jeb-evidence-example-exotwpoh for inspection, not publication.
+- Compared six backup schema hashes to the earlier bank-backup wheel:identical.
+  A subprocess using that prior installed wheel created a fresh original archive;
+  current code verified/restored it successfully. No old backup regeneration.
+- `git diff --check`, `git diff --exit-code -- config sources`:passed exit0.
+No web/library code changes, web/browser checks or historical acquisition.
+
+Limitations: external draft packets are not canonical records or part of bank
+backups; retain them separately. Whole-HEAD staleness is deliberately conservative.
+Page/section/time content is unverified without media artifacts. Exact text match
+does not establish historical truth, independence or rights. No assessment,
+selection/promotion or canonical claim persistence yet. Next small task: explicit
+new-format schema/reader contract for persisted exact-revision claim/evidence,
+preserving existing2.0 schemas/archives; then writer/import support, no implicit
+upgrade or fabricated human review.
+
+## Bank committed-chain backup and restore — 2026-11-15
+
+Continued the authorized next step after reading current continuity and git
+status; preserved all earlier uncommitted library/viewer/bank work. Added
+`jeb bank backup`, `backup-verify` and `restore` independently of Project/corpus.
+The private ZIP copies only exact committed2.0 HEAD/workspace/history bytes;
+staging, locks, inactive snapshots and library/private are excluded. Packaged
+bank-backup schema binds file sizes/hashes, workspace/HEAD and six relevant
+schema identities. No model/cloud dependency, source admission, real content,
+approval, publication, Git commit or push was introduced.
+
+Backup holds the existing writer lock, verifies a temporary archive end-to-end
+and publishes with a same-filesystem hard link that cannot replace an existing
+file. ZIP directory counts/metadata are bounded before zipfile allocation;
+only allowlisted ordinary files/stored-deflate content are accepted. Validation
+reconstructs the complete committed chain privately and checks inner manifests
+and revision semantics as well as the outer inventory. Restore validates first,
+exclusively reserves a new directory, copies under a new lock and publishes the
+exact original HEAD bytes last. Handled failures remove only tracked new files
+and empty directories; no recursive deletion of arbitrary user trees.
+
+Added20 original offline backup tests, including exact-byte CRLF/noncanonical
+HEAD round-trip, disconnected original source, writable restored history, empty
+bank, omitted pending/private work, no-clobber races, hash/inventory/schema/HEAD
+damage, inactive snapshot injection, path traversal/special/duplicate entries,
+false ZIP member count, corrupt deflate, size limits and partial-write cleanup.
+Added BANK_BACKUPS.md and updated workflow/format/README/plan/next small task.
+
+Actual commands/results:
+- Initial temporary smoke found Windows fsync EBADF on a read-only ZIP handle;
+  changed it to r+b before fsync. Repeat create/restore smoke passed.
+- Targeted lint/format corrected new import order and an unused test binding.
+  A test insertion briefly misplaced the corrupt-deflate block (NameError);
+  corrected placement and reran the entire20-test backup group successfully.
+- `.venv/Scripts/python.exe -m unittest tests.test_bank_backup -v`:final targeted
+  run20 tests in8.194s,OK. That run includes the exact-original-HEAD regression.
+- `.venv/Scripts/python.exe -m ruff check src tests`:passed.
+- `.venv/Scripts/python.exe -m ruff format --check src tests`:passed53 files.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:40 schemas passed.
+- Intermediate full `python -m unittest discover -s tests -v`:346 tests in
+  239.207s,OK,1 skipped. It loaded the earlier19-test backup group before the
+  final exact-HEAD preservation correction; a fresh full run was started after
+  that correction and final private-permission defaults.
+- Final `.venv/Scripts/python.exe -m unittest discover -s tests -v` on final code:
+  347 tests in319.094s,OK,1 skipped (the existing real-symlink privilege test).
+  Final lint/format checks and40-schema validation also passed before that run.
+- `python -m pip wheel --no-build-isolation --no-deps --no-index --wheel-dir
+  dist/bank-backup-package .`:success. Final wheel SHA-256
+  2c3bb0e319e84a742114a7f837ffa75a3eebf6ab80b86938db6f2565c900cf33.
+- Installed with `pip install --no-index --no-deps --target
+  dist/bank-backup-installed <wheel>`; verified imports from that target and
+  packaged schema. Installed parser/run backup/verify/restore lifecycle passed
+  on temporary original data:3 snapshots,2 retained record revisions,0 approvals;
+  restored history/validate/recover passed, no pending material imported.
+- `git diff --check` and `git diff --exit-code -- config sources`:passed exit0.
+  `python -m jeb bank --help` lists all11 operations. No web/library code changed,
+  so no web suite or browser verification was needed/performed.
+
+Limits: this is an unencrypted private committed-text-history backup, not public
+export, a whole-project backup, or a copy of linked remote/media content. Current
+schema hashes must match; no migration, automatic scheduling or encryption is
+provided. Abrupt restore termination can leave incomplete new/temp directories;
+no power-loss or hostile/network-filesystem guarantee. Retain the matching wheel
+and store independent copies on appropriate media. Next small task is the F3
+claim/evidence/typed-locator format contract, with explicit version transition.
+
+## Knowledge bank F2: managed revisions and recovery — 2026-11-15
+
+Continued after owner approval and continuation request. Read current status,
+PROGRESS/NEXT_STEPS and preserved all earlier uncommitted work. Added separate
+managed bank format2.0 without relaxing initial1.0 schemas or silently migrating
+them. Four additional packaged schemas bind workspace, record revision, HEAD and
+transaction. Existing validate/show dispatch to either supported format before
+Project construction. Added init/create/edit/history/diff/recover commands.
+
+Writer builds complete snapshots under staging, validates exact bytes and typed
+references, then renames the snapshot and atomically replaces HEAD.json. Old
+snapshots are unchanged. Nonblocking OS byte-lock/flock coordinates local writers;
+process exit releases locks without deleting the persistent lock file. Edit
+requires exact expected-revision. Reader follows one captured hash-bound HEAD
+through validated history. Recovery explicitly activates only a complete candidate
+whose parent still matches; incomplete/conflicting material remains untouched.
+History and diff retain old body bytes, metadata, revision actor and reasons.
+No human approval, real historical content, corpus/source change, network fetch,
+model API, cloud dependency, publication, commit or push was introduced.
+
+Added19 original offline storage tests: cross-process contention/release, abrupt
+os._exit before publication, failures at each file-write step, prepared-directory
+rename/HEAD replacement failures, old-state visibility during staging, recovery
+and idempotence/conflicts, parent/revision/immutable-field tampering, historical
+body tampering, limits, legacy non-migration and CLI lifecycle. Existing17 bank
+tests remain. Updated README, BANK_FORMAT/WORKFLOW, plan and next task.
+
+Actual commands/results using the existing hash-locked .venv:
+- Initial `python -m ruff check src tests` found one new import-order issue;
+  targeted `ruff check --fix src/jeb/bank tests/test_bank_storage.py` fixed two
+  import-order issues after tests were added. No unrelated files reformatted.
+- `python -m ruff format src/jeb/bank src/jeb/cli.py` and targeted test formatting
+  applied; final `python -m ruff check src tests`:passed.
+- `python -m ruff format --check src tests`:passed51 files.
+- `python -m jeb validate --stage schemas`:39 schemas passed.
+- `python -m unittest tests.test_bank_storage tests.test_bank -v`:36 tests in
+  7.248s,OK,1 skipped (OS disallowed real symlink creation; mocked guards pass).
+- `python -m unittest discover -s tests -v`:327 tests in203.257s,OK,1 skipped.
+- `python -m pip wheel --no-build-isolation --no-deps --no-index --wheel-dir
+  dist/bank-f2-package .`:success. Wheel SHA-256
+  500d0cae40078b8e6b66b840508bc4a494a2b38332f2665c7d9b275a99b0c7e4.
+- `python -m pip install --no-index --no-deps --target dist/bank-f2-installed
+  <wheel>`:success. Verified imports originate from that target, all four new
+  schemas are packaged, and installed parser/run lifecycle init/create/edit/
+  validate/show/history/diff/recover passes on temporary original data.
+- `git diff --check`, `git diff --exit-code -- config sources`:passed exit0.
+  `python -m jeb bank --help` lists all eight implemented operations.
+No web/library code changed; their tests/browser preview were not rerun.
+
+Limitations: full-copy history is capped at128 active snapshots/128MiB payload,
+not yet a scalable database. No backup/restore, migration, evidence assessments,
+index or bank UI. Locks assume cooperative local processes; no hostile-filesystem
+or network-filesystem guarantee. Windows power-loss durability is not promised.
+Failed early initialization may leave an incomplete new directory; it never
+overwrites an existing one. After a post-HEAD error inspect state before retrying
+create. Next small task: bounded committed-chain backup/restore to a new directory,
+excluding staging and locks, before valuable personal data; then F3 evidence.
+
+## Knowledge bank F0 / minimal read-only F1 — 2026-11-15
+
+Owner said to proceed with coding. Read current continuity/status first and
+preserved existing library/viewer edits, including batch16. Implemented a separate
+`jeb bank validate/show --bank-root ...` entry before Project construction: no
+biblical configuration required or corpus admission implied. Added packaged
+bank-workspace/bank-record schemas, bounded read-only snapshot reader and original
+temporary tests. Entity/source/article records bind workspace/record/revision IDs,
+typed article references and exact UTF-8 Markdown hashes. Duplicate JSON keys,
+unknown versions/fields, body tampering, unsafe directory names, links/junctions
+and size/count overruns fail closed. No URLs fetched; source references remain
+unverified metadata. Initial parent_revision must be null; no writer/history,
+bank UI, claim assessment or export functionality is claimed implemented.
+
+Added BANK_FORMAT.md, BANK_WORKFLOW.md with runnable original example, README
+entry and implementation-plan status. NEXT_STEPS names versioned revision and
+single-writer commit/recovery design as the next small slice. No historical text,
+owner approval, config/source change, push, release or publication was created.
+
+Environment and actual results:
+- `py -3.13 -m venv .venv`: success; existing Python observed as3.13.3.
+- `.venv/Scripts/python.exe -m pip install --require-hashes -r requirements.lock`:
+  success, exact locked dependencies installed without editing the lock.
+- `.venv/Scripts/python.exe -m pip install --no-build-isolation --no-deps -e .`:
+  success, one editable package/CLI.
+- `.venv/Scripts/python.exe -m ruff check src tests`: passed.
+- `.venv/Scripts/python.exe -m ruff format src/jeb/bank tests/test_bank.py`:
+  two files formatted; later `-m ruff format --check src tests` passed49 files.
+- `.venv/Scripts/python.exe -m jeb validate --stage schemas`:35 schemas passed.
+- `.venv/Scripts/python.exe -m unittest discover -s tests -v`:307 tests in194.610s,
+  OK,1 skipped (OS disallowed real symlink creation). This run loaded the original
+  16 bank tests before an extra mocked link/junction guard test was added.
+- Final `.venv/Scripts/python.exe -m unittest tests.test_bank -v`:17 tests in1.241s,
+  OK,1 skipped. Mocked symlink/junction guards both passed without OS privileges.
+- `.venv/Scripts/python.exe -m pip wheel --no-build-isolation --no-deps --no-index
+  --wheel-dir dist/bank-f1-package .`: success; wheel SHA-256
+  e03efd3f84cda079f278155c19f940e12322f1345f54729b014838a261382ab6.
+- Installed that wheel with `pip install --no-index --no-deps --target
+  dist/bank-f1-installed <wheel>`; verified import resolves under that target,
+  both new schema resources exist, and executed the exact documented Python
+  example with installed code:2 records,1 bound body,0 approvals. Example retained
+  outside repo at C:/Users/LovroPC/AppData/Local/Temp/jeb-bank-example-9plx8q9i.
+- `git diff --check`, `git diff --exit-code -- config sources`: passed exit0.
+  `jeb bank --help`: lists validate/show. Web tests not rerun: no web/library code
+  changed in this slice. No browser inspection claimed.
+
+Limitations: structural/integrity validation cannot prove content or actor identity;
+no protection against a hostile process racing filesystem reads; privacy labels
+are metadata, not authorization. Valuable data should wait for tested history,
+commit recovery and backup. Current full-suite total plus separately verified new
+guard case is308 tests; a second full run was unnecessary for that isolated test.
+
+## Personal library, sixteenth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status before work; preserved all existing edits
+and separate knowledge-bank proposal. Reviewed20 targets146–165, added16
+findings for15 newly represented works:153 findings for138 works. Enriched
+existing038 Hafiz2009 and039 Mesnevi2016/three physical volumes, without
+duplicate edition counts. See library/research/batch-16-review.md for all20
+outcomes, exact source URLs, access failures and edition limitations.
+Recorded Croatian Diogenes/Boethius/Cicero leads, Plotinus volume6 only,
+Haveric's Ibn Tufayl, Bucan's al-Maarri selection, Bosnian Khayyam/Attar/Rumi/
+Saadi candidates and institutional Ibn Arabi credit. Fihi1996 French-mediated
+and Drkic2011 editions separate. Invalid Attar retailer identifier not accepted
+as ISBN. Bosnian place of publication not treated as language evidence.
+Unresolved146,153,154. Five private files unchanged; no full acquisitions,
+source reconstruction, transliteration, corpus admission, approval or release.
+
+Actual commands/results: `npm run library:catalog` passed291 books/14 groups/
+153 findings. `npm run test:web` passed5/5,0 failures,140.6327ms. Node inventory
+and assertions confirmed153 findings/138 works,16 new observations/15 works,
+no new local_file,5 private files,3 unresolved IDs and2 enriched old findings.
+`git diff --check` and `git diff --exit-code -- config sources src tests`
+passed exit0. Python suites not rerun: no Python/schema/corpus changes.
+README counts and next library group166–185 updated, bank F0/F1 task preserved.
+No commit,push,release,server start or browser preview.
+
+## Personal library, fifteenth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status before continuing; preserved existing work
+and the separate knowledge-bank proposal. Reviewed20 targets126–145, added17
+findings for16 works (15 newly represented):137 findings for123 works.
+library/research/batch-15-review.md records all20 outcomes and source URLs.
+Aristotle Talanga/Ladan, Epicurus three verified component titles, Lucretius
+Tepes, Epictetus distinct editions, Aurelius Vujacic, Seneca distinct volumes/
+essays/translators, Musonius magazine selection and Sextus Grgic recorded.
+No third Epicurus letter inferred from Latin source title. Musonius article
+author not automatically promoted to translator; magazine date discrepancy
+retained. Seneca letters limited to1–81. Four unresolved targets130,132,144,145.
+Five private files unchanged; no new full acquisitions, approvals, corpus
+changes, reconstruction from memory, transliteration or publication.
+
+Actual commands/results: `npm run library:catalog` passed291 books/14 groups/
+137 findings. `npm run test:web` passed5/5,0 failures,144.0816ms. Node inventory
+and assertions confirmed137 findings/123 works,17 new observations/16 works,
+no new local_file,5 private files and the four unresolved IDs above.
+`git diff --check` and `git diff --exit-code -- config sources src tests`
+passed exit0. Python suites not rerun: no Python/schema/corpus code changes.
+README counts and separate library next group146–165 updated; bank F0/F1
+next task preserved. No commit,push,release,server start or browser preview.
+
+## Personal library, fourteenth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status,AGENTS and rights policy; preserved existing
+uncommitted work and separate knowledge-bank proposal. Reviewed20 targets106–125,
+added15 findings for15 works:120 findings for108 works. See
+library/research/batch-14-review.md for the20-row outcome matrix and exact URLs.
+Three haiku authors share one Croatian anthology; Takuan's sample establishes
+the requested essay and imprint credit Zvonimir Baretic despite retailer Zoran.
+Musashi NDL/publisher ISBN and page discrepancies retained. Heraclitus root text
+inside Mikecin commentary distinguished; Parmenides PDF418 and Menon publisher403
+recorded honestly. Plato translations retain individual translator versus
+editor/intro roles, and Plato/Xenophon same-title works are not conflated.
+Five targets unresolved; five private edition files unchanged, no new full text
+acquisition, automatic transliteration, corpus change, approval or publication.
+
+Actual commands/results: `npm run library:catalog` passed291 books/14 groups/
+120 findings. `npm run test:web` passed all5 tests,0 failures,137.5972ms.
+Node inventory/assertions confirmed120 findings/108 works,15 distinct new works,
+no new local_file and5 private files; unresolved109,110,111,112,115.
+`git diff --check` and `git diff --exit-code -- config sources src tests`
+passed exit0. Python suites not rerun: no Python/schema/corpus code changes.
+README and separate research next step updated to126–145; knowledge-bank F0/F1
+task preserved. No commit,push,release,server start or browser preview.
+
+## Personal library, larger thirteenth batch — 2026-11-15
+
+Owner asked for more work per turn. Read PROGRESS,NEXT_STEPS,git status;
+preserved all existing work, including the separate knowledge-bank coding plan.
+Reviewed20 targets086–105 and recorded their individual outcomes in
+library/research/batch-13-review.md. Added9 findings for8 new works: total105
+findings for93 works. Dao2020/2023 separated by ISBN; Merton/Baretic is a free
+interpretive selection and a12-page online sample, not full Zhuangzi. Daxue/
+Zhongyong share one Ethos2019 volume; Hojoki/Tsurezuregusa share one LOM2024
+volume via English Keene. Shonagon2022 explicitly a selection. Croatian Basho
+2000 has both translator credits and explicit Latin-script metadata. Twelve
+targets remain without qualifying findings; no claim their translations do
+not exist. Five private full-edition files unchanged, no new full acquisition.
+No historical text, model API, real approval, corpus admission or publication.
+
+Actual checks: `npm run library:catalog` passed, reported291 books/14 groups/
+105 findings. `npm run test:web` passed all5 tests,0 failures,154.646ms.
+Node inventory check returned105 findings/93 works, batch9 findings/8 works,
+5 private files. `git diff --check` and
+`git diff --exit-code -- config sources src tests` both passed (exit0).
+Python suites not rerun: no Python/schema/corpus code changed. Updated current
+library README counts and separate research next step106–125; preserved F0/F1
+knowledge-bank next task. No commit,push,release,server start or browser preview.
+
+## General knowledge-bank coding plan — 2026-11-15
+
+Owner requested a large coding plan for an open personal knowledge bank with
+evidence, retained assessment history, mixed media and reusable agent/project
+exports. Read PROGRESS/NEXT_STEPS/git status, repository instructions, package
+manifests, existing CLI/knowledge/server boundaries and rights policy. Preserved
+uncommitted work, including batch12 added while this plan was being written.
+Added docs/KNOWLEDGE_BANK_IMPLEMENTATION_PLAN.md: separate proposed bank namespace,
+15 phases F0–F14, data model, revision/recovery, private projections, offline agent
+proposals, media, export/import and backup/restore. Documentation only: described
+commands/schemas/features are not implemented. No corpus, approval or dependency
+change. Next small task is format specification/minimal read-only validation.
+
+Actual checks: `git diff --check` passed (exit 0); `git diff --exit-code -- config
+sources src tests` passed (exit 0). PowerShell phase count returned15; plan length
+516 lines. Python/web suites not rerun: no executable/schema/catalogue/UI changes
+in this task. No commit, push, publication or real historical claim was created.
+
+## Personal library, twelfth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status. Added3 catalogue observations for2 works,
+now96 findings for85 works; five private files unchanged. Huangbo2004 and1986
+editions separate; Xinxin Ming Osho commentary not root text. Platform/Linji
+unresolved. Existing uncommitted work preserved. See batch-12-review.md for
+exact URLs and access depths; no language/script inferred from location or
+catalogue script, no bypass of access challenges, no new full acquisition.
+Commands: npm run library:catalog passed291/14/96; npm run test:web all5 passed.
+git diff --check and git diff --exit-code -- config sources src tests passed.
+No Python changes/checks, corpus admission, approval or publication.
+
+## Personal library, eleventh batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status; preserved work. Added3 candidates for3
+works, total93 findings for83 works; no new files. Explicitly distinguished
+catalogue credits from AI-translated preface description, indexed Heart Sutra
+from challenged live page, and Diamond Sutra English translator from unnamed
+regional translator. Vimalakirti unresolved. No bypass of403/access challenge.
+See batch-11-review.md for URLs, source depths, and quality limits.
+Commands/results: npm run library:catalog passed291/14/93; npm run test:web
+all5 passed. git diff --check and git diff --exit-code -- config sources src
+tests passed. No Python changes/checks, publication, approvals or corpus change.
+
+## Personal library, tenth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status; preserved work. Two new findings (MMK
+first-chapter bibliographic record, incomplete Ratnavali PDF), Milindapanha
+record corrected to explicitly abridged. Totals90 findings for80 works,five
+private files. Suhrllekha unresolved. See batch-10-review.md for sources and
+limits. No new downloads, full-language-search claim or inferred translator.
+Validation: npm run library:catalog passed291/14/90; npm run test:web all5
+passed. git diff --check and git diff --exit-code -- config sources src tests
+passed. No Python changes/checks, corpus admission, human approval or publication.
+
+## Personal library, ninth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status; preserved work. Added one shared PDF finding,
+now88 findings for78 works and five private files. Corrected Thera/Theri online
+records to explicitly selected excerpts and Itivuttaka HTML to introduction.
+Applied previously read PDF skill read-only: pdftotext and pdftoppm succeeded
+on actual Drive PDF; visually checked PDF3/4 notice and credits.224 PDF pages,
+221 inCIP, terminal section112 onPDF219. No full textual collation.
+Initial SER05 URL fetch404, subsequent extraction failed because file absent;
+normal public Drive download succeeded4389623bytes. Exact receipt/hash/limits
+in library/research/batch-09-review.md. Combined file counted once, no admission.
+
+Validation: npm run library:catalog passed291/14/88; npm run test:web all5 passed,
+139.6734ms. After final metadata-only introduction precision, catalog rebuilt.
+Node readFile/createHash verified new file size/hash; git check-ignore confirmed
+private file. git diff --check and git diff --exit-code -- config sources src
+tests passed. No Python changes/checks, publication, human approval or Git push.
+
+## Personal library, eighth batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status. Preserved uncommitted work. Added4 findings,
+now87 findings for78 works. Pancatantra Matisic1980 and1999 are separate editions,
+not separate translations; Hitopadesa unconfirmed. Two public PDFs linked by
+Srednji put acquired unchanged; now four private library copies. Detailed URLs,
+counts and SHA-256 in library/research/batch-08-review.md and downloads.json.
+Applied PDF skill read-only, no authoring marker. pdftotext -layout, pdfinfo and
+pdftoppm succeeded. Suttanipata PDF3/4 and Udana PDF3/4 visually inspected for
+notice/credits; an initial Udana PDF2 render showed title, then PDF4 was rendered
+to verify translator. Udana extraction80 headings, Suttanipata last verse1149;
+no full textual collation. Provider free-distribution labels not universal rights.
+
+Commands/results: node library/research/acquire-batch-08.mjs --private succeeded,
+2310579 and3131093 bytes; receipts recorded. npm run library:catalog passed
+(291 books,14 groups,87 findings); npm run test:web all5 passed,141.2178ms.
+node --check library/research/acquire-batch-08.mjs passed; download sizes/hashes
+verified with Node readFile/createHash. git check-ignore confirmed both PDFs;
+git diff --check and git diff --exit-code -- config sources src tests passed.
+No Python code changes/checks, corpus admission, approval, publication or push.
+Next small task in NEXT_STEPS: remaining early Buddhist collections.
+
+## Personal library, seventh research batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status; preserved uncommitted work. Executed16
+queries in4 web calls for Basava/ Akka Mahadevi Vacane and two Jain sutras.
+No qualifying regional edition confirmed. Stored exact queries and rejected
+candidate URLs in library/research/batch-07-review.md. No additions to findings
+or copies; totals remain83 findings for77 works and two private full files.
+Kept English/Czech texts, isolated mentions and different authors separate.
+Did not claim full language search, nonexistence, source reading or clearance.
+
+Validation: git diff --check passed; git diff --exit-code -- config sources
+src tests passed. Documentation-only batch; no application/Python tests rerun.
+No corpus, schema, source lock, approvals, publication or Git history changes.
+Next small batch recorded in NEXT_STEPS: Pancatantra/Hitopadesa/Suttanipata/Udana.
+
+## Personal library, sixth evidence batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status; preserved uncommitted work. Added4
+observations for4 works, total83 findings for77 works. Three are the same
+national CIP collection candidate, not independent translations or verified
+complete collections. Script/language/individual coverage unconfirmed. Bijak
+is a hosted introductory excerpt; regional translator unknown, no claim of
+human translation. Separate Mandic poetry collection not equated with Bijak.
+Exact URLs/access limitations in library/research/batch-06-review.md. No new
+download, publication, owner approval, scope or source-lock change.
+
+Commands/results: npm run library:catalog passed (291 books,14 groups,83 findings).
+npm run test:web all5 passed,139.5645ms. git diff --check passed;
+git diff --exit-code -- config sources src tests passed. No Python code/schema
+changes or Python checks. Next four works recorded in NEXT_STEPS.
+
+## Personal library, fifth evidence batch — 2026-11-15
+
+Read PROGRESS,NEXT_STEPS,git status; preserved uncommitted work. Added4 findings
+for4 new works, total79 observations for73 works; no new private full copies.
+See library/research/batch-05-review.md for exact URLs and access depths.
+Kept Mandukya research bibliography distinct from whole-work translation;
+Yoga Vasistha indexed136-page scan has named translators but uncertain coverage;
+Vijnana2025 retailers disagree205/191pp; Tirukkural is a short PDF61 excerpt
+with unknown translator. No nationality/language inferred from shop location.
+No access challenge bypass, automatic correction, model text or rights clearance.
+
+Commands/results: npm run library:catalog passed (291 books,14 groups,79 findings).
+npm run test:web all5 passed,138.8562ms. git diff --check passed;
+git diff --exit-code -- config sources src tests passed. No Python/schema/code
+changes or Python checks. No browser preview requested or performed. No commit,
+publication, corpus admission or human approval. Next: Bhartrhari and Kabir.
+
+## Personal library, fourth evidence batch — 2026-11-15
+
+Read PROGRESS, NEXT_STEPS, git status. Preserved all uncommitted work.
+Added5 observations for4 new works, total75 findings for69 works. Exact links,
+credits and limits in library/research/batch-04-review.md. No new downloads.
+Atmabodha credit Veljacic differs from Vivekacudamani Vuckovic/Antic; preserved
+individual credits and126-page PDF versus167-page CIP discrepancy. Avadhuta
+blog chapter headings I–VII confirmed, completeness unassessed. Croatian
+Astavakra1997 retailer record lacks translator and real publisher name.
+No inferred language from Lotos library location. PDF screenshot attempts
+returned no usable image payload; no visual verification claimed this batch.
+
+Commands/results: npm run library:catalog passed (291 books,14 groups,75 findings);
+npm run test:web all5 passed,165.4902ms. git diff --check passed;
+git diff --exit-code -- config sources src tests passed. No Python changes or
+new Python checks. No publication or change to source lock/scope/approvals.
+Next small task recorded in NEXT_STEPS: following four Indian works.
+
+## Personal library, third evidence batch — completed 2026-11-15
+
+Read PROGRESS, NEXT_STEPS and git status; preserved earlier uncommitted work.
+Research begun 2026-11-14: added 14 findings for 13 additional requested works,
+now 70 observations for 65 of 291 works. See library/research/batch-03-review.md.
+Babun publisher preview retained as metadata/contents evidence only, not ten
+whole works. Three Upanishads explicitly selections; printed Mandaka remains
+an unresolved identity candidate for Mundaka. Matica primary catalogue confirms
+Jezic's Croatian Aitareya edition. Yoga Turina remains link-only with restrictive
+rights; Kotarac indexed CC edition download failed TLS, alternative returned404.
+No TLS override, fabricated bytes, language priority or rights clearance.
+
+Actual acquisition commands/results (2026-11-14):
+- node library/research/acquire-batch-03.mjs --private: initial TLS error;
+  per-target error reporting then recorded two failures and publisher preview
+  success, 286906 bytes. Receipt batch-03-acquisition.json.
+- node library/research/acquire-samkhya.mjs --private: success, 810182 bytes,
+  hash dc8e8c0fa35c85828f44dbb6476e4531cc9482b7e54d67be36306ed93c3ca006.
+- pdftotext -layout and pdftoppm: success. Visually checked Babun PDF4–6,
+  Antic PDF2 notice and PDF31 end of Karika. Karika numbered1–71, PDF19–31;
+  separate Sutra startsPDF32. Modernized translation through English sources.
+  Receipt records private unchanged use only. Two private copies total.
+
+Validation (2026-11-15):
+- npm run library:catalog: success,291 books,14 groups,70 findings,291 searched.
+- npm run test:web: all5 tests passed,373.2025ms; added safeguards for selections,
+  unresolved title and failed download; checked each saved finding has receipt.
+- node --check library/research/acquire-batch-03.mjs: passed.
+- node --check library/research/acquire-samkhya.mjs: passed.
+- node --check web/library.js: passed. Copy label now supports PDF as well as HTML.
+- Node readFile/createHash verification of both downloads: sizes/hashes matched.
+- git diff --check: passed.
+- git diff --exit-code -- config sources src tests: passed, unchanged.
+- git check-ignore on Samkhya and publisher preview: both private paths ignored.
+Python checks not rerun: no Python/schema/corpus changes, prior hash-locked
+environment remains unavailable. No browser preview requested or performed.
+No publication, commit, scope extension or human approval. Next small task in
+NEXT_STEPS: four subsequent Indian works, with exact translators and coverage.
+
+## Personal library, second evidence batch — 2026-11-14
+
+Read PROGRESS, NEXT_STEPS and git status; preserved existing uncommitted work.
+Applied PDF skill read-only. Added 16 observations: seven TELEdisk 2002 contents
+and catalogue cross-checks, eight contents-only entries with unresolved imprint,
+and one visually verified Pirkei Avot opening excerpt. Current totals: 56
+observations / 52 requested works. No claims of full-text acquisition, best
+translation, exhaustive language search or rights clearance were inferred.
+
+Inspected institutional PDF Feministicka teologija, Futura publikacije 1999,
+edited by Svenka Savic (credits retain actual diacritics in library metadata).
+The web tool refused its 21368856-byte length. Bounded Node retrieval from the
+institutional host succeeded, 21368856 bytes, SHA-256
+d60cc36850de677338fe738ff196f560d88deb4f81a5b832495c3dc220b0dce7.
+Receipt: library/research/batch-02-evidence.json. Original PDF plus extraction
+and page PNGs stay under ignored library/private/evidence/. This is evidence
+for one truncated excerpt, not another selected complete-work download.
+pdftotext -layout and pdftoppm succeeded. Visual inspection: title PDF p3;
+Avot opening PDF p169 / printed p167; unrelated next article PDF p170.
+No excerpt transcription or translator was invented. First Python console print
+failed on cp1252; rerun with `python -X utf8` succeeded. Poppler emitted missing
+Symbol/ArialUnicode font warnings; the three relevant pages were image-inspected.
+
+The 897-page ivantic compilation contains several segments. Extracted contents
+of the TELEdisk segment and the later Gnostika segment were inspected online;
+imprint/translator for the latter remains unresolved, never silently equated
+with Demetra 2007. Screenshot calls did not produce inspectable images (one
+timeout); no visual verification of that remote file is claimed. No local full
+mirror PDF acquisition. Asclepius 21-29 remains partial. Cyrillic Sekstove
+izreke 2019 was rejected as a Latin-selection candidate; no transliteration.
+Jevrejska digitalna biblioteka human-verification gate was not bypassed.
+Detailed findings and limitations: library/research/batch-02-review.md.
+
+Added bounded status distinctions online_excerpt / contents_lead in catalogue
+builder and viewer, plus evidence links and edition identity notes. This keeps
+partial/unbound evidence distinct from online full-work routes and identified
+editions. No Python code/schema, config, source lock, corpus, synthetic fixtures,
+human decisions or publication behavior changed. No contact, purchase or push.
+Validation: `npm run library:catalog` returned 291 books / 14 groups / 56 findings;
+`npm run test:web` passed all 4 tests in 382.428 ms. `node --check web/library.js`,
+`git diff --check` and `git diff --exit-code -- config sources src tests` passed
+(exit 0). `git check-ignore` confirmed the anthology PDF is private/ignored.
+No Python suite was rerun because Python source and schemas were unchanged.
+
+## Personal research library — 2026-11-14
+
+Read PROGRESS/NEXT_STEPS/git status; preserved the uncommitted local viewer.
+Owner supplied 291 titles with attributions in 14 groups after asking for online
+discovery and organised project storage, prioritising Herzegovinian/regional,
+Bosnian, Croatian, Montenegrin, then Serbian Latin. Recorded the complete request
+separately under library/. No new biblical book IDs, source admission, editorial
+approval or publication authority was inferred. Existing five-book config and
+empty production lock remain unchanged. No corpus/synthetic fixture was modified.
+
+Ran a broad discovery pass: 73 calls with up to four queries, all 291 titles
+represented. Saved query-to-book identities and 1,595 result-title/URL leads in
+library/research/searches.json, omitting signed/token query URLs. Results are
+shared at the batch level, contain noise and are explicitly unreviewed. The
+combined language queries do not exhaust every language priority. No declaration
+that missing translations do not exist or that a best translation was selected.
+
+Added 40 inspected metadata/page observations for 39 requested works, including
+16 KS chapter links, Buddhist texts/indices, identified Croatian translations,
+and Bosnian institutional/catalogue leads. Null translator/edition/language
+fields remain unresolved. Coverage notes retain selections, collections,
+revised texts and commentary distinctions. Modern copyrighted texts remain links.
+Search hits, library catalogues and publisher pages are not source rights clearance.
+
+Actually downloaded only the free-distribution-labelled Dhammapada/Put
+ispravnosti HTML by Čedomil Veljačić from Srednji put, fixed URL, redirect refusal,
+timeout/size bound and unchanged bytes. 236222 bytes; SHA-256
+45a11d52548e9b7a189f9e431616dcb68a601a1c4e45b6beb3dae18e15a3b72c.
+Provider notice: "Samo za besplatnu distribuciju, kao dar Dhamme". Original credit
+and HTML retained in ignored library/private/, outside corpus/reader/archives
+and web access. Receipt in library/research/downloads.json records private-only
+use, no publication clearance and no independent textual/rights assessment.
+No other full work was downloaded; no purchase, contact, login or bypass.
+
+The bounded read-only viewer now opens on Moja biblioteka: search, category/status
+filters, 291 separate entries, checked metadata, external links and separately
+expandable unreviewed batch leads. Safe DOM text rendering, HTTPS-only outgoing
+links, no new third-party dependency. Private files remain unserved. The existing
+project overview/docs and Python CLI remain available. No browser verification
+was performed on this turn; earlier preview availability was false.
+
+Actual commands/results: `node library/build-catalog.mjs` returned 291 books,
+14 groups, 40 findings, 291 searched; `node library/download-dhammapada.mjs
+--private` succeeded with the receipt above. `npm run test:web` passed all 3
+offline integration/data checks (199.0087 ms), including retained request lines,
+duplicate-title separation, query coverage, empty production lock and private
+access denial. `node --check web/app.js` and `node --check web/library.js` passed;
+`git diff --check` passed including the final notes. Final regression passed all
+3 tests again (136.8565 ms); unchanged config/sources diff returned exit 0, and
+git check-ignore confirmed the private HTML is ignored. Non-Latin discovery
+headlines were replaced by neutral Latin labels with original URLs, without
+transliteration; an additional assertion protects the Latin display boundary.
+No Python code/schemas changed; no Python suite rerun in the missing .venv.
+No commit, push, release, model API, cloud dependency or sharing was performed.
+
+Latest local UI addition: 2026-11-14. Owner explicitly asked for a useful visual
+interface with `npm run dev` / HTML/CSS. Added a bounded, optional read-only
+Node standard-library server and plain browser UI under `web/`, plus private
+root package.json scripts. No dependency install, Python package/schema change,
+new source, editorial decision or publication. Production locks/gates unchanged.
+The four pages show orientation, dated source findings, language direction and
+ten allowlisted documents. Search reads document content; the dialog provides
+heading navigation and literal safe-text rendering. The source count is read
+from sources/lock.json, not inferred clearance. Private evidence, corpus,
+synthetic data and reviewer writes are not exposed. Server binds loopback and
+rejects foreign Host/Origin headers and non-GET methods. Symlink containment
+is checked before reading allowlisted files. Node v24.11.1 / npm 11.6.2 observed.
+
+Actual commands/results:
+- `npm run test:web`: initial run failed the foreign-Host assertion because
+  Node fetch did not transmit the overridden Host header. Replaced that request
+  with raw Node http.get; rerun passed (1 integration test, including ten
+  documents, home page, private/traversal denial, write/Origin/Host refusal).
+- `node --check web/app.js`: passed, exit 0.
+- `git diff --check`: passed, exit 0, including final documentation edits.
+- `npm run dev`: original 5173 port was occupied; changed default to 5187.
+  Watch restart successfully printed http://127.0.0.1:5187; owned server stopped.
+- Host preview status returned available:false. No browser rendering, mobile
+  layout or interaction verification claimed. Manual browser QA remains next.
+
+Earlier attempt to run `.venv/Scripts/python.exe` during project orientation
+failed because that interpreter is absent in this checkout. No Python tests
+were rerun; the recorded 291-test baseline is historical, not today's result.
+No install or environment repair was attempted. Git was clean before this work.
+No commit, push, contact, release, model API, or cloud dependency was introduced.
+This optional viewer does not change the single installable Python package/CLI.
+
 Latest continuation: human terminal use is simplified with `.\jeb.cmd` / `jeb
 work`, a numbered menu, status/source blockers, saved-work selection without
 copying hashes, immutable reports/pager, explicit demo switching and one-command

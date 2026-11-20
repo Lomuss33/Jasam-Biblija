@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text proposed relation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "record_type", "from_id", "to_id", "relation", "status", "evidence"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "id": {"$ref": "#/$defs/id"},
+    "record_type": {"const": "relation"},
+    "from_id": {"$ref": "#/$defs/id"},
+    "to_id": {"$ref": "#/$defs/id"},
+    "relation": {"enum": ["version_of", "same_as_candidate", "mentions", "portrays", "located_in", "participates_in", "parallel_to", "similar_to", "contradicts"]},
+    "status": {"enum": ["proposed", "supported", "needs_review", "rejected"]},
+    "confidence": {"enum": ["low", "medium", "high"]},
+    "evidence": {"type": "array", "maxItems": 100, "items": {"$ref": "#/$defs/evidence"}},
+    "notes": {"type": "string", "maxLength": 4000}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,199}$"},
+    "evidence": {"type": "object", "additionalProperties": false, "required": ["kind", "value"], "properties": {"kind": {"enum": ["artifact", "record", "external_reference"]}, "value": {"type": "string", "minLength": 1, "maxLength": 4000}}}
+  }
+}

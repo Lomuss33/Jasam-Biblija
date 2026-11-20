@@ -1,0 +1,35 @@
+{
+  "$id": "urn:jeb:schema:source-candidate-batch:1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "batch_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$"},
+    "query": {"type": "string", "minLength": 1, "maxLength": 500},
+    "jurisdictions": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[A-Z]{2}$"}
+    },
+    "captured_at": {"type": "string", "format": "date"},
+    "candidates": {
+      "type": "array", "minItems": 1, "maxItems": 100,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$"},
+          "url": {"type": "string", "format": "uri", "pattern": "^https://", "maxLength": 2048},
+          "title": {"type": "string", "minLength": 1, "maxLength": 500},
+          "provider": {"type": "string", "minLength": 1, "maxLength": 300},
+          "access_date": {"type": "string", "format": "date"},
+          "rights_state": {"enum": ["unknown", "provider_claim", "evidence_found", "blocked"]},
+          "rights_basis": {"type": "string", "minLength": 1, "maxLength": 1500},
+          "notes": {"type": "string", "minLength": 1, "maxLength": 2000},
+          "content_acquired": {"const": false}
+        },
+        "required": ["candidate_id", "url", "title", "provider", "access_date", "rights_state", "rights_basis", "notes", "content_acquired"]
+      }
+    }
+  },
+  "required": ["schema_version", "batch_id", "query", "jurisdictions", "captured_at", "candidates"]
+}

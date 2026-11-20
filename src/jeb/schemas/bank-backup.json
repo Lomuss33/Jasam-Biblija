@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Committed private bank backup v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bank_format",
+    "scope",
+    "privacy",
+    "created_at",
+    "workspace_id",
+    "head",
+    "schema_hashes",
+    "files"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "bank_format": {
+      "const": "2.0"
+    },
+    "scope": {
+      "const": "committed_bank_only"
+    },
+    "privacy": {
+      "const": "private_backup"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "workspace_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "head": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transaction_id",
+        "manifest_sha256"
+      ],
+      "properties": {
+        "transaction_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "schema_hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bank-workspace",
+        "bank-workspace-v2",
+        "bank-record-v2",
+        "bank-head",
+        "bank-transaction",
+        "bank-backup"
+      ],
+      "properties": {
+        "bank-workspace": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bank-workspace-v2": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bank-record-v2": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bank-head": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bank-transaction": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bank-backup": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "bytes",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "maxLength": 250
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1048576
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

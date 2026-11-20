@@ -1,0 +1,161 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_type",
+    "schema_version",
+    "synthetic",
+    "releasable",
+    "view_ref",
+    "request_id",
+    "kind",
+    "passage_id",
+    "text",
+    "anchor",
+    "target_id",
+    "edit_record_id",
+    "expected_revision"
+  ],
+  "properties": {
+    "document_type": {
+      "const": "reading_item"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "synthetic": {
+      "const": true
+    },
+    "releasable": {
+      "const": false
+    },
+    "view_ref": {
+      "$ref": "#/$defs/reference"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "kind": {
+      "enum": [
+        "note",
+        "highlight",
+        "connection"
+      ]
+    },
+    "passage_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,59}$"
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "anchor": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/anchor"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,59}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "edit_record_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "expected_revision": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private reading note, highlight or proposed connection v1",
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "revision_id",
+        "record_sha256",
+        "body_sha256"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "body_sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "exact"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "exact": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      }
+    }
+  }
+}

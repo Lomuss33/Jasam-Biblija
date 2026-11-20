@@ -1,0 +1,559 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Persistent unreviewed knowledge-bank records v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "workspace_id",
+    "id",
+    "kind",
+    "title",
+    "created_at",
+    "recorded_by",
+    "revision_id",
+    "parent_revision",
+    "body_sha256",
+    "visibility",
+    "processing_state",
+    "data",
+    "revised_at",
+    "reason"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "workspace_id": {
+      "$ref": "#/$defs/id"
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "kind": {
+      "enum": [
+        "entity",
+        "source",
+        "article",
+        "claim",
+        "evidence"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recorded_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "kind": {
+          "enum": [
+            "human",
+            "agent",
+            "tool"
+          ]
+        }
+      }
+    },
+    "revision_id": {
+      "$ref": "#/$defs/id"
+    },
+    "parent_revision": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "body_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "visibility": {
+      "enum": [
+        "private",
+        "shared",
+        "public_candidate"
+      ]
+    },
+    "processing_state": {
+      "enum": [
+        "inbox",
+        "organized",
+        "researched"
+      ]
+    },
+    "data": {
+      "type": "object"
+    },
+    "revised_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "entity"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/entity"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "source"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/source"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "article"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "body_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "data": {
+            "$ref": "#/$defs/article"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "claim"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "body_sha256": {
+            "const": null
+          },
+          "data": {
+            "$ref": "#/$defs/claim"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "evidence"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "body_sha256": {
+            "const": null
+          },
+          "data": {
+            "$ref": "#/$defs/evidence"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "optional_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_type"
+      ],
+      "properties": {
+        "entity_type": {
+          "enum": [
+            "person",
+            "place",
+            "event",
+            "organization",
+            "concept",
+            "work"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "creator",
+        "translator",
+        "edition",
+        "url",
+        "accessed_at",
+        "limitations"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "book",
+            "document",
+            "webpage",
+            "interview",
+            "other"
+          ]
+        },
+        "creator": {
+          "$ref": "#/$defs/optional_text"
+        },
+        "translator": {
+          "$ref": "#/$defs/optional_text"
+        },
+        "edition": {
+          "$ref": "#/$defs/optional_text"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 4000
+        },
+        "accessed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        }
+      }
+    },
+    "article": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subjects",
+        "sources"
+      ],
+      "properties": {
+        "subjects": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "sources": {
+          "type": "array",
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "revision_id",
+        "record_sha256",
+        "body_sha256"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "body_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "statement",
+        "category",
+        "limitations",
+        "review_state"
+      ],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/reference"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "category": {
+          "enum": [
+            "source_statement",
+            "historical_claim",
+            "interpretation",
+            "personal_reflection",
+            "fiction"
+          ]
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "review_state": {
+          "const": "unreviewed"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim",
+        "source",
+        "relation",
+        "locator",
+        "rationale",
+        "limitations",
+        "review_state"
+      ],
+      "properties": {
+        "claim": {
+          "$ref": "#/$defs/reference"
+        },
+        "source": {
+          "$ref": "#/$defs/reference"
+        },
+        "relation": {
+          "enum": [
+            "supports",
+            "contradicts",
+            "contextualizes",
+            "mentions"
+          ]
+        },
+        "locator": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "start",
+                "end",
+                "exact"
+              ],
+              "properties": {
+                "type": {
+                  "const": "text_span"
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1048576
+                },
+                "end": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1048576
+                },
+                "exact": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 16000
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "pdf_page",
+                "printed_page",
+                "note"
+              ],
+              "properties": {
+                "type": {
+                  "const": "page"
+                },
+                "pdf_page": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 1000000
+                },
+                "printed_page": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "label",
+                "note"
+              ],
+              "properties": {
+                "type": {
+                  "const": "section"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "start_ms",
+                "end_ms",
+                "note"
+              ],
+              "properties": {
+                "type": {
+                  "const": "time_range"
+                },
+                "start_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "end_ms": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                }
+              }
+            }
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "review_state": {
+          "const": "unreviewed"
+        }
+      }
+    }
+  }
+}

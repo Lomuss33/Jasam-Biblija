@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical pipeline published snapshot v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "snapshot_id", "workspace_id", "synthetic", "releasable", "checkpoint_sha256", "files", "extractions"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "snapshot_id": {"type": "string", "format": "uuid"},
+    "workspace_id": {"type": "string", "format": "uuid"},
+    "synthetic": {"type": "boolean"},
+    "releasable": {"const": false},
+    "checkpoint_sha256": {"$ref": "#/$defs/hash"},
+    "files": {
+      "type": "object", "additionalProperties": false,
+      "required": ["registry.json", "index.json", "groups.json", "dossiers.json"],
+      "properties": {
+        "registry.json": {"$ref": "#/$defs/hash"}, "index.json": {"$ref": "#/$defs/hash"},
+        "groups.json": {"$ref": "#/$defs/hash"}, "dossiers.json": {"$ref": "#/$defs/hash"}
+      }
+    },
+    "extractions": {"type": "array", "maxItems": 5000, "items": {"type": "object", "additionalProperties": false, "required": ["artifact_id", "cache_sha256"], "properties": {"artifact_id": {"type": "string", "minLength": 1, "maxLength": 200}, "cache_sha256": {"$ref": "#/$defs/hash"}}}}
+  },
+  "$defs": {"hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

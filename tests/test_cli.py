@@ -23,10 +23,18 @@ class CliTests(WorkspaceTest):
         self.assertIn("batch", result.stdout)
         self.assertNotIn("epub", result.stdout)
 
+    def test_historical_status_is_read_only_and_reports_unconfigured_layers(self):
+        result = self.cli("historical", "status")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        payload = json.loads(result.stdout)
+        self.assertTrue(payload["read_only"])
+        self.assertEqual(payload["status"], "blocked")
+        self.assertEqual(len(payload["blockers"]), 4)
+
     def test_all_packaged_schemas_validate(self):
         result = self.cli("validate", "--stage", "schemas")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout)["valid_schemas"], 33)
+        self.assertEqual(json.loads(result.stdout)["valid_schemas"], 62)
 
     def test_production_audit_is_successful_inspection_without_clearance(self):
         result = self.cli("sources", "audit", root=REPO, synthetic=False)

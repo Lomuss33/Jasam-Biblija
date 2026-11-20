@@ -1,5 +1,51 @@
 # Ja sam jasna biblija (JSB)
 
+**Product direction, 2026-11-19:** one private reading and research desk for books,
+their context, explanations, evidence, characters and related stories. Usability
+and clear navigation now lead the delivery plan. See the
+[reading-desk product brief](docs/READING_DESK_PRODUCT_DIRECTION.md) for the
+owner-stated direction, recorded preferences and the proposed first
+book-to-evidence-to-connection journey. The owner has now selected
+[John 9 as the first usability pilot](docs/JOHN_9_READING_DESK_PILOT.md): library
+and search together, desktop side-by-side text/explanation, expandable evidence
+and connections, switchable English/Bosnian-Herzegovinian, and private notes,
+highlights and suggested connections in the first usable version. Textual
+witnesses and independent historical evidence will be distinct categories.
+The local interaction prototype now implements that reading flow and saved
+private tools on original synthetic stories. John 9 remains a planned research
+destination with no admitted text or sourced explanations; the prototype does
+not manufacture those contents.
+
+After the existing Python setup below, run:
+
+```powershell
+npm run reading:demo -- --synthetic
+```
+
+On Windows you can instead double-click [start-reading-demo.cmd](start-reading-demo.cmd)
+in the project folder. Follow the [first-session guide](docs/READING_DESK_FIRST_SESSION.md)
+for a 10-minute walkthrough; the bilingual guide is also available at the top of
+the reading desk under **How to use this desk / Kako koristiti stol**.
+
+Open **http://127.0.0.1:5187/#desk**. The command creates the isolated example only
+if missing; otherwise it validates and reopens it with existing private items
+preserved. It installs nothing and changes no production source status. Stop
+with Ctrl+C; `PORT` can select another loopback port. Use either invented story
+to exercise reading, evidence, connections, notes, highlights and suggestions.
+John 9 supports a private topic note; highlighting requires actual available text.
+The English/Bosnian-Herzegovinian switch leaves source text and your notes intact.
+The writing editor stays beside the source. Unfinished drafts recover after a
+refresh in the same browser tab when storage is available; **Save privately**
+keeps the finished item in the bank. Home search also finds your notes and quoted
+highlights under **My saved reading work**, with links back to the passage.
+Click a saved highlight to open its comment beside the source. **Ctrl+Enter**
+saves from the editor. Conflicting edits can be compared and explicitly saved as
+separate private items, preserving the newer saved version.
+When a reading view changes or removes a passage, the original draft remains
+reachable with its quote and recorded credits. The recovery panel can download
+that private draft or prepare a separate note on a current passage, without
+moving the old highlight. Unknown save outcomes remain locked for exact retry.
+
 An independent, noninstitutional **selected collection**: Genesis/Postanak
 (`GEN`), Matthew (`MAT`), Mark (`MRK`), Luke (`LUK`), John (`JHN`). The intended
 text is an independently edited modernization of a verified historical
@@ -12,6 +58,127 @@ corpus; zero admitted real verses and zero owner text approvals.** Private sourc
 investigations do not count as admitted coverage. The software demonstration
 uses four explicitly invented segments, never scripture generated from memory.
 Read [PROGRESS.md](PROGRESS.md) and [NEXT_STEPS.md](NEXT_STEPS.md) when resuming.
+
+## Personal knowledge-bank foundation
+
+New banks may explicitly select `bank init --format 3.0` for persistent unreviewed
+claim/evidence records with exact historical revision references. Existing2.0
+banks remain unchanged and the default stays2.0. `bank reference` and
+`bank evidence links` expose pinned versions and whether support applies to the
+current claim. Both managed formats have private backup/restore support.
+See [persistent evidence workflow](docs/BANK_PERSISTENT_EVIDENCE.md).
+
+The separate personal bank supports `jeb bank init/create/edit`, revision
+`history/diff`, interrupted-write `recover`, and `validate/show`, all with an
+explicit `--bank-root` directory. Managed format 2.0 uses immutable full snapshots
+and an atomic HEAD pointer, with a process lock and expected-revision conflicts.
+Entity/source/article records have strict schemas, typed references and body
+hash checks. Initial format 1.0 remains read-only with no automatic migration.
+This does not admit sources into the biblical corpus. Evidence assessment,
+selected-content export and general bank editing in the browser remain future
+phases. The bank viewer is read-only; the separate synthetic reading desk supports
+only the private reading tools described above.
+Private `bank backup/backup-verify/restore` now preserve the committed chain;
+see [backup instructions and limits](docs/BANK_BACKUPS.md). Full-copy history
+currently has protective limits of 128 snapshots and 128 MiB of history payload.
+`bank evidence prepare/validate/inspect` now supports separate unreviewed claim
+and evidence packets bound to exact2.0 record revisions and HEAD. Text spans
+are checked against local source bodies; page/section/time locators remain
+declared only. These private drafts are outside the canonical bank and its
+backups; see [evidence workflow and original example](docs/BANK_EVIDENCE.md).
+See [bank workflow and original example](docs/BANK_WORKFLOW.md),
+[format](docs/BANK_FORMAT.md), [v2→v3 dry-run contract](docs/BANK_MIGRATION.md)
+and [implementation plan](docs/KNOWLEDGE_BANK_IMPLEMENTATION_PLAN.md). For a
+first local bank session, use the [bank quickstart](docs/BANK_QUICKSTART.md).
+The initial Catholic Bible knowledge-bank pilot is scoped in
+[BANK_CATHOLIC_BIBLE_PILOT.md](docs/BANK_CATHOLIC_BIBLE_PILOT.md).
+
+## Optional local visual workspace
+
+The viewer now opens on **Stol za čitanje / Reading desk**, with library and
+prominent search together. **Moja biblioteka** retains the owner's separate 291-item
+research inventory, with category/status filters, title/author/translator search,
+reviewed edition links and explicitly unreviewed discovery leads. See
+[library notes](library/README.md) for actual acquisition counts and limitations.
+This does not expand the five-book edition. Personal-library downloads stay
+private and are not served by the viewer.
+
+With Node.js 22+ installed, run from this repository:
+
+```powershell
+npm run dev
+```
+
+Open **http://127.0.0.1:5187**. No npm install is needed: the optional viewer
+uses only Node's standard library and plain HTML/CSS/JavaScript. Stop with Ctrl+C.
+Set `PORT` if needed (PowerShell: `$env:PORT = '5188'`).
+
+The read-only interface also provides project orientation, the production lock entry
+count, dated source-research summaries, language direction and ten selected
+documents with full-content search and section navigation. Refresh to reread
+changed project files. Markdown is shown as safe text with heading/code styling;
+inline formatting and tables retain their original notation. By default it does
+not load private evidence, historical scripture, proposals, approvals or the
+synthetic workspace. The separate opt-in views below expose only their documented
+data. It cannot validate source eligibility or replace the Python CLI.
+By default these views write no files. The explicit synthetic reading-demo
+launcher additionally enables only the bounded private reading-item endpoint;
+existing bank, historical and document routes remain read-only. Nothing is
+published. The server binds only to loopback.
+The Python package and its hash-locked environment remain independent.
+
+## Optional local knowledge-bank view
+
+To view an existing private managed bank in the local read-only interface, set
+`JEB_BANK_ROOT` before starting the server:
+
+```powershell
+$env:JEB_BANK_ROOT = 'C:\moja-baza-znanja'
+npm run dev
+```
+
+The **Baza znanja** page lists current entity/source/article/claim/evidence
+records and opens their stored metadata/body as safe text. For v3 claims and
+evidence it shows typed subject/source/claim relationships, relation labels,
+revision status and a bounded history summary; related records can be opened
+through local safe links. Records can also be filtered by entity, source,
+article, claim or evidence. The bank is not enabled unless `JEB_BANK_ROOT` is
+explicitly set; the viewer has no write route, does not expose the repository
+root, serves no historical body bytes through the history summary, and never
+serves the bank through the public network.
+
+Run the local server access checks with `npm run test:web`.
+
+## Historical processing and dossier queries
+
+The local historical pipeline now processes bounded artifact batches, resumes
+interrupted jobs and publishes complete hash-bound snapshots. CLI and the
+optional viewer share the Python validation/query implementation. Queries return
+proposal groups, exact projection offsets, editions and contributor credits;
+they do not merge identities or approve sources.
+
+After the Python setup below, create an isolated original fixture at a **new**
+path, then query its invented label:
+
+```powershell
+.\.venv\Scripts\python.exe -m jeb --synthetic historical demo --workspace dist/historical-synthetic-demo
+.\.venv\Scripts\python.exe -m jeb --synthetic historical dossier --workspace dist/historical-synthetic-demo/pipeline --query Luma
+```
+
+If that directory already exists, inspect it with the second command or choose
+a new demo destination. The fixture is marked synthetic and unreleasable; it
+contains three readable artifacts, one missing file and one invalid UTF-8 file.
+Real-source extraction remains blocked by `source_review_required` before opening
+source bytes. Never use `--synthetic` on historical material. See the
+[pipeline guide](docs/HISTORICAL_TEXTS_PIPELINE.md) for incremental steps,
+retries, limits, locator semantics, CLI/API errors and explicit viewer opt-in.
+
+New synthetic PDF tasks retain the exact bounded UTF-8 projection in a separate
+v2 extraction cache. `historical projection-verify --workspace ... --cache-sha256
+...` checks its hash and literal spans without reopening the PDF or invoking the
+tool. Existing v1 caches stay unchanged and explicitly report that projection
+bytes were not retained. This preserves projection evidence, not the source PDF
+or source eligibility; see the retention contract in the pipeline guide.
 
 ## Everyday use in the repository terminal
 

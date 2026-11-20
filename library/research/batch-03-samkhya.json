@@ -1,0 +1,17 @@
+{
+  "book_id": "book-048",
+  "source_url": "https://www.ivantic.info/Moje_knjige/Sankhya_karika_i_Sutra.pdf",
+  "file": "library/private/samkhya-antic-2017.pdf",
+  "retrieved_on": "2026-11-14",
+  "bytes": 810182,
+  "sha256": "dc8e8c0fa35c85828f44dbb6476e4531cc9482b7e54d67be36306ed93c3ca006",
+  "media_type": "application/pdf",
+  "translator": "Ivan Antić",
+  "edition_year": 2017,
+  "use": "private_personal_research_only",
+  "corpus_admitted": false,
+  "publication_cleared": false,
+  "notice_check": "PDF p2 visually inspected; copyright 2017 Ivan Antić, personal use only without changes",
+  "provider_distribution_notice": "Knjiga je besplatna za srpsko jezičko područje, može se neograničeno umnožavati samo za ličnu upotrebu, bez ikakvih izmena.",
+  "limitations": "Modernized adaptation through English sources; 264-page collection includes Karika numbered 1–71 on PDF pp19–31, then separate Sutra. No textual collation or best-translation assessment."
+}

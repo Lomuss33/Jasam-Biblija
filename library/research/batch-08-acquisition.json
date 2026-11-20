@@ -1,0 +1,28 @@
+[
+  {
+    "id": "suttanipata",
+    "source_url": "https://drive.google.com/file/d/1YqfrsWQnJq7FDP1KCLkKX3zObp43Mg1d/view?usp=sharing",
+    "file": "library/private/evidence/suttanipata-linked-pdf.pdf",
+    "bytes": 2310579,
+    "sha256": "47d8190235b37a1d28393fb1912aa6f5465ee8a726dfcca7ef38e6582ffb32ff",
+    "status": "downloaded",
+    "purpose": "unchanged_private_personal_library",
+    "retrieved_on": "2026-11-15",
+    "corpus_admitted": false,
+    "publication_cleared": false,
+    "notice_check": "PDF3 imprint/notice and PDF4 translator visually inspected"
+  },
+  {
+    "id": "udana",
+    "source_url": "https://drive.google.com/file/d/1MxRQ63zyU3aeyF7tw2sRWn1qd-bqRbdp/view?usp=sharing",
+    "file": "library/private/evidence/udana-linked-pdf.pdf",
+    "bytes": 3131093,
+    "sha256": "3ff8f04ef758b29f153f0ca0806037e91c42d8f58baf378bc554d1f6e9eed0be",
+    "status": "downloaded",
+    "purpose": "unchanged_private_personal_library",
+    "retrieved_on": "2026-11-15",
+    "corpus_admitted": false,
+    "publication_cleared": false,
+    "notice_check": "PDF3 notice and PDF4 translator/date visually inspected"
+  }
+]

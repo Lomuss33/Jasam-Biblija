@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text work registry record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "record_type", "title", "aliases", "status"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "id": {"$ref": "#/$defs/id"},
+    "record_type": {"const": "work"},
+    "title": {"type": "string", "minLength": 1, "maxLength": 500},
+    "aliases": {"type": "array", "maxItems": 100, "items": {"type": "string", "minLength": 1, "maxLength": 500}, "uniqueItems": true},
+    "status": {"enum": ["candidate", "identified", "needs_review", "confirmed"]},
+    "notes": {"type": "string", "maxLength": 4000}
+  },
+  "$defs": {"id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,199}$"}}
+}

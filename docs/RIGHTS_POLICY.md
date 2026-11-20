@@ -6,14 +6,12 @@ similarity score do not establish adaptation/distribution rights. Do not use
 synonym replacement, back-translation or stitching protected notes as a rights
 strategy. No tool promises legal immunity or worldwide public-domain status.
 
-The intended assessment scope is DE (maintainer), US (distribution infrastructure),
-BA, HR, RS, ME (intended readers). The first session inspected preliminary DE/US
-legal references. The follow-up adds HR's official act and BA/RS official
-general-term guidance; ME's official law link was located but its Word text was
-not inspected. No exact-artifact assessment is complete for any of these
-countries. The rest of the EU is not assessed. A release's documented scope must fit the configured jurisdiction
-list; do not silently narrow it to bypass unresolved rights. Software metadata
-does not prevent readers accessing a file outside that scope.
+The current assessment scope is **DE only**: the maintainer is in Hessen and the
+working GitHub repository is private. This is a project configuration, not a
+claim that a future public release is cleared in other countries. A public
+export needs its own release scope and rights gate. EU copyright is partly
+harmonised but remains territorial; this project does not use “EU” as one
+legal-clearance switch.
 
 German sections 64 and 69 supply the ordinary death-plus-70/calendar-year
 calculation; sections 23, 70 and 71 require attention to adaptations, qualifying
@@ -63,11 +61,28 @@ clear any rights. Registry, dossier checks and locks are never changed by this
 workflow. Contacting a provider is a separate action requiring explicit owner
 instructions; a research packet does not authorize sending its contents.
 
+Search/browser results may enter the neutral candidate inbox with `jeb sources
+candidates validate/import`. Candidate batches contain URL and provenance
+metadata only; `content_acquired` must remain false. `unknown`,
+`provider_claim`, `evidence_found` and `blocked` are workflow states, not legal
+conclusions. A candidate is never automatically promoted to `sources/registry`
+or passed to `fetch`; exact-edition identity, jurisdiction-specific evidence,
+human assessment and a reviewed lock remain mandatory.
+
 Keep raw bytes immutable locally with recorded checksums. Being Git-ignored or
 private does not authorize prohibited use. Track only eligible metadata,
 fixtures, approved editorial inputs and source snapshots where their permissions
 allow. Make approved build inputs recoverable in a permitted archive before
 release; reproducibility fails if only a vanished website had the file.
+
+Project storage default: always retain the canonical source link and its access
+metadata. When the exact artifact may legally be acquired and retained for the
+configured purpose and jurisdictions, acquire the file, record its exact
+edition, URL, size and SHA-256, and preserve it immutably. If acquisition or
+retention is prohibited, or the legal position is unresolved, retain the link
+and provenance only, record the blocking reason, and do not fetch or cache the
+bytes. “Link-only” is therefore an exception caused by a legal or evidentiary
+block, never the preferred storage mode.
 
 Protected contemporary translations, Dretar, TOB, Kršćanska sadašnjost,
 Jerusalem Bible, modern Šarić revisions and commercial editions are contextual

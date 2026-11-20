@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text artifact registry record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "record_type", "edition_id", "artifact_type", "status", "sha256"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "id": {"$ref": "#/$defs/id"},
+    "record_type": {"const": "artifact"},
+    "edition_id": {"$ref": "#/$defs/id"},
+    "artifact_type": {"enum": ["scan", "ocr", "transcription", "web_capture", "audio", "video", "metadata_only"]},
+    "uri": {"type": ["string", "null"], "maxLength": 4000},
+    "relative_path": {"type": ["string", "null"], "maxLength": 1000},
+    "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "status": {"enum": ["discovered", "private", "verified", "stale", "rejected"]},
+    "notes": {"type": "string", "maxLength": 4000}
+  },
+  "$defs": {"id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,199}$"}}
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text entity candidate groups v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "index_sha256", "normalization", "groups"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "index_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "normalization": {"const": "NFC + whitespace collapse + casefold; no transliteration"},
+    "groups": {"type": "array", "maxItems": 100000, "items": {"type": "object", "additionalProperties": false, "required": ["id", "normalized_key", "status", "surface_variants", "candidate_ids", "artifact_ids"], "properties": {"id": {"type": "string", "minLength": 1}, "normalized_key": {"type": "string", "minLength": 1}, "status": {"const": "proposed_same_surface"}, "surface_variants": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "candidate_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "artifact_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}}}}
+  }
+}

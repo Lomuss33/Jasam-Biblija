@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical artifact extraction checkpoint v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["artifact_id", "status", "reason", "candidates", "provenance"],
+  "properties": {
+    "artifact_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "status": {"enum": ["complete", "pending", "needs_review"]},
+    "reason": {"type": ["string", "null"], "maxLength": 200},
+    "candidates": {"type": "array", "maxItems": 10000, "items": {"type": "object"}},
+    "provenance": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/provenance"}]}
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["artifact_id", "source_sha256", "projection_sha256", "projection", "offset_unit", "adapter"],
+      "properties": {
+        "artifact_id": {"type": "string", "minLength": 1, "maxLength": 200},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "projection_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "projection": {"enum": ["source_utf8", "pdftotext_utf8"]},
+        "offset_unit": {"const": "unicode_code_points"},
+        "adapter": {"type": "string", "minLength": 1, "maxLength": 200}
+      }
+    }
+  }
+}

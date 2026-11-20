@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text entity candidate index v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "registry_sha256", "candidates", "pending"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "registry_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "candidates": {"type": "array", "maxItems": 100000, "items": {"$ref": "#/$defs/candidate"}},
+    "pending": {"type": "array", "maxItems": 100000, "items": {"type": "object", "additionalProperties": false, "required": ["artifact_id", "status", "reason"], "properties": {"artifact_id": {"type": "string", "minLength": 1}, "status": {"const": "pending"}, "reason": {"type": "string", "minLength": 1}}}}
+  },
+  "$defs": {
+    "candidate": {"type": "object", "additionalProperties": false, "required": ["schema_version", "id", "record_type", "artifact_id", "entity_type", "surface", "start", "end", "offset_space", "status", "evidence"], "properties": {"schema_version": {"const": "1.0"}, "id": {"type": "string", "minLength": 1}, "record_type": {"const": "entity_candidate"}, "artifact_id": {"type": "string", "minLength": 1}, "entity_type": {"const": "unknown"}, "surface": {"type": "string", "minLength": 1, "maxLength": 500}, "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1}, "offset_space": {"enum": ["source_utf8", "pdftotext_utf8"]}, "status": {"const": "proposed"}, "evidence": {"type": "object", "additionalProperties": false, "required": ["artifact_id", "projection", "start", "end", "exact"], "properties": {"artifact_id": {"type": "string", "minLength": 1}, "projection": {"enum": ["source_utf8", "pdftotext_utf8"]}, "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1}, "exact": {"type": "string", "minLength": 1, "maxLength": 500}}}}}
+  }
+}

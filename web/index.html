@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lokalni urednički pregled projekta Ja sam jasna biblija.">
+  <title>JSB · Radni prostor</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/reading.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Preskoči na sadržaj</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><span class="monogram">j.</span><span>Ja sam<br>jasna biblija</span></a>
+    <p class="eyebrow">UREĐIVAČKI RADNI PROSTOR</p>
+    <nav aria-label="Glavna navigacija">
+      <a href="#desk" data-page="desk">Stol za čitanje</a>
+      <a href="#collection" data-page="collection"><span>◎</span> Moja biblioteka</a>
+      <a href="#overview" data-page="overview"><span>01</span> Pregled</a>
+      <a href="#sources" data-page="sources"><span>02</span> Izvori i istraživanje</a>
+      <a href="#language" data-page="language"><span>03</span> Jezik i stil</a>
+      <a href="#library" data-page="library"><span>04</span> Dokumenti</a>
+      <a href="#knowledge" data-page="knowledge"><span>05</span> Baza znanja</a>
+      <a href="#historical" data-page="historical"><span>06</span> Entiteti i svjetovi</a>
+    </nav>
+    <div class="sidebar-foot"><span class="dot"></span> Lokalno · samo čitanje<p>Pet knjiga. Svaka promjena<br>sa svojim porijeklom.</p></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span>JSB <span class="slash">/</span> <span id="breadcrumb">Pregled</span></span><span class="local-label">OSOBNI RADNI PROSTOR</span></header>
+    <main id="main" tabindex="-1"><p role="status">Učitavam projekt…</p></main>
+    <footer>Nezavisan urednički projekt <span>GEN · MAT · MRK · LUK · JHN</span></footer>
+  </div>
+  <dialog id="reader" aria-labelledby="reader-title">
+    <div class="reader-toolbar"><div><span class="eyebrow">PROJEKTNA DOKUMENTACIJA</span><h2 id="reader-title"></h2></div><button id="close-reader" aria-label="Zatvori dokument">Zatvori ×</button></div>
+    <div class="reader-layout"><nav id="contents" aria-label="Sadržaj dokumenta"></nav><article id="document"></article></div>
+  </dialog>
+</body>
+</html>

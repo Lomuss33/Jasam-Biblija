@@ -1,0 +1,13 @@
+{
+  "name": "jsb-local-workspace",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node --watch web/server.mjs",
+    "reading:demo": "node web/reading-dev.mjs",
+    "test:reading:browser": "node --test web/reading.browser.test.mjs",
+    "test:web": "node --test web/server.test.mjs web/library.test.mjs web/reading.test.mjs",
+    "library:catalog": "node library/build-catalog.mjs"
+  }
+}

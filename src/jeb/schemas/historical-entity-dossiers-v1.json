@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text entity dossiers v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "groups_sha256", "index_sha256", "dossiers"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "groups_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "index_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "dossiers": {"type": "array", "maxItems": 100000, "items": {"$ref": "#/$defs/dossier"}}
+  },
+  "$defs": {
+    "dossier": {"type": "object", "additionalProperties": false, "required": ["id", "record_type", "status", "normalized_key", "surface_variants", "candidate_count", "sources", "locators"], "properties": {"id": {"type": "string", "minLength": 1}, "record_type": {"const": "entity_dossier"}, "status": {"const": "proposed"}, "normalized_key": {"type": "string", "minLength": 1}, "surface_variants": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "candidate_count": {"type": "integer", "minimum": 1}, "sources": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["artifact_id", "artifact_status", "edition_id", "edition_title", "work_id", "work_title"], "properties": {"artifact_id": {"type": "string", "minLength": 1}, "artifact_status": {"type": "string", "minLength": 1}, "edition_id": {"type": ["string", "null"]}, "edition_title": {"type": ["string", "null"]}, "work_id": {"type": ["string", "null"]}, "work_title": {"type": ["string", "null"]}}}}, "locators": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["candidate_id", "artifact_id", "projection", "start", "end", "exact"], "properties": {"candidate_id": {"type": "string", "minLength": 1}, "artifact_id": {"type": "string", "minLength": 1}, "projection": {"enum": ["source_utf8", "pdftotext_utf8"]}, "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1}, "exact": {"type": "string", "minLength": 1, "maxLength": 500}}}}}}
+  }
+}

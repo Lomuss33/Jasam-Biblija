@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical text edition registry record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "record_type", "work_id", "title", "language", "status", "rights_status"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "id": {"$ref": "#/$defs/id"},
+    "record_type": {"const": "edition"},
+    "work_id": {"$ref": "#/$defs/id"},
+    "title": {"type": "string", "minLength": 1, "maxLength": 1000},
+    "creators": {"type": "array", "maxItems": 100, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+    "contributors": {"type": "array", "maxItems": 100, "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+    "publication": {"type": "object", "additionalProperties": false, "properties": {"place": {"type": "string", "maxLength": 300}, "publisher": {"type": "string", "maxLength": 500}, "year": {"type": ["integer", "null"], "minimum": 1, "maximum": 9999}}},
+    "language": {"type": "string", "minLength": 1, "maxLength": 100},
+    "version_label": {"type": "string", "maxLength": 300},
+    "status": {"enum": ["candidate", "identified", "needs_review", "confirmed"]},
+    "rights_status": {"enum": ["unknown", "needs_review", "private_only", "public_domain_candidate", "cleared"]},
+    "notes": {"type": "string", "maxLength": 4000}
+  },
+  "$defs": {"id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,199}$"}}
+}

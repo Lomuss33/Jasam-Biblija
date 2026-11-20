@@ -18,7 +18,8 @@ from jeb.export import export, reader
 from jeb.fetch import fetch
 from jeb.knowledge import validate_knowledge
 from jeb.review import apply, report
-from jeb.search import build_index, search
+from jeb.search import build_index
+from jeb.search import search as project_search
 from jeb.source_assessment import inspect_source
 from jeb.sources import audit
 from jeb.sword_diagnostic import evaluate, validate_capture
@@ -34,6 +35,93 @@ def parser() -> argparse.ArgumentParser:
         "--synthetic", action="store_true", help="Explicitly allow an isolated synthetic workspace"
     )
     commands = cli.add_subparsers(dest="command", required=True)
+    reading = commands.add_parser("reading", help="Local synthetic reading desk and private items")
+    reading_commands = reading.add_subparsers(dest="reading_operation", required=True)
+    for operation in ("demo", "view", "save", "backup", "restore"):
+        command = reading_commands.add_parser(operation)
+        if operation != "restore":
+            command.add_argument("--bank-root", required=True, type=Path)
+        if operation == "backup":
+            command.add_argument("--output", required=True, type=Path)
+        if operation == "restore":
+            command.add_argument("--input", required=True, type=Path)
+            command.add_argument("--destination", required=True, type=Path)
+    bank = commands.add_parser("bank", help="Independent local knowledge-bank snapshots")
+    bank_commands = bank.add_subparsers(dest="bank_operation", required=True)
+    evidence = bank_commands.add_parser("evidence").add_subparsers(
+        dest="evidence_operation", required=True
+    )
+    command = evidence.add_parser("links")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("record_id")
+    for operation in ("prepare", "validate", "inspect"):
+        command = evidence.add_parser(operation)
+        command.add_argument("--bank-root", type=Path, required=True)
+        command.add_argument("--input", type=Path, required=True)
+        if operation == "prepare":
+            command.add_argument("--output", type=Path, required=True)
+            command.add_argument("--actor", required=True)
+            command.add_argument("--actor-kind", choices=("human", "agent", "tool"), required=True)
+    for operation in ("validate", "show"):
+        command = bank_commands.add_parser(operation)
+        command.add_argument("--bank-root", type=Path, required=True)
+        if operation == "show":
+            command.add_argument("record_id")
+    command = bank_commands.add_parser("init")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--title", required=True)
+    command.add_argument("--format", dest="bank_format", choices=("2.0", "3.0"), default="2.0")
+    command = bank_commands.add_parser("reference")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("record_id")
+    command.add_argument("--revision")
+    command = bank_commands.add_parser("search")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--query", required=True)
+    command = bank_commands.add_parser("migrate-plan")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--output", type=Path, required=True)
+    command = bank_commands.add_parser("migrate-plan-verify")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--input", type=Path, required=True)
+    command = bank_commands.add_parser("migrate-decision-validate")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--plan", type=Path, required=True)
+    command.add_argument("--input", type=Path, required=True)
+    command = bank_commands.add_parser("migrate-simulate")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--plan", type=Path, required=True)
+    command.add_argument("--input", type=Path, required=True)
+    command.add_argument("--synthetic", action="store_true", required=True)
+    command = bank_commands.add_parser("backup")
+    command.add_argument("--bank-root", type=Path, required=True)
+    command.add_argument("--output", type=Path, required=True)
+    command = bank_commands.add_parser("backup-verify")
+    command.add_argument("--input", type=Path, required=True)
+    command = bank_commands.add_parser("restore")
+    command.add_argument("--input", type=Path, required=True)
+    command.add_argument("--destination", type=Path, required=True)
+    for operation in ("create", "edit"):
+        command = bank_commands.add_parser(operation)
+        command.add_argument("--bank-root", type=Path, required=True)
+        command.add_argument("--input", type=Path, required=True)
+        command.add_argument("--body", type=Path)
+        command.add_argument("--actor", required=True)
+        command.add_argument("--actor-kind", choices=("human", "agent", "tool"), required=True)
+        command.add_argument("--reason", required=True)
+        if operation == "edit":
+            command.add_argument("record_id")
+            command.add_argument("--expected-revision", required=True)
+    for operation in ("history", "diff", "recover"):
+        command = bank_commands.add_parser(operation)
+        command.add_argument("--bank-root", type=Path, required=True)
+        if operation == "recover":
+            command.add_argument("--transaction")
+        else:
+            command.add_argument("record_id")
+            if operation == "diff":
+                command.add_argument("--from-revision", required=True)
+                command.add_argument("--to-revision", required=True)
     work = commands.add_parser("work", help="Human terminal menu and short everyday tasks")
     work.add_argument(
         "action",
@@ -74,6 +162,12 @@ def parser() -> argparse.ArgumentParser:
         sub.add_argument("--input", required=True, type=Path)
         if name == "report":
             sub.add_argument("--output", required=True)
+    candidates = sources.add_parser(
+        "candidates", help="Validate/import untrusted search results without acquiring content"
+    ).add_subparsers(dest="candidates_operation", required=True)
+    for name in ("validate", "import"):
+        sub = candidates.add_parser(name)
+        sub.add_argument("--input", required=True, type=Path)
     toolchain = commands.add_parser("toolchain").add_subparsers(dest="operation", required=True)
     toolchain.add_parser("validate").add_argument("--input", required=True, type=Path)
     sub = toolchain.add_parser("build")
@@ -177,6 +271,60 @@ def parser() -> argparse.ArgumentParser:
     sub = commands.add_parser("search")
     sub.add_argument("--source", required=True)
     sub.add_argument("--query", required=True)
+    historical = commands.add_parser(
+        "historical", help="Local historical registry, incremental pipeline and queries"
+    )
+    historical_commands = historical.add_subparsers(dest="historical_operation", required=True)
+    registry = historical_commands.add_parser("registry-build")
+    registry.add_argument("--input", required=True, type=Path)
+    registry.add_argument("--output", required=True, type=Path)
+    entities = historical_commands.add_parser("entity-index")
+    entities.add_argument("--registry", required=True, type=Path)
+    entities.add_argument("--root", required=True, type=Path)
+    entities.add_argument("--output", required=True, type=Path)
+    groups = historical_commands.add_parser("entity-groups")
+    groups.add_argument("--input", required=True, type=Path)
+    groups.add_argument("--output", required=True, type=Path)
+    dossiers = historical_commands.add_parser("entity-dossiers")
+    dossiers.add_argument("--registry", required=True, type=Path)
+    dossiers.add_argument("--index", required=True, type=Path)
+    dossiers.add_argument("--groups", required=True, type=Path)
+    dossiers.add_argument("--output", required=True, type=Path)
+    for operation in ("status", "lookup", "relations", "dossiers", "dossier", "detail"):
+        command = historical_commands.add_parser(operation)
+        for name in ("registry", "index", "groups", "dossiers", "workspace"):
+            command.add_argument(f"--{name}", type=Path)
+        if operation != "status":
+            command.add_argument("--query", default="")
+            command.add_argument("--work", default="")
+            command.add_argument("--status", default="")
+            command.add_argument("--availability", default="")
+            command.add_argument("--relation", default="")
+            command.add_argument("--id", default="")
+            command.add_argument("--limit", default="100")
+            command.add_argument("--offset", default="0")
+            command.add_argument("--locator-limit", default="20")
+            command.add_argument("--locator-offset", default="0")
+    pipeline = historical_commands.add_parser("pipeline").add_subparsers(
+        dest="pipeline_operation", required=True
+    )
+    command = pipeline.add_parser("init")
+    command.add_argument("--registry", required=True, type=Path)
+    command.add_argument("--root", required=True, type=Path)
+    command.add_argument("--workspace", required=True, type=Path)
+    command = pipeline.add_parser("step")
+    command.add_argument("--workspace", required=True, type=Path)
+    command.add_argument("--max-artifacts", default=4, type=int)
+    command.add_argument("--max-seconds", default=10, type=float)
+    command.add_argument("--retry-pending", action="store_true")
+    command.add_argument("--refresh", action="store_true")
+    command = pipeline.add_parser("status")
+    command.add_argument("--workspace", required=True, type=Path)
+    command = historical_commands.add_parser("demo")
+    command.add_argument("--workspace", required=True, type=Path)
+    command = historical_commands.add_parser("projection-verify")
+    command.add_argument("--workspace", required=True, type=Path)
+    command.add_argument("--cache-sha256", required=True)
     sub = (
         commands.add_parser("release")
         .add_subparsers(dest="operation", required=True)
@@ -188,6 +336,179 @@ def parser() -> argparse.ArgumentParser:
 
 
 def run(args: argparse.Namespace):
+    if args.command == "reading":
+        from jeb import reading
+
+        if args.reading_operation == "demo":
+            return reading.create_demo(args.bank_root, synthetic=args.synthetic)
+        if args.reading_operation == "backup":
+            return reading.create_backup(args.bank_root, args.output, synthetic=args.synthetic)
+        if args.reading_operation == "restore":
+            return reading.restore_backup(args.input, args.destination, synthetic=args.synthetic)
+        payload = None
+        if args.reading_operation == "save":
+            raw = sys.stdin.buffer.read(reading.MAX_REQUEST + 1)
+            try:
+                require(len(raw) <= reading.MAX_REQUEST, "Reading request exceeds limit")
+                payload = json_loads(raw.decode("utf-8", errors="strict"))
+            except (ValueError, UnicodeError):
+                return {"enabled": False, "error": "invalid_reading_input"}
+        return reading.rpc(
+            args.bank_root, args.reading_operation, synthetic=args.synthetic, payload=payload
+        )
+    if args.command == "historical":
+        from jeb.historical import (
+            build_entity_dossiers,
+            build_entity_groups,
+            build_entity_index,
+            build_registry,
+        )
+
+        if args.historical_operation == "registry-build":
+            return build_registry(args.input, args.output)
+        if args.historical_operation == "entity-groups":
+            return build_entity_groups(args.input, args.output)
+        if args.historical_operation == "entity-dossiers":
+            return build_entity_dossiers(args.registry, args.index, args.groups, args.output)
+        if args.historical_operation == "entity-index":
+            return build_entity_index(
+                args.registry, args.root, args.output, synthetic=args.synthetic
+            )
+        if args.historical_operation == "demo":
+            from jeb.historical_demo import create_demo
+
+            return create_demo(args.workspace, synthetic=args.synthetic)
+        if args.historical_operation == "projection-verify":
+            from jeb.historical_pipeline import verify_projection
+
+            return verify_projection(args.workspace, args.cache_sha256, synthetic=args.synthetic)
+        if args.historical_operation == "pipeline":
+            from jeb.historical_pipeline import initialize, pipeline_status, step
+
+            if args.pipeline_operation == "init":
+                return initialize(
+                    args.registry, args.root, args.workspace, synthetic=args.synthetic
+                )
+            if args.pipeline_operation == "status":
+                return pipeline_status(args.workspace, synthetic=args.synthetic)
+            return step(
+                args.workspace,
+                synthetic=args.synthetic,
+                max_artifacts=args.max_artifacts,
+                max_seconds=args.max_seconds,
+                retry_pending=args.retry_pending,
+                refresh=args.refresh,
+            )
+        from jeb.historical_query import inspect, query
+
+        paths = {key: getattr(args, key) for key in ("registry", "index", "groups", "dossiers")}
+        if args.historical_operation == "status":
+            return inspect(paths, workspace=args.workspace, synthetic=args.synthetic)
+        params = {
+            key: getattr(args, key)
+            for key in (
+                "work",
+                "status",
+                "availability",
+                "relation",
+                "id",
+                "limit",
+                "offset",
+                "locator_limit",
+                "locator_offset",
+            )
+        }
+        params["q"] = args.query
+        return query(
+            args.historical_operation,
+            paths,
+            params,
+            workspace=args.workspace,
+            synthetic=args.synthetic,
+        )
+    if args.command == "bank":
+        from jeb.bank import storage
+        from jeb.bank.validation import show_record, validate_bank
+
+        if args.bank_operation == "evidence":
+            from jeb.bank import evidence
+
+            if args.evidence_operation == "links":
+                from jeb.bank.references import evidence_links
+
+                return evidence_links(args.bank_root, args.record_id)
+
+            if args.evidence_operation == "prepare":
+                return evidence.prepare(
+                    args.bank_root, args.input, args.output, args.actor, args.actor_kind
+                )
+            if args.evidence_operation == "inspect":
+                return evidence.inspect(args.bank_root, args.input)
+            return evidence.validate(args.bank_root, args.input)
+
+        if args.bank_operation in ("backup", "backup-verify", "restore"):
+            from jeb.bank import backup
+
+            if args.bank_operation == "backup":
+                return backup.create(args.bank_root, args.output)
+            if args.bank_operation == "backup-verify":
+                return backup.verify(args.input)
+            return backup.restore(args.input, args.destination)
+
+        if args.bank_operation == "init":
+            return storage.initialize(args.bank_root, args.title, args.bank_format)
+        if args.bank_operation == "reference":
+            from jeb.bank.references import record_reference
+
+            return record_reference(args.bank_root, args.record_id, args.revision)
+        if args.bank_operation == "search":
+            from jeb.bank.search import search
+
+            return search(args.bank_root, args.query)
+        if args.bank_operation == "migrate-plan":
+            from jeb.bank.migration import write_plan
+
+            return write_plan(args.bank_root, args.output)
+        if args.bank_operation == "migrate-plan-verify":
+            from jeb.bank.migration import verify_plan
+
+            return verify_plan(args.bank_root, args.input)
+        if args.bank_operation == "migrate-decision-validate":
+            from jeb.bank.decision import validate
+
+            return validate(args.bank_root, args.plan, args.input)
+        if args.bank_operation == "migrate-simulate":
+            from jeb.bank.simulation import simulate
+
+            return simulate(args.bank_root, args.plan, args.input, synthetic=args.synthetic)
+        if args.bank_operation in ("create", "edit"):
+            from jeb.core import read_bytes
+
+            content = storage.document(args.input)
+            body = (
+                read_bytes(args.body, storage.MAX_FILE_BYTES).decode("utf-8") if args.body else None
+            )
+            return storage.save_record(
+                args.bank_root,
+                content,
+                args.actor,
+                args.actor_kind,
+                args.reason,
+                body,
+                getattr(args, "record_id", None),
+                getattr(args, "expected_revision", None),
+            )
+        if args.bank_operation == "history":
+            return storage.history(args.bank_root, args.record_id)
+        if args.bank_operation == "diff":
+            return storage.diff(
+                args.bank_root, args.record_id, args.from_revision, args.to_revision
+            )
+        if args.bank_operation == "recover":
+            return storage.recover(args.bank_root, args.transaction)
+        if args.bank_operation == "show":
+            return show_record(args.bank_root, args.record_id)
+        return validate_bank(args.bank_root)
     if args.command == "archive":
         from jeb import build_archive
 
@@ -216,6 +537,18 @@ def run(args: argparse.Namespace):
             return validate_capture(args.input)
         return evaluate(project, args.lock, args.tools, args.output)
     if args.command == "sources":
+        if args.operation == "candidates":
+            from jeb import source_candidates
+
+            if args.candidates_operation == "validate":
+                value = source_candidates.validate(args.input)
+                return {
+                    "batch_id": value["batch_id"],
+                    "candidates": len(value["candidates"]),
+                    "review_state": "unreviewed",
+                    "corpus_permission": False,
+                }
+            return source_candidates.import_batch(project, args.input)
         if args.operation == "research":
             from jeb import source_research
 
@@ -399,7 +732,7 @@ def run(args: argparse.Namespace):
     if args.command == "index":
         return build_index(project, args.source)
     if args.command == "search":
-        return search(project, args.query, args.source)
+        return project_search(project, args.query, args.source)
     if args.command == "release":
         require(
             args.edition == project.edition["edition_id"], "Edition ID does not match workspace"
@@ -443,4 +776,4 @@ def main(argv: list[str] | None = None) -> int:
         print(f"jeb: {message}", file=sys.stderr)
         return 2
     sys.stdout.buffer.write(canonical(result))
-    return 0
+    return 2 if args.command in ("historical", "reading") and result.get("error") else 0

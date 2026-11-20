@@ -1,0 +1,309 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_type",
+    "schema_version",
+    "synthetic",
+    "releasable",
+    "workspace_id",
+    "contracts",
+    "books",
+    "passages"
+  ],
+  "properties": {
+    "document_type": {
+      "const": "reading_view"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "synthetic": {
+      "const": true
+    },
+    "releasable": {
+      "const": false
+    },
+    "workspace_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "contracts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reading-view-v1",
+        "reading-item-v1"
+      ],
+      "properties": {
+        "reading-view-v1": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "reading-item-v1": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "books": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 5,
+      "additionalProperties": false,
+      "properties": {
+        "GEN": {
+          "$ref": "#/$defs/reference"
+        },
+        "MAT": {
+          "$ref": "#/$defs/reference"
+        },
+        "MRK": {
+          "$ref": "#/$defs/reference"
+        },
+        "LUK": {
+          "$ref": "#/$defs/reference"
+        },
+        "JHN": {
+          "$ref": "#/$defs/reference"
+        }
+      }
+    },
+    "passages": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "book",
+          "title",
+          "location",
+          "source_language",
+          "source_ref",
+          "explanation",
+          "interpretations",
+          "evidence",
+          "connections"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,59}$"
+          },
+          "book": {
+            "enum": [
+              "GEN",
+              "MAT",
+              "MRK",
+              "LUK",
+              "JHN"
+            ]
+          },
+          "title": {
+            "$ref": "#/$defs/localized"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 150
+          },
+          "source_language": {
+            "enum": [
+              "en",
+              "bs"
+            ]
+          },
+          "source_ref": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/reference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "explanation": {
+            "$ref": "#/$defs/localized"
+          },
+          "interpretations": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "by",
+                "text"
+              ],
+              "properties": {
+                "by": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "text": {
+                  "$ref": "#/$defs/localized"
+                }
+              }
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "maxItems": 16,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "category",
+                "title",
+                "text",
+                "passage_id",
+                "anchor"
+              ],
+              "properties": {
+                "category": {
+                  "enum": [
+                    "wording",
+                    "textual_witness",
+                    "event",
+                    "context",
+                    "interpretation"
+                  ]
+                },
+                "title": {
+                  "$ref": "#/$defs/localized"
+                },
+                "text": {
+                  "$ref": "#/$defs/localized"
+                },
+                "passage_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,59}$"
+                },
+                "anchor": {
+                  "$ref": "#/$defs/anchor"
+                }
+              }
+            }
+          },
+          "connections": {
+            "type": "array",
+            "maxItems": 16,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "target_id",
+                "relation",
+                "reason"
+              ],
+              "properties": {
+                "target_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,59}$"
+                },
+                "relation": {
+                  "enum": [
+                    "shared_motif",
+                    "mention_candidate",
+                    "context",
+                    "commentary"
+                  ]
+                },
+                "reason": {
+                  "$ref": "#/$defs/localized"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic reading view carried by a private bank article v1",
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "revision_id",
+        "record_sha256",
+        "body_sha256"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "body_sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "localized": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "en",
+        "bs"
+      ],
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "bs": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "exact"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "exact": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      }
+    }
+  }
+}

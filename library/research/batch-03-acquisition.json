@@ -1,0 +1,35 @@
+[
+  {
+    "id": "yoga-kotarac",
+    "url": "https://hr.mihailokotarac.com/wp-content/uploads/2025/01/Mihailo-Kotarac-Patanjali-Joga-sutre-Suvremeno-citanje.pdf",
+    "purpose": "personal_library_modern_interpretation",
+    "status": "failed",
+    "error": "ERR_TLS_CERT_ALTNAME_INVALID",
+    "retrieved_on": "2026-11-14",
+    "corpus_admitted": false,
+    "publication_cleared": false
+  },
+  {
+    "id": "upanisade-sample",
+    "url": "https://babun.net/slike/knjige/Upanishade.pdf",
+    "file": "library/private/evidence/upanisade-babun-2020-sample.pdf",
+    "purpose": "publisher_preview_metadata_and_contents_only",
+    "retrieved_on": "2026-11-14",
+    "bytes": 286906,
+    "sha256": "561fd0e8e8430101f2f9f2c077549125e28bc7045c560dc5e8a578306686de98",
+    "corpus_admitted": false,
+    "publication_cleared": false,
+    "status": "downloaded",
+    "notice_check": "Retained publisher PDF visually inspected: pp4 imprint, pp5–6 contents; copyright Babun, preview only, no body text of requested Upanishads"
+  },
+  {
+    "id": "yoga-kotarac-sr",
+    "url": "https://mihailokotarac.com/wp-content/uploads/Patandjali-Joga-sutre-Mihailo-Kotarac.pdf",
+    "purpose": "personal_library_modern_interpretation_alternative_not_replacement",
+    "status": "failed",
+    "error": "yoga-kotarac-sr: HTTP 404",
+    "retrieved_on": "2026-11-14",
+    "corpus_admitted": false,
+    "publication_cleared": false
+  }
+]

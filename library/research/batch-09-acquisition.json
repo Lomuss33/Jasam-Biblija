@@ -1,0 +1,15 @@
+{
+  "source_url": "https://drive.google.com/file/d/1sbVVlAi1KdfS5QeRut7VZHIrmlexoz-G/edit",
+  "file": "library/private/evidence/udana-itivuttaka-linked.pdf",
+  "bytes": 4389623,
+  "sha256": "bee4f8b815b7f0e8f84b992707c78601588da85a52373b403319368825c540d0",
+  "retrieved_on": "2026-11-15",
+  "purpose": "unchanged_private_personal_library",
+  "corpus_admitted": false,
+  "publication_cleared": false,
+  "failed_alternative": {
+    "url": "https://ftp.budaedu.org/ebooks/pdf/SER05.pdf",
+    "error": "HTTP404"
+  },
+  "notice_check": "PDF3 imprint/free-distribution and PDF4 translation credits visually inspected"
+}

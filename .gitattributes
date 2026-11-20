@@ -4,3 +4,5 @@
 *.jsonl text eol=lf
 *.yaml text eol=lf
 *.py text eol=lf
+# Packaged schema bytes identify backup/reading contracts; never normalize them.
+src/jeb/schemas/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

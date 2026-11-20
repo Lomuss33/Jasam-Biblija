@@ -1,0 +1,68 @@
+{
+  "batch_id": "meditations-initial",
+  "candidates": [
+    {
+      "access_date": "2026-11-18",
+      "candidate_id": "iep-marcus-aurelius",
+      "content_acquired": false,
+      "notes": "Use for historical/philosophical orientation, not as a text source.",
+      "provider": "Internet Encyclopedia of Philosophy",
+      "rights_basis": "Secondary reference; publication and reuse terms require review.",
+      "rights_state": "unknown",
+      "title": "Marcus Aurelius — Internet Encyclopedia of Philosophy",
+      "url": "https://iep.utm.edu/marcus-aurelius/"
+    },
+    {
+      "access_date": "2026-11-18",
+      "candidate_id": "gutenberg-long-15877",
+      "content_acquired": false,
+      "notes": "Candidate historical translation; do not copy passages before rights review.",
+      "provider": "Project Gutenberg",
+      "rights_basis": "Provider states public-domain availability; jurisdiction and exact artifact still require review.",
+      "rights_state": "unknown",
+      "title": "Meditations — George Long translation, eBook 15877",
+      "url": "https://www.gutenberg.org/ebooks/15877"
+    },
+    {
+      "access_date": "2026-11-18",
+      "candidate_id": "gutenberg-casaubon-2680",
+      "content_acquired": false,
+      "notes": "Bibliographic candidate only; edition and translation identity must be confirmed.",
+      "provider": "Project Gutenberg",
+      "rights_basis": "Provider terms and jurisdictional status require review for the exact file.",
+      "rights_state": "unknown",
+      "title": "Meditations — Project Gutenberg eBook 2680",
+      "url": "https://www.gutenberg.org/ebooks/2680"
+    },
+    {
+      "access_date": "2026-11-18",
+      "candidate_id": "perseus-cts",
+      "content_acquired": false,
+      "notes": "Candidate for Greek-text identification and locators, not an automatic download authorization.",
+      "provider": "Perseus Digital Library",
+      "rights_basis": "Data licence and work-specific metadata require review.",
+      "rights_state": "unknown",
+      "title": "Perseus Digital Library data and CTS resources",
+      "url": "https://data.perseus.org/"
+    },
+    {
+      "access_date": "2026-11-18",
+      "candidate_id": "loc-27007869",
+      "content_acquired": false,
+      "notes": "Use as bibliographic identity evidence; do not infer reuse permission from catalogue access.",
+      "provider": "Library of Congress",
+      "rights_basis": "Catalog record and digital artifact rights must be distinguished and reviewed separately.",
+      "rights_state": "unknown",
+      "title": "Meditations of Marcus Aurelius Antoninus — Library of Congress record",
+      "url": "https://www.loc.gov/item/27007869/"
+    }
+  ],
+  "captured_at": "2026-11-18",
+  "jurisdictions": [
+    "DE",
+    "HR",
+    "US"
+  ],
+  "query": "Meditations Marcus Aurelius source text edition philosophy rights",
+  "schema_version": "1.0"
+}
