@@ -1,3 +1,9 @@
+## Icon integration — 2026-11-24
+
+The project icon is available for T3 and the local viewer. The next small icon
+task is owner visual review at sidebar size; existing research/editorial
+priorities below remain unchanged.
+
 # Current product priority — reading and research usability, 2026-11-19
 
 ## Changed-view and removed-passage draft recovery — 2026-11-20

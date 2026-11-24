@@ -249,7 +249,7 @@ export function createServer(options = {}) {
         if (!doc) return send(404, '{"error":"Document not available"}');
         return send(200, JSON.stringify({ text: await read(doc[3]) }));
       }
-      const assets = { '/': ['web/index.html', 'text/html'], '/app.js': ['web/app.js', 'text/javascript'], '/library.js': ['web/library.js', 'text/javascript'], '/style.css': ['web/style.css', 'text/css'], '/reading.js': ['web/reading.js', 'text/javascript'], '/reading-i18n.mjs': ['web/reading-i18n.mjs', 'text/javascript'], '/reading-state.mjs': ['web/reading-state.mjs', 'text/javascript'] };
+      const assets = { '/favicon.svg': ['assets/brand/icon.svg', 'image/svg+xml'], '/': ['web/index.html', 'text/html'], '/app.js': ['web/app.js', 'text/javascript'], '/library.js': ['web/library.js', 'text/javascript'], '/style.css': ['web/style.css', 'text/css'], '/reading.js': ['web/reading.js', 'text/javascript'], '/reading-i18n.mjs': ['web/reading-i18n.mjs', 'text/javascript'], '/reading-state.mjs': ['web/reading-state.mjs', 'text/javascript'] };
       const asset = assets[url.pathname];
       if (url.pathname === '/reading.css') return send(200, await read('web/reading.css'), 'text/css; charset=utf-8');
       if (!asset) return send(404, '{"error":"Not found"}');

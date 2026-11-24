@@ -1,3 +1,15 @@
+## Project icon — 2026-11-24
+
+Added an original book-and-cross identity in `assets/brand/`, with a root
+multi-size ICO and a favicon route in the local viewer. The route serves only
+the explicit SVG file and keeps the existing CSP and document allowlist.
+No source text, editorial scope, approvals or rights gates changed.
+`node --test --test-name-pattern="local viewer exposes only explicit documents"
+web/server.test.mjs` passed. A temporary local-server request returned the exact
+SVG with the SVG content type; an unrelated asset path remained blocked (404).
+SVG/PNG/ICO validation and `git diff --check` passed. Python/schema checks were
+not run for this icon-only scope. Full details are in `assets/brand/README.md`.
+
 # Session continuity: 2026-10-31
 
 ## Git handoff authorized by the owner — 2026-11-20
